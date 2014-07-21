@@ -192,13 +192,20 @@ namespace org.flixel
             _console.log(FlxG.LIBRARY_NAME +
                 " v" + FlxG.LIBRARY_MAJOR_VERSION.ToString() + "." + FlxG.LIBRARY_MINOR_VERSION.ToString());
             
+            /*
             Assembly assembly = Assembly.GetExecutingAssembly();
             FileVersionInfo fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
             string version = fileVersionInfo.ProductVersion;
+            string gameName = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
+            Console.WriteLine(gameName + " - Build version: " + version);
 
-            _console.log("Build version: " + version);
+            _console.log(gameName + " - Build version: " + version);
+             */
+ 
 
             _console.log("---------------------------------------");
+
+            
 
             //Pause screen popup
             _pausePanel = new FlxPause();
