@@ -54,6 +54,11 @@ namespace org.flixel
         internal float _soundTrayTimer;
         internal FlxSprite[] _soundTrayBars;
         internal FlxText _soundCaption;
+
+        /// <summary>
+        /// A reference to the FlxConsole, display debug information.
+        /// Open up the console by pressing "~" at any time.
+        /// </summary>
         public FlxConsole _console;
 
         /// <summary>
