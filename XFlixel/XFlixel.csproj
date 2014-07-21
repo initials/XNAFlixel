@@ -196,7 +196,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
-    <Content Include="GAMESETTINGS.txt" />
     <Content Include="GameThumbnail.png" />
   </ItemGroup>
   <ItemGroup>
