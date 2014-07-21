@@ -100,7 +100,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>I5eqXZk6lpsGAxEOP1gOjMQexPs=</dsig:DigestValue>
+        <dsig:DigestValue>XvYPLvUWzou+scBzQF4vB8MgGiE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -434,16 +434,16 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>9u/rDzKQvM540xHmtbLCnDKeRO4=</dsig:DigestValue>
+      <dsig:DigestValue>hQG75NOMLhIAjKr/LwsHRbVQXcs=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\fx\GaussianBlur.xnb" size="676">
+  <file name="Content\fx\GaussianBlur.xnb" size="678">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>9Bj7v/1SUafCLwjFWtLx+WN9wa4=</dsig:DigestValue>
+      <dsig:DigestValue>IqeflaF/IVKwRnflaSg3pDGTKc0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\initials\crosshair.xnb" size="236">

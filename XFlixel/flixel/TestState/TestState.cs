@@ -20,6 +20,11 @@ namespace org.flixel
             FlxG.mouse.show(FlxG.Content.Load<Texture2D>("flixel/cursor"));
 
 
+            FlxText t = new FlxText(20, 20, 100);
+            t.text = "Welcome To Flixel";
+            add(t);
+
+
         }
 
         override public void update()
