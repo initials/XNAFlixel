@@ -1,0 +1,65 @@
+<level>
+  <width>960</width>
+  <height>640</height>
+  <solids>
+    <rect x="0" y="0" w="960" h="40"/>
+    <rect x="0" y="40" w="20" h="600"/>
+    <rect x="20" y="190" w="220" h="20"/>
+    <rect x="20" y="480" w="940" h="160"/>
+    <rect x="90" y="420" w="140" h="20"/>
+    <rect x="130" y="40" w="80" h="90"/>
+    <rect x="140" y="440" w="40" h="40"/>
+    <rect x="290" y="380" w="90" h="20"/>
+    <rect x="320" y="190" w="150" h="20"/>
+    <rect x="340" y="400" w="20" h="80"/>
+    <rect x="440" y="380" w="90" h="20"/>
+    <rect x="460" y="400" w="20" h="80"/>
+    <rect x="580" y="340" w="80" h="20"/>
+    <rect x="580" y="360" w="20" h="40"/>
+    <rect x="640" y="360" w="20" h="40"/>
+    <rect x="730" y="420" w="100" h="20"/>
+    <rect x="770" y="440" w="20" h="40"/>
+    <rect x="940" y="40" w="20" h="440"/>
+  </solids>
+  <extraPlatforms>
+    <level2_spike0 x="180" y="470" width="160" height="10"/>
+    <level2_spike0 x="360" y="470" width="100" height="10"/>
+    <level2_spike0 x="480" y="470" width="290" height="10"/>
+    <level2_specialBlock x="600" y="360" speed="40" movementType="1" animated="0"/>
+    <LargeCrate x="120" y="130"/>
+  </extraPlatforms>
+  <movingPlatforms>
+    <level2_specialPlatformSmall x="540" y="190" speed="80" movementType="1" animated="1">
+      <node x="540" y="340"/>
+    </level2_specialPlatformSmall>
+  </movingPlatforms>
+  <BGLayer1>
+    <level2_greenPipe x="100" y="0" width="20" height="640" scrollFactor="0.2"/>
+    <level2_tank x="60" y="230" scrollFactor="0.2"/>
+  </BGLayer1>
+  <BGLayer2>
+    <level2_pipe1 x="0" y="270" width="960" height="70" scrollFactor="0.6"/>
+  </BGLayer2>
+  <BGLayer3>
+    <level2_braceLeft x="180" y="440"/>
+    <level2_braceLeft x="360" y="400"/>
+    <level2_braceLeft x="480" y="400"/>
+    <level2_braceLeft x="790" y="440"/>
+    <level2_braceRight x="120" y="440"/>
+    <level2_braceRight x="320" y="400"/>
+    <level2_braceRight x="440" y="400"/>
+    <level2_braceRight x="750" y="440"/>
+  </BGLayer3>
+  <characters>
+    <exit x="38" y="101" nextLevel="2"/>
+    <liselot x="891" y="435" speed="40" movementType="1">
+      <node x="921" y="438"/>
+    </liselot>
+    <player x="26" y="436" speed="40" movementType="1" startsFirst="1" levelName="kingblaz" andreInitialFlip="0" liselotInitialFlip="1" followWidth="0" followHeight="0">
+      <node x="52" y="435"/>
+    </player>
+  </characters>
+  <FGLayer1>
+    <level2_chainTile x="574" y="0" width="12" height="640" scrollFactor="0.2"/>
+  </FGLayer1>
+</level>

@@ -1,0 +1,78 @@
+<level>
+  <width>1000</width>
+  <height>1000</height>
+  <solids>
+    <rect x="0" y="0" w="1000" h="40"/>
+    <rect x="0" y="40" w="10" h="960"/>
+    <rect x="10" y="90" w="190" h="60"/>
+    <rect x="10" y="340" w="180" h="10"/>
+    <rect x="10" y="350" w="140" h="50"/>
+    <rect x="10" y="560" w="180" h="30"/>
+    <rect x="10" y="630" w="350" h="370"/>
+    <rect x="130" y="290" w="60" h="50"/>
+    <rect x="230" y="490" w="50" h="30"/>
+    <rect x="240" y="550" w="60" h="40"/>
+    <rect x="260" y="210" w="540" h="20"/>
+    <rect x="260" y="230" w="320" h="50"/>
+    <rect x="260" y="340" w="110" h="30"/>
+    <rect x="360" y="710" w="30" h="70"/>
+    <rect x="360" y="890" w="640" h="110"/>
+    <rect x="390" y="830" w="60" h="20"/>
+    <rect x="400" y="460" w="120" h="30"/>
+    <rect x="430" y="440" w="50" h="20"/>
+    <rect x="430" y="590" w="120" h="20"/>
+    <rect x="510" y="630" w="60" h="30"/>
+    <rect x="540" y="860" w="40" h="30"/>
+    <rect x="600" y="620" w="170" h="30"/>
+    <rect x="630" y="150" w="130" h="40"/>
+    <rect x="640" y="80" w="40" h="60"/>
+    <rect x="640" y="480" w="160" h="80"/>
+    <rect x="640" y="600" w="90" h="20"/>
+    <rect x="660" y="300" w="80" h="40"/>
+    <rect x="790" y="420" w="190" h="50"/>
+    <rect x="800" y="160" w="170" h="20"/>
+    <rect x="800" y="350" w="200" h="30"/>
+    <rect x="800" y="690" w="180" h="20"/>
+    <rect x="800" y="710" w="110" h="20"/>
+    <rect x="810" y="40" w="190" h="40"/>
+    <rect x="820" y="650" w="160" h="40"/>
+    <rect x="880" y="410" w="70" h="10"/>
+    <rect x="890" y="330" w="70" h="20"/>
+    <rect x="990" y="80" w="10" h="270"/>
+    <rect x="990" y="380" w="10" h="510"/>
+  </solids>
+  <extraPlatforms>
+    <level2_spike0 x="220" y="620" width="140" height="10"/>
+    <level2_spike0 x="430" y="580" width="120" height="10"/>
+  </extraPlatforms>
+  <BGLayer1>
+    <level2_greenPipe x="60" y="0" width="20" height="1000" scrollFactor="0.2"/>
+    <level2_metalPipe x="210" y="0" width="30" height="1000" scrollFactor="0.25"/>
+    <level2_greenPipe x="540" y="0" width="20" height="1000" scrollFactor="0.5"/>
+  </BGLayer1>
+  <BGLayer2>
+    <level2_pipe1 x="0" y="670" width="1000" height="70" scrollFactor="0.7"/>
+    <level2_MG2 x="0" y="170" scrollFactor="0.2"/>
+    <level2_tank x="500" y="320" scrollFactor="0.5"/>
+  </BGLayer2>
+  <objects>
+    <exit x="937" y="799" nextLevel="2"/>
+  </objects>
+  <characters>
+    <player x="42" y="295" speed="40" movementType="1" startsFirst="1" levelName="eyes2prize" andreInitialFlip="0" liselotInitialFlip="1" followWidth="0" followHeight="0">
+      <node x="42" y="315"/>
+    </player>
+    <worker x="391" y="172" speed="70" movementType="1">
+      <node x="594" y="172"/>
+    </worker>
+    <liselot x="938" y="284" speed="40" movementType="1">
+      <node x="938" y="284"/>
+    </liselot>
+    <army x="13" y="517" speed="70" movementType="1">
+      <node x="164" y="517"/>
+    </army>
+    <chef x="638" y="437" speed="70" movementType="1">
+      <node x="756" y="438"/>
+    </chef>
+  </characters>
+</level>

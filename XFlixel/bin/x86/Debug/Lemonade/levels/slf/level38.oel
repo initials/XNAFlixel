@@ -1,0 +1,59 @@
+<level>
+  <width>960</width>
+  <height>700</height>
+  <solids>
+    <rect x="0" y="0" w="960" h="10"/>
+    <rect x="0" y="10" w="10" h="690"/>
+    <rect x="10" y="280" w="870" h="80"/>
+    <rect x="10" y="360" w="80" h="40"/>
+    <rect x="10" y="570" w="950" h="130"/>
+    <rect x="80" y="260" w="800" h="20"/>
+    <rect x="90" y="210" w="20" h="20"/>
+    <rect x="110" y="550" w="400" h="20"/>
+    <rect x="140" y="190" w="20" h="20"/>
+    <rect x="160" y="500" w="20" h="20"/>
+    <rect x="220" y="190" w="20" h="20"/>
+    <rect x="240" y="480" w="20" h="20"/>
+    <rect x="260" y="130" w="20" h="20"/>
+    <rect x="300" y="160" w="20" h="20"/>
+    <rect x="330" y="490" w="20" h="20"/>
+    <rect x="410" y="480" w="20" h="20"/>
+    <rect x="470" y="510" w="20" h="20"/>
+    <rect x="500" y="160" w="20" h="20"/>
+    <rect x="580" y="160" w="20" h="20"/>
+    <rect x="590" y="520" w="110" h="50"/>
+    <rect x="620" y="360" w="260" h="40"/>
+    <rect x="620" y="400" w="40" h="60"/>
+    <rect x="630" y="120" w="20" h="20"/>
+    <rect x="690" y="180" w="20" h="20"/>
+    <rect x="790" y="210" w="20" h="20"/>
+    <rect x="820" y="400" w="40" h="110"/>
+    <rect x="950" y="10" w="10" h="560"/>
+  </solids>
+  <extraPlatforms>
+    <spike0 x="80" y="250" width="800" height="10"/>
+    <LargeCrate x="800" y="510"/>
+    <LargeCrate x="600" y="460"/>
+    <spike0 x="110" y="540" width="400" height="10"/>
+  </extraPlatforms>
+  <movingPlatforms>
+    <level1_specialPlatformSmall x="320" y="160" speed="70" movementType="1" animated="1">
+      <node x="460" y="160"/>
+    </level1_specialPlatformSmall>
+  </movingPlatforms>
+  <BGLayer1>
+    <level1_shelfTile x="0" y="0" width="960" height="700" scrollFactor="0.2"/>
+  </BGLayer1>
+  <objects>
+    <exit x="22" y="480" nextLevel="2"/>
+    <Bottle x="405" y="199" width="12"/>
+  </objects>
+  <characters>
+    <player x="15" y="233" speed="40" movementType="1" startsFirst="1" levelName="brokeeo2n" andreInitialFlip="0" liselotInitialFlip="0" followWidth="0" followHeight="0">
+      <node x="46" y="236"/>
+    </player>
+    <liselot x="717" y="525" speed="40" movementType="1">
+      <node x="755" y="522"/>
+    </liselot>
+  </characters>
+</level>

@@ -1,0 +1,161 @@
+<?xml version="1.0" ?>
+<project>
+  <name>
+    Super Lemonade Factory
+  </name>
+  <settings>
+    <defaultWidth>
+      480
+    </defaultWidth>
+    <defaultHeight>
+      320
+    </defaultHeight>
+    <minWidth>
+      480
+    </minWidth>
+    <minHeight>
+      320
+    </minHeight>
+    <maxWidth>
+      4800
+    </maxWidth>
+    <maxHeight>
+      3200
+    </maxHeight>
+    <bgColor>
+      0x000000
+    </bgColor>
+    <workingDirectory>
+      ../resource
+    </workingDirectory>
+  </settings>
+  <tilesets>
+    <tileset image="level1/level1_tiles.png" name="tiles" tileHeight="10" tileWidth="10"/>
+  </tilesets>
+  <objects>
+    <object height="26" image="/Users/initials/developer/SLF/resource//bottle.png" name="bottle" originX="0" originY="0" width="48"/>
+    <object height="4" image="/Users/initials/developer/SLF/resource//bottleCap.png" name="bottleCap" originX="0" originY="0" width="42"/>
+    <object height="8" image="/Users/initials/developer/SLF/resource//bubble.png" name="bubble" originX="0" originY="0" width="64"/>
+    <object height="500" image="/Users/initials/developer/SLF/resource//chars_50x50.png" name="chars_50x50" originX="0" originY="0" width="300"/>
+    <object height="128" image="/Users/initials/developer/SLF/resource//explosion_x21.png" name="explosion_x21" originX="0" originY="0" width="128"/>
+    <object height="40" image="/Users/initials/developer/SLF/resource//guns_40x40.png" name="guns_40x40" originX="0" originY="0" width="520"/>
+    <object height="10" image="/Users/initials/developer/SLF/resource//notepadTiles.png" name="notepadTiles" originX="0" originY="0" width="180"/>
+    <object height="8" image="/Users/initials/developer/SLF/resource//sodabulb.png" name="sodabulb" originX="0" originY="0" width="8"/>
+    <object height="10" image="/Users/initials/developer/SLF/resource//speechBubbleTiles.png" name="speechBubbleTiles" originX="0" originY="0" width="120"/>
+    <object height="200" image="/Users/initials/developer/SLF/resource//steam.png" name="steam" originX="0" originY="0" width="1000"/>
+    <object height="64" image="/Users/initials/developer/SLF/resource//sugarHigh.png" name="sugarHigh" originX="0" originY="0" width="96"/>
+    <object height="16" image="/Users/initials/developer/SLF/resource//sugarHighHUD.png" name="sugarHighHUD" originX="0" originY="0" width="68"/>
+    <object height="8" image="/Users/initials/developer/SLF/resource//sugarHighHUD_3.png" name="sugarHighHUD_3" originX="0" originY="0" width="60"/>
+    <object height="8" image="/Users/initials/developer/SLF/resource//tapiocaPearl.png" name="tapiocaPearl" originX="0" originY="0" width="64"/>
+    <object height="8" image="/Users/initials/developer/SLF/resource//tapiocaPearl_old.png" name="tapiocaPearl_old" originX="0" originY="0" width="64"/>
+    <object height="200" image="/Users/initials/developer/SLF/resource//test_particle.png" name="test_particle" originX="0" originY="0" width="1000"/>
+    <object height="10" image="/Users/initials/developer/SLF/resource//testPattern.png" name="testPattern" originX="0" originY="0" width="10"/>
+    <object height="20" image="/Users/initials/developer/SLF/resource/buttons/back.png" name="back" originX="0" originY="0" width="60"/>
+    <object height="20" image="/Users/initials/developer/SLF/resource/buttons/customerservice.png" name="customerservice" originX="0" originY="0" width="182"/>
+    <object height="40" image="/Users/initials/developer/SLF/resource/buttons/emptyButton.png" name="emptyButton" originX="0" originY="0" width="182"/>
+    <object height="40" image="/Users/initials/developer/SLF/resource/buttons/emptyButtonPressed.png" name="emptyButtonPressed" originX="0" originY="0" width="182"/>
+    <object height="40" image="/Users/initials/developer/SLF/resource/buttons/emptySmallButton.png" name="emptySmallButton" originX="0" originY="0" width="118"/>
+    <object height="40" image="/Users/initials/developer/SLF/resource/buttons/emptySmallButtonPressed.png" name="emptySmallButtonPressed" originX="0" originY="0" width="118"/>
+    <object height="20" image="/Users/initials/developer/SLF/resource/buttons/factoryfloor.png" name="factoryfloor" originX="0" originY="0" width="182"/>
+    <object height="20" image="/Users/initials/developer/SLF/resource/buttons/ingredients.png" name="ingredients" originX="0" originY="0" width="182"/>
+    <object height="116" image="/Users/initials/developer/SLF/resource/buttons/level1Button.png" name="level1Button" originX="0" originY="0" width="228"/>
+    <object height="116" image="/Users/initials/developer/SLF/resource/buttons/level2Button.png" name="level2Button" originX="0" originY="0" width="228"/>
+    <object height="116" image="/Users/initials/developer/SLF/resource/buttons/level3Button.png" name="level3Button" originX="0" originY="0" width="228"/>
+    <object height="116" image="/Users/initials/developer/SLF/resource/buttons/levelLocked.png" name="levelLocked" originX="0" originY="0" width="228"/>
+    <object height="20" image="/Users/initials/developer/SLF/resource/buttons/menu.png" name="menu" originX="0" originY="0" width="60"/>
+    <object height="20" image="/Users/initials/developer/SLF/resource/buttons/outputratio.png" name="outputratio" originX="0" originY="0" width="182"/>
+    <object height="20" image="/Users/initials/developer/SLF/resource/buttons/play.png" name="play" originX="0" originY="0" width="60"/>
+    <object height="40" image="/Users/initials/developer/SLF/resource/buttons/play2x.png" name="play2x" originX="0" originY="0" width="120"/>
+    <object height="40" image="/Users/initials/developer/SLF/resource/buttons/sizeButtonLarge.png" name="sizeButtonLarge" originX="0" originY="0" width="120"/>
+    <object height="40" image="/Users/initials/developer/SLF/resource/buttons/sizeButtonLocked.png" name="sizeButtonLocked" originX="0" originY="0" width="120"/>
+    <object height="40" image="/Users/initials/developer/SLF/resource/buttons/sizeButtonRegular.png" name="sizeButtonRegular" originX="0" originY="0" width="120"/>
+    <object height="40" image="/Users/initials/developer/SLF/resource/buttons/sizeButtonSuper.png" name="sizeButtonSuper" originX="0" originY="0" width="120"/>
+    <object height="44" image="/Users/initials/developer/SLF/resource/char_standins/army.png" name="army" originX="0" originY="0" width="28"/>
+    <object height="44" image="/Users/initials/developer/SLF/resource/char_standins/chef.png" name="chef" originX="0" originY="0" width="30"/>
+    <object height="34" image="/Users/initials/developer/SLF/resource/char_standins/inspector.png" name="inspector" originX="0" originY="0" width="24"/>
+    <object height="46" image="/Users/initials/developer/SLF/resource/char_standins/liselot.png" name="liselot" originX="0" originY="0" width="20"/>
+    <object height="45" image="/Users/initials/developer/SLF/resource/char_standins/player.png" name="player" originX="0" originY="0" width="18"/>
+    <object height="38" image="/Users/initials/developer/SLF/resource/char_standins/worker.png" name="worker" originX="0" originY="0" width="38"/>
+    <object height="480" image="/Users/initials/developer/SLF/resource/iOS/Default.png" name="Default" originX="0" originY="0" width="320"/>
+    <object height="57" image="/Users/initials/developer/SLF/resource/iOS/icon.png" name="icon" originX="0" originY="0" width="57"/>
+    <object height="180" image="/Users/initials/developer/SLF/resource/level1/cratesBox.png" name="cratesBox" originX="0" originY="0" width="184"/>
+    <object height="60" image="/Users/initials/developer/SLF/resource/level1/CrateWithLabel.png" name="CrateWithLabel" originX="0" originY="0" width="80"/>
+    <object height="320" image="/Users/initials/developer/SLF/resource/level1/L1_Shelf.png" name="L1_Shelf" originX="0" originY="0" width="210"/>
+    <object height="60" image="/Users/initials/developer/SLF/resource/level1/LargeCrate.png" name="LargeCrate" originX="0" originY="0" width="80"/>
+    <object height="320" image="/Users/initials/developer/SLF/resource/level1/level1_bgSmoothGrad.png" name="level1_bgSmoothGrad" originX="0" originY="0" width="1"/>
+    <object height="40" image="/Users/initials/developer/SLF/resource/level1/level1_specialBlock.png" name="level1_specialBlock" originX="0" originY="0" width="40"/>
+    <object height="20" image="/Users/initials/developer/SLF/resource/level1/level1_specialPlatform.png" name="level1_specialPlatform" originX="0" originY="0" width="100"/>
+    <object height="10" image="/Users/initials/developer/SLF/resource/level1/level1_spikes.png" name="level1_spikes" originX="0" originY="0" width="40"/>
+    <object height="10" image="/Users/initials/developer/SLF/resource/level1/level1_tiles.png" name="level1_tiles" originX="0" originY="0" width="180"/>
+    <object height="54" image="/Users/initials/developer/SLF/resource/level1/level1_windows.png" name="level1_windows" originX="0" originY="0" width="60"/>
+    <object height="40" image="/Users/initials/developer/SLF/resource/level1/palettes.png" name="palettes" originX="0" originY="0" width="65"/>
+    <object height="20" image="/Users/initials/developer/SLF/resource/level1/sodaPack.png" name="sodaPack" originX="0" originY="0" width="38"/>
+    <object height="10" image="/Users/initials/developer/SLF/resource/level1/spike0.png" name="spike0" originX="0" originY="0" width="10"/>
+    <object height="10" image="/Users/initials/developer/SLF/resource/level1/spike1.png" name="spike1" originX="0" originY="0" width="10"/>
+    <object height="10" image="/Users/initials/developer/SLF/resource/level1/spike2.png" name="spike2" originX="0" originY="0" width="10"/>
+    <object height="10" image="/Users/initials/developer/SLF/resource/level1/spike3.png" name="spike3" originX="0" originY="0" width="10"/>
+    <object height="40" image="/Users/initials/developer/SLF/resource/level1/sugarBags.png" name="sugarBags" originX="0" originY="0" width="82"/>
+    <object height="130" image="/Users/initials/developer/SLF/resource/level1/sugarBagsAndCrates.png" name="sugarBagsAndCrates" originX="0" originY="0" width="135"/>
+    <object height="128" image="/Users/initials/developer/SLF/resource/level1/unnused/level1_leftSideMG.png" name="level1_leftSideMG" originX="0" originY="0" width="153"/>
+    <object height="181" image="/Users/initials/developer/SLF/resource/level1/unnused/level1_rightSideMG.png" name="level1_rightSideMG" originX="0" originY="0" width="147"/>
+    <object height="320" image="/Users/initials/developer/SLF/resource/level2/level2_BG original.png" name="level2_BG original" originX="0" originY="0" width="480"/>
+    <object height="320" image="/Users/initials/developer/SLF/resource/level2/level2_BG.png" name="level2_BG" originX="0" originY="0" width="480"/>
+    <object height="13" image="/Users/initials/developer/SLF/resource/level2/level2_chainTile.png" name="level2_chainTile" originX="0" originY="0" width="12"/>
+    <object height="71" image="/Users/initials/developer/SLF/resource/level2/level2_FMG3.png" name="level2_FMG3" originX="0" originY="0" width="107"/>
+    <object height="280" image="/Users/initials/developer/SLF/resource/level2/level2_fog.png" name="level2_fog" originX="0" originY="0" width="962"/>
+    <object height="39" image="/Users/initials/developer/SLF/resource/level2/level2_greenPipe.png" name="level2_greenPipe" originX="0" originY="0" width="18"/>
+    <object height="53" image="/Users/initials/developer/SLF/resource/level2/level2_metalPipe.png" name="level2_metalPipe" originX="0" originY="0" width="28"/>
+    <object height="460" image="/Users/initials/developer/SLF/resource/level2/level2_MG1.png" name="level2_MG1" originX="0" originY="0" width="180"/>
+    <object height="178" image="/Users/initials/developer/SLF/resource/level2/level2_MG2.png" name="level2_MG2" originX="0" originY="0" width="40"/>
+    <object height="26" image="/Users/initials/developer/SLF/resource/level2/level2_pipe1.png" name="level2_pipe1" originX="0" originY="0" width="71"/>
+    <object height="40" image="/Users/initials/developer/SLF/resource/level2/level2_specialBlock.png" name="level2_specialBlock" originX="0" originY="0" width="40"/>
+    <object height="20" image="/Users/initials/developer/SLF/resource/level2/level2_specialPlatform.png" name="level2_specialPlatform" originX="0" originY="0" width="100"/>
+    <object height="10" image="/Users/initials/developer/SLF/resource/level2/level2_spike0.png" name="level2_spike0" originX="0" originY="0" width="10"/>
+    <object height="10" image="/Users/initials/developer/SLF/resource/level2/level2_spike1.png" name="level2_spike1" originX="0" originY="0" width="10"/>
+    <object height="10" image="/Users/initials/developer/SLF/resource/level2/level2_spike2.png" name="level2_spike2" originX="0" originY="0" width="10"/>
+    <object height="10" image="/Users/initials/developer/SLF/resource/level2/level2_spike3.png" name="level2_spike3" originX="0" originY="0" width="10"/>
+    <object height="187" image="/Users/initials/developer/SLF/resource/level2/level2_tank.png" name="level2_tank" originX="0" originY="0" width="93"/>
+    <object height="10" image="/Users/initials/developer/SLF/resource/level2/level2_tiles.png" name="level2_tiles" originX="0" originY="0" width="180"/>
+    <object height="30" image="/Users/initials/developer/SLF/resource/level2/level2_window.png" name="level2_window" originX="0" originY="0" width="50"/>
+    <object height="238" image="/Users/initials/developer/SLF/resource/level3/level3_cloud.png" name="level3_cloud" originX="0" originY="0" width="565"/>
+    <object height="65" image="/Users/initials/developer/SLF/resource/level3/level3_desk1.png" name="level3_desk1" originX="0" originY="0" width="108"/>
+    <object height="65" image="/Users/initials/developer/SLF/resource/level3/level3_desk2.png" name="level3_desk2" originX="0" originY="0" width="108"/>
+    <object height="22" image="/Users/initials/developer/SLF/resource/level3/level3_desk3.png" name="level3_desk3" originX="0" originY="0" width="175"/>
+    <object height="320" image="/Users/initials/developer/SLF/resource/level3/level3_gradient.png" name="level3_gradient" originX="0" originY="0" width="1"/>
+    <object height="460" image="/Users/initials/developer/SLF/resource/level3/level3_MG.png" name="level3_MG" originX="0" originY="0" width="259"/>
+    <object height="320" image="/Users/initials/developer/SLF/resource/level3/level3_MG_pylon.png" name="level3_MG_pylon" originX="0" originY="0" width="24"/>
+    <object height="84" image="/Users/initials/developer/SLF/resource/level3/level3_painting1.png" name="level3_painting1" originX="0" originY="0" width="65"/>
+    <object height="84" image="/Users/initials/developer/SLF/resource/level3/level3_painting2.png" name="level3_painting2" originX="0" originY="0" width="65"/>
+    <object height="84" image="/Users/initials/developer/SLF/resource/level3/level3_painting3.png" name="level3_painting3" originX="0" originY="0" width="65"/>
+    <object height="54" image="/Users/initials/developer/SLF/resource/level3/level3_salesChart.png" name="level3_salesChart" originX="0" originY="0" width="67"/>
+    <object height="40" image="/Users/initials/developer/SLF/resource/level3/level3_specialBlock.png" name="level3_specialBlock" originX="0" originY="0" width="40"/>
+    <object height="20" image="/Users/initials/developer/SLF/resource/level3/level3_specialPlatform.png" name="level3_specialPlatform" originX="0" originY="0" width="100"/>
+    <object height="10" image="/Users/initials/developer/SLF/resource/level3/level3_spike0.png" name="level3_spike0" originX="0" originY="0" width="10"/>
+    <object height="10" image="/Users/initials/developer/SLF/resource/level3/level3_spike1.png" name="level3_spike1" originX="0" originY="0" width="10"/>
+    <object height="10" image="/Users/initials/developer/SLF/resource/level3/level3_spike2.png" name="level3_spike2" originX="0" originY="0" width="10"/>
+    <object height="10" image="/Users/initials/developer/SLF/resource/level3/level3_spike3.png" name="level3_spike3" originX="0" originY="0" width="10"/>
+    <object height="10" image="/Users/initials/developer/SLF/resource/level3/level3_tiles.png" name="level3_tiles" originX="0" originY="0" width="180"/>
+    <object height="32" image="/Users/initials/developer/SLF/resource/maps/credits_map.png" name="credits_map" originX="0" originY="0" width="48"/>
+    <object height="32" image="/Users/initials/developer/SLF/resource/maps/level1_map.png" name="level1_map" originX="0" originY="0" width="48"/>
+    <object height="32" image="/Users/initials/developer/SLF/resource/maps/level2_map.png" name="level2_map" originX="0" originY="0" width="48"/>
+    <object height="32" image="/Users/initials/developer/SLF/resource/maps/level3_map.png" name="level3_map" originX="0" originY="0" width="48"/>
+    <object height="48" image="/Users/initials/developer/SLF/resource/maps/level4_map.png" name="level4_map" originX="0" originY="0" width="72"/>
+    <object height="48" image="/Users/initials/developer/SLF/resource/maps/level5_map.png" name="level5_map" originX="0" originY="0" width="72"/>
+    <object height="48" image="/Users/initials/developer/SLF/resource/maps/level6_map.png" name="level6_map" originX="0" originY="0" width="72"/>
+    <object height="64" image="/Users/initials/developer/SLF/resource/maps/level7_map.png" name="level7_map" originX="0" originY="0" width="96"/>
+    <object height="64" image="/Users/initials/developer/SLF/resource/maps/level8_map.png" name="level8_map" originX="0" originY="0" width="96"/>
+    <object height="64" image="/Users/initials/developer/SLF/resource/maps/level9_map.png" name="level9_map" originX="0" originY="0" width="96"/>
+    <object height="23" image="/Users/initials/developer/SLF/resource/pickups/smallCrate.png" name="smallCrate" originX="0" originY="0" width="64"/>
+    <object height="23" image="/Users/initials/developer/SLF/resource/pickups/smallCrateExplode.png" name="smallCrateExplode" originX="0" originY="0" width="256"/>
+    <object height="25" image="/Users/initials/developer/SLF/resource/pickups/smallSugarBag.png" name="smallSugarBag" originX="0" originY="0" width="44"/>
+    <object height="80" image="/Users/initials/developer/SLF/resource/virtualCP/buttonArrow copy.png" name="buttonArrow copy" originX="0" originY="0" width="80"/>
+    <object height="80" image="/Users/initials/developer/SLF/resource/virtualCP/buttonArrow.png" name="buttonArrow" originX="0" originY="0" width="80"/>
+    <object height="40" image="/Users/initials/developer/SLF/resource/virtualCP/buttonButton.png" name="buttonButton" originX="0" originY="0" width="40"/>
+    <object height="40" image="/Users/initials/developer/SLF/resource/virtualCP/buttonButton_pixel.png" name="buttonButton_pixel" originX="0" originY="0" width="40"/>
+  </objects>
+  <layers>
+    <grid color="0xAAFFFFFF" exportAsObjects="true" gridSize="10" name="solids"/>
+    <tiles exportTileIDs="true" exportTileSize="true" gridSize="10" name="stage" tileWidth="10"/>
+    <objects drawGridSize="10" gridSize="10" name="objects"/>
+  </layers>
+</project>

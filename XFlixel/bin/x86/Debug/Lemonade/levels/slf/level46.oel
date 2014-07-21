@@ -1,0 +1,46 @@
+<level>
+  <width>480</width>
+  <height>400</height>
+  <solids>
+    <rect x="0" y="0" w="480" h="10"/>
+    <rect x="0" y="10" w="10" h="390"/>
+    <rect x="10" y="300" w="470" h="100"/>
+    <rect x="300" y="110" w="180" h="50"/>
+    <rect x="300" y="280" w="40" h="20"/>
+    <rect x="330" y="10" w="20" h="40"/>
+    <rect x="390" y="10" w="20" h="40"/>
+    <rect x="470" y="10" w="10" h="100"/>
+    <rect x="470" y="160" w="10" h="140"/>
+  </solids>
+  <extraPlatforms>
+    <LargeCrate x="330" y="50"/>
+    <level3_spike0 x="300" y="270" width="40" height="10"/>
+    <level3_specialBlock x="10" y="10" speed="40" movementType="1" animated="0"/>
+    <level3_specialBlock x="350" y="10" speed="40" movementType="1" animated="0"/>
+  </extraPlatforms>
+  <movingPlatforms>
+    <level3_specialPlatformSmall x="50" y="220" speed="150" movementType="1" animated="1">
+      <node x="130" y="220"/>
+    </level3_specialPlatformSmall>
+    <level3_specialPlatformSmall x="130" y="160" speed="150" movementType="1" animated="1">
+      <node x="260" y="160"/>
+    </level3_specialPlatformSmall>
+  </movingPlatforms>
+  <BGLayer2>
+    <bookCase x="130" y="210" scrollFactor="0.8"/>
+  </BGLayer2>
+  <BGLayer3>
+    <plant1 x="220" y="190" scrollFactor="0.2"/>
+  </BGLayer3>
+  <objects>
+    <exit x="420" y="210" nextLevel="2"/>
+  </objects>
+  <characters>
+    <player x="15" y="255" speed="40" movementType="1" startsFirst="1" levelName="brony2" andreInitialFlip="0" liselotInitialFlip="0" followWidth="0" followHeight="0">
+      <node x="43" y="259"/>
+    </player>
+    <liselot x="431" y="65" speed="40" movementType="1">
+      <node x="455" y="63"/>
+    </liselot>
+  </characters>
+</level>

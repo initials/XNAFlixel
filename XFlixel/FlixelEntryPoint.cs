@@ -35,7 +35,7 @@ namespace XNAMode
 
             int w = 320;
             int h = 180;
-            FlxG.zoom = 3;
+            FlxG.zoom = 4;
 
 
             initGame(w, h, new TestState(), new Color(15, 15, 15), true, new Color(5, 5, 5));

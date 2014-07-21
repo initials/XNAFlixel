@@ -1,0 +1,35 @@
+<level>
+  <width>960</width>
+  <height>320</height>
+  <solids>
+    <rect x="0" y="0" w="960" h="10"/>
+    <rect x="0" y="10" w="10" h="310"/>
+    <rect x="10" y="200" w="950" h="120"/>
+    <rect x="610" y="10" w="40" h="80"/>
+    <rect x="710" y="130" w="120" h="70"/>
+    <rect x="950" y="10" w="10" h="190"/>
+  </solids>
+  <extraPlatforms>
+    <level2_specialBlock x="120" y="160" speed="40" movementType="1" animated="0"/>
+    <level2_specialBlock x="210" y="120" speed="40" movementType="1" animated="0"/>
+    <level2_specialPlatform x="300" y="140" speed="40" movementType="1" animated="0"/>
+    <level2_spike0 x="200" y="190" width="60" height="10"/>
+  </extraPlatforms>
+  <BGLayer1>
+    <level2_tank x="260" y="0" scrollFactor="0.2"/>
+    <level2_greenPipe x="90" y="0" width="20" height="320" scrollFactor="0.2"/>
+    <level2_window x="390" y="50" width="200" height="50" scrollFactor="0.2"/>
+  </BGLayer1>
+  <objects>
+    <exit x="479" y="111" nextLevel="2"/>
+    <L1_SmallCrate x="720" y="107" width="32"/>
+  </objects>
+  <characters>
+    <player x="15" y="155" speed="40" movementType="1" startsFirst="1" levelName="brony1" andreInitialFlip="0" liselotInitialFlip="1" followWidth="0" followHeight="0">
+      <node x="47" y="154"/>
+    </player>
+    <liselot x="906" y="155" speed="40" movementType="1">
+      <node x="937" y="147"/>
+    </liselot>
+  </characters>
+</level>

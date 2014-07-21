@@ -1,0 +1,52 @@
+<level>
+  <width>1580</width>
+  <height>320</height>
+  <solids>
+    <rect x="0" y="0" w="1580" h="10"/>
+    <rect x="0" y="10" w="10" h="310"/>
+    <rect x="10" y="250" w="1570" h="70"/>
+    <rect x="190" y="230" w="20" h="20"/>
+    <rect x="320" y="230" w="30" h="20"/>
+    <rect x="470" y="230" w="40" h="20"/>
+    <rect x="670" y="230" w="60" h="20"/>
+    <rect x="820" y="40" w="80" h="20"/>
+    <rect x="820" y="60" w="20" h="130"/>
+    <rect x="840" y="100" w="60" h="90"/>
+    <rect x="880" y="60" w="20" h="40"/>
+    <rect x="1000" y="100" w="80" h="90"/>
+    <rect x="1170" y="100" w="80" h="90"/>
+    <rect x="1570" y="10" w="10" h="240"/>
+  </solids>
+  <extraPlatforms>
+    <LargeCrate x="820" y="190"/>
+    <LargeCrate x="1000" y="190"/>
+    <LargeCrate x="1170" y="190"/>
+    <level3_spike0 x="190" y="220" width="20" height="10"/>
+    <level3_spike0 x="320" y="220" width="30" height="10"/>
+    <level3_spike0 x="470" y="220" width="40" height="10"/>
+    <level3_spike0 x="670" y="220" width="60" height="10"/>
+    <level3_specialBlock x="840" y="60" speed="40" movementType="1" animated="0"/>
+  </extraPlatforms>
+  <BGLayer2>
+    <bookCase x="500" y="160" scrollFactor="0.2"/>
+    <filingCab2 x="630" y="190" scrollFactor="0.2"/>
+    <filingCab1 x="740" y="160" scrollFactor="0.2"/>
+  </BGLayer2>
+  <BGLayer3>
+    <level3_desk1 x="50" y="180"/>
+    <level3_desk2 x="370" y="180"/>
+    <plant2 x="970" y="150" scrollFactor="0.2"/>
+    <plant1 x="290" y="140" scrollFactor="0.2"/>
+  </BGLayer3>
+  <objects>
+    <exit x="1508" y="161" nextLevel="2"/>
+  </objects>
+  <characters>
+    <player x="19" y="207" speed="40" movementType="1" startsFirst="1" levelName="p1p" andreInitialFlip="0" liselotInitialFlip="0" followWidth="0" followHeight="0">
+      <node x="68" y="202"/>
+    </player>
+    <liselot x="1109" y="205" speed="40" movementType="1">
+      <node x="1144" y="201"/>
+    </liselot>
+  </characters>
+</level>
