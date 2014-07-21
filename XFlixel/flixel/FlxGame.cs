@@ -54,7 +54,7 @@ namespace org.flixel
         internal float _soundTrayTimer;
         internal FlxSprite[] _soundTrayBars;
         internal FlxText _soundCaption;
-        internal FlxConsole _console;
+        public FlxConsole _console;
 
         /// <summary>
         /// A hud for having non scaled text. Important for nice clean text if you're working at 2x or 3x

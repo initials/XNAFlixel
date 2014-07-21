@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace org.flixel
 {
-    class FlxPlatformActor : FlxSprite
+    public class FlxPlatformActor : FlxSprite
     {
 
         public string animationPrefix = "";

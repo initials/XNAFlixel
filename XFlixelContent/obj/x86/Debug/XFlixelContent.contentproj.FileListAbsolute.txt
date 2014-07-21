@@ -1,2 +1,1 @@
 E:\VisualStudio2010\XNAFlixel\XNAModeContent\obj\x86\Debug\XFlixelContent.contentprojResolveAssemblyReference.cache
-E:\VisualStudio2010\XNAFlixel\XFlixelContent\obj\x86\Debug\XFlixelContent.contentprojResolveAssemblyReference.cache

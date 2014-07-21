@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace org.flixel
 {
-    class FlxRamp : FlxSprite
+    public class FlxRamp : FlxSprite
     {
 
         public int direction;

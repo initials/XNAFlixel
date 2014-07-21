@@ -106,7 +106,6 @@ E:\VisualStudio2010\XNAFlixel\XFlixel\bin\x86\Debug\Flixel.exe.manifest
 E:\VisualStudio2010\XNAFlixel\XFlixel\bin\x86\Debug\Flixel.application
 E:\VisualStudio2010\XNAFlixel\XFlixel\bin\x86\Debug\Flixel.exe
 E:\VisualStudio2010\XNAFlixel\XFlixel\bin\x86\Debug\Flixel.pdb
-E:\VisualStudio2010\XNAFlixel\XFlixel\obj\x86\Debug\XFlixel.csprojResolveAssemblyReference.cache
 E:\VisualStudio2010\XNAFlixel\XFlixel\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 E:\VisualStudio2010\XNAFlixel\XFlixel\obj\x86\Debug\Flixel.exe.manifest
 E:\VisualStudio2010\XNAFlixel\XFlixel\obj\x86\Debug\Flixel.application

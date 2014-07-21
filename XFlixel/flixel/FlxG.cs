@@ -75,7 +75,7 @@ namespace org.flixel
         /// <summary>
         /// Internal tracker for game object (so we can pause and unpause)
         /// </summary>
-        static protected internal FlxGame _game;
+        static public FlxGame _game;
 		/// <summary>
         /// Internal tracker for game pause state.
 		/// </summary>

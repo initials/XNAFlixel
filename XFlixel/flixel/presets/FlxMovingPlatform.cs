@@ -13,7 +13,7 @@ namespace org.flixel
     /// <summary>
     /// FlxMovingPlatform is just so you don't forget to set to solid and @fixed
     /// </summary>
-    class FlxMovingPlatform : FlxSprite
+    public class FlxMovingPlatform : FlxSprite
     {
 
         public FlxMovingPlatform(int xPos, int yPos)
