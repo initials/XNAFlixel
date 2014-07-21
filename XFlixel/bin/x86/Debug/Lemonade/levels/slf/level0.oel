@@ -1,0 +1,96 @@
+<level>
+  <width>1500</width>
+  <height>640</height>
+  <solids>
+    <rect x="0" y="270" w="10" h="370"/>
+    <rect x="10" y="540" w="350" h="100"/>
+    <rect x="190" y="250" w="10" h="30"/>
+    <rect x="190" y="340" w="10" h="30"/>
+    <rect x="200" y="170" w="20" h="10"/>
+    <rect x="200" y="180" w="10" h="10"/>
+    <rect x="200" y="260" w="10" h="10"/>
+    <rect x="200" y="350" w="10" h="10"/>
+    <rect x="200" y="430" w="10" h="20"/>
+    <rect x="210" y="440" w="10" h="10"/>
+    <rect x="250" y="170" w="20" h="10"/>
+    <rect x="250" y="440" w="20" h="10"/>
+    <rect x="260" y="180" w="10" h="10"/>
+    <rect x="260" y="260" w="20" h="10"/>
+    <rect x="260" y="350" w="20" h="10"/>
+    <rect x="260" y="430" w="10" h="10"/>
+    <rect x="270" y="250" w="10" h="10"/>
+    <rect x="270" y="270" w="10" h="10"/>
+    <rect x="270" y="340" w="10" h="10"/>
+    <rect x="270" y="360" w="10" h="10"/>
+    <rect x="360" y="590" w="1140" h="50"/>
+    <rect x="470" y="540" w="1030" h="50"/>
+    <rect x="550" y="170" w="20" h="10"/>
+    <rect x="550" y="180" w="10" h="20"/>
+    <rect x="550" y="260" w="10" h="10"/>
+    <rect x="550" y="350" w="10" h="10"/>
+    <rect x="550" y="420" w="10" h="20"/>
+    <rect x="560" y="430" w="10" h="10"/>
+    <rect x="600" y="170" w="20" h="10"/>
+    <rect x="600" y="430" w="20" h="10"/>
+    <rect x="610" y="180" w="10" h="10"/>
+    <rect x="610" y="260" w="20" h="10"/>
+    <rect x="610" y="350" w="20" h="10"/>
+    <rect x="610" y="420" w="10" h="10"/>
+    <rect x="930" y="430" w="10" h="20"/>
+    <rect x="940" y="170" w="20" h="10"/>
+    <rect x="940" y="180" w="10" h="10"/>
+    <rect x="940" y="260" w="10" h="10"/>
+    <rect x="940" y="350" w="10" h="10"/>
+    <rect x="940" y="440" w="10" h="10"/>
+    <rect x="990" y="170" w="20" h="10"/>
+    <rect x="990" y="440" w="20" h="10"/>
+    <rect x="1000" y="180" w="10" h="10"/>
+    <rect x="1000" y="260" w="10" h="10"/>
+    <rect x="1000" y="350" w="10" h="10"/>
+    <rect x="1000" y="430" w="10" h="10"/>
+  </solids>
+  <movingPlatforms>
+    <level2_specialPlatform x="360" y="130" speed="160" movementType="1" animated="0">
+      <node x="360" y="570"/>
+    </level2_specialPlatform>
+    <level2_specialPlatform x="720" y="120" speed="120" movementType="1" animated="0">
+      <node x="720" y="450"/>
+    </level2_specialPlatform>
+    <level2_specialPlatform x="1090" y="120" speed="200" movementType="1" animated="0">
+      <node x="1090" y="460"/>
+    </level2_specialPlatform>
+  </movingPlatforms>
+  <BGLayer1>
+    <level3_painting1 x="200" y="360" width="70" height="84"/>
+    <level3_painting1 x="550" y="360" width="70" height="84"/>
+    <level3_painting1 x="940" y="360" width="70" height="84"/>
+    <level3_painting2 x="200" y="270" width="70" height="84"/>
+    <level3_painting2 x="550" y="270" width="70" height="84"/>
+    <level3_painting2 x="940" y="270" width="70" height="84"/>
+    <level3_painting3 x="200" y="180" width="70" height="84"/>
+    <level3_painting3 x="550" y="180" width="70" height="84"/>
+    <level3_painting3 x="940" y="180" width="70" height="84"/>
+    <L1_Shelf x="310" y="220"/>
+    <L1_Shelf x="680" y="220"/>
+    <L1_Shelf x="1200" y="220"/>
+    <level1_shelfTile x="1050" y="70" width="80" height="470"/>
+  </BGLayer1>
+  <BGLayer2>
+    <cratesBox x="320" y="360"/>
+    <cratesBox x="690" y="360"/>
+    <cratesBox x="1210" y="360"/>
+  </BGLayer2>
+  <BGLayer3>
+    <palettes x="560" y="500"/>
+    <palettes x="950" y="500"/>
+    <palettes x="210" y="500"/>
+  </BGLayer3>
+  <characters>
+    <liselot x="45" y="483" speed="40" movementType="1">
+      <node x="122" y="470"/>
+    </liselot>
+    <player x="86" y="492" speed="40" movementType="1">
+      <node x="168" y="486"/>
+    </player>
+  </characters>
+</level>

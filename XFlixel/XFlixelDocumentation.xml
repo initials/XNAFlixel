@@ -1,0 +1,3634 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XNAMode</name>
+    </assembly>
+    <members>
+        <member name="T:org.flixel.FlxSprite">
+            <summary>
+            The main "game object" class, handles basic physics and animation.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:org.flixel.FlxObject" -->
+        <member name="F:org.flixel.FlxObject.exists">
+            <summary>
+            Kind of a global on/off switch for any objects descended from <code>FlxObject</code>.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject.active">
+            <summary>
+            If an object is not alive, the game loop will not automatically call <code>update()</code> on it.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject.visible">
+            <summary>
+            If an object is not visible, the game loop will not automatically call <code>render()</code> on it.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject._solid">
+            <summary>
+            Internal tracker for whether or not the object collides (see <code>solid</code>).
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject._fixed">
+            <summary>
+            Internal tracker for whether an object will move/alter position after a collision (see <code>fixed</code>).
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject.velocity">
+            <summary>
+            The basic speed of this object.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject.acceleration">
+            <summary>
+            How fast the speed of this object is changing.
+            Useful for smooth movement and gravity.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject.drag">
+            <summary>
+            This isn't drag exactly, more like deceleration that is only applied
+            when acceleration is not affecting the sprite.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject.maxVelocity">
+            <summary>
+            If you are using <code>acceleration</code>, you can use <code>maxVelocity</code> with it
+            to cap the speed automatically (very useful!).
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject.angularVelocity">
+            <summary>
+            This is how fast you want this sprite to spin.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject.angularAcceleration">
+            <summary>
+            How fast the spin speed should change.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject.angularDrag">
+            <summary>
+            Like <code>drag</code> but for spinning.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject.maxAngular">
+            <summary>
+            Use in conjunction with <code>angularAcceleration</code> for fluid spin speed control.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject._origin">
+            <summary>
+            WARNING: The origin of the sprite will default to its center.
+            If you change this, the visuals and the collisions will likely be
+            pretty out-of-sync if you do any rotation.
+            
+            modified for X-flixel
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject.thrust">
+            <summary>
+            If you want to do Asteroids style stuff, check out thrust,
+            instead of directly accessing the object's velocity or acceleration.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject.maxThrust">
+            <summary>
+            Used to cap <code>thrust</code>, helpful and easy!
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject._pZero">
+            <summary>
+            A handy "empty point" object
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject.scrollFactor">
+            <summary>
+            A point that can store numbers from 0 to 1 (for X and Y independently)
+            that governs how much this object is affected by the camera subsystem.
+            0 means it never moves, like a HUD element or far background graphic.
+            1 means it scrolls along a the same speed as the foreground layer.
+            scrollFactor is initialized as (1,1) by default.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject._flicker">
+            <summary>
+            Internal helper used for retro-style flickering.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject._flickerTimer">
+            <summary>
+            Internal helper used for retro-style flickering.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject.health">
+            <summary>
+            Handy for storing health percentage or armor points or whatever.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject.dead">
+            <summary>
+            Handy for tracking gameplay or animations.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject._point">
+            <summary>
+            This is just a pre-allocated x-y point container to be used however you like
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject._rect">
+            <summary>
+            This is just a pre-allocated rectangle container to be used however you like
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject._flashPoint">
+            <summary>
+             This is a pre-allocated Flash Point object, which is useful for certain Flash graphics API calls
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject.moves">
+            <summary>
+            Set this to false if you want to skip the automatic motion/movement stuff (see <code>updateMotion()</code>).
+            FlxObject and FlxSprite default to true.
+            FlxText, FlxTileblock, FlxTilemap and FlxSound default to false.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject.colHullX">
+            <summary>
+            These store a couple of useful numbers for speeding up collision resolution.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject.colHullY">
+            <summary>
+            These store a couple of useful numbers for speeding up collision resolution.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject.colVector">
+            <summary>
+            These store a couple of useful numbers for speeding up collision resolution.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject.colOffsets">
+            <summary>
+            An array of <code>FlxPoint</code> objects.  By default contains a single offset (0,0).
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject._group">
+            <summary>
+             Dedicated internal flag for whether or not this class is a FlxGroup.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject.onFloor">
+            <summary>
+            Flag that indicates whether or not you just hit the floor.
+            Primarily useful for platformers, this flag is reset during the <code>updateMotion()</code>.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject.collideLeft">
+            <summary>
+            Flag for direction collision resolution.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject.collideRight">
+            <summary>
+            Flag for direction collision resolution.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject.collideTop">
+            <summary>
+            Flag for direction collision resolution.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxObject.collideBottom">
+            <summary>
+            Flag for direction collision resolution.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxObject.#ctor">
+            <summary>
+            Creates a new <code>FlxObject</code>.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxObject.#ctor(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Creates a new <code>FlxObject</code>.
+            </summary>
+            <param name="X">The X-coordinate of the point in space.</param>
+            <param name="Y">The Y-coordinate of the point in space.</param>
+            <param name="Width">Desired width of the rectangle.</param>
+            <param name="Height">Desired height of the rectangle.</param>
+        </member>
+        <member name="M:org.flixel.FlxObject.constructor1(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Creates a new <code>FlxObject</code>.
+            </summary>
+            <param name="X">The X-coordinate of the point in space.</param>
+            <param name="Y">The Y-coordinate of the point in space.</param>
+            <param name="Width">Desired width of the rectangle.</param>
+            <param name="Height">Desired height of the rectangle.</param>
+        </member>
+        <member name="M:org.flixel.FlxObject.destroy">
+            <summary>
+            Called by <code>FlxGroup</code>, commonly when game states are changed.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxObject.refreshHulls">
+            <summary>
+            Called by <code>FlxObject.updateMotion()</code> and some constructors to
+            rebuild the basic collision data for this object.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxObject.updateMotion">
+            <summary>
+            Internal function for updating the position and speed of this object.
+            Useful for cases when you need to update this but are buried down in too many supers.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxObject.updateFlickering">
+            <summary>
+            Just updates the retro-style flickering.
+            Considered update logic rather than rendering because it toggles visibility.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxObject.update">
+            <summary>
+            Called by the main game loop, handles motion/physics and game logic
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxObject.render(Microsoft.Xna.Framework.Graphics.SpriteBatch)">
+            <summary>
+            Override this function to draw graphics (see <code>FlxSprite</code>).
+            </summary>
+            <param name="spriteBatch">Sprite Batch</param>
+        </member>
+        <member name="M:org.flixel.FlxObject.overlaps(org.flixel.FlxObject)">
+            <summary>
+            Checks to see if some <code>FlxObject</code> object overlaps this <code>FlxObject</code> object.
+            </summary>
+            <param name="Object">he object being tested.</param>
+            <returns>Whether or not the two objects overlap.</returns>
+        </member>
+        <member name="M:org.flixel.FlxObject.overlapsPoint(System.Single,System.Single)">
+            <summary>
+            Checks to see if a point in 2D space overlaps this <code>FlxObject</code> object.
+            </summary>
+            <param name="X">The X coordinate of the point.</param>
+            <param name="Y">The Y coordinate of the point.</param>
+            <returns>Whether or not the point overlaps this object.</returns>
+        </member>
+        <member name="M:org.flixel.FlxObject.overlapsPoint(System.Single,System.Single,System.Boolean)">
+            <summary>
+            Checks to see if a point in 2D space overlaps this <code>FlxObject</code> object.
+            </summary>
+            <param name="X">The X coordinate of the point.</param>
+            <param name="Y">The Y coordinate of the point.</param>
+            <param name="PerPixel">Whether or not to use per pixel collision checking (only available in <code>FlxSprite</code> subclass).</param>
+            <returns>Whether or not the point overlaps this object.</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:org.flixel.FlxObject.collide(org.flixel.FlxObject)" -->
+        <member name="M:org.flixel.FlxObject.preCollide(org.flixel.FlxObject)">
+            <summary>
+            <code>FlxU.collide()</code> (and thus <code>FlxObject.collide()</code>) call
+            this function each time two objects are compared to see if they collide.
+            It doesn't necessarily mean these objects WILL collide, however.
+            </summary>
+            <param name="Object">The <code>FlxObject</code> you're about to run into.</param>
+        </member>
+        <member name="M:org.flixel.FlxObject.hitLeft(org.flixel.FlxObject,System.Single)">
+            <summary>
+            Called when this object's left side collides with another <code>FlxObject</code>'s right.
+            NOTE: by default this function just calls <code>hitSide()</code>.
+            </summary>
+            <param name="Contact">The <code>FlxObject</code> you just ran into.</param>
+            <param name="Velocity">The suggested new velocity for this object.</param>
+        </member>
+        <member name="M:org.flixel.FlxObject.hitRight(org.flixel.FlxObject,System.Single)">
+            <summary>
+            Called when this object's right side collides with another <code>FlxObject</code>'s left.
+            NOTE: by default this function just calls <code>hitSide()</code>.
+            </summary>
+            <param name="Contact">The <code>FlxObject</code> you just ran into.</param>
+            <param name="Velocity">The suggested new velocity for this object.</param>
+        </member>
+        <member name="M:org.flixel.FlxObject.hitSide(org.flixel.FlxObject,System.Single)">
+            <summary>
+            Since most games have identical behavior for running into walls,
+             you can just override this function instead of overriding both hitLeft and hitRight. 
+            </summary>
+            <param name="Contact">The <code>FlxObject</code> you just ran into.</param>
+            <param name="Velocity">The suggested new velocity for this object.</param>
+        </member>
+        <member name="M:org.flixel.FlxObject.hitTop(org.flixel.FlxObject,System.Single)">
+            <summary>
+            Called when this object's top collides with the bottom of another <code>FlxObject</code>.
+            </summary>
+            <param name="Contact">The <code>FlxObject</code> you just ran into.</param>
+            <param name="Velocity">The suggested new velocity for this object.</param>
+        </member>
+        <member name="M:org.flixel.FlxObject.hitBottom(org.flixel.FlxObject,System.Single)">
+            <summary>
+            Called when this object's bottom edge collides with the top of another <code>FlxObject</code>.
+            </summary>
+            <param name="Contact">The <code>FlxObject</code> you just ran into.</param>
+            <param name="Velocity">The suggested new velocity for this object.</param>
+        </member>
+        <member name="M:org.flixel.FlxObject.hurt(System.Single)">
+            <summary>
+            Call this function to "damage" (or give health bonus) to this sprite.
+            </summary>
+            <param name="Damage">How much health to take away (use a negative number to give a health bonus).</param>
+        </member>
+        <member name="M:org.flixel.FlxObject.kill">
+            <summary>
+            Call this function to "kill" a sprite so that it no longer 'exists'.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxObject.flicker(System.Single)">
+            <summary>
+            Tells this object to flicker, retro-style.
+            </summary>
+            <param name="Duration">How many seconds to flicker for.</param>
+        </member>
+        <member name="M:org.flixel.FlxObject.flickering">
+            <summary>
+            Check to see if the object is still flickering.
+            </summary>
+            <returns>Whether the object is flickering or not.</returns>
+        </member>
+        <member name="M:org.flixel.FlxObject.getScreenXY">
+            <summary>
+            Call this function to figure out the on-screen position of the object.
+            
+            @param	P	Takes a <code>Point</code> object and assigns the post-scrolled X and Y values of this object to it.
+            </summary>
+            <returns>The <code>Point</code> you passed in, or a new <code>Point</code> if you didn't pass one, containing the screen X and Y position of this object.</returns>
+        </member>
+        <member name="M:org.flixel.FlxObject.onScreen">
+            <summary>
+            Check and see if this object is currently on screen.
+            </summary>
+            <returns>Whether the object is on screen or not.</returns>
+        </member>
+        <member name="M:org.flixel.FlxObject.reset(System.Single,System.Single)">
+            <summary>
+            Handy function for reviving game objects.
+            Resets their existence flags and position, including LAST position.
+            </summary>
+            <param name="X">The new X position of this object.</param>
+            <param name="Y">The new Y position of this object.</param>
+        </member>
+        <member name="M:org.flixel.FlxObject.getBoundingColor">
+            <summary>
+            Returns the appropriate color for the bounding box depending on object state.
+            </summary>
+            <returns>Color of the bounding box</returns>
+        </member>
+        <member name="P:org.flixel.FlxObject.angle">
+            <summary>
+            Set the angle of a sprite to rotate it.
+            WARNING: rotating sprites decreases rendering
+            performance for this sprite by a factor of 10x!
+            </summary>
+        </member>
+        <member name="P:org.flixel.FlxObject.solid">
+            <summary>
+            Set <code>solid</code> to true if you want to collide this object.
+            </summary>
+        </member>
+        <member name="P:org.flixel.FlxObject.fixed">
+            <summary>
+            Set <code>fixed</code> to true if you want the object to stay in place during collisions.
+            Useful for levels and other environmental objects.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxSprite.offset">
+            <summary>
+            If you changed the size of your sprite object to shrink the bounding box,
+            you might need to offset the new bounding box from the top-left corner of the sprite.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxSprite.scale">
+            <summary>
+            Change the size of your sprite's graphic.
+            NOTE: Scale doesn't currently affect collisions automatically,
+            you will need to adjust the width, height and offset manually.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxSprite.blend">
+            <summary>
+            Blending modes, just like Photoshop!
+            E.g. "multiply", "screen", etc.
+            @default null
+            Currently not working.!!!
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxSprite.antialiasing">
+            <summary>
+            Controls whether the object is smoothed when rotated, affects performance.
+            @default false
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxSprite.finished">
+            <summary>
+            Whether the current animation has finished its first (or only) loop.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxSprite.frameWidth">
+            <summary>
+            The width of the actual graphic or image being displayed (not necessarily the game object/bounding box).
+            NOTE: Edit at your own risk!!  This is intended to be read-only.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxSprite.frameHeight">
+            <summary>
+            The height of the actual graphic or image being displayed (not necessarily the game object/bounding box).
+            NOTE: Edit at your own risk!!  This is intended to be read-only.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxSprite.frames">
+            <summary>
+            The total number of frames in this image (assumes each row is full).
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxSprite.boundingBoxOverride">
+            <summary>
+            Override for drawing bounding box. Used to turn off bg sprites bounding boxes
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxSprite.#ctor">
+            <summary>
+            Creates a white 8x8 square <code>FlxSprite</code> at the specified position.
+            Optionally can load a simple, one-frame graphic instead.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxSprite.#ctor(System.Single,System.Single)">
+            <summary>
+            Creates a white 8x8 square <code>FlxSprite</code> at the specified position.
+            Optionally can load a simple, one-frame graphic instead.
+            </summary>
+            <param name="X">The initial X position of the sprite.</param>
+            <param name="Y">The initial Y position of the sprite.</param>
+        </member>
+        <member name="M:org.flixel.FlxSprite.#ctor(System.Single,System.Single,Microsoft.Xna.Framework.Graphics.Texture2D)">
+            <summary>
+            Creates a white 8x8 square <code>FlxSprite</code> at the specified position.
+            Optionally can load a simple, one-frame graphic instead.
+            </summary>
+            <param name="X">The initial X position of the sprite.</param>
+            <param name="Y">The initial Y position of the sprite.</param>
+            <param name="SimpleGraphic">The graphic you want to display (OPTIONAL - for simple stuff only, do NOT use for animated images!).</param>
+        </member>
+        <member name="M:org.flixel.FlxSprite.constructor(System.Single,System.Single,Microsoft.Xna.Framework.Graphics.Texture2D)">
+            <summary>
+            FlxSprite private constructor
+            </summary>
+            <param name="X"></param>
+            <param name="Y"></param>
+            <param name="SimpleGraphic"></param>
+        </member>
+        <member name="M:org.flixel.FlxSprite.loadGraphic(Microsoft.Xna.Framework.Graphics.Texture2D)">
+            <summary>
+            
+            </summary>
+            <param name="Graphic"></param>
+            <returns></returns>
+        </member>
+        <member name="M:org.flixel.FlxSprite.loadGraphic(Microsoft.Xna.Framework.Graphics.Texture2D,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="Graphic"></param>
+            <param name="Animated"></param>
+            <returns></returns>
+        </member>
+        <member name="M:org.flixel.FlxSprite.loadGraphic(Microsoft.Xna.Framework.Graphics.Texture2D,System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="Graphic"></param>
+            <param name="Animated"></param>
+            <param name="Reverse"></param>
+            <param name="Width"></param>
+            <returns></returns>
+        </member>
+        <member name="M:org.flixel.FlxSprite.loadGraphic(Microsoft.Xna.Framework.Graphics.Texture2D,System.Boolean,System.Boolean,System.Int32,System.Int32)">
+            <summary>
+            Load an image from an embedded graphic file.
+            </summary>
+            <param name="Graphic">The image you want to use.</param>
+            <param name="Animated">Whether the Graphic parameter is a single sprite or a row of sprites.</param>
+            <param name="Reverse">Whether you need this class to generate horizontally flipped versions of the animation frames.</param>
+            <param name="Width">OPTIONAL - Specify the width of your sprite (helps FlxSprite figure out what to do with non-square sprites or sprite sheets).</param>
+            <param name="Height">OPTIONAL - Specify the height of your sprite (helps FlxSprite figure out what to do with non-square sprites or sprite sheets).</param>
+            <returns>This FlxSprite instance (nice for chaining stuff together, if you're into that).</returns>
+        </member>
+        <member name="M:org.flixel.FlxSprite.createGraphic(System.Int32,System.Int32,Microsoft.Xna.Framework.Color)">
+            <summary>
+            This function creates a flat colored square image dynamically.
+            </summary>
+            <param name="Width">The width of the sprite you want to generate.</param>
+            <param name="Height">The height of the sprite you want to generate.</param>
+            <param name="Color">Specifies the color of the generated block.</param>
+            <returns>This FlxSprite instance (nice for chaining stuff together, if you're into that).</returns>
+        </member>
+        <member name="M:org.flixel.FlxSprite.resetHelpers">
+            <summary>
+            Resets some important variables for sprite optimization and rendering.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxSprite.updateAnimation">
+            <summary>
+            Internal function for updating the sprite's animation.
+            Useful for cases when you need to update this but are buried down in too many supers.
+            This function is called automatically by <code>FlxSprite.update()</code>.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxSprite.update">
+            <summary>
+            Main game loop update function.  Override this to create your own sprite logic!
+            Just don't forget to call super.update() or any of the helper functions.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxSprite.render(Microsoft.Xna.Framework.Graphics.SpriteBatch)">
+            <summary>
+            Called by game loop, updates then blits or renders current frame of animation to the screen
+            </summary>
+            <param name="spriteBatch">Sprite Batch</param>
+        </member>
+        <member name="M:org.flixel.FlxSprite.overlapsPoint(System.Single,System.Single,System.Boolean)">
+            <summary>
+            Checks to see if a point in 2D space overlaps this FlxCore object.
+            </summary>
+            <param name="X">The X coordinate of the point.</param>
+            <param name="Y">The Y coordinate of the point.</param>
+            <param name="PerPixel">Whether or not to use per pixel collision checking.</param>
+            <returns>Whether or not the point overlaps this object.</returns>
+        </member>
+        <member name="M:org.flixel.FlxSprite.onEmit">
+            <summary>
+            Triggered whenever this sprite is launched by a <code>FlxEmitter</code>.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxSprite.addAnimation(System.String,System.Int32[])">
+            <summary>
+            
+            </summary>
+            <param name="Name"></param>
+            <param name="Frames"></param>
+        </member>
+        <member name="M:org.flixel.FlxSprite.addAnimation(System.String,System.Int32[],System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="Name"></param>
+            <param name="Frames"></param>
+            <param name="FrameRate"></param>
+        </member>
+        <member name="M:org.flixel.FlxSprite.addAnimation(System.String,System.Int32[],System.Int32,System.Boolean)">
+            <summary>
+            Adds a new animation to the sprite.
+            </summary>
+            <param name="Name">What this animation should be called (e.g. "run").</param>
+            <param name="Frames">An array of numbers indicating what frames to play in what order (e.g. 1, 2, 3).</param>
+            <param name="FrameRate">The speed in frames per second that the animation should play at (e.g. 40 fps).</param>
+            <param name="Looped">Whether or not the animation is looped or just plays once.</param>
+        </member>
+        <member name="M:org.flixel.FlxSprite.addAnimationCallback(org.flixel.FlxAnimationCallback)">
+            <summary>
+            Pass in a function to be called whenever this sprite's animation changes.
+            </summary>
+            <param name="ac">A function that has 3 parameters: a string name, a uint frame number, and a uint frame index.</param>
+        </member>
+        <member name="M:org.flixel.FlxSprite.play(System.String,System.Boolean)">
+            <summary>
+            Plays an existing animation (e.g. "run").
+            If you call an animation that is already playing it will be ignored.
+            </summary>
+            <param name="AnimName">The string name of the animation you want to play.</param>
+            <param name="Force">Whether to force the animation to restart.</param>
+        </member>
+        <member name="M:org.flixel.FlxSprite.randomFrame">
+            <summary>
+            Tell the sprite to change to a random frame of animation
+            Useful for instantiating particles or other weird things.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxSprite.getScreenXY">
+            <summary>
+            Call this function to figure out the on-screen position of the object.
+            
+            Takes a <code>Point</code> object and assigns the post-scrolled X and Y values of this object to it.
+            </summary>
+            <returns>The <code>Point</code> you passed in, or a new <code>Point</code> if you didn't pass one, containing the screen X and Y position of this object.</returns>
+        </member>
+        <member name="M:org.flixel.FlxSprite.calcFrame">
+            <summary>
+            Internal function to update the current animation frame.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxSprite.drawBounds(Microsoft.Xna.Framework.Graphics.SpriteBatch,System.Int32,System.Int32)">
+            <summary>
+            Draws bounds
+            </summary>
+            <param name="spriteBatch">Sprite Batch</param>
+            <param name="X">X</param>
+            <param name="Y">Y</param>
+        </member>
+        <member name="P:org.flixel.FlxSprite.facing">
+            <summary>
+            Tell the sprite which way to face (you can just set 'facing' but this function also updates the animation instantly)
+            In "normal" flixel, this is an int.
+            </summary>
+        </member>
+        <member name="P:org.flixel.FlxSprite.frame">
+            <summary>
+            Tell the sprite to change to a specific frame of animation.
+            
+            @param	Frame	The frame you want to display.
+            </summary>
+        </member>
+        <member name="F:XNAMode.Actor.isPlayerControlled">
+            <summary>
+            Determines whether or not game inputs affect charactetr.
+            </summary>
+        </member>
+        <member name="F:XNAMode.Actor.jumpPower">
+            <summary>
+            How high the character will jump.
+            </summary>
+        </member>
+        <member name="F:XNAMode.Actor.framesSinceLeftGround">
+            <summary>
+            How many frames have passed since the character left the ground.
+            </summary>
+        </member>
+        <member name="F:XNAMode.Actor.actorName">
+            <summary>
+            Character's name;
+            </summary>
+        </member>
+        <member name="T:org.flixel.FlxGroup">
+            <summary>
+            This class wraps the baseline .NET collection and adds a couple of extra functions...
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxGroup.members">
+            <summary>
+            Array of all the <code>FlxObject</code>s that exist in this layer.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxGroup._last">
+            <summary>
+            Helpers for moving/updating group members.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxGroup._first">
+            <summary>
+            Helpers for moving/updating group members.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxGroup.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxGroup.add(org.flixel.FlxObject)">
+            <summary>
+            Adds a new <code>FlxObject</code> subclass (FlxSprite, FlxBlock, etc) to the list of children
+            </summary>
+            <param name="Object">The object you want to add</param>
+            
+        </member>
+        <member name="M:org.flixel.FlxGroup.add(org.flixel.FlxObject,System.Boolean)">
+            <summary>
+            Adds a new <code>FlxObject</code> subclass (FlxSprite, FlxBlock, etc) to the list of children
+            </summary>
+            <param name="Object">The object you want to add</param>
+            <param name="ShareScroll">Whether or not this FlxObject should sync up with this layer's scrollFactor</param>
+            <returns>The same <code>FlxObject</code> object that was passed in.</returns>
+        </member>
+        <member name="M:org.flixel.FlxGroup.replace(org.flixel.FlxObject,org.flixel.FlxObject)">
+            <summary>
+            Replaces an existing <code>FlxObject</code> with a new one.
+            </summary>
+            <param name="OldObject">The object you want to replace.</param>
+            <param name="NewObject">The new object you want to use instead.</param>
+            <returns>The new object.</returns>
+        </member>
+        <member name="M:org.flixel.FlxGroup.remove(org.flixel.FlxObject)">
+            <summary>
+            Removes an object from the group.
+            </summary>
+            <param name="Object">The <code>FlxObject</code> you want to remove.</param>
+            <returns></returns>
+        </member>
+        <member name="M:org.flixel.FlxGroup.remove(org.flixel.FlxObject,System.Boolean)">
+            <summary>
+            Removes an object from the group.
+            </summary>
+            <param name="Object">The <code>FlxObject</code> you want to remove.</param>
+            <param name="Splice">Whether the object should be cut from the array entirely or not.</param>
+            <returns>The removed object.</returns>
+        </member>
+        <member name="M:org.flixel.FlxGroup.sort(System.Collections.Generic.IComparer{org.flixel.FlxObject})">
+            <summary>
+            Call this function to sort the group according to a particular value and order.
+            Due to differences in language capabilities between AS3/C#, you must implement
+            your own IComparer interface for each sorting operation you want to perform.
+            
+            For example, to sort game objects for Zelda-style overlaps you might call
+            sort by an objects "y" member at the bottom of your <code>FlxState.update()</code>
+            override.  To sort all existing objects after a big explosion or bomb attack,
+            you might sort by "exists."
+            </summary>
+            <param name="Sorter">Sorter	The <code>IComparer</code> object which will receive the sorting comparisons. </param>
+        </member>
+        <member name="M:org.flixel.FlxGroup.getFirstAvail">
+            <summary>
+            Call this function to retrieve the first object with exists == false in the group.
+            This is handy for recycling in general, e.g. respawning enemies.
+            </summary>
+            <returns>	A <code>FlxObject</code> currently flagged as not existing.</returns>
+        </member>
+        <member name="M:org.flixel.FlxGroup.getFirstNull">
+            <summary>
+            Call this function to retrieve the first index set to 'null'.
+            Returns -1 if no index stores a null object.
+            </summary>
+            <returns>An <code>int</code> indicating the first null slot in the group.</returns>
+        </member>
+        <member name="M:org.flixel.FlxGroup.resetFirstAvail(System.Int32,System.Int32)">
+            <summary>
+            Finds the first object with exists == false and calls reset on it.
+            </summary>
+            <param name="X">The new X position of this object.</param>
+            <param name="Y">The new Y position of this object.</param>
+            <returns>Whether a suitable <code>FlxObject</code> was found and reset.</returns>
+        </member>
+        <member name="M:org.flixel.FlxGroup.getFirstExtant">
+            <summary>
+            Call this function to retrieve the first object with exists == true in the group.
+            This is handy for checking if everything's wiped out, or choosing a squad leader, etc.
+            </summary>
+            <returns>A <code>FlxObject</code> currently flagged as existing.</returns>
+        </member>
+        <member name="M:org.flixel.FlxGroup.getFirstAlive">
+            <summary>
+            Call this function to retrieve the first object with dead == false in the group.
+            This is handy for checking if everything's wiped out, or choosing a squad leader, etc.
+            </summary>
+            <returns>A <code>FlxObject</code> currently flagged as not dead.</returns>
+        </member>
+        <member name="M:org.flixel.FlxGroup.getFirstDead">
+            <summary>
+            Call this function to retrieve the first object with dead == true in the group.
+            This is handy for checking if everything's wiped out, or choosing a squad leader, etc.
+            </summary>
+            <returns>A <code>FlxObject</code> currently flagged as dead.</returns>
+        </member>
+        <member name="M:org.flixel.FlxGroup.countLiving">
+            <summary>
+            Call this function to find out how many members of the group are not dead.
+            </summary>
+            <returns>The number of <code>FlxObject</code>s flagged as not dead.  Returns -1 if group is empty.</returns>
+        </member>
+        <member name="M:org.flixel.FlxGroup.countDead">
+            <summary>
+            Call this function to find out how many members of the group are dead.
+            </summary>
+            <returns>The number of <code>FlxObject</code>s flagged as dead.  Returns -1 if group is empty.</returns>
+        </member>
+        <member name="M:org.flixel.FlxGroup.countOnScreen">
+            <summary>
+            Returns a count of how many objects in this group are on-screen right now.
+            </summary>
+            <returns>The number of <code>FlxObject</code>s that are on screen.  Returns -1 if group is empty.</returns>
+        </member>
+        <member name="M:org.flixel.FlxGroup.getRandom">
+            <summary>
+            Returns a member at random from the group.
+            </summary>
+            <returns>A <code>FlxObject</code> from the members list.</returns>
+        </member>
+        <member name="M:org.flixel.FlxGroup.saveOldPosition">
+            <summary>
+            Internal function, helps with the moving/updating of group members.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxGroup.updateMembers">
+            <summary>
+            Internal function that actually goes through and updates all the group members.
+            Depends on <code>saveOldPosition()</code> to set up the correct values in <code>_last</code> in order to work properly.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxGroup.update">
+            <summary>
+            Automatically goes through and calls update on everything you added,
+            override this function to handle custom input and perform collisions.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxGroup.renderMembers(Microsoft.Xna.Framework.Graphics.SpriteBatch)">
+            <summary>
+            Internal function that actually loops through and renders all the group members.
+            </summary>
+            <param name="spriteBatch">Sprite Batch</param>
+        </member>
+        <member name="M:org.flixel.FlxGroup.render(Microsoft.Xna.Framework.Graphics.SpriteBatch)">
+            <summary>
+            Automatically goes through and calls render on everything you added,
+            override this loop to control render order manually.
+            </summary>
+            <param name="spriteBatch">Sprite Batch</param>
+        </member>
+        <member name="M:org.flixel.FlxGroup.killMembers">
+            <summary>
+            Internal function that calls kill on all members.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxGroup.kill">
+            <summary>
+            Calls kill on the group and all its members.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxGroup.destroyMembers">
+            <summary>
+            Internal function that actually loops through and destroys each member.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxGroup.destroy">
+            <summary>
+            Override this function to handle any deleting or "shutdown" type operations you might need,
+            such as removing traditional Flash children like Sprite objects.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxGroup.reset(System.Single,System.Single)">
+            <summary>
+            If the group's position is reset, we want to reset all its members too.
+            </summary>
+            <param name="X">The new X position of this object.</param>
+            <param name="Y">The new Y position of this object.</param>
+        </member>
+        <member name="F:org.flixel.FlxSound.survive">
+            <summary>
+            Whether or not this sound should be automatically destroyed when you switch states.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxSound.playing">
+            <summary>
+            Whether the sound is currently playing or not.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxSound.init">
+            An internal function for clearing all the variables used by sounds.
+        </member>
+        <member name="M:org.flixel.FlxSound.loadEmbedded(System.String,System.Boolean)">
+            <summary>
+            One of two main setup functions for sounds, this function loads a sound from an embedded MP3.
+            </summary>
+            <param name="EmbeddedSound">An embedded Class object representing an MP3 file.</param>
+            <param name="Looped">Whether or not this sound should loop endlessly.</param>
+            <returns>This <code>FlxSound</code> instance (nice for chaining stuff together, if you're into that).</returns>
+        </member>
+        <member name="M:org.flixel.FlxSound.proximity(System.Single,System.Single,org.flixel.FlxObject,System.Single)">
+            <summary>
+            Call this function if you want this sound's volume to change
+            based on distance from a particular FlxCore object.
+            </summary>
+            <param name="X">The X position of the sound.</param>
+            <param name="Y">The Y position of the sound.</param>
+            <param name="Core">The object you want to track.</param>
+            <param name="Radius">The maximum distance this sound can travel.</param>
+            <returns>This FlxSound instance (nice for chaining stuff together, if you're into that).</returns>
+        </member>
+        <member name="M:org.flixel.FlxSound.proximity(System.Single,System.Single,org.flixel.FlxObject,System.Single,System.Boolean)">
+            <summary>
+            Call this function if you want this sound's volume to change
+            based on distance from a particular FlxCore object.
+            </summary>
+            <param name="X">The X position of the sound.</param>
+            <param name="Y">The Y position of the sound.</param>
+            <param name="Core">The object you want to track.</param>
+            <param name="Radius">The maximum distance this sound can travel.</param>
+            <param name="Pan">Pan as a bool ???</param>
+            <returns>This FlxSound instance (nice for chaining stuff together, if you're into that).</returns>
+        </member>
+        <member name="M:org.flixel.FlxSound.play">
+            <summary>
+            Call this function to play the sound.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxSound.pause">
+            <summary>
+            Call this function to pause this sound.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxSound.stop">
+            <summary>
+            Call this function to stop this sound.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxSound.fadeOut(System.Single)">
+            <summary>
+            Call this function to make this sound fade out over a certain time interval.
+            </summary>
+            <param name="Seconds">The amount of time the fade out operation should take.</param>
+        </member>
+        <member name="M:org.flixel.FlxSound.fadeOut(System.Single,System.Boolean)">
+            <summary>
+            Call this function to make this sound fade out over a certain time interval.
+            </summary>
+            <param name="Seconds">The amount of time the fade out operation should take.</param>
+            <param name="PauseInstead">Tells the sound to pause on fadeout, instead of stopping.</param>
+        </member>
+        <member name="M:org.flixel.FlxSound.fadeIn(System.Single)">
+            <summary>
+            Call this function to make a sound fade in over a certain
+            time interval (calls <code>play()</code> automatically).
+            </summary>
+            <param name="Seconds">The amount of time the fade-in operation should take.</param>
+        </member>
+        <member name="M:org.flixel.FlxSound.updateSound">
+            <summary>
+            Internal function that performs the actual logical updates to the sound object.
+            Doesn't do much except optional proximity and fade calculations.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxSound.update">
+            <summary>
+            The basic game loop update function.  Just calls <code>updateSound()</code>.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxSound.destroy">
+            <summary>
+            The basic class destructor, stops the music and removes any leftover events.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxSound.updateTransform">
+            <summary>
+            An internal function used to help organize and change the volume of the sound.
+            </summary>
+        </member>
+        <member name="P:org.flixel.FlxSound.volume">
+            <summary>
+            Set <code>volume</code> to a value between 0 and 1 to change how loud this sound is.
+            </summary>
+        </member>
+        <member name="T:org.flixel.FlxTileblock">
+            <summary>
+            This is the basic "environment object" class, used to create simple walls and floors.
+            It can be filled with a random selection of tiles to quickly add detail.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxTileblock.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Creates a new <code>FlxBlock</code> object with the specified position and size.
+            </summary>
+            <param name="X">The X position of the block.</param>
+            <param name="Y">The Y position of the block.</param>
+            <param name="Width">The width of the block.</param>
+            <param name="Height">The height of the block.</param>
+        </member>
+        <member name="M:org.flixel.FlxTileblock.loadTiles(Microsoft.Xna.Framework.Graphics.Texture2D)">
+            <summary>
+            Fills the block with a randomly arranged selection of graphics from the image provided.
+            </summary>
+            <param name="TileGraphic">The graphic class that contains the tiles that should fill this block.</param>
+            <returns></returns>
+        </member>
+        <member name="M:org.flixel.FlxTileblock.loadTiles(Microsoft.Xna.Framework.Graphics.Texture2D,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Fills the block with a randomly arranged selection of graphics from the image provided.
+            </summary>
+            <param name="TileGraphic">The graphic class that contains the tiles that should fill this block.</param>
+            <param name="TileWidth"></param>
+            <param name="TileHeight"></param>
+            <param name="Empties">The number of "empty" tiles to add to the auto-fill algorithm (e.g. 8 tiles + 4 empties = 1/3 of block will be open holes).</param>
+            <returns></returns>
+        </member>
+        <member name="M:org.flixel.FlxTileblock.regenRects">
+            <summary>
+            X-flixel only.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxTileblock.loadGraphic(Microsoft.Xna.Framework.Graphics.Texture2D)">
+            <summary>
+            NOTE: MOST OF THE TIME YOU SHOULD BE USING LOADTILES(), NOT LOADGRAPHIC()!
+            <code>LoadTiles()</code> has a lot more functionality, can load non-square tiles, etc.
+            Load an image from an embedded graphic file and use it to auto-fill this block with tiles.
+            </summary>
+            <param name="Graphic">The image you want to use.</param>
+            <returns>This FlxSprite instance (nice for chaining stuff together, if you're into that).</returns>
+        </member>
+        <member name="M:org.flixel.FlxTileblock.render(Microsoft.Xna.Framework.Graphics.SpriteBatch)">
+            <summary>
+            Draws this block
+            </summary>
+            <param name="spriteBatch"></param>
+        </member>
+        <member name="T:org.flixel.FlxQuadTree">
+            <summary>
+            A fairly generic quad tree structure for rapid overlap checks.
+            FlxQuadTree is also configured for single or dual list operation.
+            You can add items either to its A list or its B list.
+            When you do an overlap check, you can compare the A list to itself,
+            or the A list against the B list.  Handy for different things!
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxQuadTree.A_LIST">
+            <summary>
+            Flag for specifying that you want to add an object to the A list.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxQuadTree.B_LIST">
+            <summary>
+            Flag for specifying that you want to add an object to the B list.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxQuadTree.x">
+            <summary>
+            X Rect
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxQuadTree.y">
+            <summary>
+            Y Rect
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxQuadTree.width">
+            <summary>
+            Width of Rect
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxQuadTree.height">
+            <summary>
+            Height of rect
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxQuadTree.quadTree">
+            <summary>
+            Set this to null to force it to refresh on the next collide.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxQuadTree.bounds">
+            <summary>
+            This variable stores the dimensions of the root of the quad tree.
+            This is the eligible game collision space.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxQuadTree.divisions">
+            <summary>
+            Controls the granularity of the quad tree.  Default is 3 (decent performance on large and small worlds).
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxQuadTree._canSubdivide">
+            <summary>
+            Whether this branch of the tree can be subdivided or not.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxQuadTree._headA">
+            <summary>
+            These variables refer to the internal A and B linked lists,
+            which are used to store objects in the leaves.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxQuadTree._min">
+            <summary>
+            These variables refer to the potential child quadrants for this node.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxQuadTree._o">
+            <summary>
+            These objects are used to reduce recursive parameters internally.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxQuadTree.#ctor(System.Single,System.Single,System.Single,System.Single,org.flixel.FlxQuadTree)">
+            <summary>
+            Instantiate a new Quad Tree node.
+            </summary>
+            <param name="X">The X-coordinate of the point in space.</param>
+            <param name="Y">The Y-coordinate of the point in space.</param>
+            <param name="Width">Desired width of this node.</param>
+            <param name="Height">Desired height of this node.</param>
+            <param name="Parent">The parent branch or node.  Pass null to create a root.</param>
+        </member>
+        <member name="M:org.flixel.FlxQuadTree.add(org.flixel.FlxObject,System.UInt32)">
+            <summary>
+            Call this function to add an object to the root of the tree.
+            This function will recursively add all group members, but
+            not the groups themselves.
+            </summary>
+            <param name="Object">The <code>FlxObject</code> you want to add.  <code>FlxGroup</code> objects will be recursed and their applicable members added automatically.</param>
+            <param name="List">A <code>uint</code> flag indicating the list to which you want to add the objects.  Options are <code>A_LIST</code> and <code>B_LIST</code>.</param>
+        </member>
+        <member name="M:org.flixel.FlxQuadTree.addObject">
+            <summary>
+             Internal function for recursively navigating and creating the tree
+             while adding objects to the appropriate nodes.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxQuadTree.addToList">
+            <summary>
+            Internal function for recursively adding objects to leaf lists.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxQuadTree.overlap(System.Boolean,org.flixel.SpriteCollisionEvent)">
+            <summary>
+            <code>FlxQuadTree</code>'s other main function.  Call this after adding objects
+            using <code>FlxQuadTree.add()</code> to compare the objects that you loaded.
+            </summary>
+            <param name="BothLists">Whether you are doing an A-B list comparison, or comparing A against itself.</param>
+            <param name="Callback">A function with two <code>FlxObject</code> parameters - e.g. <code>myOverlapFunction(Object1:FlxObject,Object2:FlxObject);</code>  If no function is provided, <code>FlxQuadTree</code> will call <code>kill()</code> on both objects.</param>
+            <returns></returns>
+        </member>
+        <member name="M:org.flixel.FlxQuadTree.overlapNode">
+            An internal function for comparing an object against the contents of a node.
+            
+            @param	Iterator	An optional pointer to a linked list entry (for comparing A against itself).
+            
+            @return	Whether or not any overlaps were found.
+        </member>
+        <member name="T:org.flixel.FlxMouse">
+            <summary>
+            This class helps contain and track the mouse pointer in your game.
+            Automatically accounts for parallax scrolling, etc.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxMouse.wheel">
+            <summary>
+            Current "delta" value of mouse wheel.  If the wheel was just scrolled up, it will have a positive value.  If it was just scrolled down, it will have a negative value.  If it wasn't just scroll this frame, it will be 0.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxMouse.screenX">
+            <summary>
+            Current X position of the mouse pointer on the screen.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxMouse.screenY">
+            <summary>
+            Current Y position of the mouse pointer on the screen.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxMouse.cursor">
+            <summary>
+            Graphical representation of the mouse pointer.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxMouse.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxMouse.show(Microsoft.Xna.Framework.Graphics.Texture2D)">
+            <summary>
+            Either show an existing cursor or load a new one.
+            </summary>
+            <param name="Graphic">The image you want to use for the cursor.</param>
+        </member>
+        <member name="M:org.flixel.FlxMouse.show(Microsoft.Xna.Framework.Graphics.Texture2D,System.Int32,System.Int32)">
+            <summary>
+            Either show an existing cursor or load a new one.
+            </summary>
+            <param name="Graphic">The image you want to use for the cursor.</param>
+            <param name="XOffset">The number of pixels between the mouse's screen position and the graphic's top left corner.</param>
+            <param name="YOffset">The number of pixels between the mouse's screen position and the graphic's top left corner. </param>
+        </member>
+        <member name="M:org.flixel.FlxMouse.hide">
+            <summary>
+            Hides the mouse cursor
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxMouse.load(Microsoft.Xna.Framework.Graphics.Texture2D)">
+            <summary>
+            Load a new mouse cursor graphic
+            </summary>
+            <param name="Graphic">The image you want to use for the cursor.</param>
+        </member>
+        <member name="M:org.flixel.FlxMouse.load(Microsoft.Xna.Framework.Graphics.Texture2D,System.Int32,System.Int32)">
+            <summary>
+            Load a new mouse cursor graphic
+            </summary>
+            <param name="Graphic">The image you want to use for the cursor.</param>
+            <param name="XOffset">The number of pixels between the mouse's screen position and the graphic's top left corner.</param>
+            <param name="YOffset">The number of pixels between the mouse's screen position and the graphic's top left corner. </param>
+        </member>
+        <member name="M:org.flixel.FlxMouse.unload">
+            <summary>
+            Unload the current cursor graphic.  If the current cursor is visible,
+            then the default system cursor is loaded up to replace the old one.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxMouse.update">
+            <summary>
+            Called by the internal game loop to update the mouse pointer's position in the game world.
+            Also updates the just pressed/just released flags.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxMouse.reset">
+            <summary>
+            Reset.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxMouse.pressed">
+            <summary>
+            Is _either_ mouse button pressed down?
+            </summary>
+            <returns>Returns a value whether it was just pressed or not.</returns>
+        </member>
+        <member name="M:org.flixel.FlxMouse.justPressed">
+            <summary>
+            Was _either_ mouse button just pressed down?
+            </summary>
+            <returns>Return true only when the mouse was just pressed.</returns>
+        </member>
+        <member name="M:org.flixel.FlxMouse.justReleased">
+            <summary>
+            Was _either_ mouse button just released?
+            </summary>
+            <returns>Return true only when the mouse was just released.</returns>
+        </member>
+        <member name="M:org.flixel.FlxMouse.pressedRightButton">
+            <summary>
+            Is right mouse button pressed down?
+            </summary>
+            <returns>Returns a value whether it was just pressed or not.</returns>
+        </member>
+        <member name="M:org.flixel.FlxMouse.justPressedRightButton">
+            <summary>
+            Was right mouse button just pressed down?
+            </summary>
+            <returns>Return true only when the mouse was just pressed.</returns>
+        </member>
+        <member name="M:org.flixel.FlxMouse.justReleasedRightButton">
+            <summary>
+            Was right mouse button just released?
+            </summary>
+            <returns>Return true only when the mouse was just released.</returns>
+        </member>
+        <member name="M:org.flixel.FlxMouse.pressedLeftButton">
+            <summary>
+            Is left mouse button pressed down?
+            </summary>
+            <returns>Returns a value whether it was just pressed or not.</returns>
+        </member>
+        <member name="M:org.flixel.FlxMouse.justPressedLeftButton">
+            <summary>
+            Was left mouse button just pressed down?
+            </summary>
+            <returns>Return true only when the mouse was just pressed.</returns>
+        </member>
+        <member name="M:org.flixel.FlxMouse.justReleasedLeftButton">
+            <summary>
+            Was left mouse button just released?
+            </summary>
+            <returns>Return true only when the mouse was just released.</returns>
+        </member>
+        <member name="T:org.flixel.FlxKeyboard">
+            <summary>
+            FlxKeyboard for capturing keyboard events.
+            </summary>
+        </member>
+        <member name="T:org.flixel.SpriteCollisionEvent">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <returns></returns>
+        </member>
+        <member name="T:org.flixel.EffectType">
+            <summary>
+            Rumble = 0,
+            FadeOut = 1,
+            Flash = 2
+            </summary>
+        </member>
+        <member name="T:org.flixel.MouseEventType">
+            <summary>
+            MouseDown = 0,
+            MouseUp = 1
+            </summary>
+        </member>
+        <member name="T:org.flixel.FlxOnlineStatCounter">
+            <summary>
+            Online Stat counter for Initialsgames.com database.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxOnlineStatCounter.getAllStats(System.String)">
+            <summary>
+            places all the stats into currentOnlineStats Dictionary
+            </summary>
+            <param name="game">Name of the game/table you are looking at</param>
+        </member>
+        <member name="M:org.flixel.FlxOnlineStatCounter.getStatsForLevel(System.String,System.String,System.Int32)">
+            <summary>
+            Places the stats for level into the lastRecievedStat variable.
+            </summary>
+            <param name="game">Name of the game/table you are looking at</param>
+            <param name="levelname">Level name you want</param>
+            <param name="score">???</param>
+            <returns></returns>
+        </member>
+        <member name="M:org.flixel.FlxOnlineStatCounter.sendStats(System.String,System.String,System.Int32)">
+            <summary>
+            Async to get high scores from initialsgames webserver
+            </summary>
+            <param name="game"></param>
+            <param name="levelname"></param>
+            <param name="score"></param>
+            <returns></returns>
+        </member>
+        <member name="T:org.flixel.FlxGame">
+            <summary>
+            FlxGame, the heart of the Flixel Game.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxGame._state">
+            <summary>
+            basic display stuff
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxGame._paused">
+            <summary>
+            basic update stuff
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxGame._pausePanel">
+            <summary>
+            Pause screen, sound tray, support panel, dev console, and special effects objects
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxGame._hud">
+            <summary>
+            A hud for having non scaled text. Important for nice clean text if you're working at 2x or 3x
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxGame._helpStrings">
+            <summary>
+            pause stuff
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxGame._quakeOffset">
+            <summary>
+            effect stuff
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxGame.#ctor(Microsoft.Xna.Framework.Game)">
+            <summary>
+            Constructor 
+            </summary>
+            <param name="game">Game</param>
+        </member>
+        <member name="M:org.flixel.FlxGame.initGame(System.Int32,System.Int32,org.flixel.FlxState,Microsoft.Xna.Framework.Color,System.Boolean,Microsoft.Xna.Framework.Color)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="GameSizeX">The width of your game in pixels (e.g. 320)</param>
+            <param name="GameSizeY">The height of your game in pixels (e.g. 240)</param>
+            <param name="InitialState">The class name of the state you want to create and switch to first (e.g. MenuState)</param>
+            <param name="BGColor">The color of the app's background</param>
+            <param name="showFlixelLogo">Whether or not to go to the FlxSplash screen first.</param>
+            <param name="logoColor">The color of the great big 'f' in the flixel logo</param>
+        </member>
+        <member name="M:org.flixel.FlxGame.help(System.String,System.String,System.String,System.String)">
+            <summary>
+            Sets up the strings that are displayed on the left side of the pause game popup
+            </summary>
+            <param name="X">What to display next to the X button</param>
+            <param name="C">What to display next to the C button</param>
+            <param name="Mouse">What to display next to the mouse icon</param>
+            <param name="Arrows">What to display next to the arrows icon</param>
+        </member>
+        <member name="M:org.flixel.FlxGame.Initialize">
+            <summary>
+            Initializes the backRender RenderTarget2D
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxGame.initConsole">
+            <summary>
+            @benbaird initializes the console, the pause overlay, and the soundbar
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxGame.LoadContent">
+            <summary>
+            Load Content 
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxGame.UnloadContent">
+            <summary>
+            Unload content.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxGame.switchState(org.flixel.FlxState)">
+            <summary>
+            Switch from one FlxState to another
+            </summary>
+            <param name="newscreen">The class name of the state you want (e.g. PlayState)</param>
+        </member>
+        <member name="M:org.flixel.FlxGame.unpauseGame">
+            <summary>
+            Internal function to help with basic pause game functionality.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxGame.pauseGame">
+            <summary>
+            Internal function to help with basic pause game functionality.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxGame.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            This is the main game loop
+            </summary>
+            <param name="gameTime">Game Time</param>
+        </member>
+        <member name="M:org.flixel.FlxGame.Draw(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Rendering
+            </summary>
+            <param name="gameTime">Game time.</param>
+        </member>
+        <member name="M:org.flixel.FlxGame.showSoundTray">
+            <summary>
+            This function is only used by the FlxGame class to do important internal management stuff
+            </summary>
+        </member>
+        <member name="T:XNAMode.Fireball">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:org.flixel.FlxState">
+            <summary>
+            This is the basic game "state" object - e.g. in a simple game
+            you might have a menu state and a play state.
+            It acts as a kind of container for all your game objects.
+            You can also access the game's background color
+            and screen buffer through this object.
+            FlxState is kind of a funny class from the technical side,
+            it is just a regular Flash Sprite display object,
+            with one member variable: a flixel <code>FlxGroup</code>.
+            This means you can load it up with regular Flash stuff
+            or with flixel elements, whatever works!
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxState.bgColor">
+            <summary>
+            This static variable indicates the "clear color"
+            or default background color of the game.
+            Change it at ANY time using <code>FlxState.bgColor</code>.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxState.defaultGroup">
+            <summary>
+            Internal group used to organize and display objects you add to this state.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxState.#ctor">
+            <summary>
+            Creates a new <code>FlxState</code> object,
+            instantiating <code>screen</code> if necessary.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxState.create">
+            <summary>
+            Override this function to set up your game state.
+            This is where you create your groups and game objects and all that good stuff.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxState.add(org.flixel.FlxObject)">
+            <summary>
+            Adds a new FlxCore subclass (FlxSprite, FlxBlock, etc) to the game loop
+            </summary>
+            <param name="Core">The object you want to add to the game loop</param>
+            <returns></returns>
+        </member>
+        <member name="M:org.flixel.FlxState.preProcess(Microsoft.Xna.Framework.Graphics.SpriteBatch)">
+            <summary>
+            Override this function to do special pre-processing FX like motion blur.
+            You can use scaling or blending modes or whatever you want against
+            <code>FlxState.screen</code> to achieve all sorts of cool FX.
+            </summary>
+            <param name="spriteBatch">Sprite Batch</param>
+        </member>
+        <member name="M:org.flixel.FlxState.update">
+            <summary>
+            Automatically goes through and calls update on everything you added to the game loop,
+            override this function to handle custom input and perform collisions/
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxState.collide">
+            <summary>
+            This function collides <code>defaultGroup</code> against <code>defaultGroup</code>
+            (basically everything you added to this state).
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxState.render(Microsoft.Xna.Framework.Graphics.SpriteBatch)">
+            <summary>
+            Automatically goes through and calls render on everything you added to the game loop,
+            override this loop to manually control the rendering process.
+            </summary>
+            <param name="spriteBatch"></param>
+        </member>
+        <member name="M:org.flixel.FlxState.postProcess(Microsoft.Xna.Framework.Graphics.SpriteBatch)">
+            <summary>
+            Override this function to do special pre-processing FX like light bloom.
+            You can use scaling or blending modes or whatever you want against
+            <code>FlxState.screen</code> to achieve all sorts of cool FX.
+            </summary>
+            <param name="spriteBatch"></param>
+        </member>
+        <member name="M:org.flixel.FlxState.destroy">
+            <summary>
+            Override this function to handle any deleting or "shutdown" type operations you
+            might need (such as removing traditional Flash children like Sprite objects).
+            </summary>
+        </member>
+        <member name="T:org.flixel.FlxRect">
+            <summary>
+            A simple rectangle helper class.
+            </summary>
+        </member>
+        <member name="T:XNAMode.Arrow">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:XNAMode.Bullet">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:org.flixel.FlxParticle">
+            <summary>
+            FlxParticle...
+            </summary>
+        </member>
+        <member name="T:org.flixel.FlxMonitor">
+            <summary>
+            FlxMonitor is a simple class that aggregates and averages data.
+            Flixel uses this to display the framerate and profiling data
+            in the developer console.  It's nice for keeping track of
+            things that might be changing too fast from frame to frame.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxMonitor._size">
+            <summary>
+            Stores the requested size of the monitor array.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxMonitor._itr">
+            <summary>
+            Keeps track of where we are in the array.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxMonitor._data">
+            <summary>
+            An array to hold all the data we are averaging.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxMonitor.#ctor(System.Int32,System.Single)">
+            <summary>
+            Creates the monitor array and sets the size.
+            </summary>
+            <param name="Size">The desired size - more entries means a longer window of averaging.</param>
+            <param name="Default">The default value of the entries in the array (0 by default).</param>
+        </member>
+        <member name="M:org.flixel.FlxMonitor.add(System.Single)">
+            <summary>
+            Adds an entry to the array of data.
+            </summary>
+            <param name="Data">The value you want to track and average.</param>
+        </member>
+        <member name="M:org.flixel.FlxMonitor.average">
+            <summary>
+            Averages the value of all the numbers in the monitor window.
+            </summary>
+            <returns>The average value of all the numbers in the monitor window.</returns>
+        </member>
+        <member name="F:org.flixel.FlxQuake._zoom">
+            <summary>
+            The game's level of zoom.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxQuake._intensity">
+            <summary>
+            The intensity of the quake effect: a percentage of the screen's size.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxQuake._timer">
+            <summary>
+            Set to countdown the quake time.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxQuake.x">
+            <summary>
+            The amount of X distortion to apply to the screen.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxQuake.y">
+            <summary>
+            The amount of Y distortion to apply to the screen.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxQuake.#ctor(System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="Zoom"></param>
+        </member>
+        <member name="M:org.flixel.FlxQuake.start(System.Single,System.Single)">
+            <summary>
+            Reset and trigger this special effect.
+            </summary>
+            <param name="Intensity">Percentage of screen size representing the maximum distance that the screen can move during the 'quake'.</param>
+            <param name="Duration">The length in seconds that the "quake" should last.</param>
+        </member>
+        <member name="M:org.flixel.FlxQuake.stop">
+            <summary>
+            Stops this screen effect.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxQuake.update">
+            <summary>
+            Updates and/or animates this special effect.
+            </summary>
+        </member>
+        <member name="T:org.flixel.FlxFlash">
+            <summary>
+            Special effects class.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxFlash._delay">
+            <summary>
+            How long the effect should last.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxFlash._complete">
+            <summary>
+            Callback for when the effect is finished.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxFlash.#ctor">
+            <summary>
+            Constructor initializes the fade object
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxFlash.start(Microsoft.Xna.Framework.Color)">
+            <summary>
+            Reset and trigger this special effect
+            </summary>
+            <param name="Color">The color you want to use</param>
+        </member>
+        <member name="M:org.flixel.FlxFlash.start(Microsoft.Xna.Framework.Color,System.Single)">
+            <summary>
+            Reset and trigger this special effect
+            </summary>
+            <param name="Color">The color you want to use</param>
+            <param name="Duration">How long it takes for the flash to fade</param>
+        </member>
+        <member name="M:org.flixel.FlxFlash.start(Microsoft.Xna.Framework.Color,System.Single,System.EventHandler{org.flixel.FlxEffectCompletedEvent},System.Boolean)">
+            <summary>
+            Reset and trigger this special effect
+            </summary>
+            <param name="Color">The color you want to use</param>
+            <param name="Duration">How long it takes for the flash to fade</param>
+            <param name="FlashComplete">A function you want to run when the flash finishes</param>
+            <param name="Force">Force the effect to reset</param>
+        </member>
+        <member name="M:org.flixel.FlxFlash.stop">
+            <summary>
+            Stops and hides this screen effect.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxFlash.update">
+            <summary>
+            Updates and/or animates this special effect
+            </summary>
+        </member>
+        <member name="T:org.flixel.FlxFactory">
+            <summary>
+            Starts the game
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxFactory.resX">
+            <summary>
+            DO NOT CHANGE THESE VALUES!!
+            your game should only be concerned with the
+            resolution parameters used when you call
+            initGame() in your FlxGame class.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxFactory.resY">
+            <summary>
+            DO NOT CHANGE THESE VALUES!!
+            your game should only be concerned with the
+            resolution parameters used when you call
+            initGame() in your FlxGame class.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxFactory.Initialize">
+            <summary>
+            load up the master class, and away we go!
+            </summary>
+        </member>
+        <member name="T:org.flixel.FlxConsole">
+            <summary>
+            Contains all the logic for the developer console
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxConsole.log(System.String)">
+            <summary>
+            Log data to the developer console
+            </summary>
+            <param name="Data">The data (in string format) that you wanted to write to the console</param>
+        </member>
+        <member name="M:org.flixel.FlxConsole.toggle">
+            <summary>
+            Shows/hides the console
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxConsole.update">
+            <summary>
+            Updates and/or animates the dev console
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxConsole.render(Microsoft.Xna.Framework.Graphics.SpriteBatch)">
+            <summary>
+            Render
+            </summary>
+            <param name="spriteBatch">sb</param>
+        </member>
+        <member name="T:org.flixel.BlockPoint">
+            <summary>
+            Block point struct
+            </summary>
+        </member>
+        <member name="F:org.flixel.BlockPoint.x">
+            <summary>
+            X Position
+            </summary>
+        </member>
+        <member name="F:org.flixel.BlockPoint.y">
+            <summary>
+            Y Position
+            </summary>
+        </member>
+        <member name="F:org.flixel.BlockPoint.data">
+            <summary>
+            Data
+            </summary>
+        </member>
+        <member name="M:org.flixel.BlockPoint.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Blockpoint
+            </summary>
+            <param name="X">X position.</param>
+            <param name="Y">Y Position</param>
+            <param name="Data">Data</param>
+        </member>
+        <member name="T:org.flixel.FlxTilemap">
+            <summary>
+            This is a traditional tilemap display and collision class.
+            It takes a string of comma-separated numbers and then associates
+            those values with tiles from the sheet you pass in.
+            It also includes some handy static parsers that can convert
+            arrays or PNG files into strings that can be successfully loaded.
+            
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxTilemap.OFF">
+            <summary>
+            No auto-tiling.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxTilemap.AUTO">
+            <summary>
+            Platformer-friendly auto-tiling.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxTilemap.ALT">
+            <summary>
+            Top-down auto-tiling.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxTilemap.RANDOM">
+            <summary>
+            Random pick from tilesheet
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxTilemap.collideIndex">
+            <summary>
+            What tile index will you start colliding with (default: 1).
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxTilemap.startingIndex">
+            <summary>
+            The first index of your tile sheet (default: 0) If you want to change it, do so before calling loadMap().
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxTilemap.drawIndex">
+            <summary>
+            What tile index will you start drawing with (default: 1)  NOTE: should always be >= startingIndex.
+            If you want to change it, do so before calling loadMap().
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxTilemap.auto">
+            <summary>
+            Set this flag to use one of the 16-tile binary auto-tile algorithms (OFF, AUTO, or ALT).
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxTilemap.refresh">
+            <summary>
+            Set this flag to true to force the tilemap buffer to refresh on the next render frame.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxTilemap.randomLimit">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxTilemap.widthInTiles">
+            <summary>
+            Read-only variable, do NOT recommend changing after the map is loaded!
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxTilemap.heightInTiles">
+            <summary>
+            Read-only variable, do NOT recommend changing after the map is loaded!
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxTilemap.totalTiles">
+            <summary>
+            Read-only variable, do NOT recommend changing after the map is loaded!
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxTilemap._flashRect">
+            <summary>
+            Rendering helper.
+            </summary>
+            
+        </member>
+        <member name="F:org.flixel.FlxTilemap._boundsVisible">
+            <summary>
+            Renders a debug box
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxTilemap.#ctor">
+            <summary>
+            The tilemap constructor just initializes some basic variables.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxTilemap.loadMap(System.String,Microsoft.Xna.Framework.Graphics.Texture2D)">
+            <summary>
+            Load the tilemap with string data and a tile graphic.
+            </summary>
+            <param name="MapData">A string of comma and line-return delineated indices indicating what order the tiles should go in.</param>
+            <param name="TileGraphic">All the tiles you want to use, arranged in a strip corresponding to the numbers in MapData.</param>
+            <returns>A pointer this instance of FlxTilemap, for chaining as usual :)</returns>
+        </member>
+        <member name="M:org.flixel.FlxTilemap.loadMap(System.String,Microsoft.Xna.Framework.Graphics.Texture2D,System.Int32,System.Int32)">
+            <summary>
+            Load the tilemap with string data and a tile graphic.
+            </summary>
+            <param name="MapData">A string of comma and line-return delineated indices indicating what order the tiles should go in.</param>
+            <param name="TileGraphic">All the tiles you want to use, arranged in a strip corresponding to the numbers in MapData.</param>
+            <param name="TileWidth">The width of your tiles (e.g. 8) - defaults to height of the tile graphic if unspecified.</param>
+            <param name="TileHeight">The height of your tiles (e.g. 8) - defaults to width if unspecified.</param>
+            <returns>A pointer this instance of FlxTilemap, for chaining as usual :)</returns>
+        </member>
+        <member name="M:org.flixel.FlxTilemap.generateBoundingTiles">
+            <summary>
+            Generates a bounding box version of the tiles, flixel should call this automatically when necessary.
+            Warning! No code in here.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxTilemap.render(Microsoft.Xna.Framework.Graphics.SpriteBatch)">
+            <summary>
+            Draws the tilemap.
+            </summary>
+            <param name="spriteBatch">???</param>
+        </member>
+        <member name="M:org.flixel.FlxTilemap.overlaps(org.flixel.FlxObject)">
+            <summary>
+            Checks for overlaps between the provided object and any tiles above the collision index.
+            </summary>
+            <param name="Core">The <code>FlxObject</code> you want to check against.</param>
+            <returns>True if overlap occurs, otherwise False</returns>
+        </member>
+        <member name="M:org.flixel.FlxTilemap.overlapsPoint(System.Single,System.Single)">
+            <summary>
+            Checks to see if a point in 2D space overlaps a solid tile.
+            </summary>
+            <param name="X">The X coordinate of the point.</param>
+            <param name="Y">The Y coordinate of the point.</param>
+            <returns>Whether or not the point overlaps this object.</returns>
+        </member>
+        <member name="M:org.flixel.FlxTilemap.overlapsPoint(System.Single,System.Single,System.Boolean)">
+            <summary>
+            Checks to see if a point in 2D space overlaps a solid tile.
+            </summary>
+            <param name="X">The X coordinate of the point.</param>
+            <param name="Y">The Y coordinate of the point.</param>
+            <param name="PerPixel"></param>
+            <returns>Whether or not the point overlaps this object.</returns>
+        </member>
+        <member name="M:org.flixel.FlxTilemap.refreshHulls">
+            <summary>
+            Called by <code>FlxObject.updateMotion()</code> and some constructors to
+            rebuild the basic collision data for this object.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxTilemap.preCollide(org.flixel.FlxObject)">
+            <summary>
+            <code>FlxU.collide()</code> (and thus <code>FlxObject.collide()</code>) call
+            this function each time two objects are compared to see if they collide.
+            It doesn't necessarily mean these objects WILL collide, however.
+            
+            </summary>
+            <param name="Object">The <code>FlxObject</code> you're about to run into.</param>
+        </member>
+        <member name="M:org.flixel.FlxTilemap.getTile(System.Int32,System.Int32)">
+            <summary>
+            Check the value of a particular tile.
+            </summary>
+            <param name="X">The X coordinate of the tile (in tiles, not pixels).</param>
+            <param name="Y">The Y coordinate of the tile (in tiles, not pixels).</param>
+            <returns>A uint containing the value of the tile at this spot in the array.</returns>
+        </member>
+        <member name="M:org.flixel.FlxTilemap.getTileByIndex(System.Int32)">
+            <summary>
+            Get the value of a tile in the tilemap by index.
+            </summary>
+            <param name="Index">The slot in the data array (Y * widthInTiles + X) where this tile is stored.</param>
+            <returns>A uint containing the value of the tile at this spot in the array.</returns>
+        </member>
+        <member name="M:org.flixel.FlxTilemap.setTile(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Change the data and graphic of a tile in the tilemap.
+            </summary>
+            <param name="X">The X coordinate of the tile (in tiles, not pixels).</param>
+            <param name="Y">The Y coordinate of the tile (in tiles, not pixels).</param>
+            <param name="Tile">The new integer data you wish to inject.</param>
+            <returns>Whether or not the tile was actually changed.</returns>
+        </member>
+        <member name="M:org.flixel.FlxTilemap.setTile(System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Change the data and graphic of a tile in the tilemap.
+            </summary>
+            <param name="X">The X coordinate of the tile (in tiles, not pixels).</param>
+            <param name="Y">The Y coordinate of the tile (in tiles, not pixels).</param>
+            <param name="Tile">The new integer data you wish to inject.</param>
+            <param name="UpdateGraphics">Whether the graphical representation of this tile should change.</param>
+            <returns>Whether or not the tile was actually changed.</returns>
+        </member>
+        <member name="M:org.flixel.FlxTilemap.setTileByIndex(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Change the data and graphic of a tile in the tilemap.
+            </summary>
+            <param name="Index">The slot in the data array (Y * widthInTiles + X) where this tile is stored.</param>
+            <param name="Tile">The new integer data you wish to inject.</param>
+            <param name="UpdateGraphics">Whether the graphical representation of this tile should change.</param>
+            <returns>Whether or not the tile was actually changed.</returns>
+        </member>
+        <member name="M:org.flixel.FlxTilemap.setCallback(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Bind a function Callback(Core:FlxCore,X:uint,Y:uint,Tile:uint) to a range of tiles.
+            Temporarily deprecated.
+            </summary>
+            <param name="Tile">The tile to trigger the callback.</param>
+            <param name="Callback">The function to trigger.  Parameters should be <code>(Core:FlxCore,X:uint,Y:uint,Tile:uint)</code>.</param>
+            <param name="Range">If you want this callback to work for a bunch of different tiles, input the range here.  Default value is 1.</param>
+        </member>
+        <member name="M:org.flixel.FlxTilemap.follow">
+            <summary>
+            Follow an object
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxTilemap.follow(System.Int32)">
+            <summary>
+            Call this function to lock the automatic camera to the map's edges.
+            </summary>
+            <param name="Border">Adjusts the camera follow boundary by whatever number of tiles you specify here.  Handy for blocking off deadends that are offscreen, etc.  Use a negative number to add padding instead of hiding the edges.</param>
+        </member>
+        <member name="M:org.flixel.FlxTilemap.ray(System.Int32,System.Int32,System.Int32,System.Int32,Microsoft.Xna.Framework.Vector2,System.Int32)">
+            <summary>
+            Shoots a ray from the start point to the end point.
+            If/when it passes through a tile, it stores and returns that point.
+            </summary>
+            <param name="StartX">The X component of the ray's start.</param>
+            <param name="StartY">The Y component of the ray's start.</param>
+            <param name="EndX">The X component of the ray's end.</param>
+            <param name="EndY">The Y component of the ray's end.</param>
+            <param name="Result">A <code>Point</code> object containing the first wall impact.</param>
+            <param name="Resolution">Defaults to 1, meaning check every tile or so.  Higher means more checks!</param>
+            <returns>Whether or not there was a collision between the ray and a colliding tile.</returns>
+        </member>
+        <member name="M:org.flixel.FlxTilemap.arrayToCSV(System.Int32[],System.Int32)">
+            <summary>
+            Converts a one-dimensional array of tile data to a comma-separated string.
+            </summary>
+            <param name="Data">An array full of integer tile references.</param>
+            <param name="Width">The number of tiles in each row.</param>
+            <returns>A comma-separated string containing the level data in a <code>FlxTilemap</code>-friendly format.</returns>
+        </member>
+        <member name="M:org.flixel.FlxTilemap.bitmapToCSV(Microsoft.Xna.Framework.Graphics.Texture2D)">
+            <summary>
+             Converts a <code>BitmapData</code> object to a comma-separated string.
+             Black pixels are flagged as 'solid' by default,
+            non-black pixels are set as non-colliding.
+            Black pixels must be PURE BLACK.
+            </summary>
+            <param name="bitmapData">A Texture2D, preferably black and white.</param>
+            <returns>A comma-separated string containing the level data in a <code>FlxTilemap</code>-friendly format.</returns>
+        </member>
+        <member name="M:org.flixel.FlxTilemap.bitmapToCSV(Microsoft.Xna.Framework.Graphics.Texture2D,System.Boolean)">
+            <summary>
+             Converts a <code>BitmapData</code> object to a comma-separated string.
+             Black pixels are flagged as 'solid' by default,
+            non-black pixels are set as non-colliding.
+            Black pixels must be PURE BLACK.
+            </summary>
+            <param name="bitmapData">A Texture2D, preferably black and white.</param>
+            <param name="Invert">Load white pixels as solid instead.</param>
+            <returns>A comma-separated string containing the level data in a <code>FlxTilemap</code>-friendly format.</returns>
+        </member>
+        <member name="M:org.flixel.FlxTilemap.autoTile(System.Int32)">
+            <summary>
+            An internal function used by the binary auto-tilers.
+            </summary>
+            <param name="Index">The index of the tile you want to analyze.</param>
+        </member>
+        <member name="M:org.flixel.FlxTilemap.randomTile(System.Int32)">
+            <summary>
+            An internal function used by the binary auto-tilers.
+            </summary>
+            <param name="Index">The index of the tile you want to analyze.</param>
+        </member>
+        <member name="M:org.flixel.FlxTilemap.updateTile(System.Int32)">
+            <summary>
+            Internal function used in setTileByIndex() and the constructor to update the map.
+            
+            </summary>
+            <param name="Index">The index of the tile you want to update.</param>
+        </member>
+        <member name="T:org.flixel.FlxSave">
+            <summary>
+            A class to help automate and simplify save game functionality.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxSave._device">
+            <summary>
+            Allows you to directly access the data container in the local shared object.
+            @default null
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxSave.name">
+            <summary>
+            The name of the local shared object.
+            Default = null
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxSave._so">
+            <summary>
+            The local shared object itself.
+            Default = null
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxSave.#ctor">
+            <summary>
+            Blanks out the containers.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxSave.bind(System.String)">
+            <summary>
+            Automatically creates or reconnects to locally saved data.
+            </summary>
+            <param name="Name">The name of the object (should be the same each time to access old data).</param>
+            <returns>Whether or not you successfully connected to the save data.</returns>
+        </member>
+        <member name="M:org.flixel.FlxSave.write(System.String,System.String,System.UInt32)">
+            <summary>
+            If you don't like to access the data object directly, you can use this to write to it.
+            </summary>
+            <param name="FieldName">The name of the data field you want to create or overwrite.</param>
+            <param name="FieldValue">The data you want to store.</param>
+            <param name="MinFileSize">If you need X amount of space for your save, specify it here.</param>
+            <returns>Whether or not the write and flush were successful.</returns>
+        </member>
+        <member name="M:org.flixel.FlxSave.read(System.String)">
+            <summary>
+            If you don't like to access the data object directly, you can use this to read from it.
+            </summary>
+            <param name="FieldName">The name of the data field you want to read</param>
+            <returns>The value of the data field you are reading (null if it doesn't exist).</returns>
+        </member>
+        <member name="M:org.flixel.FlxSave.forceSave(System.UInt32)">
+            <summary>
+            Writes the local shared object to disk immediately.
+            </summary>
+            <param name="MinFileSize">If you need X amount of space for your save, specify it here.</param>
+            <returns>Whether or not the flush was successful.</returns>
+        </member>
+        <member name="M:org.flixel.FlxSave.erase(System.UInt32)">
+            <summary>
+            Erases everything stored in the local shared object.
+            </summary>
+            <param name="MinFileSize">If you need X amount of space for your save, specify it here.</param>
+            <returns>Whether or not the clear and flush was successful.</returns>
+        </member>
+        <member name="M:org.flixel.FlxSave.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            X-flixel only.
+            </summary>
+            <param name="gameTime"></param>
+        </member>
+        <member name="P:org.flixel.FlxSave.waitingOnDeviceSelector">
+            <summary>
+            X-flixel only.
+            </summary>
+        </member>
+        <member name="T:org.flixel.FlxSaveData">
+            <summary>
+            FlxSaveData
+            </summary>
+        </member>
+        <member name="T:org.flixel.FlxPause">
+            <summary>
+            pause overlay used for when the game is inactive or
+            has been manually paused.
+            </summary>
+        </member>
+        <member name="T:org.flixel.FlxList">
+            <summary>
+            The world's smallest linked list class.
+            Useful for optimizing time-critical or highly repetitive tasks!
+            See <code>FlxQuadTree</code> for how to use it, IF YOU DARE.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxList.object">
+            <summary>
+            Stores a reference to a <code>FlxObject</code>.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxList.next">
+            <summary>
+            Stores a reference to the next link in the list.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:org.flixel.FlxList.#ctor" -->
+        <member name="T:XNAMode.PlayState">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:XNAMode.MenuState">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:org.flixel.FlxJustification">
+            <summary>
+            @benbaird justification uses this enum in X-flixel, rather than a string
+            
+            Left = 0,
+            Right = 1,
+            Center = 2
+            </summary>
+        </member>
+        <member name="T:org.flixel.FlxText">
+            <summary>
+            Extends <code>FlxSprite</code> to support rendering text.
+            Can tint, fade, rotate and scale just like a sprite.
+            Doesn't really animate though, as far as I know.
+            Also does nice pixel-perfect centering on pixel fonts
+            as long as they are only one liners.
+            
+            FlxText's internal implementation in X-flixel hasn't
+            changed drastically from its v1.25 debut. The primary
+            modifications are to its public interface in order
+            to align it with AS3 flixel.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxText.autoSize">
+            <summary>
+            @benbaird X-flixel only
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxText.#ctor(System.Single,System.Single,System.Single)">
+            <summary>
+            Creates a new <code>FlxText</code> object at the specified position.
+            </summary>
+            <param name="X">The X position of the text.</param>
+            <param name="Y">The Y position of the text.</param>
+            <param name="Width">The width of the text object (height is determined automatically).</param>
+        </member>
+        <member name="M:org.flixel.FlxText.#ctor(System.Single,System.Single,System.Single,System.String)">
+            <summary>
+            Creates a new <code>FlxText</code> object at the specified position.
+            </summary>
+            <param name="X">The X position of the text.</param>
+            <param name="Y">The Y position of the text.</param>
+            <param name="Width">The width of the text object (height is determined automatically).</param>
+            <param name="Text">The actual text you would like to display initially.</param>
+        </member>
+        <member name="M:org.flixel.FlxText.constructor(System.Single,System.Single,System.Single,System.Single,System.String,Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Graphics.SpriteFont,System.Single,org.flixel.FlxJustification,System.Single)">
+            <summary>
+            Creates a new <code>FlxText</code> object at the specified position.
+            </summary>
+            <param name="X">The X position of the text.</param>
+            <param name="Y">The Y position of the text.</param>
+            <param name="Width">The width of the text object (height is determined automatically).</param>
+            <param name="Height"></param>
+            <param name="sText"></param>
+            <param name="cColor"></param>
+            <param name="fFont"></param>
+            <param name="fScale"></param>
+            <param name="fJustification"></param>
+            <param name="fAngle"></param>
+        </member>
+        <member name="M:org.flixel.FlxText.setFormat(Microsoft.Xna.Framework.Graphics.SpriteFont,System.Single,Microsoft.Xna.Framework.Color,org.flixel.FlxJustification,Microsoft.Xna.Framework.Color)">
+            <summary>
+            You can use this if you have a lot of text parameters
+            to set instead of the individual properties.
+            </summary>
+            <param name="Font">The name of the font face for the text display.</param>
+            <param name="Scale">The scale of the font (in AS3 flixel, this is Size)</param>
+            <param name="Color">The color of the text in traditional flash 0xRRGGBB format.</param>
+            <param name="Alignment">A string representing the desired alignment ("left,"right" or "center").</param>
+            <param name="ShadowColor">A uint representing the desired text shadow color in flash 0xRRGGBB format.</param>
+            <returns>This FlxText instance (nice for chaining stuff together, if you're into that).</returns>
+        </member>
+        <member name="F:org.flixel.FlxText.alignment">
+            <summary>
+            The alignment of the font ("left", "right", or "center").
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxText.shadow">
+            <summary>
+            The color of the text's shadow.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxText.backColor">
+            <summary>
+            The color of the background behind the text (X-flixel only).
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxText.recalcMeasurements">
+            <summary>
+            @benbaird X-flixel only. Used to ensure the textWidth and textHeight properties
+            are always up to date.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxText.render(Microsoft.Xna.Framework.Graphics.SpriteBatch)">
+            <summary>
+            Called by the game loop automatically, blits the text object to the screen
+            </summary>
+            <param name="spriteBatch"></param>
+        </member>
+        <member name="P:org.flixel.FlxText.text">
+            <summary>
+            The text being displayed.
+            </summary>
+        </member>
+        <member name="P:org.flixel.FlxText.scale">
+            <summary>
+            The size of the text being displayed.
+            </summary>
+        </member>
+        <member name="P:org.flixel.FlxText.font">
+            <summary>
+            The font used for this text.
+            </summary>
+        </member>
+        <member name="T:org.flixel.FlxAnimationCallback">
+            <summary>
+            Call back for when animations finish.
+            </summary>
+            <param name="Name">name of the call back</param>
+            <param name="Frame">frame to call back on</param>
+            <param name="FrameIndex">Frame index ?</param>
+        </member>
+        <member name="T:org.flixel.FlxG">
+            <summary>
+            This is a global helper class full of useful functions for audio,
+            input, basic info, and the camera system among other things.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG._content">
+            <summary>
+            Content Manager
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.LIBRARY_NAME">
+            <summary>
+            If you build and maintain your own version of flixel,
+            you can give it your own name here.  Appears in the console.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.LIBRARY_MAJOR_VERSION">
+            <summary>
+            Assign a major version to your library.
+            Appears before the decimal in the console.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.LIBRARY_MINOR_VERSION">
+            <summary>
+            Assign a minor version to your library.
+            Appears after the decimal in the console.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:org.flixel.FlxG._game" -->
+        <member name="F:org.flixel.FlxG._pause">
+            <summary>
+            Internal tracker for game pause state.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.debug">
+            <summary>
+            Whether you are running in Debug or Release mode.
+            Set automatically by <code>FlxFactory</code> during startup.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.showBounds">
+            <summary>
+            Set <code>showBounds</code> to true to display the bounding boxes of the in-game objects.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.elapsedAsGameTime">
+            <summary>
+            Elapsed as a gametime
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.elapsed">
+            <summary>
+             Represents the amount of time in seconds that passed since last frame.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.getTimer">
+            <summary>
+            @benbaird compatibility with AS3's getTimer()
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.maxElapsed">
+            <summary>
+            Essentially locks the framerate to a minimum value - any slower and you'll get slowdown instead of frameskip; default is 1/30th of a second.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.timeScale">
+            <summary>
+            How fast or slow time should pass in the game; default is 1.0.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.width">
+            <summary>
+            The width of the screen in game pixels.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.height">
+            <summary>
+            The height of the screen in game pixels.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.backColor">
+            <summary>
+            BG color
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.mobile">
+            <summary>
+            Setting this to true will disable/skip stuff that isn't necessary for mobile platforms like Android (or Windows Phone 7). [BETA]
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.levels">
+            <summary>
+            <code>FlxG.levels</code> and <code>FlxG.scores</code> are generic
+            global variables that can be used for various cross-state stuff.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.scores">
+            <summary>
+            <code>FlxG.levels</code> and <code>FlxG.scores</code> are generic
+            global variables that can be used for various cross-state stuff.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.username">
+            <summary>
+            Stores the players username, 
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.saves">
+            <code>FlxG.saves</code> is a generic bucket for storing
+            FlxSaves so you can access them whenever you want.
+        </member>
+        <member name="F:org.flixel.FlxG._scale">
+            <summary>
+            @benbaird X-flixel only. Returns the scale of the screen size in comparison to the actual game size.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.mouse">
+            <summary>
+            A reference to a <code>FlxMouse</code> object.  Important for input!
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.keys">
+            <summary>
+             A reference to a <code>FlxKeyboard</code> object.  Important for input!
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.gamepads">
+            <summary>
+            An array of <code>FlxGamepad</code> objects.  Important for input!
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.music">
+            <summary>
+            A handy container for a background music object.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.sounds">
+            <summary>
+            A list of all the sounds being played in the game.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG._mute">
+            <summary>
+            Internal flag for whether or not the game is muted.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG._volume">
+            <summary>
+            Internal volume level, used for global sound control.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.angle">
+            <summary>
+            Adjusts the angle of the entire game.
+            Not working since moving to 3x pixel size.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.followTarget">
+            <summary>
+            Tells the camera to follow this <code>FlxCore</code> object around.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.followLead">
+            <summary>
+            Used to force the camera to look ahead of the <code>followTarget</code>.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.followLerp">
+            <summary>
+            Used to smoothly track the camera as it follows.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.followMin">
+            <summary>
+            Stores the top and left edges of the camera area.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.followMax">
+            <summary>
+            Stores the bottom and right edges of the camera area.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG._scrollTarget">
+            <summary>
+            Internal, used to assist camera and scrolling.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.scroll">
+            <summary>
+            Stores the basic parallax scrolling values.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.quake">
+            <summary>
+            A special effect that shakes the screen.  Usage: FlxG.quake.start();
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.flash">
+            <summary>
+            A special effect that flashes a color on the screen.  Usage: FlxG.flash.start();
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.fade">
+            <summary>
+            A special effect that fades a color onto the screen.  Usage: FlxG.fade.start();
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxG.transition">
+            <summary>
+            Does a checkboard transition.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxG.log(System.String)">
+            <summary>
+            Log data to the developer console.
+            </summary>
+            <param name="Data">Anything you want to log to the console.</param>
+        </member>
+        <member name="M:org.flixel.FlxG.showHud">
+            <summary>
+            public access to showing the hud
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxG.hideHud">
+            <summary>
+            public access to hiding the hud
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxG.setHudText(System.Int32,System.String)">
+            <summary>
+            Set's the hud text to, for the player number
+            </summary>
+            <param name="Player">Number of the player you want the hud text to be.</param>
+            <param name="Data">String to enter.</param>
+        </member>
+        <member name="F:org.flixel.FlxG.autoHandlePause">
+            <summary>
+            @benbaird Begin XNA-specific public static properties
+            
+            whether to automatically handle user pause requests. Typically you'd set this to true only for gameplay states, and set to false for all others (menus, etc.)
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxG.LoadContent(Microsoft.Xna.Framework.Graphics.GraphicsDevice)">
+            <summary>
+            Load Content
+            </summary>
+            <param name="gd"> Graphics device. </param>
+        </member>
+        <member name="M:org.flixel.FlxG.resetInput">
+            <summary>
+            Reset the input helper objects (useful when changing screens or states)
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxG.playMusic(System.String)">
+            <summary>
+            Set up and play a looping background soundtrack.
+            </summary>
+            <param name="Music">The sound file you want to loop in the background.</param>
+        </member>
+        <member name="M:org.flixel.FlxG.playMusic(System.String,System.Single)">
+            <summary>
+            Set up and play a looping background soundtrack.
+            </summary>
+            <param name="Music">The sound file you want to loop in the background.</param>
+            <param name="Volume">How loud the sound should be, from 0 to 1.</param>
+        </member>
+        <member name="M:org.flixel.FlxG.play(System.String)">
+            <summary>
+            Creates a new sound object from an embedded <code>Class</code> object.
+            </summary>
+            <param name="EmbeddedSound">The sound you want to play.</param>
+            <returns>A <code>FlxSound</code> object.</returns>
+        </member>
+        <member name="M:org.flixel.FlxG.play(System.String,System.Single)">
+            <summary>
+            Creates a new sound object from an embedded <code>Class</code> object.
+            </summary>
+            <param name="EmbeddedSound">The sound you want to play.</param>
+            <param name="Volume">How loud to play it (0 to 1).</param>
+            <returns>A <code>FlxSound</code> object.</returns>
+        </member>
+        <member name="M:org.flixel.FlxG.play(System.String,System.Single,System.Boolean)">
+            <summary>
+            Creates a new sound object from an embedded <code>Class</code> object.
+            </summary>
+            <param name="EmbeddedSound">The sound you want to play.</param>
+            <param name="Volume">How loud to play it (0 to 1).</param>
+            <param name="Looped">Whether or not to loop this sound.</param>
+            <returns>A <code>FlxSound</code> object.</returns>
+        </member>
+        <member name="M:org.flixel.FlxG.getMuteValue">
+            <summary>
+            Get a number that represents the mute state that we can multiply into a sound transform.
+            </summary>
+            <returns>An unsigned integer - 0 if muted, 1 if not muted.</returns>
+        </member>
+        <member name="M:org.flixel.FlxG.destroySounds(System.Boolean)">
+            <summary>
+            Called by FlxGame on state changes to stop and destroy sounds.
+            </summary>
+            <param name="ForceDestroy">Kill sounds even if they're flagged <code>survive</code>.</param>
+        </member>
+        <member name="M:org.flixel.FlxG.changeSounds">
+            <summary>
+            An internal function that adjust the volume levels and the music channel after a change.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxG.updateSounds">
+            <summary>
+            Called by the game loop to make sure the sounds get updated each frame.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxG.pauseSounds">
+            <summary>
+            Internal helper, pauses all game sounds.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxG.playSounds">
+            <summary>
+            Internal helper, pauses all game sounds.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxG.follow(org.flixel.FlxObject,System.Single)">
+            <summary>
+            Tells the camera subsystem what FlxCore object to follow
+            </summary>
+            <param name="Target">The object to follow</param>
+            <param name="Lerp">How much lag the camera should have (can help smooth out the camera movement)</param>
+        </member>
+        <member name="M:org.flixel.FlxG.followAdjust(System.Single,System.Single)">
+            <summary>
+            Specify an additional camera component - the velocity-based "lead", or amount the camera should track in front of a sprite
+            </summary>
+            <param name="LeadX">Percentage of X velocity to add to the camera's motion</param>
+            <param name="LeadY">Percentage of Y velocity to add to the camera's motion</param>
+        </member>
+        <member name="M:org.flixel.FlxG.followBounds(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Specify the boundaries of the level or where the camera is allowed to move.
+            </summary>
+            <param name="MinX">The smallest X value of your level (usually 0).</param>
+            <param name="MinY">The smallest Y value of your level (usually 0).</param>
+            <param name="MaxX">The largest X value of your level (usually the level width).</param>
+            <param name="MaxY">The largest Y value of your level (usually the level height).</param>
+        </member>
+        <member name="M:org.flixel.FlxG.followBounds(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Specify the boundaries of the level or where the camera is allowed to move.
+            </summary>
+            <param name="MinX">The smallest X value of your level (usually 0).</param>
+            <param name="MinY">The smallest Y value of your level (usually 0).</param>
+            <param name="MaxX">The largest X value of your level (usually the level width).</param>
+            <param name="MaxY">The largest Y value of your level (usually the level height).</param>
+            <param name="UpdateWorldBounds">Whether the quad tree's dimensions should be updated to match.</param>
+        </member>
+        <member name="M:org.flixel.FlxG.unfollow">
+            <summary>
+            Stops and resets the camera.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxG.setGameData(org.flixel.FlxGame,System.Int32,System.Int32)">
+            <summary>
+            Called by <code>FlxGame</code> to set up <code>FlxG</code> during <code>FlxGame</code>'s constructor.
+            </summary>
+            <param name="Game">Game</param>
+            <param name="Width">W</param>
+            <param name="Height">H</param>
+        </member>
+        <member name="M:org.flixel.FlxG.doFollow">
+            <summary>
+            Internal function that updates the camera and parallax scrolling.
+            </summary>
+        </member>
+        <member name="P:org.flixel.FlxG.state">
+            <summary>
+            A reference or pointer to the current FlxState object being used by the game
+            </summary>
+        </member>
+        <member name="P:org.flixel.FlxG.controllingPlayer">
+            <summary>
+            @benbaird Used for compatibility with Xbox input standards
+            </summary>
+        </member>
+        <member name="P:org.flixel.FlxG.pause">
+            <summary>
+            Set <code>pause</code> to true to pause the game, all sounds, and display the pause popup.
+            </summary>
+        </member>
+        <member name="P:org.flixel.FlxG.Content">
+            <summary>
+            Content manager
+            </summary>
+        </member>
+        <member name="P:org.flixel.FlxG.mute">
+            <summary>
+            Set <code>mute</code> to true to turn off the sound.
+            
+            default = false;
+            </summary>
+        </member>
+        <member name="P:org.flixel.FlxG.volume">
+            <summary>
+            Volume control.
+            </summary>
+        </member>
+        <member name="T:org.flixel.FlxEmitter">
+            <summary>
+            <code>FlxEmitter</code> is a lightweight particle emitter.
+            It can be used for one-time explosions or for
+            continuous fx like rain and fire.  <code>FlxEmitter</code>
+            is not optimized or anything; all it does is launch
+            <code>FlxSprite</code> objects out at set intervals
+            by setting their positions and velocities accordingly.
+            It is easy to use and relatively efficient, since it
+            automatically redelays its sprites and/or kills
+            them once they've been launched.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxEmitter.minParticleSpeed">
+            <summary>
+            The minimum possible velocity of a particle.
+            The default value is (-100,-100).
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxEmitter.maxParticleSpeed">
+            <summary>
+            The maximum possible velocity of a particle.
+            The default value is (100,100).
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxEmitter.particleDrag">
+            <summary>
+            The X and Y drag component of particles launched from the emitter.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxEmitter.minRotation">
+            <summary>
+            The minimum possible angular velocity of a particle.  The default value is -360.
+            NOTE: rotating particles are more expensive to draw than non-rotating ones!
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxEmitter.maxRotation">
+            <summary>
+            The maximum possible angular velocity of a particle.  The default value is 360.
+            NOTE: rotating particles are more expensive to draw than non-rotating ones!
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxEmitter.gravity">
+            <summary>
+            Sets the <code>acceleration.y</code> member of each particle to this value on launch.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxEmitter.on">
+            <summary>
+            Determines whether the emitter is currently emitting particles.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxEmitter.delay">
+            <summary>
+            This variable has different effects depending on what kind of emission it is.
+            During an explosion, delay controls the lifespan of the particles.
+            During normal emission, delay controls the time between particle launches.
+            NOTE: In older builds, polarity (negative numbers) was used to define emitter behavior.
+            THIS IS NO LONGER THE CASE!  FlxEmitter.start() controls that now!
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxEmitter.quantity">
+            <summary>
+            The number of particles to launch at a time.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxEmitter.justEmitted">
+            <summary>
+            Checks whether you already fired a particle this frame.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxEmitter._explode">
+            <summary>
+            The style of particle emission (all at once, or one at a time).
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxEmitter._timer">
+            <summary>
+            Internal helper for deciding when to launch particles or kill them.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxEmitter._particle">
+            <summary>
+            Internal marker for where we are in <code>_sprites</code>.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxEmitter._counter">
+            <summary>
+            Internal counter for figuring out how many particles to launch.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxEmitter.#ctor">
+            <summary>
+            Creates a new <code>FlxEmitter</code> object at a specific position.
+            Does not automatically generate or attach particles!
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxEmitter.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Creates a new <code>FlxEmitter</code> object at a specific position.
+            Does not automatically generate or attach particles!
+            </summary>
+            <param name="X">The X position of the emitter.</param>
+            <param name="Y">The Y position of the emitter.</param>
+        </member>
+        <member name="M:org.flixel.FlxEmitter.constructor(System.Int32,System.Int32)">
+            <summary>
+            Creates a new <code>FlxEmitter</code> object at a specific position.
+            Does not automatically generate or attach particles!
+            </summary>
+            <param name="X">The X position of the emitter.</param>
+            <param name="Y">The Y position of the emitter.</param>
+        </member>
+        <member name="M:org.flixel.FlxEmitter.createSprites(Microsoft.Xna.Framework.Graphics.Texture2D,System.Int32)">
+            <summary>
+            This function generates a new array of sprites to attach to the emitter.
+            </summary>
+            <param name="Graphics">If you opted to not pre-configure an array of FlxSprite objects, you can simply pass in a particle image or sprite sheet.</param>
+            <param name="Quantity">The number of particles to generate when using the "create from image" option.</param>
+            <param name="Multiple">Whether the image in the Graphics param is a single particle or a bunch of particles (if it's a bunch, they need to be square!).</param>
+            <returns>This FlxEmitter instance (nice for chaining stuff together, if you're into that).</returns>
+        </member>
+        <member name="M:org.flixel.FlxEmitter.createSprites(Microsoft.Xna.Framework.Graphics.Texture2D,System.Int32,System.Boolean)">
+            <summary>
+            This function generates a new array of sprites to attach to the emitter.
+            </summary>
+            <param name="Graphics">If you opted to not pre-configure an array of FlxSprite objects, you can simply pass in a particle image or sprite sheet.</param>
+            <param name="Quantity">The number of particles to generate when using the "create from image" option.</param>
+            <param name="Multiple">Whether the image in the Graphics param is a single particle or a bunch of particles (if it's a bunch, they need to be square!).</param>
+            <returns>This FlxEmitter instance (nice for chaining stuff together, if you're into that).</returns>
+        </member>
+        <member name="M:org.flixel.FlxEmitter.createSprites(Microsoft.Xna.Framework.Graphics.Texture2D,System.Int32,System.Boolean,System.Single,System.Single)">
+            <summary>
+            This function generates a new array of sprites to attach to the emitter.
+            </summary>
+            <param name="Graphics">If you opted to not pre-configure an array of FlxSprite objects, you can simply pass in a particle image or sprite sheet.</param>
+            <param name="Quantity">The number of particles to generate when using the "create from image" option.</param>
+            <param name="Multiple">Whether the image in the Graphics param is a single particle or a bunch of particles (if it's a bunch, they need to be square!).</param>
+            <param name="Collide">Whether the particles should be flagged as not 'dead' (non-colliding particles are higher performance).  0 means no collisions, 0-1 controls scale of particle's bounding box.</param>
+            <param name="Bounce">Whether the particles should bounce after colliding with things.  0 means no bounce, 1 means full reflection.</param>
+            <returns>This FlxEmitter instance (nice for chaining stuff together, if you're into that).</returns>
+        </member>
+        <member name="M:org.flixel.FlxEmitter.setSize(System.Int32,System.Int32)">
+            <summary>
+            A more compact way of setting the width and height of the emitter.
+            </summary>
+            <param name="Width">The desired width of the emitter (particles are spawned randomly within these dimensions).</param>
+            <param name="Height">The desired height of the emitter.</param>
+        </member>
+        <member name="M:org.flixel.FlxEmitter.setXSpeed">
+            <summary>
+            A more compact way of setting the X velocity range of the emitter.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxEmitter.setXSpeed(System.Single,System.Single)">
+            <summary>
+            A more compact way of setting the X velocity range of the emitter.
+            </summary>
+            <param name="Min">The minimum value for this range.</param>
+            <param name="Max">The maximum value for this range.</param>
+        </member>
+        <member name="M:org.flixel.FlxEmitter.setYSpeed">
+            <summary>
+            A more compact way of setting the Y velocity range of the emitter.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxEmitter.setYSpeed(System.Single,System.Single)">
+            <summary>
+            A more compact way of setting the Y velocity range of the emitter.
+            </summary>
+            <param name="Min">The minimum value for this range.</param>
+            <param name="Max">The maximum value for this range.</param>
+        </member>
+        <member name="M:org.flixel.FlxEmitter.setRotation">
+            <summary>
+            A more compact way of setting the angular velocity constraints of the emitter.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxEmitter.setRotation(System.Single,System.Single)">
+            <summary>
+            A more compact way of setting the angular velocity constraints of the emitter.
+            </summary>
+            <param name="Min">The minimum value for this range.</param>
+            <param name="Max">The maximum value for this range.</param>
+        </member>
+        <member name="M:org.flixel.FlxEmitter.updateEmitter">
+            <summary>
+            Internal function that actually performs the emitter update (called by update()).
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxEmitter.updateMembers">
+            <summary>
+            Internal function that actually goes through and updates all the group members.
+            Overridden here to remove the position update code normally used by a FlxGroup.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxEmitter.update">
+            <summary>
+            Called automatically by the game loop, decides when to launch particles and when to "die".
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxEmitter.start">
+            <summary>
+            Call this function to start emitting particles.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxEmitter.start(System.Boolean,System.Single)">
+            <summary>
+            Call this function to start emitting particles.
+            </summary>
+            <param name="Explode">Whether the particles should all burst out at once.</param>
+            <param name="Delay">You can set the delay (or lifespan) here if you want.</param>
+        </member>
+        <member name="M:org.flixel.FlxEmitter.start(System.Boolean,System.Single,System.Int32)">
+            <summary>
+            Call this function to start emitting particles.
+            </summary>
+            <param name="Explode">Whether the particles should all burst out at once.</param>
+            <param name="Delay">You can set the delay (or lifespan) here if you want.</param>
+            <param name="Quantity">How many particles to launch.  Default value is 0, or "all the particles".</param>
+        </member>
+        <member name="M:org.flixel.FlxEmitter.emitParticle">
+            <summary>
+            This function can be used both internally and externally to emit the next particle.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxEmitter.stop">
+            <summary>
+            Call this function to stop the emitter without killing it.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxEmitter.stop(System.Single)">
+            <summary>
+            Call this function to stop the emitter without killing it.
+            </summary>
+            <param name="Delay">How long to wait before killing all the particles.  Set to 'zero' to never kill them.</param>
+        </member>
+        <member name="M:org.flixel.FlxEmitter.at(org.flixel.FlxObject)">
+            <summary>
+            Change the emitter's position to the origin of a <code>FlxObject</code>.
+            </summary>
+            <param name="Object">The <code>FlxObject</code> that needs to emit particles.</param>
+        </member>
+        <member name="M:org.flixel.FlxEmitter.kill">
+            <summary>
+            Call this function to turn off all the particles and the emitter.
+            </summary>
+        </member>
+        <member name="T:org.flixel.FlxTransition">
+            <summary>
+            Written by @initials_games
+            Replicates the Mario diamond transitions.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxTransition.createSprites(Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Color,System.Int32,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Single)">
+            <summary>
+            
+            </summary>
+            <param name="Graphics"></param>
+            <param name="color"></param>
+            <param name="rows"></param>
+            <param name="cols"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="angle"></param>
+            <param name="angularVelocity"></param>
+            <param name="speed">Speed 0.001 is slow. 1 = transition over 1 frame.</param>
+            <returns></returns>
+        </member>
+        <member name="M:org.flixel.FlxTransition.startFadeOut(System.Single,System.Single,System.Single)">
+            <summary>
+            Starts the fade out process, all sprites start at zero scale.
+            </summary>
+            <param name="speed"></param>
+            <param name="Angle"></param>
+            <param name="AngularVelocity"></param>
+        </member>
+        <member name="T:org.flixel.FlxButton">
+            <summary>
+            A simple button class that calls a function when clicked by the mouse.
+            Supports labels, highlight states, and parallax scrolling.
+            
+            Supports controller buttons A B X Y
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxButton.pauseProof">
+            <summary>
+            Set this to true if you want this button to function even while the game is paused.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxButton._onToggle">
+            <summary>
+            Used for checkbox-style behavior.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxButton._off">
+            <summary>
+            Stores the 'off' or normal button state graphic.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxButton._on">
+            <summary>
+            Stores the 'on' or highlighted button state graphic.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxButton._offT">
+            <summary>
+            Stores the 'off' or normal button state label.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxButton._onT">
+            <summary>
+            Stores the 'on' or highlighted button state label.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxButton._controllerButton">
+            <summary>
+            holds the controller button graphic
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxButton._controllerButtonIndex">
+            <summary>
+            Holds the controller button that can activate the button.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxButton._callback">
+            <summary>
+            This function is called when the button is clicked.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxButton._pressed">
+            <summary>
+            Tracks whether or not the button is currently pressed.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxButton._initialized">
+            <summary>
+            Whether or not the button has initialized itself yet.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxButton._sf">
+            <summary>
+            Helper variable for correcting its members' <code>scrollFactor</code> objects.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxButton.#ctor(System.Int32,System.Int32,org.flixel.FlxButtonClick)">
+            <summary>
+            Creates a new <code>FlxButton</code> object with a gray background
+            and a callback function on the UI thread.
+            </summary>
+            <param name="X">The X position of the button.</param>
+            <param name="Y">The Y position of the button.</param>
+            <param name="Callback">The function to call whenever the button is clicked.</param>
+        </member>
+        <member name="M:org.flixel.FlxButton.#ctor(System.Int32,System.Int32,org.flixel.FlxButtonClick,System.Int32)">
+            <summary>
+            Creates a new <code>FlxButton</code> object with a gray background
+            and a callback function on the UI thread.
+            Also appends a GamePad symbol to allow for using a gamepad to select the menu.
+            </summary>
+            <param name="X">The X position of the button.</param>
+            <param name="Y">The Y position of the button.</param>
+            <param name="Callback">The function to call whenever the button is clicked.</param>
+            <param name="Button">Button number. Uses FlxButton.ControlPad** to select a button</param>
+        </member>
+        <member name="M:org.flixel.FlxButton.loadGraphic(org.flixel.FlxSprite,org.flixel.FlxSprite)">
+            <summary>
+            Set your own image as the button background.
+            </summary>
+            <param name="Image">A FlxSprite object to use for the button background.</param>
+            <param name="ImageHighlight">A FlxSprite object to use for the button background when highlighted (optional).</param>
+            <returns>This FlxButton instance (nice for chaining stuff together, if you're into that).</returns>
+        </member>
+        <member name="M:org.flixel.FlxButton.loadText(org.flixel.FlxText,org.flixel.FlxText)">
+            <summary>
+            Add a text label to the button.
+            </summary>
+            <param name="Text">A FlxText object to use to display text on this button (optional).</param>
+            <param name="TextHighlight">A FlxText object that is used when the button is highlighted (optional).</param>
+            <returns>This FlxButton instance (nice for chaining stuff together, if you're into that).</returns>
+        </member>
+        <member name="M:org.flixel.FlxButton.update">
+            <summary>
+            Called by the game loop automatically, handles mouseover and click detection.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxButton.destroy">
+            <summary>
+            Called by the game state when state is changed (if this object belongs to the state)
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxButton.render(Microsoft.Xna.Framework.Graphics.SpriteBatch)">
+            <summary>
+            Render
+            </summary>
+            <param name="spriteBatch"></param>
+        </member>
+        <member name="M:org.flixel.FlxButton.visibility(System.Boolean)">
+            <summary>
+            Internal function for handling the visibility of the off and on graphics.
+            </summary>
+            <param name="On">Whether the button should be on or off.</param>
+        </member>
+        <member name="M:org.flixel.FlxButton.onMouseUp(System.Object,org.flixel.FlxMouseEvent)">
+            <summary>
+            Internal function for handling the actual callback call (for UI thread dependent calls like <code>FlxU.openURL()</code>).
+            </summary>
+            <param name="Sender">Sender</param>
+            <param name="MouseEvent">Mouse Event</param>
+        </member>
+        <member name="P:org.flixel.FlxButton.on">
+            <summary>
+            Use this to toggle checkbox-style behavior.
+            </summary>
+        </member>
+        <member name="T:org.flixel.FlxLogoPixel">
+            <summary>
+            Used for the opening Splash Screen: FlxSplash.
+            </summary>
+        </member>
+        <member name="T:org.flixel.FlxAnim">
+            <summary>
+            Just a helper structure for the FlxSprite animation system
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxAnim.name">
+            <summary>
+            Name of the animation as a string.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxAnim.delay">
+            <summary>
+            Frame rate.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxAnim.frames">
+            <summary>
+            Frame number sequence.
+            Usage: new int[] {0,1,2,3,4,5,6,7,8,9 }
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxAnim.looped">
+            <summary>
+            Whether to loop or not.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxAnim.#ctor(System.String,System.Int32[],System.Int32,System.Boolean)">
+            <summary>
+            FlxAnim stores an animation.
+            </summary>
+            <param name="Name">What this animation should be called (e.g. "run")</param>
+            <param name="Frames">An array of numbers indicating what frames to play in what order (e.g. 1, 2, 3)</param>
+            <param name="FrameRate">The speed in frames per second that the animation should play at (e.g. 40 fps)</param>
+            <param name="Looped">Whether or not the animation is looped or just plays once</param>
+        </member>
+        <member name="M:org.flixel.FlxAnim.#ctor(System.String,System.Int32[],System.Int32)">
+            <summary>
+            Constructor overloads
+            </summary>
+            <param name="Name"></param>
+            <param name="Frames"></param>
+            <param name="FrameRate"></param>
+        </member>
+        <member name="M:org.flixel.FlxAnim.#ctor(System.String,System.Int32[])">
+            <summary>
+            Constructor overloads
+            </summary>
+            <param name="Name"></param>
+            <param name="Frames"></param>
+        </member>
+        <member name="T:org.flixel.FlxHud">
+            <summary>
+            Contains the hud that is non scaled.
+            Can be used to displayed non scaled graphics.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxHud.setHudText(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="player"></param>
+            <param name="Data"></param>
+        </member>
+        <member name="M:org.flixel.FlxHud.showHud">
+            <summary>
+            Shows the Hud
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxHud.hideHud">
+            <summary>
+            Hides the Hud
+            /// </summary>
+        </member>
+        <member name="M:org.flixel.FlxHud.update">
+            <summary>
+            Left over from FlxConsole
+            </summary>
+        </member>
+        <member name="T:XNAMode.XMLPlayState">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxU._randglobal">
+            <summary>
+            Replacement for AS3's Math.random() method
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxU.roundingError">
+            <summary>
+            Helps to eliminate false collisions and/or rendering glitches caused by rounding errors
+            Rounding error is actually 0.0000001f in AS3 flixel, but doesn't work correctly
+            here because we don't use double-precision floats.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxU.quadTree">
+            <summary>
+            The last quad tree you generated will be stored here for reference or whatever.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxU.openURL(System.String)">
+            <summary>
+            Opens a web page in a new tab or window.
+            </summary>
+            <param name="URL">The address of the web page.</param>
+        </member>
+        <member name="M:org.flixel.FlxU.abs(System.Single)">
+            <summary>
+            Absolute value.
+            </summary>
+            <param name="N">Value to find absolute value of.</param>
+            <returns>The absolute value of N</returns>
+        </member>
+        <member name="M:org.flixel.FlxU.floor(System.Single)">
+            <summary>
+            Map a number to the nearest lowest real number.
+            </summary>
+            <param name="N">N</param>
+            <returns>The floor of N</returns>
+        </member>
+        <member name="M:org.flixel.FlxU.ceil(System.Single)">
+            <summary>
+            Map a number to the nearest highest real number.
+            </summary>
+            <param name="N">N</param>
+            <returns>The ceiling of N</returns>
+        </member>
+        <member name="M:org.flixel.FlxU.min(System.Single,System.Single)">
+            <summary>
+            Min of two numbers
+            </summary>
+            <param name="N1">N1</param>
+            <param name="N2">N2</param>
+            <returns>The Min</returns>
+        </member>
+        <member name="M:org.flixel.FlxU.max(System.Single,System.Single)">
+            <summary>
+            The Max of two numbers
+            </summary>
+            <param name="N1"></param>
+            <param name="N2"></param>
+            <returns>Maximum value</returns>
+        </member>
+        <member name="M:org.flixel.FlxU.random">
+            <summary>
+            Generates a random number.  NOTE: To create a series of predictable
+            random numbers, add the random number you generate each time
+            to the <code>Seed</code> value before calling <code>random()</code> again.
+            </summary>
+            <returns>A <code>Number</code> between 0 and 1.</returns>
+        </member>
+        <member name="M:org.flixel.FlxU.random(System.Single)">
+            <summary>
+            Generates a random number.  NOTE: To create a series of predictable
+            random numbers, add the random number you generate each time
+            to the <code>Seed</code> value before calling <code>random()</code> again.
+            </summary>
+            <param name="Seed">A user-provided value used to calculate a predictable random number.</param>
+            <returns>A <code>Number</code> between 0 and 1.</returns>
+        </member>
+        <member name="M:org.flixel.FlxU.startProfile">
+            <summary>
+            Useful for finding out how long it takes to execute specific blocks of code.
+            </summary>
+            <returns>A <code>uint</code> to be passed to <code>FlxU.endProfile()</code>.</returns>
+        </member>
+        <member name="M:org.flixel.FlxU.endProfile(System.UInt32,System.String,System.Boolean)">
+            <summary>
+            Useful for finding out how long it takes to execute specific blocks of code.
+            
+            </summary>
+            <param name="Start">A <code>uint</code> created by <code>FlxU.startProfile()</code>.</param>
+            <param name="Name">Optional tag (for debug console display).  Default value is "Profiler".</param>
+            <param name="Log">Whether or not to log this elapsed time in the debug console.</param>
+            <returns>A <code>uint</code> to be passed to <code>FlxU.endProfile()</code>.</returns>
+        </member>
+        <member name="M:org.flixel.FlxU.rotatePoint(System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Rotates a point in 2D space around another point by the given angle.
+            </summary>
+            <param name="X">The X coordinate of the point you want to rotate.</param>
+            <param name="Y">The Y coordinate of the point you want to rotate.</param>
+            <param name="PivotX">The X coordinate of the point you want to rotate around.</param>
+            <param name="PivotY">The Y coordinate of the point you want to rotate around.</param>
+            <param name="Angle">Rotate the point by this many degrees.</param>
+            <returns>A <code>FlxPoint</code> containing the coordinates of the rotated point.</returns>
+        </member>
+        <member name="M:org.flixel.FlxU.getAngle(System.Single,System.Single)">
+            <summary>
+            Calculates the angle between a point and the origin (0,0).
+            </summary>
+            <param name="X">The X coordinate of the point.</param>
+            <param name="Y">The Y coordinate of the point.</param>
+            <returns>The angle in degrees.</returns>
+        </member>
+        <member name="M:org.flixel.FlxU.getColor(System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+            Generate a Flash <code>uint</code> color from RGBA components.
+            </summary>
+            <param name="Red">The red component, between 0 and 255.</param>
+            <param name="Green">The green component, between 0 and 255.</param>
+            <param name="Blue">The blue component, between 0 and 255.</param>
+            <returns>The color as a <code>uint</code>.</returns>
+        </member>
+        <member name="M:org.flixel.FlxU.getColor(System.UInt32,System.UInt32,System.UInt32,System.Single)">
+            <summary>
+            Generate a Flash <code>uint</code> color from RGBA components.
+            </summary>
+            <param name="Red">The red component, between 0 and 255.</param>
+            <param name="Green">The green component, between 0 and 255.</param>
+            <param name="Blue">The blue component, between 0 and 255.</param>
+            <param name="Alpha"></param>
+            <returns>The color as a <code>uint</code>.</returns>
+        </member>
+        <member name="M:org.flixel.FlxU.getColorHSB(System.Single,System.Single,System.Single)">
+            <summary>
+            Generate a Flash <code>uint</code> color from HSB components.
+            </summary>
+            <param name="Hue">A number between 0 and 360, indicating position on a color strip or wheel.</param>
+            <param name="Saturation">A number between 0 and 1, indicating how colorful or gray the color should be.  0 is gray, 1 is vibrant.</param>
+            <param name="Brightness">A number between 0 and 1, indicating how bright the color should be.  0 is black, 1 is full bright.</param>
+            <returns>The color as a <code>uint</code>.</returns>
+        </member>
+        <member name="M:org.flixel.FlxU.getColorHSB(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Generate a Flash <code>uint</code> color from HSB components.
+            </summary>
+            <param name="Hue">A number between 0 and 360, indicating position on a color strip or wheel.</param>
+            <param name="Saturation">A number between 0 and 1, indicating how colorful or gray the color should be.  0 is gray, 1 is vibrant.</param>
+            <param name="Brightness">A number between 0 and 1, indicating how bright the color should be.  0 is black, 1 is full bright.</param>
+            <param name="Alpha">How opaque the color should be, either between 0 and 1 or 0 and 255.</param>
+            <returns>The color as a <code>uint</code>.</returns>
+        </member>
+        <member name="M:org.flixel.FlxU.getRGBA(System.UInt32,System.Collections.Generic.List{System.Object})">
+            <summary>
+            Loads an array with the RGBA values of a Flash <code>uint</code> color.
+            RGB values are stored 0-255.  Alpha is stored as a floating point number between 0 and 1. 
+            </summary>
+            <param name="Color">The color you want to break into components.</param>
+            <param name="Results">An optional parameter, allows you to use an array that already exists in memory to store the result.</param>
+            <returns>An <code>Array</code> object containing the Red, Green, Blue and Alpha values of the given color.</returns>
+        </member>
+        <member name="M:org.flixel.FlxU.getHSB(System.UInt32,System.Collections.Generic.List{System.Object})">
+            <summary>
+            Loads an array with the HSB values of a Flash <code>uint</code> color.
+            Hue is a value between 0 and 360.  Saturation, Brightness and Alpha
+            are as floating point numbers between 0 and 1.
+            </summary>
+            <param name="Color">The color you want to break into components.</param>
+            <param name="Results">An optional parameter, allows you to use an array that already exists in memory to store the result.</param>
+            <returns>An <code>Array</code> object containing the Red, Green, Blue and Alpha values of the given color.</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:org.flixel.FlxU.getClassName(System.Object,System.Boolean)" -->
+        <member name="M:org.flixel.FlxU.getClass(System.String)">
+            <summary>
+            Look up a <code>Class</code> object by its string name.
+            Not working in C#
+            </summary>
+            <param name="Name">Name	The <code>String</code> name of the <code>Class</code> you are interested in.</param>
+            <returns>A <code>Class</code> object.</returns>
+        </member>
+        <member name="M:org.flixel.FlxU.computeVelocity(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            A tween-like function that takes a starting velocity
+            and some other factors and returns an altered velocity.
+            </summary>
+            <param name="Velocity">Any component of velocity (e.g. 20).</param>
+            <param name="Acceleration">Rate at which the velocity is changing.</param>
+            <param name="Drag">Really kind of a deceleration, this is how much the velocity changes if Acceleration is not set.</param>
+            <param name="Max">An absolute value cap for the velocity.</param>
+            <returns>The altered Velocity value.</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:org.flixel.FlxU.setWorldBounds(System.Single,System.Single,System.Single,System.Single)" -->
+        <member name="M:org.flixel.FlxU.setWorldBounds(System.Single,System.Single,System.Single,System.Single,System.UInt32)">
+            <summary>
+            Call this function to specify a more efficient boundary for your game world.
+            This boundary is used by <code>overlap()</code> and <code>collide()</code>, so it
+            can't hurt to have it be the right size!  Flixel will invent a size for you, but
+            it's pretty huge - 256x the size of the screen, whatever that may be.
+            Leave width and height empty if you want to just update the game world's position.
+            </summary>
+            <param name="X">The X-coordinate of the left side of the game world.</param>
+            <param name="Y">The Y-coordinate of the top of the game world.</param>
+            <param name="Width">Desired width of the game world.</param>
+            <param name="Height">Desired height of the game world.</param>
+            <param name="Divisions">Pass a non-zero value to set <code>quadTreeDivisions</code>.  Default value is 3.</param>
+        </member>
+        <member name="M:org.flixel.FlxU.overlap(org.flixel.FlxObject,org.flixel.FlxObject,org.flixel.SpriteCollisionEvent)">
+            <summary>
+            Call this function to see if one <code>FlxObject</code> overlaps another.
+            Can be called with one object and one group, or two groups, or two objects,
+            whatever floats your boat!  It will put everything into a quad tree and then
+            check for overlaps.  For maximum performance try bundling a lot of objects
+            together using a <code>FlxGroup</code> (even bundling groups together!)
+            NOTE: does NOT take objects' scrollfactor into account.
+            </summary>
+            <param name="Object1">The first object or group you want to check.</param>
+            <param name="Object2">The second object or group you want to check.  If it is the same as the first, flixel knows to just do a comparison within that group.</param>
+            <param name="Callback">A function with two <code>FlxObject</code> parameters - e.g. <code>myOverlapFunction(Object1:FlxObject,Object2:FlxObject);</code>  If no function is provided, <code>FlxQuadTree</code> will call <code>kill()</code> on both objects.</param>
+            <returns>Whether an overlap has been found.</returns>
+        </member>
+        <member name="M:org.flixel.FlxU.collide(org.flixel.FlxObject,org.flixel.FlxObject)">
+            <summary>
+            Call this function to see if one <code>FlxObject</code> collides with another.
+            Can be called with one object and one group, or two groups, or two objects,
+            whatever floats your boat!  It will put everything into a quad tree and then
+            check for collisions.  For maximum performance try bundling a lot of objects
+            together using a <code>FlxGroup</code> (even bundling groups together!)
+            NOTE: does NOT take objects' scrollfactor into account.
+            </summary>
+            <param name="Object1">The first object or group you want to check.</param>
+            <param name="Object2">The second object or group you want to check.  If it is the same as the first, flixel knows to just do a comparison within that group.</param>
+            <returns>Whether you found a collide or not.</returns>
+        </member>
+        <member name="M:org.flixel.FlxU.solveXCollision(System.Object,org.flixel.FlxSpriteCollisionEvent)">
+            <summary>
+            This quad tree callback function can be used externally as well.
+            Takes two objects and separates them along their X axis (if possible/reasonable).
+            </summary>
+            <param name="sender">The first object or group you want to check.</param>
+            <param name="e">The second object or group you want to check.</param>
+            <returns></returns>
+        </member>
+        <member name="M:org.flixel.FlxU.solveYCollision(System.Object,org.flixel.FlxSpriteCollisionEvent)">
+            <summary>
+            This quad tree callback function can be used externally as well.
+            Takes two objects and separates them along their Y axis (if possible/reasonable).
+            </summary>
+            <param name="sender">The first object or group you want to check.</param>
+            <param name="e">The second object or group you want to check.</param>
+            <returns></returns>
+        </member>
+        <member name="F:org.flixel.FlxU.randomTicks">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxU.randomString(System.Int32)">
+            <summary>
+            Generate a random string
+            </summary>
+            <param name="size">of this length</param>
+            <returns></returns>
+        </member>
+        <member name="T:org.flixel.Flx2DFacing">
+            <summary>
+            X-flixel only; Replaces the "facing" boolean member
+            </summary>
+        </member>
+        <member name="T:org.flixel.FlxFade">
+            <summary>
+            This is a special effects utility class to help FlxGame do the 'fade' effect.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxFade._delay">
+            <summary>
+            How long the effect should last.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxFade._complete">
+            <summary>
+            Callback for when the effect is finished.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxFade.#ctor">
+            <summary>
+            Constructor initializes the fade object
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxFade.start(Microsoft.Xna.Framework.Color)">
+            <summary>
+            Reset and trigger this special effect
+            </summary>
+            <param name="Color">The color you want to use</param>
+        </member>
+        <member name="M:org.flixel.FlxFade.start(Microsoft.Xna.Framework.Color,System.Single)">
+            <summary>
+            Reset and trigger this special effect
+            </summary>
+            <param name="Color">The color you want to use</param>
+            <param name="Duration">How long it should take to fade the screen out</param>
+        </member>
+        <member name="M:org.flixel.FlxFade.start(Microsoft.Xna.Framework.Color,System.Single,System.EventHandler{org.flixel.FlxEffectCompletedEvent},System.Boolean)">
+            <summary>
+            Reset and trigger this special effect
+            </summary>
+            <param name="Color">The color you want to use</param>
+            <param name="Duration">How long it should take to fade the screen out</param>
+            <param name="FadeComplete">A function you want to run when the fade finishes</param>
+            <param name="Force">Force the effect to reset</param>
+        </member>
+        <member name="M:org.flixel.FlxFade.stop">
+            <summary>
+            Stops and hides this screen effect.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxFade.update">
+            <summary>
+            Updates and/or animates this special effect
+            </summary>
+        </member>
+        <member name="T:org.flixel.FlxSplash">
+            <summary>
+            @benbaird X-flixel only. Moves all of the flixel logo screen stuff to a FlxState.
+            
+            @initials_games customised for initials releases.
+            </summary>
+        </member>
+        <member name="T:org.flixel.FlxGamepad">
+            <summary>
+            FlxGamepad
+            </summary>
+        </member>
+        <member name="T:org.flixel.FlxCaveGenerator">
+            <summary>
+            This class uses the cellular automata algorithm
+            to generate very sexy caves.
+            (Coded by Eddie Lee, October 16, 2010)
+            (Ported to C# by Shane Brouwer)
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxCaveGenerator.numSmoothingIterations">
+            <summary>
+            How many times do you want to "smooth" the cave.
+            The higher number the smoother.
+            </summary>
+        </member>
+        <member name="F:org.flixel.FlxCaveGenerator.initWallRatio">
+            <summary>
+            During initial state, how percent of matrix are walls?
+            The closer the value is to 1.0, more wall-e the area is
+            Values 0-1.
+            </summary>
+        </member>
+        <member name="M:org.flixel.FlxCaveGenerator.genInitMatrix(System.Int32,System.Int32)">
+            <summary>
+            Generate a matrix of zeroes.
+            </summary>
+            <param name="rows">Number of rows for the matrix</param>
+            <param name="cols">Number of cols for the matrix</param>
+            <returns>Spits out a matrix that is cols x rows, zero initiated</returns>
+        </member>
+        <member name="M:org.flixel.FlxCaveGenerator.generateCaveLevel">
+            <summary>
+            
+            </summary>
+            <returns>Returns a matrix of a cave!</returns>
+        </member>
+        <member name="M:org.flixel.FlxCaveGenerator.generateCaveLevel(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns>Returns a matrix of a cave!</returns>
+        </member>
+        <member name="M:org.flixel.FlxCaveGenerator.generateCaveLevel(System.Int32[],System.Int32[],System.Int32[],System.Int32[])">
+            <summary>
+            
+            </summary>
+            <returns>Returns a matrix of a cave!</returns>
+        </member>
+        <member name="M:org.flixel.FlxCaveGenerator.runCelluarAutomata(System.Int32[0:,0:],System.Int32[0:,0:])">
+            <summary>
+            Runs 
+            </summary>
+            <param name="inMat"></param>
+            <param name="outMat"></param>
+        </member>
+        <member name="M:org.flixel.FlxCaveGenerator.countNumWallsNeighbors(System.Int32[0:,0:],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Counts number of walls around neighbours
+            </summary>
+            <param name="mat"></param>
+            <param name="xPos"></param>
+            <param name="yPos"></param>
+            <param name="dist"></param>
+            <returns></returns>
+        </member>
+        <member name="M:org.flixel.FlxCaveGenerator.createDecorationsMap(System.Int32[0:,0:])">
+            <summary>
+            Looks for any tiles that are "ground tiles"
+            ! = new tile.
+            !00!
+            1!!1
+            1111
+            0000
+            </summary>
+            <param name="inMat">multi array to analyse</param>
+            <returns>multi array that has decorations only</returns>
+        </member>
+        <member name="M:org.flixel.FlxCaveGenerator.convertMultiArrayToString(System.Int32[0:,0:])">
+            <summary>
+            Returns a string that is comma separated for use with FlxTilemap
+            </summary>
+            <param name="multiArray"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

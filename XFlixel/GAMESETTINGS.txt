@@ -1,0 +1,20 @@
+﻿w=320
+h=180
+fullscreen=0
+zoom=1
+
+
+
+// To run Windowed
+
+w=960
+h=540
+fullscreen=0
+zoom=1
+
+// To run Fullscreen at HD
+
+w=1920
+h=1080
+fullscreen=1
+zoom=2
