@@ -172,3 +172,4 @@ pip-log.txt
 XFlixel/obj/
 *.exe
 *.cachefile
+*.suo
