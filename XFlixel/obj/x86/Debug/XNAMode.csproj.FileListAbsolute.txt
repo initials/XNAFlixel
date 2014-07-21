@@ -1,2 +1,0 @@
-E:\VisualStudio2010\XNAFlixel\XNAMode\obj\x86\Debug\XNAMode.csprojResolveAssemblyReference.cache
-E:\VisualStudio2010\XNAFlixel\XNAMode\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt

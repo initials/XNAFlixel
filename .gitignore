@@ -170,3 +170,4 @@ pip-log.txt
 *.cachefile
 *.cachefile
 XFlixel/obj/
+*.exe
