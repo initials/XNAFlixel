@@ -65,7 +65,9 @@ local.properties
 .builds
 *.dotCover
 bin
-obj/
+obj
+/obj
+obj/*
 
 ## TODO: If you have NuGet Package Restore enabled, uncomment this
 #packages/
@@ -167,3 +169,4 @@ pip-log.txt
 .DS_Store
 *.cachefile
 *.cachefile
+XFlixel/obj/
