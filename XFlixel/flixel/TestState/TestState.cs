@@ -21,7 +21,8 @@ namespace org.flixel
 
 
             FlxText t = new FlxText(20, 20, 100);
-            t.text = "Welcome To Flixel";
+            t.text = "Welcome To XNA Flixel\nTwitter: @initials_games";
+            t.alignment = FlxJustification.Left;
             add(t);
 
 
