@@ -8,6 +8,10 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.IO;
 
+using System.Diagnostics;
+
+
+
 // ***
 using BloomPostprocess;
 
@@ -187,6 +191,13 @@ namespace org.flixel
 
             _console.log(FlxG.LIBRARY_NAME +
                 " v" + FlxG.LIBRARY_MAJOR_VERSION.ToString() + "." + FlxG.LIBRARY_MINOR_VERSION.ToString());
+            
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            FileVersionInfo fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
+            string version = fileVersionInfo.ProductVersion;
+
+            _console.log("Build version: " + version);
+
             _console.log("---------------------------------------");
 
             //Pause screen popup
