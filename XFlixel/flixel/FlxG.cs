@@ -883,7 +883,7 @@ namespace org.flixel
         /// <summary>
         /// Stops and resets the camera.
         /// </summary>
-        internal static void unfollow()
+        public static void unfollow()
         {
             followTarget = null;
             followLead = Vector2.Zero;
