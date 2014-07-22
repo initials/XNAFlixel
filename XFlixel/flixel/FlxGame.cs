@@ -23,6 +23,9 @@ namespace org.flixel
     /// </summary>
     public partial class FlxGame : DrawableGameComponent
     {
+        //public List<Viewport> viewports; 
+
+
         // ***
         public BloomComponent bloom;
 
@@ -168,7 +171,32 @@ namespace org.flixel
         /// </summary>
         public override void Initialize()
         {
+
+
+
+
             base.Initialize();
+
+            /*
+            viewports = new List<Viewport>();
+
+            Viewport vp = new Viewport();
+
+            vp.X = 0;
+            vp.Y = 0;
+            vp.Width = GraphicsDevice.Viewport.Width / 2 ;
+            vp.Height = GraphicsDevice.Viewport.Height / 2;
+
+            viewports.Add(vp);
+
+            vp.X = GraphicsDevice.Viewport.Width /2 ;
+            vp.Y = 0;
+            vp.Width = GraphicsDevice.Viewport.Width /2 ;
+            vp.Height = GraphicsDevice.Viewport.Height /2;
+
+            viewports.Add(vp); 
+            */
+
 
             backRender = new RenderTarget2D(GraphicsDevice, 
                 FlxG.width, 
@@ -568,30 +596,21 @@ namespace org.flixel
             // if there are cameras in the FlxG.cameras array, render them here.
             else
             {
-                
-                // First draw the regular spriteBatch
-                //FlxG.spriteBatch.Draw(backRender,
-                //    new Rectangle(
-                //        targetLeft + _quakeOffset.X + FlxG.width,
-                //        _quakeOffset.Y + FlxG.height,
-                //        targetWidth,
-                //        GraphicsDevice.Viewport.Height),
-                //    null,
-                //    Color.Red,
-                //    FlxG.angle,
-                //    new Vector2(FlxG.width / FlxG.zoom, FlxG.height / FlxG.zoom),
-                //    SpriteEffects.None,
-                //    0f);
-                
+
+                /*
+                foreach (Viewport vp in viewports)
+                {
+                    Rectangle r2 = new Rectangle(0,0,GraphicsDevice.Viewport.Width * 2,GraphicsDevice.Viewport.Height * 2);
+
+                    FlxG.spriteBatch.GraphicsDevice.Viewport = vp;
+                    FlxG.spriteBatch.Draw(backRender, r2, Color.White);
+                } 
+                 */ 
+
+
+                /*
                 foreach (FlxCamera cam in FlxG.cameras)
                 {
-                    // original camera
-                    //Rectangle r = new Rectangle(
-                        //(int)(cam.x * FlxG.zoom) + (targetLeft + _quakeOffset.X + cam.width),
-                        //(int)(cam.y * FlxG.zoom) + (_quakeOffset.Y + cam.height),
-                        //targetWidth,
-                        //GraphicsDevice.Viewport.Height);
-
                     Rectangle r2 = new Rectangle(
                         (targetLeft + _quakeOffset.X + FlxG.width) + (int)cam.x * FlxG.zoom,
                         (_quakeOffset.Y + FlxG.height) + (int)cam.y * FlxG.zoom,
@@ -607,7 +626,7 @@ namespace org.flixel
                     SpriteEffects.None,
                     0f);
                 }
-
+                */
                 
             }
 
