@@ -589,10 +589,10 @@ namespace org.flixel
                         cam.height * FlxG.zoom);
 
                     Rectangle r3 = new Rectangle(
-                        200,
-                        200,
-                        targetWidth,
-                        GraphicsDevice.Viewport.Height);
+                        (int)cam.x,
+                        (int)cam.y,
+                        cam.width*FlxG.zoom,
+                        cam.height*FlxG.zoom);
 
                     FlxG.spriteBatch.Draw(backRender,
                     r3,

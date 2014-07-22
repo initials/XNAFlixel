@@ -122,6 +122,8 @@ namespace org.flixel
         /// </summary>
         public float angle;
 
+        public float zoom;
+
         private Point _quakeOffset = Point.Zero;
         
         /// <summary>
@@ -153,6 +155,8 @@ namespace org.flixel
             bgColor = FlxG.backColor;
             angle = 0;
             color = Color.White;
+            zoom = Zoom;
+            
         }
 
 
