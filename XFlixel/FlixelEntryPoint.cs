@@ -36,7 +36,13 @@ namespace XNAMode
             int w = 640;
             int h = 360;
             FlxG.zoom = 2;
+            FlxG.debug = true;
 
+#if DEBUG
+            FlxG.debug = true;
+#else
+            FlxG.debug=false;
+#endif
 
             initGame(w, h, new TestState(), new Color(15, 15, 15), true, new Color(5, 5, 5));
             

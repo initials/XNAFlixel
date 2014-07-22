@@ -16,6 +16,8 @@ namespace org.flixel
     /// </summary>
     public class FlxFactory : Microsoft.Xna.Framework.Game
     {
+
+
         //primary display buffer constants
 #if !WINDOWS_PHONE
 
