@@ -40,7 +40,6 @@ namespace org.flixel
         /// </summary>
         private RenderTarget2D backRender;
 
-
         internal int targetWidth = 0;
         internal int targetLeft = 0;
 
@@ -179,8 +178,6 @@ namespace org.flixel
                 DepthFormat.None, 
                 0, 
                 RenderTargetUsage.DiscardContents);
-
-            
         }
 
         /// <summary>
@@ -360,7 +357,8 @@ namespace org.flixel
             }
             else if (FlxG.mute || FlxG.volume < 0.05f)
             {
-
+                // Volume is mute or 0, so leave it on-screen;
+                 
             }
             else if (_soundTrayRect.Y > -_soundTrayRect.Height)
             {
@@ -570,51 +568,38 @@ namespace org.flixel
             // if there are cameras in the FlxG.cameras array, render them here.
             else
             {
+                
                 // First draw the regular spriteBatch
-                FlxG.spriteBatch.Draw(backRender,
-                    new Rectangle(
-                        targetLeft + _quakeOffset.X + FlxG.width,
-                        _quakeOffset.Y + FlxG.height,
-                        targetWidth,
-                        GraphicsDevice.Viewport.Height),
-                    null,
-                    Color.Red,
-                    FlxG.angle,
-                    new Vector2(FlxG.width / FlxG.zoom, FlxG.height / FlxG.zoom),
-                    SpriteEffects.None,
-                    0f);
-
+                //FlxG.spriteBatch.Draw(backRender,
+                //    new Rectangle(
+                //        targetLeft + _quakeOffset.X + FlxG.width,
+                //        _quakeOffset.Y + FlxG.height,
+                //        targetWidth,
+                //        GraphicsDevice.Viewport.Height),
+                //    null,
+                //    Color.Red,
+                //    FlxG.angle,
+                //    new Vector2(FlxG.width / FlxG.zoom, FlxG.height / FlxG.zoom),
+                //    SpriteEffects.None,
+                //    0f);
+                
                 foreach (FlxCamera cam in FlxG.cameras)
                 {
                     // original camera
-                    Rectangle r = new Rectangle(
-                        (int)(cam.x*FlxG.zoom) + (targetLeft + _quakeOffset.X + cam.width),
-                        (int)(cam.y * FlxG.zoom) + (_quakeOffset.Y + cam.height),
+                    //Rectangle r = new Rectangle(
+                        //(int)(cam.x * FlxG.zoom) + (targetLeft + _quakeOffset.X + cam.width),
+                        //(int)(cam.y * FlxG.zoom) + (_quakeOffset.Y + cam.height),
+                        //targetWidth,
+                        //GraphicsDevice.Viewport.Height);
+
+                    Rectangle r2 = new Rectangle(
+                        (targetLeft + _quakeOffset.X + FlxG.width) + (int)cam.x * FlxG.zoom,
+                        (_quakeOffset.Y + FlxG.height) + (int)cam.y * FlxG.zoom,
                         targetWidth,
                         GraphicsDevice.Viewport.Height);
 
-
-                    Rectangle r2 = new Rectangle(
-                        (targetLeft + _quakeOffset.X + FlxG.width),
-                        (_quakeOffset.Y + FlxG.height),
-                        cam.width * FlxG.zoom,
-                        cam.height * FlxG.zoom);
-
-                    Rectangle r3 = new Rectangle(
-                        (int)cam.x,
-                        (int)cam.y,
-                        cam.width,
-                        cam.height);
-
-                    Rectangle d = new Rectangle(
-                        (int)cam.x,
-                        (int)cam.y,
-                        cam.width,
-                        cam.height);
-
-
                     FlxG.spriteBatch.Draw(backRender,
-                    r,
+                    r2,
                     null,
                     cam.color,
                     cam.angle,
