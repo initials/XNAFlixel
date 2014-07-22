@@ -171,8 +171,14 @@ namespace org.flixel
         {
             base.Initialize();
 
-            backRender = new RenderTarget2D(GraphicsDevice, FlxG.width, FlxG.height, false, SurfaceFormat.Color,
-                DepthFormat.None, 0, RenderTargetUsage.DiscardContents);
+            backRender = new RenderTarget2D(GraphicsDevice, 
+                FlxG.width, 
+                FlxG.height, 
+                false, 
+                SurfaceFormat.Color,
+                DepthFormat.None, 
+                0, 
+                RenderTargetUsage.DiscardContents);
 
             
         }
@@ -221,7 +227,7 @@ namespace org.flixel
 			_soundTrayRect = new Rectangle((FlxG.width - 80) / 2, -30, 80, 30);
 			_soundTrayVisible = false;
 			
-            _soundCaption = new FlxText((FlxG.width - 80) / 2, -10, 80, "VOLUME");
+            _soundCaption = new FlxText((FlxG.width - 80) / 2, -10, 80, "VOLUME [=Lower ]=Higher \\=Mute or Unmute");
             _soundCaption.setFormat(null, 1, Color.White, FlxJustification.Center, Color.White).height = 10;
 
 			int bx = 10;
@@ -348,19 +354,25 @@ namespace org.flixel
 
             hud.update();
 
-			if(_soundTrayTimer > 0)
-				_soundTrayTimer -= FlxG.elapsed;
-			else if(_soundTrayRect.Y > -_soundTrayRect.Height)
-			{
-				_soundTrayRect.Y -= (int)(FlxG.elapsed * FlxG.height * 2);
+            if (_soundTrayTimer > 0)
+            {
+                _soundTrayTimer -= FlxG.elapsed;
+            }
+            else if (FlxG.mute || FlxG.volume < 0.05f)
+            {
+
+            }
+            else if (_soundTrayRect.Y > -_soundTrayRect.Height)
+            {
+                _soundTrayRect.Y -= (int)(FlxG.elapsed * FlxG.height * 2);
                 _soundCaption.y = (_soundTrayRect.Y + 4);
                 for (int i = 0; i < _soundTrayBars.Length; i++)
                 {
                     _soundTrayBars[i].y = (_soundTrayRect.Y + _soundTrayRect.Height - _soundTrayBars[i].height - 2);
                 }
-				if(_soundTrayRect.Y < -_soundTrayRect.Height)
-					_soundTrayVisible = false;
-			}
+                if (_soundTrayRect.Y < -_soundTrayRect.Height)
+                    _soundTrayVisible = false;
+            }
 
             //State updating
             FlxG.keys.update();
@@ -576,8 +588,8 @@ namespace org.flixel
                 {
                     // original camera
                     Rectangle r = new Rectangle(
-                        (int)cam.x + (targetLeft + _quakeOffset.X + cam.width),
-                        (int)cam.y + (_quakeOffset.Y + cam.height),
+                        (int)(cam.x*FlxG.zoom) + (targetLeft + _quakeOffset.X + cam.width),
+                        (int)(cam.y * FlxG.zoom) + (_quakeOffset.Y + cam.height),
                         targetWidth,
                         GraphicsDevice.Viewport.Height);
 
@@ -591,11 +603,18 @@ namespace org.flixel
                     Rectangle r3 = new Rectangle(
                         (int)cam.x,
                         (int)cam.y,
-                        cam.width*FlxG.zoom,
-                        cam.height*FlxG.zoom);
+                        cam.width,
+                        cam.height);
+
+                    Rectangle d = new Rectangle(
+                        (int)cam.x,
+                        (int)cam.y,
+                        cam.width,
+                        cam.height);
+
 
                     FlxG.spriteBatch.Draw(backRender,
-                    r3,
+                    r,
                     null,
                     cam.color,
                     cam.angle,
