@@ -126,6 +126,8 @@ namespace org.flixel
             : base(xPos, yPos)
         {
             playerIndexAsInt = 1;
+            if (playerIndexAsInt != 1) playerIndexAsInt = 1;
+
             if (playerIndex == PlayerIndex.One) playerIndexAsInt = 1;
             else if (playerIndex == PlayerIndex.Two) playerIndexAsInt = 2;
             else if (playerIndex == PlayerIndex.Three) playerIndexAsInt = 3;

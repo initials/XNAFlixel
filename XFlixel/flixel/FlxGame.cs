@@ -543,7 +543,11 @@ namespace org.flixel
             {
                 // This is the new SpriteBatch.Draw the draws with the FlxG.angle
                 FlxG.spriteBatch.Draw(backRender,
-                    new Rectangle(targetLeft + _quakeOffset.X + FlxG.width, _quakeOffset.Y + FlxG.height, targetWidth, GraphicsDevice.Viewport.Height),
+                    new Rectangle(
+                        targetLeft + _quakeOffset.X + FlxG.width, 
+                        _quakeOffset.Y + FlxG.height, 
+                        targetWidth, 
+                        GraphicsDevice.Viewport.Height),
                     null,
                     _color,
                     FlxG.angle,
@@ -554,14 +558,44 @@ namespace org.flixel
             // if there are cameras in the FlxG.cameras array, render them here.
             else
             {
+                // First draw the regular spriteBatch
+                FlxG.spriteBatch.Draw(backRender,
+                    new Rectangle(
+                        targetLeft + _quakeOffset.X + FlxG.width,
+                        _quakeOffset.Y + FlxG.height,
+                        targetWidth,
+                        GraphicsDevice.Viewport.Height),
+                    null,
+                    Color.Red,
+                    FlxG.angle,
+                    new Vector2(FlxG.width / FlxG.zoom, FlxG.height / FlxG.zoom),
+                    SpriteEffects.None,
+                    0f);
+
                 foreach (FlxCamera cam in FlxG.cameras)
                 {
+                    // original camera
+                    Rectangle r = new Rectangle(
+                        (int)cam.x + (targetLeft + _quakeOffset.X + cam.width),
+                        (int)cam.y + (_quakeOffset.Y + cam.height),
+                        targetWidth,
+                        GraphicsDevice.Viewport.Height);
+
+
+                    Rectangle r2 = new Rectangle(
+                        (targetLeft + _quakeOffset.X + FlxG.width),
+                        (_quakeOffset.Y + FlxG.height),
+                        cam.width * FlxG.zoom,
+                        cam.height * FlxG.zoom);
+
+                    Rectangle r3 = new Rectangle(
+                        200,
+                        200,
+                        targetWidth,
+                        GraphicsDevice.Viewport.Height);
+
                     FlxG.spriteBatch.Draw(backRender,
-                    new Rectangle(
-                        (int)cam.x + (targetLeft + _quakeOffset.X + cam.width), 
-                        (int)cam.y + (_quakeOffset.Y + cam.height), 
-                        targetWidth, 
-                        GraphicsDevice.Viewport.Height),
+                    r3,
                     null,
                     cam.color,
                     cam.angle,

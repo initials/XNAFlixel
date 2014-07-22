@@ -175,7 +175,7 @@ namespace org.flixel
         public static int levelHeight;
 
         /// <summary>
-        /// BG color
+        /// Background color. Call before base.create();
         /// </summary>
         public static Color backColor = Color.Black;
 

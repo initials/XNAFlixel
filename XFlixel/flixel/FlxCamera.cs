@@ -11,6 +11,9 @@ using Microsoft.Xna.Framework.Input;
 
 namespace org.flixel
 {
+    /// <summary>
+    /// Need to offset Mouse Movement inside a camera.
+    /// </summary>
     public class FlxCamera
     {
 

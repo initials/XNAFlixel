@@ -138,6 +138,8 @@
     <Compile Include="flixel\FlxCaveGeneratorExt.cs" />
     <Compile Include="flixel\FlxPath.cs" />
     <Compile Include="flixel\PowerTools\FlxBar.cs" />
+    <Compile Include="flixel\TestState\CameraTestState.cs" />
+    <Compile Include="flixel\TestState\DebugMenuState.cs" />
     <Compile Include="flixel\TestState\TestState.cs" />
     <Compile Include="fx\BloomComponent.cs" />
     <Compile Include="fx\BloomSettings.cs" />
@@ -199,11 +201,6 @@
     <Content Include="GameThumbnail.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\XNARevvolvver\XNARevvolvver\XNARevvolvverContent\XNARevvolvverContent.contentproj">
-      <Project>{9D88A9B0-63E7-4FFC-91CB-ED13DEBA6EC1}</Project>
-      <Name>XNARevvolvverContent %28Content%29</Name>
-      <XnaReferenceType>Content</XnaReferenceType>
-    </ProjectReference>
     <ProjectReference Include="..\XFlixelContent\XFlixelContent.contentproj">
       <Name>XFlixelContent %28Content%29</Name>
       <XnaReferenceType>Content</XnaReferenceType>
