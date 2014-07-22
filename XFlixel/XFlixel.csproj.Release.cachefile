@@ -32,6 +32,9 @@ Content\buttons\MapBlack.xnb
 Content\buttons\MapWhite.xnb
 Content\buttons\MapOuya.xnb
 Content\buttons\Map360.xnb
+Content\initials\autotiles.xnb
+Content\initials\autotiles_16x16.xnb
+Content\initials\autotiles_alt.xnb
 Content\flixel\beep.xnb
 Content\flixel\flixel.xnb
 Content\initials\initials_empire_tagtone1.xnb
@@ -45,6 +48,3 @@ Content\initials\SpaceMarine.xnb
 Content\fx\BloomCombine.xnb
 Content\fx\BloomExtract.xnb
 Content\fx\GaussianBlur.xnb
-Content\initials\autotiles.xnb
-Content\initials\autotiles_16x16.xnb
-Content\initials\autotiles_alt.xnb

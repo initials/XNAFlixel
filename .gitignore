@@ -173,3 +173,5 @@ XFlixel/obj/
 *.exe
 *.cachefile
 *.suo
+*.suo
+*.cachefile
