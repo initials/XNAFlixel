@@ -422,6 +422,7 @@ namespace org.flixel
         /// </summary>
         public void showHud()
         {
+            Console.WriteLine("Showing the hud");
             visible = true;
         }
 

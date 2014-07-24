@@ -47,9 +47,6 @@ namespace org.flixel
             bg.createGraphic(FlxG.width, FlxG.height, new Color(10,10,10));
             add(bg);
 
-            //XNAMode.Grid x = new XNAMode.Grid(2, (int)FlxU.random(5,50));
-            //add(x);
-
             _f = null;
             _poweredBy = FlxG.Content.Load<Texture2D>("flixel/poweredby");
             _fSound = FlxG.Content.Load<SoundEffect>("flixel/flixel");

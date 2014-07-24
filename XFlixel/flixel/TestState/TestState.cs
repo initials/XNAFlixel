@@ -34,7 +34,6 @@ namespace org.flixel
             if (FlxG.keys.justPressed(Keys.Q))
             {
                 FlxG.state = new DebugMenuState();
-                FlxG.hideHud();
             }
 
             base.update();
