@@ -145,7 +145,7 @@ namespace org.flixel
         public static bool goldenRun  = false;
 
         /// <summary>
-        /// gif will eliminate extra stuff, so that GIFs can be made with minimal colors.
+        /// gif will eliminate extra color bending, so that GIFs can be made with minimal colors.
         /// </summary>
         public static bool gif = false;
 
