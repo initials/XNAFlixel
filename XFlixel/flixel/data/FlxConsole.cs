@@ -132,11 +132,18 @@ namespace org.flixel
         public void toggle()
         {
             if (_consoleYT == FlxG.spriteBatch.GraphicsDevice.Viewport.Height)
+            {
                 _consoleYT = 0;
+
+                FlxG.showHud();
+            }
             else
             {
                 _consoleYT = FlxG.spriteBatch.GraphicsDevice.Viewport.Height;
                 visible = true;
+
+                FlxG.hideHud();
+
             }
         }
 

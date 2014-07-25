@@ -42,6 +42,16 @@ namespace org.flixel
 
         }
 
+        public FlxCaveGenerator(int nCols, int nRows, float InitWallRatio, int SmoothingIterations)
+        {
+
+            _numTilesCols = nCols;
+            _numTilesRows = nRows;
+            initWallRatio = InitWallRatio;
+            numSmoothingIterations = SmoothingIterations;
+
+        }
+
         /// <summary>
         /// Generate a matrix of zeroes.
         /// </summary>

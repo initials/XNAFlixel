@@ -173,6 +173,7 @@
     <Compile Include="flixel\PowerTools\FlxBar.cs" />
     <Compile Include="flixel\TestState\CameraTestState.cs" />
     <Compile Include="flixel\TestState\CaveState.cs" />
+    <Compile Include="flixel\TestState\CheatState.cs" />
     <Compile Include="flixel\TestState\DebugMenuState.cs" />
     <Compile Include="flixel\TestState\TestState.cs" />
     <Compile Include="fx\BloomComponent.cs" />

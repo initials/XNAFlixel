@@ -404,6 +404,7 @@ namespace org.flixel
             acceleration = Vector2.Zero;
             drag = Vector2.Zero;
             maxVelocity = new Vector2(10000, 10000);
+            maxThrust = 10000;
 
             angle = 0;
             angularVelocity = 0;
@@ -484,6 +485,17 @@ namespace org.flixel
         {
             scrollFactor.X = xScroll;
             scrollFactor.Y = xScroll;
+        }
+
+        /// <summary>
+        /// Set both velocity values in one call.
+        /// </summary>
+        /// <param name="xVelocity"></param>
+        /// <param name="yVelocity"></param>
+        public void setVelocity(float xVelocity, float yVelocity)
+        {
+            velocity.X = xVelocity;
+            velocity.Y = yVelocity;
         }
 
         /// <summary>

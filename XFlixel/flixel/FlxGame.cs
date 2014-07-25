@@ -432,7 +432,7 @@ namespace org.flixel
                 //FlxG.keys.isNewKeyPress(Keys.D1, null, out pi) ||
                 if (FlxG.debug == true)
                 {
-                    Console.WriteLine("TOGGLING THE CONSOLE");
+                    //Console.WriteLine("TOGGLING THE CONSOLE");
 
                     _console.toggle();
                 }

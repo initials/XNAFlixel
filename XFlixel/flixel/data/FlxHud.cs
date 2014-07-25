@@ -168,36 +168,36 @@ namespace org.flixel
         public const int Keyboard_Mouse_Left = 53;
         public const int Keyboard_Mouse_Middle = 54;
         public const int Keyboard_Mouse_Right = 55;
-        public const int Keyboard_Mouse_Simple = 56;
-        public const int Keyboard_N = 57;
-        public const int Keyboard_Num_Lock = 58;
-        public const int Keyboard_O = 59;
-        public const int Keyboard_P = 60;
-        public const int Keyboard_Page_Down = 61;
-        public const int Keyboard_Page_Up = 62;
-        public const int Keyboard_Plus = 63;
-        public const int Keyboard_Plus_Tall = 64;
-        public const int Keyboard_Print_Screen = 65;
-        public const int Keyboard_Q = 66;
-        public const int Keyboard_Question = 67;
-        public const int Keyboard_Quote = 68;
-        public const int Keyboard_R = 69;
-        public const int Keyboard_S = 70;
-        public const int Keyboard_Semicolon = 71;
-        public const int Keyboard_Shift = 72;
-        public const int Keyboard_Shift_Alt = 73;
-        public const int Keyboard_Slash = 74;
-        public const int Keyboard_Space = 75;
-        public const int Keyboard_T = 76;
-        public const int Keyboard_Tab = 77;
-        public const int Keyboard_Tilda = 78;
-        public const int Keyboard_U = 79;
-        public const int Keyboard_V = 80;
-        public const int Keyboard_W = 81;
-        public const int Keyboard_Win = 82;
-        public const int Keyboard_X = 83;
-        public const int Keyboard_Y = 84;
-        public const int Keyboard_Z = 85;
+        //public const int Keyboard_Mouse_Simple = 56;
+        public const int Keyboard_N = 56;
+        public const int Keyboard_Num_Lock = 57;
+        public const int Keyboard_O = 58;
+        public const int Keyboard_P = 59;
+        public const int Keyboard_Page_Down = 60;
+        public const int Keyboard_Page_Up = 61;
+        public const int Keyboard_Plus = 62;
+        public const int Keyboard_Plus_Tall = 63;
+        public const int Keyboard_Print_Screen = 64;
+        public const int Keyboard_Q = 65;
+        public const int Keyboard_Question = 66;
+        public const int Keyboard_Quote = 67;
+        public const int Keyboard_R = 68;
+        public const int Keyboard_S = 69;
+        public const int Keyboard_Semicolon = 70;
+        public const int Keyboard_Shift = 71;
+        public const int Keyboard_Shift_Alt = 72;
+        public const int Keyboard_Slash = 73;
+        public const int Keyboard_Space = 74;
+        public const int Keyboard_T = 75;
+        public const int Keyboard_Tab = 76;
+        public const int Keyboard_Tilda = 77;
+        public const int Keyboard_U = 78;
+        public const int Keyboard_V = 79;
+        public const int Keyboard_W = 80;
+        public const int Keyboard_Win = 81;
+        public const int Keyboard_X = 82;
+        public const int Keyboard_Y = 83;
+        public const int Keyboard_Z = 84;
 
 
         /// <summary>
@@ -422,7 +422,7 @@ namespace org.flixel
         /// </summary>
         public void showHud()
         {
-            Console.WriteLine("Showing the hud");
+            //Console.WriteLine("Showing the hud");
             visible = true;
         }
 
