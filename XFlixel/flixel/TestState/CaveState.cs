@@ -24,19 +24,18 @@ namespace org.flixel
         {
             FlxG.hideHud();
 
-            FlxG.backColor = new Color(0xFF, 0xC6, 0x5E);
+            FlxG.backColor = Color.LightGray;
 
             base.create();
 
             string levelData = FlxU.randomString(10);
             FlxG.log("levelData: " + levelData);
 
-
-            makeCave(0.1f, Color.Red);
-            makeCave(0.5f, Color.Blue);
+            makeCave(0.1f, Color.LightPink);
+            makeCave(0.5f, Color.LightBlue);
             makeCave2(1.0f, Color.Green);
 
-            logo = new FlxSprite(20, 20 );
+            logo = new FlxSprite(60, 60 );
             logo.loadGraphic(FlxG.Content.Load<Texture2D>("surt/spaceship_32x32"), true, false, 32,32);
             logo.addAnimation("Static", new int[] { 0 }, 36, true);
             logo.addAnimation("Transform", new int[] { 0, 1, 2, 3, 4, 5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39},36,false);
@@ -48,7 +47,6 @@ namespace org.flixel
             FlxG.follow(logo, 10.0f);
             FlxG.followBounds(0, 0, 50*16, 40*16);
 
-
         }
 
 
@@ -58,7 +56,7 @@ namespace org.flixel
             FlxCaveGenerator cav = new FlxCaveGenerator(50, 40, 0.48f, 5);
 
             //Create a matrix based on these parameters.
-            int[,] matr = cav.generateCaveLevel(3, 0, 2, 0, 1, 0, 1, 0);
+            int[,] matr = cav.generateCaveLevel(3, 0, 2, 0, 1, 1,1,1);
 
             //convert the array to a comma separated string
             string newMap = cav.convertMultiArrayToString(matr);
@@ -69,6 +67,7 @@ namespace org.flixel
             tiles.loadMap(newMap, FlxG.Content.Load<Texture2D>("flixel/autotiles_16x16"), 16, 16);
             tiles.setScrollFactors(Scroll, Scroll);
             tiles.color = Col;
+            
             add(tiles);
 
 
@@ -77,15 +76,13 @@ namespace org.flixel
 
         public void makeCave2(float Scroll, Color Col)
         {
-            FlxCaveGeneratorExt caveExt = new FlxCaveGeneratorExt(50,40,0.5f, 5);
+            FlxCaveGeneratorExt caveExt = new FlxCaveGeneratorExt(50,40,0.45f, 5);
             string[,] caveLevel = caveExt.generateCaveLevel();
 
             //Optional step to print cave to the console.
-            caveExt.printCave(caveLevel);
+            //caveExt.printCave(caveLevel);
 
             string newMap = caveExt.convertMultiArrayStringToString(caveLevel);
-
-                    
 
             //Create a tilemap and assign the cave map.
             tiles = new FlxTilemap();
@@ -100,6 +97,33 @@ namespace org.flixel
 
         override public void update()
         {
+
+
+
+            
+
+
+            //Toggle the bounding box visibility
+            if (FlxG.keys.justPressed(Microsoft.Xna.Framework.Input.Keys.B))
+                FlxG.showBounds = !FlxG.showBounds;
+
+
+            if (FlxG.mouse.pressedRightButton())
+            {
+                tiles.setTile((int)FlxG.mouse.x / 16, (int)FlxG.mouse.y / 16, 0, true);
+            }
+            if (FlxG.mouse.pressedLeftButton())
+            {
+                tiles.setTile((int)FlxG.mouse.x / 16, (int)FlxG.mouse.y / 16, 1, true);
+            }
+
+
+
+
+            base.update();
+
+            //Put the collide after base.update() to avoid flickering.
+            FlxU.collide(logo, tiles);
 
             int velValue = 500;
             if (FlxG.keys.A)
@@ -133,33 +157,14 @@ namespace org.flixel
             else if (FlxG.keys.L)
             {
                 logo.play("Transform");
+                //FlxG.bloom.Visible = true;
             }
             else
             {
                 logo.thrust = 0;
-
             }
 
 
-
-            //Toggle the bounding box visibility
-            if (FlxG.keys.justPressed(Microsoft.Xna.Framework.Input.Keys.B))
-                FlxG.showBounds = !FlxG.showBounds;
-
-
-            if (FlxG.mouse.pressedRightButton())
-            {
-                tiles.setTile((int)FlxG.mouse.x / 16, (int)FlxG.mouse.y / 16, 0, true);
-            }
-            if (FlxG.mouse.pressedLeftButton())
-            {
-                tiles.setTile((int)FlxG.mouse.x / 16, (int)FlxG.mouse.y / 16, 1, true);
-            }
-
-
-
-
-            base.update();
         }
 
 
