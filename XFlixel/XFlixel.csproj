@@ -175,6 +175,7 @@
     <Compile Include="flixel\TestState\CaveState.cs" />
     <Compile Include="flixel\TestState\CheatState.cs" />
     <Compile Include="flixel\TestState\DebugMenuState.cs" />
+    <Compile Include="flixel\TestState\RaceOrDieState.cs" />
     <Compile Include="flixel\TestState\TestState.cs" />
     <Compile Include="fx\BloomComponent.cs" />
     <Compile Include="fx\BloomSettings.cs" />

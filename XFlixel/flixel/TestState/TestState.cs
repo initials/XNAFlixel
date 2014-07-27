@@ -32,7 +32,7 @@ namespace org.flixel
             textInfo = "Choose:\n";
             textInfo += "1. Cheat State\n";
             textInfo += "2. Cave State\n";
-            textInfo += "3. \n";
+            textInfo += "3. Race Or Die\n";
             textInfo += "4. \n";
             textInfo += "5. \n";
             textInfo += "6. \n";
@@ -72,7 +72,10 @@ namespace org.flixel
             {
                 FlxG.state = new CaveState();
             }
-
+            if (FlxG.keys.THREE)
+            {
+                FlxG.state = new RaceOrDieState();
+            }
 
             base.update();
         }

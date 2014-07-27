@@ -65,8 +65,6 @@ namespace org.flixel
 
         /// <summary>
         /// Set the angle of a sprite to rotate it.
-        /// WARNING: rotating sprites decreases rendering
-        /// performance for this sprite by a factor of 10x!
         /// </summary>
         public float angle
         {
