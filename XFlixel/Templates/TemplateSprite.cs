@@ -1,4 +1,8 @@
-﻿//using System;
+﻿/*
+ * Add these to Visual Studio to quickly create new FlxSprites
+ */
+ 
+//using System;
 //using System.Collections.Generic;
 //using System.Linq;
 //using System.Text;

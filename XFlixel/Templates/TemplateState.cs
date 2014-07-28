@@ -1,4 +1,8 @@
-﻿//using System;
+﻿/*
+ * Add these to Visual Studio to quickly create new FlxStates
+ */
+
+//using System;
 //using System.Collections.Generic;
 //using Microsoft.Xna.Framework;
 //using Microsoft.Xna.Framework.Graphics;
