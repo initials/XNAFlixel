@@ -74,7 +74,7 @@ namespace org.flixel
 
         public void makeCave2(float Scroll, Color Col)
         {
-            FlxCaveGeneratorExt caveExt = new FlxCaveGeneratorExt(150, 140, 0.5f, 5);
+            FlxCaveGeneratorExt caveExt = new FlxCaveGeneratorExt(150, 140, 0.45f, 5);
             string[,] caveLevel = caveExt.generateCaveLevel();
 
             //Optional step to print cave to the console.
@@ -114,12 +114,23 @@ namespace org.flixel
             // Overlap doesn't work on tile maps.
             //FlxU.overlap(logo, tiles, overlapped);
 
+            if (tiles.overlaps(logo))
+            {
+                velValue -= 20;
+                logo.color = Color.Black;
+                Console.WriteLine("Overlapped");
+            }
+            else
+            {
+                logo.color = Color.White;
+            }
+
 
             double radians = Math.PI / 180 * logo.angle;
 
             double velocity_x = Math.Cos((float)radians);
             double velocity_y = Math.Sin((float)radians);
-            Console.WriteLine("degrees {0} radians {1} x {2} y {3}", velValue, radians, velocity_x, velocity_y);
+            //Console.WriteLine("degrees {0} radians {1} x {2} y {3}", velValue, radians, velocity_x, velocity_y);
             logo.velocity.X = velValue * (float)velocity_x * -1;
             logo.velocity.Y = velValue * (float)velocity_y * -1;
 
@@ -130,17 +141,12 @@ namespace org.flixel
                 if (FlxG.keys.SPACE) logo.angle -= 5;
                 else 
                     logo.angle -= 2;
-
-                
-
             }
             if (FlxG.keys.D)
             {
                 if (FlxG.keys.SPACE) logo.angle += 5;
                 else
                     logo.angle += 2;
-
-                
             }
             if (FlxG.keys.W)
             {
