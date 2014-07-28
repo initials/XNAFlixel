@@ -157,6 +157,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="examples\Tweener.cs" />
     <Compile Include="FlixelEntryPoint.cs" />
     <Compile Include="flixel\data\FlxRecord.cs" />
     <Compile Include="flixel\FlxCamera.cs" />
