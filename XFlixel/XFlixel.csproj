@@ -171,14 +171,14 @@
     <Compile Include="flixel\FlxCaveGeneratorExt.cs" />
     <Compile Include="flixel\FlxPath.cs" />
     <Compile Include="flixel\PowerTools\FlxBar.cs" />
-    <Compile Include="flixel\TestState\CameraTestState.cs" />
-    <Compile Include="flixel\TestState\CaveState.cs" />
-    <Compile Include="flixel\TestState\CheatState.cs" />
-    <Compile Include="flixel\TestState\DebugMenuState.cs" />
-    <Compile Include="flixel\TestState\RaceOrDieState.cs" />
-    <Compile Include="flixel\TestState\TestState.cs" />
     <Compile Include="fx\BloomComponent.cs" />
     <Compile Include="fx\BloomSettings.cs" />
+    <Compile Include="examples\CameraTestState.cs" />
+    <Compile Include="examples\CaveState.cs" />
+    <Compile Include="examples\CheatState.cs" />
+    <Compile Include="examples\DebugMenuState.cs" />
+    <Compile Include="examples\RaceOrDieState.cs" />
+    <Compile Include="examples\TestState.cs" />
     <Compile Include="XNATweener\Back.cs" />
     <Compile Include="XNATweener\Bounce.cs" />
     <Compile Include="XNATweener\Circular.cs" />
@@ -231,6 +231,8 @@
     <Compile Include="Templates\TemplateSprite.cs" />
     <Compile Include="Templates\TemplateState.cs" />
     <Compile Include="XNATweener\Tweener.cs" />
+    <None Include="OgmoEditor2\OgmoEditor2Project.oep" />
+    <None Include="OgmoEditor2\SportsGround.oel" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
