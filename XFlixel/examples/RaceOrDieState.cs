@@ -30,11 +30,6 @@ namespace org.flixel
 
             base.create();
 
-            string levelData = FlxU.randomString(10);
-            FlxG.log("levelData: " + levelData);
-
-            //makeCave(0.1f, Color.LightPink);
-            //makeCave(0.5f, Color.LightBlue);
             makeCave2(1.0f, Color.Green);
 
             logo = new FlxSprite(360, 360);
@@ -111,22 +106,13 @@ namespace org.flixel
                 FlxG.showBounds = !FlxG.showBounds;
 
 
-            if (FlxG.mouse.pressedRightButton())
-            {
-                tiles.setTile((int)FlxG.mouse.x / 16, (int)FlxG.mouse.y / 16, 0, true);
-            }
-            if (FlxG.mouse.pressedLeftButton())
-            {
-                tiles.setTile((int)FlxG.mouse.x / 16, (int)FlxG.mouse.y / 16, 1, true);
-            }
-
-
-
-
             base.update();
 
             //Put the collide after base.update() to avoid flickering.
             //FlxU.collide(logo, tiles);
+            
+            // Overlap doesn't work on tile maps.
+            //FlxU.overlap(logo, tiles, overlapped);
 
 
             double radians = Math.PI / 180 * logo.angle;
@@ -181,6 +167,12 @@ namespace org.flixel
 
         }
 
+        protected bool overlapped(object Sender, FlxSpriteCollisionEvent e)
+        {
+
+            velValue -= 40;
+            return true;
+        }
 
 
 

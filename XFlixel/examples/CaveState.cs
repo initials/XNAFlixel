@@ -22,7 +22,8 @@ namespace org.flixel
 
         override public void create()
         {
-            FlxG.hideHud();
+            FlxG.resetHud();
+            FlxG.showHud();
 
             FlxG.backColor = Color.LightGray;
 
@@ -31,8 +32,8 @@ namespace org.flixel
             string levelData = FlxU.randomString(10);
             FlxG.log("levelData: " + levelData);
 
-            makeCave(0.1f, Color.LightPink);
-            makeCave(0.5f, Color.LightBlue);
+            makeCave(0.1f, Color.Black);
+            makeCave(0.5f, new Color(0.98f, 1.0f, 0.95f));
             makeCave2(1.0f, Color.Green);
 
             logo = new FlxSprite(60, 60 );
@@ -76,7 +77,7 @@ namespace org.flixel
 
         public void makeCave2(float Scroll, Color Col)
         {
-            FlxCaveGeneratorExt caveExt = new FlxCaveGeneratorExt(50,40,0.45f, 5);
+            FlxCaveGeneratorExt caveExt = new FlxCaveGeneratorExt(50,40,0.49f, 5);
             string[,] caveLevel = caveExt.generateCaveLevel();
 
             //Optional step to print cave to the console.
@@ -90,6 +91,7 @@ namespace org.flixel
             tiles.loadMap(newMap, FlxG.Content.Load<Texture2D>("flixel/autotiles_16x16"), 16, 16);
             tiles.setScrollFactors(Scroll, Scroll);
             tiles.color = Col;
+            tiles.boundingBoxOverride = true;
             add(tiles);
 
 
@@ -97,12 +99,6 @@ namespace org.flixel
 
         override public void update()
         {
-
-
-
-            
-
-
             //Toggle the bounding box visibility
             if (FlxG.keys.justPressed(Microsoft.Xna.Framework.Input.Keys.B))
                 FlxG.showBounds = !FlxG.showBounds;
@@ -116,6 +112,10 @@ namespace org.flixel
             {
                 tiles.setTile((int)FlxG.mouse.x / 16, (int)FlxG.mouse.y / 16, 1, true);
             }
+
+            int tile = tiles.getTile((int)FlxG.mouse.x / 16, (int)FlxG.mouse.y / 16);
+            FlxG.setHudTextScale(1, 3);
+            FlxG.setHudText(1, "The tile index you are hovering over is: " + tile.ToString() );
 
 
 
