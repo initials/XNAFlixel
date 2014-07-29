@@ -56,6 +56,7 @@ namespace org.flixel
             base.create();
 
             FlxG.hideHud();
+            FlxG.mouse.hide();
 
             //Define the time it takes to move the car across the screen.
             timeToMove = 2.5f;
