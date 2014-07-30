@@ -55,7 +55,23 @@ namespace org.flixel
         {
             base.create();
 
-            FlxG.hideHud();
+            FlxG.resetHud();
+
+            String hudText = "Press \n";
+            hudText += "Q. Back \n";
+            hudText += "W. Bounce \n";
+            hudText += "E. Circular \n";
+            hudText += "R. Cubic \n";
+            hudText += "A. Elastic \n";
+            hudText += "S. Exponential \n";
+            hudText += "D. Linear \n";
+            hudText += "F. Quadratic \n";
+            hudText += "Z. Quartic \n";
+            hudText += "X. Quintic \n";
+            hudText += "C. Sinusoidal";
+
+            FlxG.setHudText(2, hudText);
+
             FlxG.mouse.hide();
 
             //Define the time it takes to move the car across the screen.
