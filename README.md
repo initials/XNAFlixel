@@ -18,15 +18,28 @@ To do:
 [] 
 
 Make demo scenes for:
+
 [] FlxSprite
+
 [] FlxGroup
+
 [] FlxTransition
+
 [] FlxTilemap
+
 [] FlxCaveGen
-[] XNATweener
+
+[x] XNATweener
+
 [] Bloom
+
 [] Record Player Input
+
 [] Cheats
+
 [] Animations - FlxQuake, FlxFlash
+
 [] FlxAnim - addAnimation
+
+[] Playing sounds and music.
 
