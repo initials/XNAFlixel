@@ -10,7 +10,7 @@ using System.Xml.Linq;
 
 namespace org.flixel
 {
-    public class CameraTestState : FlxState
+    public class CameraTestState : BaseExampleState
     {
 
         override public void create()

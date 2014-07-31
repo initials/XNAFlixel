@@ -10,7 +10,7 @@ using System.Xml.Linq;
 
 namespace org.flixel
 {
-    public class DebugMenuState : FlxState
+    public class DebugMenuState : BaseExampleState
     {
 
         override public void create()

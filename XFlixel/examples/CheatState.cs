@@ -13,7 +13,7 @@ namespace org.flixel
     /// <summary>
     /// This state will show how to use the Debug menu and the Cheat system.
     /// </summary>
-    public class CheatState : FlxState
+    public class CheatState : BaseExampleState
     {
         override public void create()
         {
