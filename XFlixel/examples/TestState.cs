@@ -34,7 +34,7 @@ namespace org.flixel
             textInfo += "2. Cave State\n";
             textInfo += "3. Race Or Die\n";
             textInfo += "4. Tweens\n";
-            textInfo += "5. \n";
+            textInfo += "5. Robot Football\n";
             textInfo += "6. \n";
             textInfo += "7. \n";
             textInfo += "8. \n";
@@ -80,7 +80,10 @@ namespace org.flixel
             {
                 FlxG.state = new TweenerState();
             }
-
+            if (FlxG.keys.FIVE)
+            {
+                FlxG.state = new RobotFootballState();
+            }
             base.update();
         }
 

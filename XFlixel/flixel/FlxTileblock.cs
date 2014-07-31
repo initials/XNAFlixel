@@ -126,7 +126,9 @@ namespace org.flixel
                     if (auto==RANDOM)
                     {
 
+                        //_rects[i] = new Rectangle(_tileWidth * (int)(FlxU.random() * numGraphics), 0, _tileWidth, _tileHeight);
                         _rects[i] = new Rectangle(_tileWidth * (int)(FlxU.random() * numGraphics), 0, _tileWidth, _tileHeight);
+
 
                         /*
                         switch (i)
