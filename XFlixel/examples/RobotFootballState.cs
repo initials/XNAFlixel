@@ -37,7 +37,7 @@ namespace org.flixel
 
             playingField = new FlxTileblock(0, 0, 640, 640);
             playingField.auto = FlxTileblock.RANDOM;
-            playingField.loadTiles(FlxG.Content.Load<Texture2D>("initials/sports_ground"), 16, 16, 0);
+            playingField.loadTiles(FlxG.Content.Load<Texture2D>("examples/sports_ground"), 16, 16, 0);
             add(playingField);
 
             team1 = new FlxGroup();

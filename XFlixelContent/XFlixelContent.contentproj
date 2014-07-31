@@ -403,8 +403,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="initials\sports_ground.png">
+    <Compile Include="examples\sports_ground.png">
       <Name>sports_ground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="examples\running.png">
+      <Name>running</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
