@@ -100,6 +100,7 @@ namespace org.flixel
                 foreach (FlxSprite robot in team1.members)
                 {
                     robot.dead = false;
+                    robot.exists = true;
                     robot.x = 20 + (i * 90);
                     robot.y = 10;
                     robot.velocity.Y = FlxU.random(10, 100);
@@ -109,6 +110,11 @@ namespace org.flixel
                 foreach (FlxSprite robot in team2.members)
                 {
                     robot.dead = false;
+                    robot.exists = true;
+
+                    // or
+                    // robot.reset(20, 20); 
+
                     robot.x = 20 + (i * 90);
                     robot.y = 200;
                     robot.velocity.Y = FlxU.random(-10, -100);

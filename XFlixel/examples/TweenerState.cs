@@ -13,7 +13,7 @@ using XNATweener;
 
 namespace org.flixel
 {
-    public class TweenerState : FlxState
+    public class TweenerState : BaseExampleState
     {
 
         private Tweener redCarTween;

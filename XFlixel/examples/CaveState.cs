@@ -10,7 +10,7 @@ using System.Xml.Linq;
 
 namespace org.flixel
 {
-    public class CaveState : FlxState
+    public class CaveState : BaseExampleState
     {
         protected Texture2D ImgDirt;
 
