@@ -14,12 +14,12 @@ namespace org.flixel
     {
 
         //Define a playing field
-        FlxTileblock playingField;
+        FlxTilemap playingField;
 
         FlxSprite ball;
 
-        FlxGroup team1;
-        FlxGroup team2;
+        Team team1;
+        Team team2;
 
 
 
@@ -30,31 +30,40 @@ namespace org.flixel
             FlxG.mouse.hide();
             FlxG.hideHud();
 
-            playingField = new FlxTileblock(0, 0, 122*16, 68*16);
-            playingField.auto = FlxTileblock.RANDOM;
-            playingField.loadTiles(FlxG.Content.Load<Texture2D>("examples/sports_ground"), 16, 16, 0);
+            Dictionary<string, string> levelInformation = new Dictionary<string, string>();
+            levelInformation = FlxXMLReader.readAttributesFromOelFile("OgmoEditor2/SportsGround.oel", "level/SportsField");
+
+            //0, 0, 122*16, 68*16
+            playingField = new FlxTilemap();
+            playingField.auto = FlxTileblock.STRING;
+            playingField.loadMap(levelInformation["SportsField"], FlxG.Content.Load<Texture2D>("examples/sports_ground"), 16,16);
             add(playingField);
 
-            ball = new FlxSprite(122 * 8, 68 * 8);
+
+            ball = new FlxSprite(78 * 8, 132 * 8);
             add(ball);
 
-            FlxG.follow(ball, 10);
-            FlxG.followBounds(0, 0, 122 * 16, 68 * 16);
 
 
-            team1 = new FlxGroup();
-            team2 = new FlxGroup();
+
+            team1 = new Team();
+            team2 = new Team();
 
             // Create two teams of 7 robots;
-            for (int i = 0; i < 14; i++)
+            for (int i = 0; i < 13; i++)
             {
                 Player player = new Player(61 * 8 + (i * 64), (int)ball.y - 50, i + 1);
                 player.color = Color.Blue;
                 team1.add(player);
 
-                if (i == 6) player.isSelected = true;
+                if (i == 6)
+                {
+                    player.isSelected = true;
+                    FlxG.follow(player, 10);
+                    FlxG.followBounds(0, 0, 78 * 16, 132 * 16);
+                }
             }
-            for (int i = 0; i < 14; i++)
+            for (int i = 0; i < 13; i++)
             {
                 Player player = new Player(61 * 8 + (i * 64), (int)ball.y + 50, i + 1);
                 player.color = Color.Red;

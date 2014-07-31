@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <OgmoVersion>1.0</OgmoVersion>
-  <Name>New Project</Name>
+  <Name>Example Ogmo Editor 2 Project</Name>
   <BackgroundColor A="255" R="125" G="160" B="255" />
   <GridColor A="255" R="255" G="240" B="90" />
   <LevelDefaultSize>
@@ -27,7 +27,7 @@
   <LevelValueDefinitions />
   <LayerDefinitions>
     <LayerDefinition xsi:type="TileLayerDefinition">
-      <Name>NewLayer0</Name>
+      <Name>SportsField</Name>
       <Grid>
         <Width>16</Width>
         <Height>16</Height>
@@ -42,7 +42,7 @@
   <Tilesets>
     <Tileset>
       <Name>sports_ground</Name>
-      <FilePath>..\..\XFlixelContent\initials\sports_ground.png</FilePath>
+      <FilePath>..\..\XFlixelContent\examples\sports_ground.png</FilePath>
       <TileSize>
         <Width>16</Width>
         <Height>16</Height>

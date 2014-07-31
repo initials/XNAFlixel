@@ -161,6 +161,7 @@
     <Compile Include="examples\RobotFootballState.cs" />
     <Compile Include="examples\rugbyleague\Player.cs" />
     <Compile Include="examples\rugbyleague\PlayState.cs" />
+    <Compile Include="examples\rugbyleague\Team.cs" />
     <Compile Include="examples\TweenerState.cs" />
     <Compile Include="FlixelEntryPoint.cs" />
     <Compile Include="flixel\data\FlxRecord.cs" />
@@ -236,8 +237,14 @@
     <Compile Include="Templates\TemplateSprite.cs" />
     <Compile Include="Templates\TemplateState.cs" />
     <Compile Include="XNATweener\Tweener.cs" />
-    <None Include="OgmoEditor2\OgmoEditor2Project.oep" />
-    <None Include="OgmoEditor2\SportsGround.oel" />
+    <None Include="OgmoEditor2\OgmoEditor2Project.oep">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OgmoEditor2\SportsGround.oel">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

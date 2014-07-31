@@ -15,6 +15,7 @@ namespace org.flixel
         private int jerseyNumber;
 
         private FlxText jerseyText;
+        private FlxSprite selectedPlayerIcon;
 
         public bool isSelected;
         
@@ -29,6 +30,13 @@ namespace org.flixel
             jerseyText.text = jerseyNumber.ToString();
             jerseyText.setFormat(null, 1, Color.White, FlxJustification.Center, Color.Black);
             jerseyText.setScrollFactors(1, 1);
+
+            selectedPlayerIcon = new FlxSprite(xPos, yPos);
+            selectedPlayerIcon.loadGraphic(FlxG.Content.Load<Texture2D>("examples/selectedPlayerIcon"), true, false, 48, 48);
+            selectedPlayerIcon.addAnimation("selected", new int[] { 0, 1 }, 12, true);
+            selectedPlayerIcon.play("selected");
+
+
 
             loadGraphic(FlxG.Content.Load<Texture2D>("examples/running"), true, false, 32, 32);
 
@@ -48,19 +56,19 @@ namespace org.flixel
             {
                 if (FlxControl.LEFT)
                 {
-                    this.velocity.X = -150;
+                    this.velocity.X = -550;
                 }
                 if (FlxControl.RIGHT)
                 {
-                    this.velocity.X = 150;
+                    this.velocity.X = 550;
                 }
                 if (FlxControl.UP)
                 {
-                    this.velocity.Y = -150;
+                    this.velocity.Y = -550;
                 }
                 if (FlxControl.DOWN)
                 {
-                    this.velocity.Y = 150;
+                    this.velocity.Y = 550;
                 }
             }
 
@@ -68,8 +76,19 @@ namespace org.flixel
 
 
 
-            if (isSelected == true) play("run");
-            else play("idle");
+            if (isSelected == true) { 
+                play("run");
+                //flicker(555);
+            }
+            else {
+                play("idle");
+                //flicker(0.001f);
+            }
+
+            selectedPlayerIcon.at(this);
+            selectedPlayerIcon.x -= 8;
+            selectedPlayerIcon.y -= 8;
+            selectedPlayerIcon.update();
 
             jerseyText.at(this); 
             jerseyText.x -=8;
@@ -82,7 +101,10 @@ namespace org.flixel
         public override void render(SpriteBatch spriteBatch)
         {
 
-            
+            if (isSelected)
+            {
+                selectedPlayerIcon.render(spriteBatch);
+            }
 
             base.render(spriteBatch);
             jerseyText.render(spriteBatch);
