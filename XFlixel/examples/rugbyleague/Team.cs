@@ -92,6 +92,21 @@ namespace org.flixel
             return false;
         }
 
+        public void setSelectedPlayerToPlayerWithBall()
+        {
+            for (int i = 0; i < this.members.Count; i++)
+            {
+                if (((Player)this.members[i]).hasBall == true)
+                {
+                    ((Player)this.members[i]).isSelected = true;
+                }
+                else
+                {
+                    ((Player)this.members[i]).isSelected = false;
+                }
+            }
+        }
+
         public void passBall(int Direction)
         {
             members.Sort((x, y) => x.x.CompareTo(y.x));
@@ -141,7 +156,7 @@ namespace org.flixel
 
             if (teamHasBall())
             {
-
+                setSelectedPlayerToPlayerWithBall();
             }
 
             base.update();

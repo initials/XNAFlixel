@@ -107,6 +107,7 @@ namespace org.flixel
             selectedPlayerIcon.at(this);
             selectedPlayerIcon.x -= 8;
             selectedPlayerIcon.y -= 8;
+            selectedPlayerIcon.angle += 2;
             selectedPlayerIcon.update();
 
             jerseyText.at(this); 
