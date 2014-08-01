@@ -381,7 +381,10 @@ namespace org.flixel
         {
             return isNewKeyPress(key, FlxG.controllingPlayer, out pi);
         }
-
+        public bool justReleased(Keys key)
+        {
+            return isNewKeyRelease(key, FlxG.controllingPlayer, out pi);
+        }
         /*
         public static string ConvertKeyToChar(Keys key, bool shift) 
         { 

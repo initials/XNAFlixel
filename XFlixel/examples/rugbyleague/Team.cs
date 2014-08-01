@@ -137,6 +137,7 @@ namespace org.flixel
 
         override public void update()
         {
+
             if (FlxG.keys.justPressed(Keys.OemPeriod))
             {
                 if (teamHasBall())
