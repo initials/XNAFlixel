@@ -16,6 +16,8 @@ namespace org.flixel
 
         public const float FOLLOW_LERP = 3.0f;
 
+        
+
         //public const Vector2[] StartPositions_KickOffAttack = new Vector2[] {Vector2(
 
         public static Vector2[] StartPositions_KickOffAttack =

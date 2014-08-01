@@ -19,6 +19,14 @@ namespace org.flixel
             
         }
 
+        public void setPlayerModeTo(string Mode)
+        {
+            for (int i = 0; i < this.members.Count; i++)
+            {
+                ((Player)this.members[i]).mode = Mode;
+            }
+        }
+
         public void setAllToUnselected()
         {
             for (int i = 0; i < this.members.Count; i++)

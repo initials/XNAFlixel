@@ -19,6 +19,8 @@ namespace org.flixel
 
         public float timeSincePass;
 
+        public bool isHeld;
+
         public Ball(int xPos, int yPos)
             : base(xPos, yPos)
         {
@@ -35,6 +37,8 @@ namespace org.flixel
             setDrags(150, 150);
 
             timeSincePass = 0;
+
+            isHeld = false;
 
         }
 

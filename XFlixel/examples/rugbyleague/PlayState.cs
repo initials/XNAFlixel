@@ -78,6 +78,7 @@ namespace org.flixel
                 i + 1, ball);
 
                 player.color = Color.Red;
+                player.mode = Player.MODE_DEFENSE;
                 team2.add(player);
 
 
@@ -137,7 +138,7 @@ namespace org.flixel
 
 
 
-            if (((Ball)(e.Object2)).timeSincePass > 0.25f)
+            if (((Ball)(e.Object2)).timeSincePass > 0.25f && ((Ball)(e.Object2)).isHeld == false)
             {
                 ((Player)(e.Object1)).hasBall = true;
                 ((Player)(e.Object1)).isSelected = true;
@@ -149,11 +150,20 @@ namespace org.flixel
         protected bool overlapped(object Sender, FlxSpriteCollisionEvent e)
         {
             //you can fire functions on each object.
-            //((FlxObject)(e.Object1)).overlapped(e.Object2);
-            //((FlxObject)(e.Object2)).overlapped(e.Object1);
+            ((FlxObject)(e.Object1)).overlapped(e.Object2);
+            ((FlxObject)(e.Object2)).overlapped(e.Object1);
 
+            if (team1.teamHasBall())
+            {
+                team2.setPlayerModeTo(Player.MODE_TACKLED);
+                team1.setPlayerModeTo(Player.MODE_PLAYTHEBALL);
 
-
+            }
+            if (team2.teamHasBall())
+            {
+                team2.setPlayerModeTo(Player.MODE_PLAYTHEBALL);
+                team1.setPlayerModeTo(Player.MODE_TACKLED);
+            }
 
             return true;
         }
