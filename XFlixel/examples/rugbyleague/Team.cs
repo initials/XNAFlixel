@@ -12,11 +12,15 @@ namespace org.flixel
 {
     class Team : FlxGroup
     {
+        private float kickPower;
+        private float passAngle;
 
         public Team()
             : base()
         {
-            
+            kickPower = 0.0f;
+            passAngle = 0.0f;
+
         }
 
         public void setPlayerModeTo(string Mode)
@@ -131,7 +135,25 @@ namespace org.flixel
                 }
 
             }
+            
+        }
 
+        public void kickBall(int Direction, int Power)
+        {
+            members.Sort((x, y) => x.x.CompareTo(y.x));
+
+            for (int i = 0; i < this.members.Count; i++)
+            {
+                if (((Player)this.members[i]).hasBall == true)
+                {
+                    Console.WriteLine("Pass ball");
+                    ((Player)this.members[i]).hasBall = false;
+                    //((Player)this.members[i]).isSelected = false;
+                    ((Player)this.members[i]).passBall(FlxU.random(-20,20), Power);
+
+                }
+
+            }
 
         }
 
@@ -161,6 +183,21 @@ namespace org.flixel
                 {
                     selectNextPlayerToRight();
                 }
+            }
+
+            if (FlxG.keys.justPressed(Keys.Space))
+            {
+
+            }
+            if (FlxG.keys.SPACE)
+            {
+                kickPower += FlxG.elapsed;
+            }
+            if (FlxG.keys.justReleased(Keys.Space))
+            {
+                kickBall(1, (int)kickPower * 200);
+
+                kickPower = 0;
             }
 
             if (teamHasBall())
