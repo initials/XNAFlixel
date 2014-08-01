@@ -25,7 +25,7 @@ namespace org.flixel
         public const string MODE_DEFENSE= "MODE_DEFENSE";
         public const string MODE_TACKLED = "MODE_TACKLED";
         public const string MODE_PLAYTHEBALL = "MODE_PLAYTHEBALL";
-        public const string MODE_PLAYTHEBALL = "MODE_PLAYTHEBALL";
+        public const string MODE_WAIT = "MODE_WAIT";
 
 
         float runSpeed;
@@ -74,6 +74,8 @@ namespace org.flixel
 
             runSpeed = FlxU.random(100, 250);
 
+            mode = MODE_ATTACK;
+
         }
 
         override public void update()
@@ -116,6 +118,14 @@ namespace org.flixel
             }
             else
             {
+                if (this.mode == MODE_ATTACK)
+                {
+                    if (y < ball.y-64)
+                    {
+                        velocity.Y = runSpeed;
+
+                    }
+                }
                 if (this.mode == MODE_DEFENSE)
                 {
 
@@ -157,7 +167,7 @@ namespace org.flixel
                     else
                     {
                         this.velocity.Y = 0;
-                        this.mode = MODE_DEFENSE;
+                        this.mode = MODE_WAIT;
 
                     }
                 }
