@@ -16,7 +16,7 @@ namespace org.flixel
         //Define a playing field
         FlxTilemap playingField;
 
-        FlxSprite ball;
+        Ball ball;
 
         Team team1;
         Team team2;
@@ -40,9 +40,10 @@ namespace org.flixel
             add(playingField);
 
 
-            ball = new FlxSprite(78 * 8, 132 * 8);
+            ball = new Ball(78 * 8, 132 * 8);
             add(ball);
-
+            FlxG.follow(ball, Registry.FOLLOW_LERP);
+            FlxG.followBounds(0, 0, 78 * 16, 132 * 16);
 
 
 
@@ -52,25 +53,35 @@ namespace org.flixel
             // Create two teams of 7 robots;
             for (int i = 0; i < 13; i++)
             {
-                Player player = new Player(61 * 8 + (i * 64), (int)ball.y - 50, i + 1);
+                //Player player = new Player(90 + (i * 80), (int)ball.y - 50, i + 1);
+                Player player = new Player(
+                    (int)Registry.StartPositions_KickOffAttack[i].X, 
+                    (int)Registry.StartPositions_KickOffAttack[i].Y, 
+                    i + 1, ball);
+
                 player.color = Color.Blue;
                 team1.add(player);
 
                 if (i == 6)
                 {
                     player.isSelected = true;
-                    FlxG.follow(player, 10);
-                    FlxG.followBounds(0, 0, 78 * 16, 132 * 16);
+
                 }
             }
             for (int i = 0; i < 13; i++)
             {
-                Player player = new Player(61 * 8 + (i * 64), (int)ball.y + 50, i + 1);
+                //Player player = new Player(90 + (i * 80), (int)ball.y + 50, i + 1);
+
+                Player player = new Player(
+                (int)Registry.StartPositions_KickOffDefense[i].X,
+                (int)Registry.StartPositions_KickOffDefense[i].Y,
+                i + 1, ball);
+
                 player.color = Color.Red;
                 team2.add(player);
 
 
-                if (i == 6) player.isSelected = true;
+                //if (i == 6) player.isSelected = true;
             }
 
             add(team1);
@@ -81,7 +92,7 @@ namespace org.flixel
         {
             if (FlxG.keys.justPressed(Keys.B))
             {
-                FlxG.showBounds = true;
+                FlxG.showBounds = !FlxG.showBounds;
             }
 
             //if (FlxG.keys.justPressed(Keys.OemComma))
@@ -107,10 +118,32 @@ namespace org.flixel
             //    }
             //}
 
-
             FlxU.overlap(team1, team2, overlapped);
 
+            FlxU.overlap(team1, ball, overlappedBall);
+            FlxU.overlap(team2, ball, overlappedBall);
+
+
             base.update();
+        }
+
+        protected bool overlappedBall(object Sender, FlxSpriteCollisionEvent e)
+        {
+            //Console.WriteLine("Overlapped Ball " + e.Object2.ToString());
+
+            //you can fire functions on each object.
+            ((FlxObject)(e.Object1)).overlapped(e.Object2);
+            ((FlxObject)(e.Object2)).overlapped(e.Object1);
+
+
+
+            if (((Ball)(e.Object2)).timeSincePass > 0.25f)
+            {
+                ((Player)(e.Object1)).hasBall = true;
+                ((Player)(e.Object1)).isSelected = true;
+            }
+
+            return true;
         }
 
         protected bool overlapped(object Sender, FlxSpriteCollisionEvent e)

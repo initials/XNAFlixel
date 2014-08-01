@@ -159,8 +159,10 @@
   <ItemGroup>
     <Compile Include="examples\BaseExampleState.cs" />
     <Compile Include="examples\RobotFootballState.cs" />
+    <Compile Include="examples\rugbyleague\Ball.cs" />
     <Compile Include="examples\rugbyleague\Player.cs" />
     <Compile Include="examples\rugbyleague\PlayState.cs" />
+    <Compile Include="examples\rugbyleague\Registry.cs" />
     <Compile Include="examples\rugbyleague\Team.cs" />
     <Compile Include="examples\TweenerState.cs" />
     <Compile Include="FlixelEntryPoint.cs" />

@@ -19,8 +19,96 @@ namespace org.flixel
             
         }
 
-        public void sortMembersByX()
+        public void setAllToUnselected()
         {
+            for (int i = 0; i < this.members.Count; i++)
+            {
+                ((Player)this.members[i]).isSelected = false;
+            }
+        }
+
+        public void selectNextPlayerToLeft()
+        {
+            // Sort members by x position.
+
+            members.Sort((x, y) => x.x.CompareTo(y.x));
+
+            for (int i = 0; i < this.members.Count; i++)
+            {
+                if (((Player)this.members[i]).isSelected == true)
+                {
+                    //Console.WriteLine(" selected player is {0}", i);
+
+                    ((Player)this.members[i]).isSelected = false;
+                    if (i == this.members.Count - 1)
+                    {
+                        ((Player)this.members[0]).isSelected = true;
+                        //FlxG.follow(this.members[0], Registry.FOLLOW_LERP);
+                    }
+                    else
+                    {
+                        ((Player)this.members[i + 1]).isSelected = true;
+                        //FlxG.follow(this.members[i + 1], Registry.FOLLOW_LERP);
+                    }
+
+                    return;
+                }
+            }
+        }
+
+        public void selectNextPlayerToRight()
+        {
+            members.Sort((x, y) => x.x.CompareTo(y.x));
+
+            for (int i = 0; i < this.members.Count; i++)
+            {
+                if (((Player)this.members[i]).isSelected == true)
+                {
+                    ((Player)this.members[i]).isSelected = false;
+                    if (i == 0)
+                    {
+                        ((Player)this.members[this.members.Count - 1]).isSelected = true;
+                        //FlxG.follow(this.members[this.members.Count - 1], Registry.FOLLOW_LERP);
+                    }
+                    else
+                    {
+                        ((Player)this.members[i - 1]).isSelected = true;
+                        //FlxG.follow(this.members[i - 1], Registry.FOLLOW_LERP);
+                    }
+                    return;
+                }
+            }
+        }
+
+        public bool teamHasBall()
+        {
+            for (int i = 0; i < this.members.Count; i++)
+            {
+                if (((Player)this.members[i]).hasBall == true)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void passBall(int Direction)
+        {
+            members.Sort((x, y) => x.x.CompareTo(y.x));
+
+            for (int i = 0; i < this.members.Count; i++)
+            {
+                if (((Player)this.members[i]).hasBall == true)
+                {
+                    Console.WriteLine("Pass ball");
+                    ((Player)this.members[i]).hasBall = false;
+                    //((Player)this.members[i]).isSelected = false;
+                    ((Player)this.members[i]).passBall(250 * Direction, -200);
+
+                }
+
+            }
+
 
         }
 
@@ -28,36 +116,32 @@ namespace org.flixel
         {
             if (FlxG.keys.justPressed(Keys.OemPeriod))
             {
-                //members.Sort(0,
-                for (int i = 0; i < this.members.Count; i++)
+                if (teamHasBall())
                 {
-                    if (((Player)this.members[i]).isSelected == true)
-                    {
-                        //Console.WriteLine(" selected player is {0}", i);
-
-                        ((Player)this.members[i]).isSelected = false;
-                        if (i == this.members.Count - 1)
-                            ((Player)this.members[0]).isSelected = true;
-                        else
-                            ((Player)this.members[i + 1]).isSelected = true;
-                        return;
-                    }
+                    passBall(1);
+                    selectNextPlayerToLeft();
+                }
+                else
+                {
+                    selectNextPlayerToLeft();
                 }
             }
             if (FlxG.keys.justPressed(Keys.OemComma))
             {
-                for (int i = 0; i < this.members.Count; i++)
+                if (teamHasBall())
                 {
-                    if (((Player)this.members[i]).isSelected == true)
-                    {
-                        ((Player)this.members[i]).isSelected = false;
-                        if (i == 0)
-                            ((Player)this.members[this.members.Count - 1]).isSelected = true;
-                        else
-                            ((Player)this.members[i - 1]).isSelected = true;
-                        return;
-                    }
+                    passBall(-1);
+                    selectNextPlayerToRight();
                 }
+                else
+                {
+                    selectNextPlayerToRight();
+                }
+            }
+
+            if (teamHasBall())
+            {
+
             }
 
             base.update();
