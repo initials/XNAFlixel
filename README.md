@@ -11,7 +11,13 @@ HOW TO MAKE A NEW PROJECT
 
 3. Choose the XNAFlixel.sln. You may need to change the file extension drop down box to .sln files. You now have a project with your game and the XNAFlixel code.
 
-4. In the solution explorer, choose the references and right click and choose Add Reference. In the projects tab choose XFlixel
+4. In the solution explorer, choose the references and right click and choose Add Reference. In the projects tab choose XFlixel.
+
+5. Again go to Add Reference and choose the .NET tab. Choose Microsoft.XNA.Framework.Storage. Repeat this for any other XNA features you may want.
+
+6. Choose Add Content Reference. Add XFlixelContent.
+
+7. Add a file called GAMESETTINGS.txt. Change copy to Output Directory to Always.
 
 Cheats
 
