@@ -3,6 +3,16 @@ XNAFlixel
 
 Fork of X-Flixel
 
+HOW TO MAKE A NEW PROJECT
+
+1. In Visual Studio 2010 choose New Project. Selected Windows Game 4.0 (Visual C#).
+
+2. In the Solution Explorer right click the solution at the top and choose Add > Existing Project.
+
+3. Choose the XNAFlixel.sln. You may need to change the file extension drop down box to .sln files. You now have a project with your game and the XNAFlixel code.
+
+4. In the solution explorer, choose the references and right click and choose Add Reference. In the projects tab choose XFlixel
+
 Cheats
 
 Flixel Global Cheats.

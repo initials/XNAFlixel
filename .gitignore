@@ -175,3 +175,8 @@ XFlixel/obj/
 *.suo
 *.suo
 *.cachefile
+XFlixel.suo
+*.suo
+*.cache
+XFlixelContent/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+XFlixelContent/obj/x86/Release/DesignTimeResolveAssemblyReferencesInput.cache
