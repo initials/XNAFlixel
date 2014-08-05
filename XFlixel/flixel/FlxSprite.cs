@@ -354,8 +354,8 @@ namespace org.flixel
 
         public void atCenter(FlxObject obj)
         {
-            x = obj.x + (obj.width/2);
-            y = obj.y + (obj.height/2);
+            x = (obj.x + (obj.width/2)) - (width/2);
+            y = (obj.y + (obj.height/2)) - (height/2);
         }
 
 
