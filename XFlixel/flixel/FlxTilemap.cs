@@ -191,6 +191,9 @@ namespace org.flixel
         /// </summary>
         public bool rainbow = false;
 
+        /// <summary>
+        /// Not yet impelemented. Will flash the color into a checkerboard pattern.
+        /// </summary>
         public bool checkerboard = false;
 
         /// <summary>
@@ -445,6 +448,8 @@ namespace org.flixel
             int ri = bY * widthInTiles + bX;
             int cri;
 
+            //Console.WriteLine("drawing: {0}-{1}", bY, eY);
+
             for (int iy = bY; iy <= eY; iy++)
             {
                 cri = ri;
@@ -460,11 +465,12 @@ namespace org.flixel
                         }
                         if (checkerboard)
                         {
-                            if (iy % 2==0)
-                            {
-                                color = Color.PaleVioletRed;
-                                //color = new Color(FlxU.random(0.15, 1), FlxU.random(0.15, 1), FlxU.random(0.15, 1));
-                            }
+                            //if (cri % 2==0)
+                            //{
+                            //    color = Color.PaleVioletRed;
+
+                            //    //color = new Color(FlxU.random(0.15, 1), FlxU.random(0.15, 1), FlxU.random(0.15, 1));
+                            //}
                         }
 
                         spriteBatch.Draw(_tileBitmap,
