@@ -19,10 +19,15 @@ namespace org.flixel
         override public void create()
         {
             base.create();
+
+
+
         }
 
         override public void update()
         {
+
+
             if (FlxG.keys.justPressed(Keys.Escape))
             {
                 FlxG.state = new TestState();
@@ -30,5 +35,7 @@ namespace org.flixel
 
             base.update();
         }
+
+
     }
 }

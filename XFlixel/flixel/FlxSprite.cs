@@ -352,19 +352,6 @@ namespace org.flixel
             y = obj.y;
         }
 
-        public void atCenter(FlxObject obj)
-        {
-            x = (obj.x + (obj.width/2)) - (width/2);
-            y = (obj.y + (obj.height/2)) - (height/2);
-        }
-
-        public void atCenter(FlxObject obj, float offsetX, float offsetY)
-        {
-            x = (obj.x + (obj.width / 2)) - (width / 2) + offsetX;
-            y = (obj.y + (obj.height / 2)) - (height / 2) + offsetY;
-        }
-
-
 
 		/// <summary>
         /// Resets some important variables for sprite optimization and rendering.
