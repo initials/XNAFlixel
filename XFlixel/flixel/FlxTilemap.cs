@@ -191,6 +191,8 @@ namespace org.flixel
         /// </summary>
         public bool rainbow = false;
 
+        public bool checkerboard = false;
+
         /// <summary>
         /// The tilemap constructor just initializes some basic variables.
         /// </summary>
@@ -455,6 +457,14 @@ namespace org.flixel
                         if (rainbow)
                         {
                             color = new Color(FlxU.random(0.15,1), FlxU.random(0.15,1), FlxU.random(0.15,1));
+                        }
+                        if (checkerboard)
+                        {
+                            if (iy % 2==0)
+                            {
+                                color = Color.PaleVioletRed;
+                                //color = new Color(FlxU.random(0.15, 1), FlxU.random(0.15, 1), FlxU.random(0.15, 1));
+                            }
                         }
 
                         spriteBatch.Draw(_tileBitmap,
