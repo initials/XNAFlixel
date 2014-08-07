@@ -14,8 +14,8 @@ namespace org.flixel
     /// Call back for when animations finish.
     /// </summary>
     /// <param name="Name">name of the call back</param>
-    /// <param name="Frame">frame to call back on</param>
-    /// <param name="FrameIndex">Frame index ?</param>
+    /// <param name="Frame">frame to call back on - frame is the zero based index from 0 - x</param>
+    /// <param name="FrameIndex">Frame index is the frame of the spritesheet.</param>
     public delegate void FlxAnimationCallback(string Name, uint Frame, int FrameIndex);
 
     /// <summary>

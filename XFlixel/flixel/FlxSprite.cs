@@ -121,18 +121,25 @@ namespace org.flixel
         /// The function to call if you set an Animation Callback.
         /// </summary>
         private FlxAnimationCallback _callback;
+
         private Flx2DFacing _facing2d = Flx2DFacing.NotUsed;
 
         //Various rendering helpers
 		protected Rectangle _flashRect;
+
 		protected Rectangle _flashRect2;
+
         protected Point _flashPointZero;
+
         protected float _alpha;
+
         /// <summary>
         /// internal color used for tinting.
         /// </summary>
         protected Color _color = Color.White;
+
         protected Color _lastColor = Color.White;
+
         private byte _bytealpha = 0xff;
 
         /// <summary>

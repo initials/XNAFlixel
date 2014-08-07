@@ -105,13 +105,23 @@ namespace org.flixel
             if (FlxG.keys.justReleased(Keys.Left))
             {
                 spaceShip.play("reverse", true);
-
+                spaceShip.facing = Flx2DFacing.Left;
             }
             if (FlxG.keys.justReleased(Keys.Right))
             {
                 spaceShip.play("transform", true);
-
+                spaceShip.facing = Flx2DFacing.Right;
             }
+            if (FlxG.keys.justReleased(Keys.Up))
+            {
+                spaceShip.facing = Flx2DFacing.Up;
+            }
+            if (FlxG.keys.justReleased(Keys.Down))
+            {
+                spaceShip.facing = Flx2DFacing.Down;
+            }
+
+
 
 
             if (FlxG.keys.justReleased(Keys.D1))
