@@ -23,6 +23,11 @@ namespace org.flixel
 
             FlxG.hideHud();
 
+            FlxSprite bg = new FlxSprite(0,0);
+            bg.createGraphic(FlxG.width,FlxG.width, new Color(0.05f, 0.05f,0.08f));
+            bg.setScrollFactors(0, 0);
+            add(bg);
+
             stars = new FlxGroup();
 
 
@@ -31,8 +36,8 @@ namespace org.flixel
             {
                 star = new FlxSprite(FlxU.random(0,FlxG.width), FlxU.random(0,FlxG.height));
                 star.createGraphic(1, 1, Color.White);
-                stars.velocity.Y = FlxU.random(20, 100);
-                stars.velocity.X = 0;
+                star.velocity.Y = FlxU.random(20, 100);
+                star.velocity.X = 0;
                 stars.add(star);
             }
 
@@ -49,7 +54,7 @@ namespace org.flixel
             spaceShip.addAnimation("transform3", new int[] { 40,41,42 }, 12, false);
             
 
-            spaceShip.addAnimation("transform", new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39,40,41,42 }, 12, false);
+            spaceShip.addAnimation("transform", new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39}, 24, false);
             
             spaceShip.play("static");
 
@@ -72,7 +77,7 @@ namespace org.flixel
 
             if (FlxG.keys.justReleased(Keys.Space))
             {
-                spaceShip.play("transform");
+                spaceShip.play("transform", true);
 
             }
             if (FlxG.keys.justReleased(Keys.D1))
@@ -102,26 +107,35 @@ namespace org.flixel
         public void pulse(string Name, uint Frame, int FrameIndex)
         {
             // Flash on Frame 5
-            if (Name == "transform" && Frame == 2)
+            if (Name == "transform" && Frame == 0)
             {
-                FlxG.flash.start(Color.White);
-                spaceShip.scale = 2;
+                FlxG.bloom.Visible = true;
+                FlxG.bloom.usePresets = true ;
+                FlxG.bloom.Settings = BloomPostprocess.BloomSettings.PresetSettings[6];
+
+                
             }
             else if (Name == "transform" && Frame == 10)
             {
-                spaceShip.scale = 3;
+                FlxG.bloom.Settings = BloomPostprocess.BloomSettings.PresetSettings[6];
             }
             else if (Name == "transform" && Frame == 15)
             {
-                spaceShip.scale = 4;
+                FlxG.bloom.Settings = BloomPostprocess.BloomSettings.PresetSettings[6];
             }
             else if (Name == "transform" && Frame == 20)
             {
-                spaceShip.scale = 5;
+                FlxG.bloom.Settings = BloomPostprocess.BloomSettings.PresetSettings[6];
+            }
+            else if (Name == "transform" && Frame == 39)
+            {
+                FlxG.flash.start(Color.White);
+                FlxG.bloom.Visible = false;
             }
             else
             {
-                spaceShip.scale = 1;
+
+                FlxG.bloom.Settings = BloomPostprocess.BloomSettings.PresetSettings[6];
             }
         }
 

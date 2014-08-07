@@ -35,11 +35,7 @@ namespace org.flixel
             textInfo += "3. Race Or Die\n";
             textInfo += "4. Tweens\n";
             textInfo += "5. Robot Football\n";
-<<<<<<< HEAD
             textInfo += "6. Animation Callbacks\n";
-=======
-            textInfo += "6. Rugby League\n";
->>>>>>> origin/master
             textInfo += "7. \n";
             textInfo += "8. \n";
             textInfo += "9. \n";
