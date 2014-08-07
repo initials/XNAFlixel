@@ -107,17 +107,21 @@ namespace org.flixel
                 FlxG.flash.start(Color.White);
                 spaceShip.scale = 2;
             }
-            if (Name == "transform" && Frame == 10)
+            else if (Name == "transform" && Frame == 10)
             {
                 spaceShip.scale = 3;
             }
-            if (Name == "transform" && Frame == 15)
+            else if (Name == "transform" && Frame == 15)
             {
                 spaceShip.scale = 4;
             }
-            if (Name == "transform" && Frame == 20)
+            else if (Name == "transform" && Frame == 20)
             {
                 spaceShip.scale = 5;
+            }
+            else
+            {
+                spaceShip.scale = 1;
             }
         }
 

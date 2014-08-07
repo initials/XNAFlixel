@@ -90,19 +90,10 @@ namespace org.flixel
             }
             if (FlxG.keys.SIX)
             {
-<<<<<<< HEAD
+
                 FlxG.state = new AnimationCallbackState();
             }
 
-
-
-
-
-
-=======
-                FlxG.state = new PlayState();
-            }
->>>>>>> origin/master
             base.update();
         }
 
