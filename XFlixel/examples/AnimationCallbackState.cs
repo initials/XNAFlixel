@@ -10,6 +10,14 @@ using System.Xml.Linq;
 
 namespace org.flixel
 {
+    /// <summary>
+    /// Examples for :
+    /// * FlxAnimationCallback
+    /// * FlxSprite.generateFrameNumbersBetween(0,39)
+    /// * FlxHud
+    /// * FlxGroup for the star field
+    /// * FlxEmitter
+    /// </summary>
     public class AnimationCallbackState : BaseExampleState
     {
         FlxSprite spaceShip;
@@ -17,12 +25,16 @@ namespace org.flixel
         FlxGroup stars;
         FlxSprite star;
 
+        FlxEmitter jets;
+
         override public void create()
         {
             base.create();
 
-            FlxG.resetHud();
-            FlxG.showHud();
+            FlxG.setHudGamepadButton(FlxHud.TYPE_KEYBOARD, FlxHud.Keyboard_Arrow_Left, 10, 110);
+            FlxG.setHudGamepadButton(FlxHud.TYPE_KEYBOARD_DIRECTION, FlxHud.Keyboard_Arrow_Right, 110, 110);
+
+
 
             FlxSprite bg = new FlxSprite(0,0);
             bg.createGraphic(FlxG.width,FlxG.width, new Color(0.05f, 0.05f,0.08f));
@@ -64,14 +76,21 @@ namespace org.flixel
             spaceShip.play("static");
 
             //Add an animation callback - This will call Pulse on every frame.
-            //spaceShip.addAnimationCallback(pulse);
+            spaceShip.addAnimationCallback(pulse);
             
             spaceShip.scale = 3;
             spaceShip.setDrags(1100, 1100);
             add(spaceShip);
 
-
-
+            jets = new FlxEmitter();
+            
+            jets.setSize(5, 50);
+            jets.createSprites( FlxG.Content.Load<Texture2D>("diagnostic/testpalette"), 100, true,0.0f,0.0f );
+            jets.setXSpeed(-110, 110);
+            jets.setYSpeed(40, 80);
+            
+            add(jets);
+            jets.at(spaceShip);
 
         }
 
@@ -125,37 +144,30 @@ namespace org.flixel
             string info = "Current animation: " + Name + " Frame: " + Frame +  " FrameIndex: " + FrameIndex;
 
             FlxG.setHudText(1, info);
+            FlxG.setHudTextScale(1, 3);
 
-
-            // Flash on Frame 5
-            if (Name == "transform" && Frame == 0)
-            {
-                FlxG.bloom.Visible = true;
-                FlxG.bloom.usePresets = true ;
-                FlxG.bloom.Settings = BloomPostprocess.BloomSettings.PresetSettings[6];
-            }
-            else if (Name == "transform" && Frame == 10)
-            {
-                FlxG.bloom.Settings = BloomPostprocess.BloomSettings.PresetSettings[6];
-            }
-            else if (Name == "transform" && Frame == 15)
-            {
-                FlxG.bloom.Settings = BloomPostprocess.BloomSettings.PresetSettings[6];
-            }
-            else if (Name == "transform" && Frame == 20)
-            {
-                FlxG.bloom.Settings = BloomPostprocess.BloomSettings.PresetSettings[6];
-            }
-            else if (Name == "transform" && Frame == 39)
+            if (Name == "transform" && Frame == 39)
             {
                 FlxG.flash.start(Color.White);
-                FlxG.bloom.Visible = false;
             }
-            else
-            {
 
-                FlxG.bloom.Settings = BloomPostprocess.BloomSettings.PresetSettings[6];
+            // Lets say you want to fire some jets on the fifth frame of any animation
+            if (Frame == 5)
+            {
+                jets.start();
             }
+
+            // Fire jets at the fifth frame of reverse.
+            if (Name == "reverse" && FrameIndex == 5)
+            {
+                jets.start();
+            }
+
+
+
+
+
+
         }
 
 
