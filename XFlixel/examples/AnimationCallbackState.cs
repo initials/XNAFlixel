@@ -21,7 +21,8 @@ namespace org.flixel
         {
             base.create();
 
-            FlxG.hideHud();
+            FlxG.resetHud();
+            FlxG.showHud();
 
             FlxSprite bg = new FlxSprite(0,0);
             bg.createGraphic(FlxG.width,FlxG.width, new Color(0.05f, 0.05f,0.08f));
@@ -35,7 +36,7 @@ namespace org.flixel
             for (int i = 0; i < 100; i++)
             {
                 star = new FlxSprite(FlxU.random(0,FlxG.width), FlxU.random(0,FlxG.height));
-                star.createGraphic(1, 1, Color.White);
+                star.createGraphic(3, 3, Color.White);
                 star.velocity.Y = FlxU.random(20, 100);
                 star.velocity.X = 0;
                 stars.add(star);
@@ -54,16 +55,18 @@ namespace org.flixel
             spaceShip.addAnimation("transform3", new int[] { 40,41,42 }, 12, false);
             
 
-            spaceShip.addAnimation("transform", new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39}, 24, false);
+            //spaceShip.addAnimation("transform", new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39}, 24, false);
+            //spaceShip.addAnimation("reverse", new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39 }, 24, false);
             
+            spaceShip.addAnimation("transform", spaceShip.generateFrameNumbersBetween(0,39) , 24, false);
+            spaceShip.addAnimation("reverse", spaceShip.generateFrameNumbersBetween(39, 0), 24, false);
+
             spaceShip.play("static");
 
-
             //Add an animation callback - This will call Pulse on every frame.
-            spaceShip.addAnimationCallback(pulse);
-
+            //spaceShip.addAnimationCallback(pulse);
             
-            spaceShip.scale = 1;
+            spaceShip.scale = 3;
             spaceShip.setDrags(1100, 1100);
             add(spaceShip);
 
@@ -80,6 +83,18 @@ namespace org.flixel
                 spaceShip.play("transform", true);
 
             }
+            if (FlxG.keys.justReleased(Keys.Left))
+            {
+                spaceShip.play("reverse", true);
+
+            }
+            if (FlxG.keys.justReleased(Keys.Right))
+            {
+                spaceShip.play("transform", true);
+
+            }
+
+
             if (FlxG.keys.justReleased(Keys.D1))
             {
                 spaceShip.play("transform1");
@@ -106,14 +121,18 @@ namespace org.flixel
 
         public void pulse(string Name, uint Frame, int FrameIndex)
         {
+
+            string info = "Current animation: " + Name + " Frame: " + Frame +  " FrameIndex: " + FrameIndex;
+
+            FlxG.setHudText(1, info);
+
+
             // Flash on Frame 5
             if (Name == "transform" && Frame == 0)
             {
                 FlxG.bloom.Visible = true;
                 FlxG.bloom.usePresets = true ;
                 FlxG.bloom.Settings = BloomPostprocess.BloomSettings.PresetSettings[6];
-
-                
             }
             else if (Name == "transform" && Frame == 10)
             {

@@ -868,10 +868,42 @@ namespace org.flixel
             }
         }
 
- 
+        public int[] generateFrameNumbersBetween(int Start, int End)
+        {
+            int diff = 0;
+
+            if (End > Start)
+            {
+                diff = End - Start;
+                int[] v = new int[diff+1];
+                int c = 0;
+                for (int i = Start; i <= End; i++)
+                {
+                    v[c] = i;
+                    c++;
+                }
+                return v;
+            }
+            else
+            {
+                diff = Start - End;
+                int[] v = new int[diff+1];
+                int c = 0;
+                for (int i = Start; i >= End; i--)
+                {
+                    v[c] = i;
+                    c++;
+                }
+
+                return v;
+            }
+
+
+        }
 
 
 
+    // End
     }
 
 }
