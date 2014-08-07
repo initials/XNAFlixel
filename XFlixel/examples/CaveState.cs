@@ -16,7 +16,7 @@ namespace org.flixel
 
         private const float FOLLOW_LERP = 3.0f;
         private const int BULLETS_PER_ACTOR = 100;
-        private FlxSprite logo;
+        private FlxSprite spaceShip;
 
         private FlxTilemap tiles;
 
@@ -36,16 +36,16 @@ namespace org.flixel
             makeCave(0.5f, new Color(0.98f, 1.0f, 0.95f));
             makeCave2(1.0f, Color.Green);
 
-            logo = new FlxSprite(60, 60 );
-            logo.loadGraphic(FlxG.Content.Load<Texture2D>("surt/spaceship_32x32"), true, false, 32,32);
-            logo.addAnimation("Static", new int[] { 0 }, 36, true);
-            logo.addAnimation("Transform", new int[] { 0, 1, 2, 3, 4, 5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39},36,false);
-            logo.play("Static");
+            spaceShip = new FlxSprite(60, 60 );
+            spaceShip.loadGraphic(FlxG.Content.Load<Texture2D>("surt/spaceship_32x32"), true, false, 32,32);
+            spaceShip.addAnimation("Static", new int[] { 0 }, 36, true);
+            spaceShip.addAnimation("Transform", new int[] { 0, 1, 2, 3, 4, 5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39},36,false);
+            spaceShip.play("Static");
             
-            logo.setDrags(1100, 1100);
-            add(logo);
+            spaceShip.setDrags(1100, 1100);
+            add(spaceShip);
 
-            FlxG.follow(logo, 10.0f);
+            FlxG.follow(spaceShip, 10.0f);
             FlxG.followBounds(0, 0, 50*16, 40*16);
 
         }
@@ -123,45 +123,45 @@ namespace org.flixel
             base.update();
 
             //Put the collide after base.update() to avoid flickering.
-            FlxU.collide(logo, tiles);
+            FlxU.collide(spaceShip, tiles);
 
             int velValue = 500;
             if (FlxG.keys.A)
             {
-                logo.velocity.X = velValue * -1;
+                spaceShip.velocity.X = velValue * -1;
             }
             else if (FlxG.keys.D)
             {
-                logo.velocity.X = velValue;
+                spaceShip.velocity.X = velValue;
             }
             else if (FlxG.keys.W)
             {
-                logo.velocity.Y = velValue * -1;
+                spaceShip.velocity.Y = velValue * -1;
             }
             else if (FlxG.keys.S)
             {
-                logo.velocity.Y = velValue;
+                spaceShip.velocity.Y = velValue;
             }
             if (FlxG.keys.Z)
             {
-                logo.angle -= 5;
+                spaceShip.angle -= 5;
             }
             else if (FlxG.keys.X)
             {
-                logo.angle += 5;
+                spaceShip.angle += 5;
             }
             else if (FlxG.keys.SPACE)
             {
-                logo.thrust = 500;
+                spaceShip.thrust = 500;
             }
             else if (FlxG.keys.L)
             {
-                logo.play("Transform");
+                spaceShip.play("Transform");
                 //FlxG.bloom.Visible = true;
             }
             else
             {
-                logo.thrust = 0;
+                spaceShip.thrust = 0;
             }
 
 
