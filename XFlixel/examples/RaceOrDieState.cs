@@ -95,17 +95,10 @@ namespace org.flixel
 
         override public void update()
         {
-
-
-
-
-
-
             //Toggle the bounding box visibility
             if (FlxG.keys.justPressed(Microsoft.Xna.Framework.Input.Keys.B))
                 FlxG.showBounds = !FlxG.showBounds;
-
-
+            
             base.update();
 
             //Put the collide after base.update() to avoid flickering.
@@ -166,16 +159,10 @@ namespace org.flixel
             {
                 velValue -= 10;
             }
-
-
-
-
-
         }
 
         protected bool overlapped(object Sender, FlxSpriteCollisionEvent e)
         {
-
             velValue -= 40;
             return true;
         }

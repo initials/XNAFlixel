@@ -316,6 +316,11 @@ namespace org.flixel
         public float pathAngle;
 
         /// <summary>
+        /// Offset the Path Angle if using AutoRotate.
+        /// </summary>
+        public float pathAngleOffset;
+
+        /// <summary>
         /// Internal helper, tracks which node of the path this object is moving toward.
         /// </summary>
         protected int _pathNodeIndex;
@@ -1197,7 +1202,15 @@ namespace org.flixel
                 {
                     angularVelocity = 0;
                     angularAcceleration = 0;
-                    angle = pathAngle;
+                    //angle = pathAngle;
+
+                    double rot = Math.Atan2((float)velocity.Y, (float)velocity.X);
+                    double degrees = rot * 180 / Math.PI;
+
+                    angle = (float)degrees + pathAngleOffset;
+
+
+
                 }
             }
         }

@@ -32,6 +32,10 @@ namespace org.flixel
             {
                 FlxG.state = new TestState();
             }
+            if (FlxG.keys.justPressed(Keys.B))
+            {
+                FlxG.showBounds = !FlxG.showBounds;
+            }
 
             base.update();
         }
