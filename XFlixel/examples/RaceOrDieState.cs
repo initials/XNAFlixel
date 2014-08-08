@@ -33,7 +33,7 @@ namespace org.flixel
             makeCave2(1.0f, Color.Green);
 
             logo = new FlxSprite(360, 360);
-            logo.loadGraphic(FlxG.Content.Load<Texture2D>("surt/race_or_die"), true, false, 64, 64);
+            logo.loadGraphic("surt/race_or_die", true, false, 64, 64);
             logo.addAnimation("Static", new int[] { 8 }, 0, true);
             logo.play("Static");
             
@@ -131,15 +131,21 @@ namespace org.flixel
 
             if (FlxG.keys.A)
             {
-                if (FlxG.keys.SPACE) logo.angle -= 5;
-                else 
-                    logo.angle -= 2;
+                if (Math.Abs(logo.velocity.X) > 0.1f || Math.Abs(logo.velocity.Y) > 0.1f)
+                {
+                    if (FlxG.keys.SPACE) logo.angle -= 5;
+                    else
+                        logo.angle -= 2;
+                }
             }
             if (FlxG.keys.D)
             {
-                if (FlxG.keys.SPACE) logo.angle += 5;
-                else
-                    logo.angle += 2;
+                if (Math.Abs(logo.velocity.X) > 0.1f || Math.Abs(logo.velocity.Y) > 0.1f)
+                {
+                    if (FlxG.keys.SPACE) logo.angle += 5;
+                    else
+                        logo.angle += 2;
+                }
             }
             if (FlxG.keys.W)
             {
