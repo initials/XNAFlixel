@@ -847,13 +847,13 @@ namespace org.flixel
                 col);
         }
 
-        public void setAngleBasedOnVelocity()
-        {
-            double rot = Math.Atan2((float)velocity.Y, (float)velocity.X);
-            double degrees = rot * 180 / Math.PI;
+        //public void setAngleBasedOnVelocity()
+        //{
+        //    double rot = Math.Atan2((float)velocity.Y, (float)velocity.X);
+        //    double degrees = rot * 180 / Math.PI;
 
-            angle = (float)degrees;
-        }
+        //    angle = (float)degrees;
+        //}
 
         /// <summary>
         /// Draws bounds

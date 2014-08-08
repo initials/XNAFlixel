@@ -18,13 +18,23 @@ namespace org.flixel
 
             FlxSprite robot = new FlxSprite(0, 0);
             robot.loadGraphic("surt/race_or_die", true, false, 64, 64);
-            robot.addAnimation("static", new int[] { 9 }, 0, true);
+            robot.addAnimation("static", new int[] { 7 }, 0, true);
             robot.play("static");
             add(robot);
 
             robot.angle = 210;
             robot.setVelocityFromAngle(100);
 
+
+
+            robot = new FlxSprite(200, 0);
+            robot.loadGraphic("surt/race_or_die", true, false, 64, 64);
+            robot.addAnimation("static", new int[] { 10 }, 0, true);
+            robot.play("static");
+            add(robot);
+
+            robot.setVelocity(-30, 100);
+            robot.setAngleFromVelocity();
 
 
         }
