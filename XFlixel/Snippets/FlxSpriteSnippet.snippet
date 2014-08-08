@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>FlxSprite Code Snippet</Title>
+      <Shortcut>FlxSprite</Shortcut>
+      <Description>code snippet for flxsprite</Description>
+      <Author>initials</Author>
+    </Header>
+    <Snippet>
+      <Code Language="csharp">
+        <![CDATA[FlxSprite robot = new FlxSprite(0, 0);
+                robot.loadGraphic("surt/race_or_die", true, false, 64, 64);
+                robot.addAnimation("static", new int[] { 0,1,2,3,4 }, 12, true);
+                robot.play("static");
+                robot.angle = 0;
+                robot.width = 32;
+                robot.height = 32;
+                robot.setOffset(12, 12);
+                add(robot);]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

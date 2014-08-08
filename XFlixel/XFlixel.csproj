@@ -157,6 +157,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="examples\AngleAndVelocityState.cs" />
     <Compile Include="examples\AnimationCallbackState.cs" />
     <Compile Include="examples\BaseExampleState.cs" />
     <Compile Include="examples\FlxPathState.cs" />
@@ -245,10 +246,14 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </None>
+    <None Include="Snippets\overlap.snippet" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
+    <None Include="Snippets\FlxSpriteSnippet.snippet">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Farseer Physics Engine 3.5 Samples\Farseer Physics Engine 3.5\Farseer Physics XNA.csproj">

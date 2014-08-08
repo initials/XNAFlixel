@@ -96,7 +96,10 @@ namespace org.flixel
             {
                 FlxG.state = new PhysicsState();
             }
-
+            if (FlxG.keys.NINE)
+            {
+                FlxG.state = new AngleAndVelocityState();
+            }
             base.update();
         }
 

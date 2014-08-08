@@ -1226,6 +1226,27 @@ namespace org.flixel
 
         }
 
+        public float getAngleFromVelocity()
+        {
+            double rot = Math.Atan2((float)velocity.Y, (float)velocity.X);
+            double degrees = rot * 180 / Math.PI;
+            return (float)degrees + pathAngleOffset;
+        }
+
+        public void setAngleFromVelocity()
+        {
+            angle = this.getAngleFromVelocity();
+        }
+
+        public void setVelocityFromAngle(float Speed)
+        {
+            double radians = Math.PI / 180 * this.angle;
+            double velocity_x = Math.Cos((float)radians);
+            double velocity_y = Math.Sin((float)radians);
+            this.velocity.X = Speed * (float)velocity_x * -1;
+            this.velocity.Y = Speed * (float)velocity_y * -1;
+        }
+
 
         // end
     }
