@@ -36,8 +36,8 @@ namespace org.flixel
             textInfo += "4. Tweens\n";
             textInfo += "5. Robot Football\n";
             textInfo += "6. Animation Callbacks\n";
-            textInfo += "7. FlxPath\n";
-            textInfo += "8. \n";
+            textInfo += "7. FlxPath \n";
+            textInfo += "8. Physics \n";
             textInfo += "9. \n";
             textInfo += "10. \n";
 
@@ -91,6 +91,10 @@ namespace org.flixel
             if (FlxG.keys.SEVEN)
             {
                 FlxG.state = new FlxPathState();
+            }
+            if (FlxG.keys.EIGHT)
+            {
+                FlxG.state = new PhysicsState();
             }
 
             base.update();

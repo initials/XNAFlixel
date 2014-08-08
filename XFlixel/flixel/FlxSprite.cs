@@ -326,6 +326,30 @@ namespace org.flixel
 			return this;
 		}
 
+        public virtual FlxSprite loadGraphic(string Graphic)
+        {
+            Texture2D NewGraphic = FlxG.Content.Load<Texture2D>(Graphic);
+            return loadGraphic(NewGraphic, false, false, 0, 0);
+        }
+
+        public virtual FlxSprite loadGraphic(string Graphic, bool Animated)
+        {
+            Texture2D NewGraphic = FlxG.Content.Load<Texture2D>(Graphic);
+            return loadGraphic(NewGraphic, Animated, false, 0, 0);
+        }
+
+        public virtual FlxSprite loadGraphic(string Graphic, bool Animated, bool Reverse, int Width)
+        {
+            Texture2D NewGraphic = FlxG.Content.Load<Texture2D>(Graphic);
+            return loadGraphic(NewGraphic, Animated, Reverse, Width, 0);
+        }
+
+        public virtual FlxSprite loadGraphic(string Graphic, bool Animated, bool Reverse, int Width, int Height)
+        {
+            Texture2D NewGraphic = FlxG.Content.Load<Texture2D>(Graphic);
+            return loadGraphic(NewGraphic, Animated, Reverse, Width, Height);
+        }
+
         /// <summary>
         /// This function creates a flat colored square image dynamically.
         /// </summary>

@@ -160,6 +160,7 @@
     <Compile Include="examples\AnimationCallbackState.cs" />
     <Compile Include="examples\BaseExampleState.cs" />
     <Compile Include="examples\FlxPathState.cs" />
+    <Compile Include="examples\PhysicsState.cs" />
     <Compile Include="examples\RobotFootballState.cs" />
     <Compile Include="examples\TweenerState.cs" />
     <Compile Include="FlixelEntryPoint.cs" />
@@ -250,6 +251,10 @@
     <Content Include="GameThumbnail.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Farseer Physics Engine 3.5 Samples\Farseer Physics Engine 3.5\Farseer Physics XNA.csproj">
+      <Project>{0A850700-1ABB-4288-A391-6726B90EBEB9}</Project>
+      <Name>Farseer Physics XNA</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XFlixelContent\XFlixelContent.contentproj">
       <Name>XFlixelContent %28Content%29</Name>
       <XnaReferenceType>Content</XnaReferenceType>
