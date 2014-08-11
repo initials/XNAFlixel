@@ -476,6 +476,14 @@ namespace org.flixel
 
         }
 
+        public override void updateFlickering()
+        {
+            if (flickerStyle == FLICKER_TYPE_SCALE)
+            {
+                scale = FlxU.random(0.5f, 2.0f);
+            }
+        }
+
         /// <summary>
         /// Just updates the render-style flickering.
         /// </summary>

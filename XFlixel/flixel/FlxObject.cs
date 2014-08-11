@@ -146,6 +146,12 @@ namespace org.flixel
         /// Internal helper used for retro-style flickering.
 		/// </summary>
 		protected float _flickerTimer;
+
+        public static int flickerStyle = 0;
+        public const int FLICKER_TYPE_VISIBILITY = 0;
+        public const int FLICKER_TYPE_SCALE = 1;
+        public const int FLICKER_TYPE_COLOR = 2;
+
 		/// <summary>
         /// Handy for storing health percentage or armor points or whatever.
 		/// </summary>
@@ -610,8 +616,12 @@ namespace org.flixel
                 if (_flickerTimer < 0) flicker(-1);
                 else
                 {
-                    _flicker = !_flicker;
-					visible = !_flicker;
+                    if (flickerStyle == FLICKER_TYPE_VISIBILITY)
+                    {
+                        _flicker = !_flicker;
+                        visible = !_flicker;
+                    }
+                    
                 }
             }
         }

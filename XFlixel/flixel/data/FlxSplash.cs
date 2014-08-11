@@ -44,14 +44,14 @@ namespace org.flixel
             base.create();
 
             FlxSprite bg = new FlxSprite(0, 0);
-            bg.createGraphic(FlxG.width, FlxG.height, new Color(10,10,10));
+            bg.createGraphic(FlxG.width, FlxG.height, FlxG.splashBGColor);
             add(bg);
 
             _f = null;
             _poweredBy = FlxG.Content.Load<Texture2D>("flixel/poweredby");
             _fSound = FlxG.Content.Load<SoundEffect>("flixel/flixel");
 
-            _initialsLogo = FlxG.Content.Load<Texture2D>("initials/initialsLogo");
+            _initialsLogo = FlxG.Content.Load<Texture2D>(FlxG.splashLogo);
 
             _logo = new FlxSprite();
             _logo.loadGraphic(_initialsLogo, false, false, 216,24);
@@ -60,8 +60,6 @@ namespace org.flixel
             add(_logo);
 
             _logoTweener = new Tweener(-150, FlxG.height / 2 - 24, TimeSpan.FromSeconds(0.9f), Bounce.EaseOut);
-            //_logoTweener.PositionChanged += delegate (float newRotation) { _logo.y = newRotation } 
-            
 
             FlxG.play(SndTag,1.0f);
 

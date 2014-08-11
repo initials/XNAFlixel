@@ -18,15 +18,28 @@ namespace org.flixel
             : base(xPos, yPos)
         {
             createGraphic(pixelSize, pixelSize, Color.White);
-
-            Color[] colors = new Color[]
+            Color[] colors;
+            if (FlxG.splashLogo == "initials/initialsLogoGameboy") {
+                colors = new Color[]
+                {
+                    new Color(107,116,84),
+                    new Color(176,186,142),
+                    new Color(199,207,162),
+                    new Color(107,116,84),
+                    new Color(176,186,142)
+                };
+            }
+            else
             {
-                new Color(255,0,0),
-                new Color(0,255,0),
-                new Color(0,0,255),
-                new Color(255,255,0),
-                new Color(0,255,255)
-            };
+                colors = new Color[]
+                {
+                    new Color(255,0,0),
+                    new Color(0,255,0),
+                    new Color(0,0,255),
+                    new Color(255,255,0),
+                    new Color(0,255,255)
+                };
+            }
 
             _layers.Add(finalColor);
             for (int i = 0; i < colors.Length; i++)
