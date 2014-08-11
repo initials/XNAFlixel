@@ -256,14 +256,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Farseer Physics Engine 3.5 Samples\Farseer Physics Engine 3.5\Farseer Physics XNA.csproj">
-      <Project>{0A850700-1ABB-4288-A391-6726B90EBEB9}</Project>
-      <Name>Farseer Physics XNA</Name>
-    </ProjectReference>
     <ProjectReference Include="..\XFlixelContent\XFlixelContent.contentproj">
       <Name>XFlixelContent %28Content%29</Name>
       <XnaReferenceType>Content</XnaReferenceType>
       <Project>{327F8527-448C-470E-9016-949859914C92}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Farseer Physics Engine 3.5\Farseer Physics XNA.csproj">
+      <Project>{0A850700-1ABB-4288-A391-6726B90EBEB9}</Project>
+      <Name>Farseer Physics XNA</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
