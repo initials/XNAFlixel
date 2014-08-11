@@ -54,6 +54,15 @@ namespace org.flixel
 
                     s.loadGraphic(FlxG.Content.Load<Texture2D>("flixel/transition_30x30"),false,false,width,height);
 
+                    if (FlxG.splashLogo == "initials/initialsLogoGameboy")
+                    {
+                        s.color = new Color(77, 81, 60);
+                    }
+                    else
+                    {
+                        s.color = new Color(0, 0, 0);
+                    }
+
                     //s.angle = 45;
 
                     s.scale = FlxG.zoom;
@@ -109,6 +118,16 @@ namespace org.flixel
                         s.loadGraphic(FlxG.Content.Load<Texture2D>("flixel/transition_40x40"), false, false, width, height);
                     else
                         s.loadGraphic(Graphics, false, false, width, height);
+
+                    if (FlxG.splashLogo == "initials/initialsLogoGameboy")
+                    {
+                        s.color = new Color(77, 81, 60);
+                    }
+                    else
+                    {
+                        s.color = new Color(0, 0, 0);
+                    }
+
 
                     s.angle = angle;
 
