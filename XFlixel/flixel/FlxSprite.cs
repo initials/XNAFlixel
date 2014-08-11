@@ -478,10 +478,16 @@ namespace org.flixel
 
         public override void updateFlickering()
         {
-            if (flickerStyle == FLICKER_TYPE_SCALE)
+            base.updateFlickering();
+
+            if (flickering())
             {
-                scale = FlxU.random(0.5f, 2.0f);
+                if (flickerStyle == FLICKER_TYPE_SCALE)
+                {
+                    scale = FlxU.random(0.9f, 1.1f);
+                }
             }
+            
         }
 
         /// <summary>

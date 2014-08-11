@@ -164,7 +164,7 @@ namespace org.flixel
                 }
             }
 
-            if (control == Controls.player)
+            if (control == Controls.player && this.dead!=true)
             {
                 if (FlxG.keys.A || FlxG.keys.LEFT) leftPressed();
                 if (FlxG.gamepads.isButtonDown(Buttons.DPadLeft, ControllingPlayer, out pi)) leftPressed();

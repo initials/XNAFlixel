@@ -147,7 +147,7 @@ namespace org.flixel
 		/// </summary>
 		protected float _flickerTimer;
 
-        public static int flickerStyle = 0;
+        public int flickerStyle = 0;
         public const int FLICKER_TYPE_VISIBILITY = 0;
         public const int FLICKER_TYPE_SCALE = 1;
         public const int FLICKER_TYPE_COLOR = 2;
