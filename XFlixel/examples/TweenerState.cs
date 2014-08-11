@@ -8,7 +8,7 @@ using org.flixel;
 using System.Linq;
 using System.Xml.Linq;
 
-// Use the XNATweener namespace.
+// Important to use the XNATweener namespace.
 using XNATweener;
 
 namespace org.flixel
