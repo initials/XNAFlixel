@@ -4,9 +4,7 @@ using Microsoft.Xna.Framework;
 namespace XNATweener
 {
     public delegate float TweeningFunction(float timeElapsed, float start, float change, float duration);
-
     
-
     public class Tweener
     {
         public bool hasEnded;
@@ -170,6 +168,8 @@ namespace XNATweener
 
         protected void OnEnd()
         {
+            Console.WriteLine("#### On End");
+
             Running = false;
 
             if (Loop == true)
@@ -180,9 +180,10 @@ namespace XNATweener
                 return;
 
             }
-            else if (PingPong == true)
+            if (PingPong == true)
             {
                 Reverse();
+                Start();
                 return;
             }
 
@@ -218,8 +219,13 @@ namespace XNATweener
         public void Reverse()
         {
             elapsed = 0.0f;
-            change = -change + (from + change - Position);
+
             from = Position;
+
+            change = change * -1;
+            //change = -change + (from + change - Position);
+            
+            //from = Position;
         }
 
         public override string ToString()
