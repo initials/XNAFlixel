@@ -13,6 +13,9 @@ Includes :
 * Original source Box2D:
 * Copyright (c) 2006-2011 Erin Catto http://www.box2d.org 
 
+Gold Coin from OpenGameArt.org by morgan3d
+http://opengameart.org/content/spinning-gold-coin
+
 
 Cheats
 
