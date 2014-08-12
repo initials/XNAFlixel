@@ -19,7 +19,8 @@ namespace org.flixel
         {
             createGraphic(pixelSize, pixelSize, Color.White);
             Color[] colors;
-            if (FlxG.splashLogo == "initials/initialsLogoGameboy") {
+            if (FlxG.buildDescription == "GAMEBOY")
+            {
                 colors = new Color[]
                 {
                     new Color(107,116,84),

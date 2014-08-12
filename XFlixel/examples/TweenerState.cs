@@ -109,12 +109,12 @@ namespace org.flixel
             add(blueCarText);
 
             purpleCarText = new FlxText(car5Pos.X, car5Pos.Y + 40, FlxG.width);
-            purpleCarText.text = "Elastic.EaseInOut";
+            purpleCarText.text = "Elastic.EaseInOut - Loop";
             purpleCarText.setFormat(null, 1, Color.Purple, FlxJustification.Left, Color.Black);
             add(purpleCarText);
 
             lightGreenCarText = new FlxText(car6Pos.X, car6Pos.Y + 40, FlxG.width);
-            lightGreenCarText.text = "Exponential.EaseInOut";
+            lightGreenCarText.text = "Exponential.EaseInOut - Ping Pong";
             lightGreenCarText.setFormat(null, 1, Color.LightGreen, FlxJustification.Left, Color.Black);
             add(lightGreenCarText);
 
@@ -185,7 +185,7 @@ namespace org.flixel
             carsGroup.add(lightGreenCar);
 
             lightGreenCarTween = new Tweener(car6Pos.X , driveDistance, TimeSpan.FromSeconds(timeToMove), XNATweener.Exponential.EaseInOut);
-            lightGreenCarTween.Loop = true;
+            lightGreenCarTween.PingPong = true;
 
 
 
@@ -273,14 +273,17 @@ namespace org.flixel
                 greenCarTween = new Tweener(car3Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Back.EaseOut);
                 blueCarTween = new Tweener(car4Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Back.EaseIn);
                 purpleCarTween = new Tweener(car5Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Back.EaseInOut);
+                purpleCarTween.Loop = true;
+
                 lightGreenCarTween = new Tweener(car6Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Back.EaseOut);
+                lightGreenCarTween.PingPong = true;
 
                 redCarText.text = "Back.EaseIn";
                 yellowCarText.text = "Back.EaseInOut";
                 greenCarText.text = "Back.EaseOut";
                 blueCarText.text = "Back.EaseIn";
-                purpleCarText.text = "Back.EaseInOut";
-                lightGreenCarText.text = "Back.EaseOut";
+                purpleCarText.text = "Back.EaseInOut - Loop";
+                lightGreenCarText.text = "Back.EaseOut - Ping Pong";
 
             }
             if (TweenFunction == "Bounce")
@@ -290,14 +293,17 @@ namespace org.flixel
                 greenCarTween = new Tweener(car3Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Bounce.EaseOut);
                 blueCarTween = new Tweener(car4Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Bounce.EaseIn);
                 purpleCarTween = new Tweener(car5Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Bounce.EaseInOut);
+                purpleCarTween.Loop = true;
+
                 lightGreenCarTween = new Tweener(car6Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Bounce.EaseOut);
+                lightGreenCarTween.PingPong = true;
 
                 redCarText.text = "Bounce.EaseIn";
                 yellowCarText.text = "Bounce.EaseInOut";
                 greenCarText.text = "Bounce.EaseOut";
                 blueCarText.text = "Bounce.EaseIn";
-                purpleCarText.text = "Bounce.EaseInOut";
-                lightGreenCarText.text = "Bounce.EaseOut";
+                purpleCarText.text = "Bounce.EaseInOut - Loop";
+                lightGreenCarText.text = "Bounce.EaseOut - Ping Pong";
 
             }
             if (TweenFunction == "Circular")
@@ -307,14 +313,17 @@ namespace org.flixel
                 greenCarTween = new Tweener(car3Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Circular.EaseOut);
                 blueCarTween = new Tweener(car4Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Circular.EaseIn);
                 purpleCarTween = new Tweener(car5Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Circular.EaseInOut);
+                purpleCarTween.Loop = true;
+
                 lightGreenCarTween = new Tweener(car6Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Circular.EaseOut);
+                lightGreenCarTween.PingPong = true;
 
                 redCarText.text = "Circular.EaseIn";
                 yellowCarText.text = "Circular.EaseInOut";
                 greenCarText.text = "Circular.EaseOut";
                 blueCarText.text = "Circular.EaseIn";
-                purpleCarText.text = "Circular.EaseInOut";
-                lightGreenCarText.text = "Circular.EaseOut";
+                purpleCarText.text = "Circular.EaseInOut - Loop";
+                lightGreenCarText.text = "Circular.EaseOut - Ping Pong";
 
             }
             if (TweenFunction == "Cubic")
@@ -324,14 +333,17 @@ namespace org.flixel
                 greenCarTween = new Tweener(car3Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Cubic.EaseOut);
                 blueCarTween = new Tweener(car4Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Cubic.EaseIn);
                 purpleCarTween = new Tweener(car5Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Cubic.EaseInOut);
+                purpleCarTween.Loop = true;
+
                 lightGreenCarTween = new Tweener(car6Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Cubic.EaseOut);
+                lightGreenCarTween.PingPong = true;
 
                 redCarText.text = "Cubic.EaseIn";
                 yellowCarText.text = "Cubic.EaseInOut";
                 greenCarText.text = "Cubic.EaseOut";
                 blueCarText.text = "Cubic.EaseIn";
-                purpleCarText.text = "Cubic.EaseInOut";
-                lightGreenCarText.text = "Cubic.EaseOut";
+                purpleCarText.text = "Cubic.EaseInOut - Loop";
+                lightGreenCarText.text = "Cubic.EaseOut - Ping Pong";
 
             }
             if (TweenFunction == "Elastic")
@@ -341,14 +353,17 @@ namespace org.flixel
                 greenCarTween = new Tweener(car3Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Elastic.EaseOut);
                 blueCarTween = new Tweener(car4Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Elastic.EaseIn);
                 purpleCarTween = new Tweener(car5Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Elastic.EaseInOut);
+                purpleCarTween.Loop = true;
+
                 lightGreenCarTween = new Tweener(car6Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Elastic.EaseOut);
+                lightGreenCarTween.PingPong = true;
 
                 redCarText.text = "Elastic.EaseIn";
                 yellowCarText.text = "Elastic.EaseInOut";
                 greenCarText.text = "Elastic.EaseOut";
                 blueCarText.text = "Elastic.EaseIn";
-                purpleCarText.text = "Elastic.EaseInOut";
-                lightGreenCarText.text = "Elastic.EaseOut";
+                purpleCarText.text = "Elastic.EaseInOut - Loop";
+                lightGreenCarText.text = "Elastic.EaseOut - Ping Pong";
 
             }
             if (TweenFunction == "Exponential")
@@ -358,14 +373,17 @@ namespace org.flixel
                 greenCarTween = new Tweener(car3Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Exponential.EaseOut);
                 blueCarTween = new Tweener(car4Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Exponential.EaseIn);
                 purpleCarTween = new Tweener(car5Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Exponential.EaseInOut);
+                purpleCarTween.Loop = true;
+
                 lightGreenCarTween = new Tweener(car6Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Exponential.EaseOut);
+                lightGreenCarTween.PingPong = true;
 
                 redCarText.text = "Exponential.EaseIn";
                 yellowCarText.text = "Exponential.EaseInOut";
                 greenCarText.text = "Exponential.EaseOut";
                 blueCarText.text = "Exponential.EaseIn";
-                purpleCarText.text = "Exponential.EaseInOut";
-                lightGreenCarText.text = "Exponential.EaseOut";
+                purpleCarText.text = "Exponential.EaseInOut - Loop";
+                lightGreenCarText.text = "Exponential.EaseOut - Ping Pong";
             }
             if (TweenFunction == "Linear")
             {
@@ -374,14 +392,17 @@ namespace org.flixel
                 greenCarTween = new Tweener(car3Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Linear.EaseOut);
                 blueCarTween = new Tweener(car4Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Linear.EaseIn);
                 purpleCarTween = new Tweener(car5Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Linear.EaseInOut);
+                purpleCarTween.Loop = true;
+
                 lightGreenCarTween = new Tweener(car6Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Linear.EaseOut);
+                lightGreenCarTween.PingPong = true;
 
                 redCarText.text = "Linear.EaseIn";
                 yellowCarText.text = "Linear.EaseInOut";
                 greenCarText.text = "Linear.EaseOut";
                 blueCarText.text = "Linear.EaseIn";
-                purpleCarText.text = "Linear.EaseInOut";
-                lightGreenCarText.text = "Linear.EaseOut";
+                purpleCarText.text = "Linear.EaseInOut - Loop";
+                lightGreenCarText.text = "Linear.EaseOut - Ping Pong";
             }
             if (TweenFunction == "Quadratic")
             {
@@ -390,14 +411,17 @@ namespace org.flixel
                 greenCarTween = new Tweener(car3Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Quadratic.EaseOut);
                 blueCarTween = new Tweener(car4Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Quadratic.EaseIn);
                 purpleCarTween = new Tweener(car5Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Quadratic.EaseInOut);
+                purpleCarTween.Loop = true;
+
                 lightGreenCarTween = new Tweener(car6Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Quadratic.EaseOut);
+                lightGreenCarTween.PingPong = true;
 
                 redCarText.text = "Quadratic.EaseIn";
                 yellowCarText.text = "Quadratic.EaseInOut";
                 greenCarText.text = "Quadratic.EaseOut";
                 blueCarText.text = "Quadratic.EaseIn";
-                purpleCarText.text = "Quadratic.EaseInOut";
-                lightGreenCarText.text = "Quadratic.EaseOut";
+                purpleCarText.text = "Quadratic.EaseInOut - Loop";
+                lightGreenCarText.text = "Quadratic.EaseOut - Ping Pong";
             }
             if (TweenFunction == "Quartic")
             {
@@ -406,14 +430,17 @@ namespace org.flixel
                 greenCarTween = new Tweener(car3Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Quartic.EaseOut);
                 blueCarTween = new Tweener(car4Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Quartic.EaseIn);
                 purpleCarTween = new Tweener(car5Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Quartic.EaseInOut);
+                purpleCarTween.Loop = true;
+
                 lightGreenCarTween = new Tweener(car6Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Quartic.EaseOut);
+                lightGreenCarTween.PingPong = true;
 
                 redCarText.text = "Quartic.EaseIn";
                 yellowCarText.text = "Quartic.EaseInOut";
                 greenCarText.text = "Quartic.EaseOut";
                 blueCarText.text = "Quartic.EaseIn";
-                purpleCarText.text = "Quartic.EaseInOut";
-                lightGreenCarText.text = "Quartic.EaseOut";
+                purpleCarText.text = "Quartic.EaseInOut - Loop";
+                lightGreenCarText.text = "Quartic.EaseOut - Ping Pong";
             }
             if (TweenFunction == "Quintic")
             {
@@ -422,14 +449,17 @@ namespace org.flixel
                 greenCarTween = new Tweener(car3Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Quintic.EaseOut);
                 blueCarTween = new Tweener(car4Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Quintic.EaseIn);
                 purpleCarTween = new Tweener(car5Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Quintic.EaseInOut);
+                purpleCarTween.Loop = true;
+
                 lightGreenCarTween = new Tweener(car6Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Quintic.EaseOut);
+                lightGreenCarTween.PingPong = true;
 
                 redCarText.text = "Quintic.EaseIn";
                 yellowCarText.text = "Quintic.EaseInOut";
                 greenCarText.text = "Quintic.EaseOut";
                 blueCarText.text = "Quintic.EaseIn";
-                purpleCarText.text = "Quintic.EaseInOut";
-                lightGreenCarText.text = "Quintic.EaseOut";
+                purpleCarText.text = "Quintic.EaseInOut - Loop";
+                lightGreenCarText.text = "Quintic.EaseOut - Ping Pong";
             }
             if (TweenFunction == "Sinusoidal")
             {
@@ -438,24 +468,18 @@ namespace org.flixel
                 greenCarTween = new Tweener(car3Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Sinusoidal.EaseOut);
                 blueCarTween = new Tweener(car4Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Sinusoidal.EaseIn);
                 purpleCarTween = new Tweener(car5Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Sinusoidal.EaseInOut);
+                purpleCarTween.Loop = true;
+
                 lightGreenCarTween = new Tweener(car6Pos.X, driveDistance, TimeSpan.FromSeconds(timeToMove), Sinusoidal.EaseOut);
+                lightGreenCarTween.PingPong = true;
 
                 redCarText.text = "Sinusoidal.EaseIn";
                 yellowCarText.text = "Sinusoidal.EaseInOut";
                 greenCarText.text = "Sinusoidal.EaseOut";
                 blueCarText.text = "Sinusoidal.EaseIn";
-                purpleCarText.text = "Sinusoidal.EaseInOut";
-                lightGreenCarText.text = "Sinusoidal.EaseOut";
+                purpleCarText.text = "Sinusoidal.EaseInOut - Loop";
+                lightGreenCarText.text = "Sinusoidal.EaseOut - Ping Pong";
             }
-
-        }
-
-        public void changeEasing(String TweenFunction, String EasingValue)
-        {
-
-
-
-
 
         }
 

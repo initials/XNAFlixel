@@ -317,8 +317,20 @@ namespace org.flixel
         /// </summary>
         static public Vector2 scroll;
 
+        /// <summary>
+        /// Change this in you Program to make a new logo.
+        /// </summary>
         static public string splashLogo = "initials/initialsLogo";
+        
+        /// <summary>
+        /// Change the BG color of the Splash Screen.
+        /// </summary>
         static public Color splashBGColor = new Color(10, 10, 10);
+
+        /// <summary>
+        /// Build description
+        /// </summary>
+        static public string buildDescription = "";
 
 		/// <summary>
         /// A special effect that shakes the screen.  Usage: FlxG.quake.start();

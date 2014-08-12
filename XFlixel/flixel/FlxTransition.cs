@@ -54,7 +54,7 @@ namespace org.flixel
 
                     s.loadGraphic(FlxG.Content.Load<Texture2D>("flixel/transition_30x30"),false,false,width,height);
 
-                    if (FlxG.splashLogo == "initials/initialsLogoGameboy")
+                    if (FlxG.buildDescription == "GAMEBOY")
                     {
                         s.color = new Color(77, 81, 60);
                     }
@@ -119,7 +119,7 @@ namespace org.flixel
                     else
                         s.loadGraphic(Graphics, false, false, width, height);
 
-                    if (FlxG.splashLogo == "initials/initialsLogoGameboy")
+                    if (FlxG.buildDescription == "GAMEBOY")
                     {
                         s.color = new Color(77, 81, 60);
                     }

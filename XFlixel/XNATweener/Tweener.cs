@@ -168,8 +168,6 @@ namespace XNATweener
 
         protected void OnEnd()
         {
-            Console.WriteLine("#### On End");
-
             Running = false;
 
             if (Loop == true)
