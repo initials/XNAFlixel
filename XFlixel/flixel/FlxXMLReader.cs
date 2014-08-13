@@ -17,11 +17,26 @@ namespace org.flixel
     /// </summary>
     public class FlxXMLReader
     {
+        /// <summary>
+        /// Enter information!
+        /// </summary>
         public const int NONE = -1;
+
+        /// <summary>
+        /// Enter information!
+        /// </summary>
         public const int TILES = 0;
+
+        /// <summary>
+        /// Enter information!
+        /// </summary>
         public const int ACTORS = 1;
         
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="projectFilename"></param>
+        /// <param name="levelFilename"></param>
         public static void readOgmoProjectAndLevel(string projectFilename, string levelFilename)
         {
             XDocument project = XDocument.Load(projectFilename);
@@ -31,6 +46,11 @@ namespace org.flixel
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <returns></returns>
         public static List<Dictionary<string, string>> readOgmoV2Level(string filename)
         {
             List<Dictionary<string, string>> completeSet = new List<Dictionary<string, string>>();
@@ -337,9 +357,6 @@ namespace org.flixel
             return nodeList;
         }
 
-
-
-
         /// <summary>
         /// Reads a tileset node from a TMX (Tiled) File.
         /// </summary>
@@ -474,7 +491,14 @@ namespace org.flixel
         }
         
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <param name="element"></param>
+        /// <param name="name"></param>
+        /// <param name="type">FlxXMLReader.NONE, FlxXMLReader.ACTOR, FlxXMLReader.TILES</param>
+        /// <returns></returns>
         public static List<Dictionary<string, string>> readObjectsFromTmxFile(string filename, string element, string name, int type)
         {
             List<Dictionary<string, string>> nodeList = new List<Dictionary<string, string>>();
