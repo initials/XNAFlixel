@@ -25,7 +25,7 @@ namespace org.flixel
         private static FlxState _nextScreen;
 
         private Texture2D _initialsLogo;
-        private const string SndTag = "initials/FourChambers_IntroTag_03";
+        private string SndTag = "";
 
         private FlxSprite _logo;
 
@@ -49,7 +49,7 @@ namespace org.flixel
 
             _f = null;
             _poweredBy = FlxG.Content.Load<Texture2D>("flixel/poweredby");
-            _fSound = FlxG.Content.Load<SoundEffect>("flixel/flixel");
+            _fSound = FlxG.Content.Load<SoundEffect>(FlxG.splashAudioWaveFlixel);
 
             _initialsLogo = FlxG.Content.Load<Texture2D>(FlxG.splashLogo);
 
@@ -61,6 +61,7 @@ namespace org.flixel
 
             _logoTweener = new Tweener(-150, FlxG.height / 2 - 24, TimeSpan.FromSeconds(0.9f), Bounce.EaseOut);
 
+            SndTag = FlxG.splashAudioWave;
             FlxG.play(SndTag,1.0f);
 
             FlxG.transition.startFadeIn(0.1f);

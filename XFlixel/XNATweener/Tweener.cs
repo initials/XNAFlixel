@@ -141,6 +141,8 @@ namespace XNATweener
         #region Methods
         public void Update(GameTime gameTime)
         {
+            hasEnded = false;
+
             if (!Running || (elapsed == duration))
             {
                 return;
@@ -169,6 +171,7 @@ namespace XNATweener
         protected void OnEnd()
         {
             Running = false;
+            hasEnded = true;
 
             if (Loop == true)
             {
@@ -187,7 +190,6 @@ namespace XNATweener
 
             if (Ended != null)
             {
-                
                 Ended();
             }
         }

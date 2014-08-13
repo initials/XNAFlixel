@@ -328,6 +328,16 @@ namespace org.flixel
         static public Color splashBGColor = new Color(10, 10, 10);
 
         /// <summary>
+        /// 
+        /// </summary>
+        static public string splashAudioWave = "initials/FourChambers_IntroTag_03";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        static public string splashAudioWaveFlixel = "flixel/flixel";
+
+        /// <summary>
         /// Build description
         /// </summary>
         static public string buildDescription = "";
