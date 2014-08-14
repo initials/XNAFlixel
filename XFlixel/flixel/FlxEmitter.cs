@@ -217,6 +217,13 @@ namespace org.flixel
 			}
 			return this;
 		}
+
+        public FlxEmitter createSprites(string Graphics, int Quantity, bool Multiple, float Collide, float Bounce)
+        {
+            Texture2D tex = FlxG.Content.Load<Texture2D>(Graphics);
+            return this.createSprites(tex, Quantity, Multiple, Collide, Bounce);
+
+        }
 		
         /// <summary>
         /// A more compact way of setting the width and height of the emitter.
