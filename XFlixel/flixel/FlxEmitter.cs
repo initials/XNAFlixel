@@ -8,7 +8,7 @@ namespace org.flixel
     /// <summary>
     /// <code>FlxEmitter</code> is a lightweight particle emitter.
     /// It can be used for one-time explosions or for
-    /// continuous fx like rain and fire.  <code>FlxEmitter</code>
+    /// continuous fx like rain and fire. <code>FlxEmitter</code>
     /// is not optimized or anything; all it does is launch
     /// <code>FlxSprite</code> objects out at set intervals
     /// by setting their positions and velocities accordingly.
@@ -218,11 +218,44 @@ namespace org.flixel
 			return this;
 		}
 
+        /// <summary>
+        /// This function generates a new array of sprites to attach to the emitter.
+        /// </summary>
+        /// <param name="Graphics">A graphic to load.</param>
+        /// <param name="Quantity">The number of particles to generate when using the "create from image" option.</param>
+        /// <returns>This FlxEmitter instance (nice for chaining stuff together, if you're into that).</returns>
+        public FlxEmitter createSprites(string Graphics, int Quantity)
+        {
+            Texture2D tex = FlxG.Content.Load<Texture2D>(Graphics);
+            return createSprites(Graphics, Quantity, true, 0, 0);
+        }
+
+        /// <summary>
+        /// This function generates a new array of sprites to attach to the emitter.
+        /// </summary>
+        /// <param name="Graphics">A graphic to load.</param>
+        /// <param name="Quantity">The number of particles to generate when using the "create from image" option.</param>
+        /// <param name="Multiple">Whether the image in the Graphics param is a single particle or a bunch of particles (if it's a bunch, they need to be square!).</param>
+        /// <returns>This FlxEmitter instance (nice for chaining stuff together, if you're into that).</returns>
+        public FlxEmitter createSprites(string Graphics, int Quantity, bool Multiple)
+        {
+            Texture2D tex = FlxG.Content.Load<Texture2D>(Graphics);
+            return createSprites(Graphics, Quantity, Multiple, 0, 0);
+        }
+
+        /// <summary>
+        /// This function generates a new array of sprites to attach to the emitter.
+        /// </summary>
+        /// <param name="Graphics">A graphic to load.</param>
+        /// <param name="Quantity">The number of particles to generate when using the "create from image" option.</param>
+        /// <param name="Multiple">Whether the image in the Graphics param is a single particle or a bunch of particles (if it's a bunch, they need to be square!).</param>
+        /// <param name="Collide">Whether the particles should be flagged as not 'dead' (non-colliding particles are higher performance).  0 means no collisions, 0-1 controls scale of particle's bounding box.</param>
+        /// <param name="Bounce">Whether the particles should bounce after colliding with things.  0 means no bounce, 1 means full reflection.</param>
+        /// <returns>This FlxEmitter instance (nice for chaining stuff together, if you're into that).</returns>
         public FlxEmitter createSprites(string Graphics, int Quantity, bool Multiple, float Collide, float Bounce)
         {
             Texture2D tex = FlxG.Content.Load<Texture2D>(Graphics);
             return this.createSprites(tex, Quantity, Multiple, Collide, Bounce);
-
         }
 		
         /// <summary>
