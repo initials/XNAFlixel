@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using XNATweener;
 
 namespace org.flixel
 {
@@ -14,6 +15,9 @@ namespace org.flixel
 
         private bool transitionForward;
         private bool transitionBackward;
+
+        private bool transitionTween;
+        public Tweener tween;
 
         private float _speed;
 
@@ -29,6 +33,8 @@ namespace org.flixel
             scrollFactor.X = 0;
             scrollFactor.Y = 0;
             hasStarted = false;
+
+            tween = new Tweener(0, 1000, 4.0f, XNATweener.Elastic.EaseIn);
         }
 
         /// <summary>
@@ -45,7 +51,12 @@ namespace org.flixel
         {
             members = new List<FlxObject>();
 
+            
+
             FlxSprite s;
+
+            int count = 0;
+
             for (int _y = 0; _y < rows; _y++)
             {
                 for (int _x = 0; _x < cols; _x++)
@@ -74,9 +85,11 @@ namespace org.flixel
 
                     s.solid = false;
                     s.boundingBoxOverride = false;
+                    s.tag = count;
 
                     add(s);
 
+                    count++;
 
                 }
             }
@@ -105,6 +118,8 @@ namespace org.flixel
             FlxSprite s;
 
             _speed = speed;
+
+            int count = 0;
 
             for (int _y = 0; _y < rows; _y++)
             {
@@ -140,9 +155,11 @@ namespace org.flixel
 
                     s.solid = false;
                     s.boundingBoxOverride = false;
+                    s.tag = count;
 
                     add(s);
 
+                    count++;
 
                 }
             }
@@ -186,6 +203,26 @@ namespace org.flixel
         public void startFadeOut()
         {
             startFadeOut(_speed);
+        }
+
+        public void startTweenOut()
+        {
+            FlxSprite o;
+            int i = 0;
+            int l = members.Count;
+            while (i < l)
+            {
+                o = members[i++] as FlxSprite;
+                o.angle = 0;
+                o.angularVelocity = 0;
+                o.scale = FlxG.zoom * 4;
+                
+
+            }
+
+
+            transitionTween = true;
+            tween.Start();
         }
 
         /// <summary>
@@ -277,6 +314,21 @@ namespace org.flixel
             }
         }
 
+        public void updateTween()
+        {
+            tween.Update(FlxG.elapsedAsGameTime);
+            FlxSprite o;
+            int i = 0;
+            int l = members.Count;
+            while (i < l)
+            {
+                o = members[i++] as FlxSprite;
+                o.x = (tween.Position + o.originalPosition.X) + (o.tag* 10);
+
+            }
+
+        }
+
         /// <summary>
         /// Regular update code.
         /// </summary>
@@ -288,7 +340,13 @@ namespace org.flixel
                 hasStarted = true;
                 updateTransition();
             }
-            else 
+            else if (transitionTween)
+            {
+                hasStarted = true;
+                updateTween();
+            }
+
+            else
             {
                 hasStarted = false;
                 FlxSprite o;
@@ -298,7 +356,7 @@ namespace org.flixel
                 {
                     o = members[i++] as FlxSprite;
                     o.scale = 0.0f;
-                 
+
                 }
 
             }

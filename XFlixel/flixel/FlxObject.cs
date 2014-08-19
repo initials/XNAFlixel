@@ -357,7 +357,11 @@ namespace org.flixel
         /// For examples set this to "attacking" and then check in movement for "attacking" enemies
         /// </summary>
         public string mode;
-        
+
+        /// <summary>
+        /// A tag is just a number you can assign to make individual sprites.
+        /// </summary>
+        public int tag;
 
         /// <summary>
         /// Creates a new <code>FlxObject</code>.
