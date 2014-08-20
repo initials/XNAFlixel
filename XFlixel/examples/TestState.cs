@@ -94,7 +94,7 @@ namespace org.flixel
             }
             if (FlxG.keys.EIGHT)
             {
-                FlxG.state = new PhysicsState();
+                //FlxG.state = new PhysicsState();
             }
             if (FlxG.keys.NINE)
             {
