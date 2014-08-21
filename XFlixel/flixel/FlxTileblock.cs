@@ -43,6 +43,10 @@ namespace org.flixel
         /// </summary>
         public const int STRING = 4;
 
+        public const int FRAMENUMBER = 5;
+
+        public int frameNumber = 0;
+
         /// <summary>
         /// Set this flag to use one of the 16-tile binary auto-tile algorithms (OFF, AUTO, or ALT).
         /// </summary>
@@ -216,13 +220,17 @@ namespace org.flixel
 
                         _rects[i] = new Rectangle(_tileWidth * gi, 0, _tileWidth, _tileHeight);
                     }
-                    
+                    else if (auto == FRAMENUMBER)
+                    {
+                        _rects[i] = new Rectangle(_tileWidth * frameNumber, 0, _tileWidth, _tileHeight);
+                    }
                     //to do: create auto tile tileblocks.
 
                     //_rects[i] = new Rectangle(0, 0, _tileWidth, _tileHeight);
 
 
                 }
+
                 else
                 {
                     _rects[i] = Rectangle.Empty;
