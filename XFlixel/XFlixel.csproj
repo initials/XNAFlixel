@@ -267,6 +267,10 @@
       <XnaReferenceType>Content</XnaReferenceType>
       <Project>{327F8527-448C-470E-9016-949859914C92}</Project>
     </ProjectReference>
+    <ProjectReference Include="Farseer Physics Engine 3.5\Farseer Physics XNA.csproj">
+      <Project>{0A850700-1ABB-4288-A391-6726B90EBEB9}</Project>
+      <Name>Farseer Physics XNA</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
