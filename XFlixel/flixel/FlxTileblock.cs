@@ -71,6 +71,16 @@ namespace org.flixel
 
 		}
 
+        public FlxTileblock loadTiles(string TileGraphic)
+        {
+            Texture2D tex = FlxG.Content.Load<Texture2D>(TileGraphic);
+            return loadTiles(tex, 0, 0, 0);
+        }
+        public FlxTileblock loadTiles(string TileGraphic, int TileWidth, int TileHeight, int Empties)
+        {
+            Texture2D tex = FlxG.Content.Load<Texture2D>(TileGraphic);
+            return loadTiles(tex, TileWidth, TileHeight, Empties);
+        }
         /// <summary>
         /// Fills the block with a randomly arranged selection of graphics from the image provided.
         /// </summary>

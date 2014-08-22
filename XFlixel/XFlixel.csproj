@@ -166,6 +166,9 @@
     <Compile Include="examples\TweenerState.cs" />
     <Compile Include="FlixelEntryPoint.cs" />
     <Compile Include="flixel\data\FlxRecord.cs" />
+    <Compile Include="flixel\farseerExtensions\FarSprite.cs" />
+    <Compile Include="flixel\farseerExtensions\FarState.cs" />
+    <Compile Include="flixel\farseerExtensions\FarTileblock.cs" />
     <Compile Include="flixel\FlxCamera.cs" />
     <Compile Include="XNATweener\BaseTweener.cs" />
     <Compile Include="XNATweener\Vector2Tweener.cs" />

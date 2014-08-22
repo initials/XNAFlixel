@@ -101,6 +101,11 @@ namespace org.flixel
             cursor.visible = false;
         }
 
+        public void show()
+        {
+            show(FlxG.Content.Load<Texture2D>("flixel/cursor"), 0, 0);
+        }
+
         /// <summary>
         /// Either show an existing cursor or load a new one.
         /// </summary>
