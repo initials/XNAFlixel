@@ -375,7 +375,7 @@ namespace org.flixel
             {
                 play(animationPrefix + "death");
             }
-            else if (velocity.Y != 0)
+            else if (_jump>0.01f)
             {
                 play(animationPrefix + "jump");
             }
@@ -392,7 +392,10 @@ namespace org.flixel
             {
                 play(animationPrefix + "run");
             }
-
+            //else if (velocity.Y != 0)
+            //{
+            //    play(animationPrefix + "jump");
+            //}
 
         }
 
