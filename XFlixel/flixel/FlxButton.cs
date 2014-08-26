@@ -17,21 +17,61 @@ namespace org.flixel
     public class FlxButton : FlxGroup
     {
 
+        /// <summary>
+        /// The frame for the Control Pad graphic - Button A
+        /// </summary>
         public const int ControlPadA = 0;
+        /// <summary>
+        /// The frame for the Control Pad graphic - Button B
+        /// </summary>
         public const int ControlPadB = 1;
+        /// <summary>
+        /// The frame for the Control Pad graphic - Button X
+        /// </summary>
         public const int ControlPadX = 2;
+        /// <summary>
+        /// The frame for the Control Pad graphic - Button Y
+        /// </summary>
         public const int ControlPadY = 3;
+        /// <summary>
+        /// The frame for the Control Pad graphic - Stick R
+        /// </summary>
         public const int ControlPadRStick = 4;
+        /// <summary>
+        /// The frame for the Control Pad graphic - Stick L
+        /// </summary>
         public const int ControlPadLStick = 5;
+        /// <summary>
+        /// The frame for the Control Pad graphic - D Pad
+        /// </summary>
         public const int ControlPadDPad = 6;
+        /// <summary>
+        /// The frame for the Control Pad graphic - RB
+        /// </summary>
         public const int ControlPadRB = 7;
+        /// <summary>
+        /// The frame for the Control Pad graphic - LB
+        /// </summary>
         public const int ControlPadLB = 8;
+
+        /// <summary>
+        /// The frame for the Control Pad graphic - RT
+        /// </summary>
         public const int ControlPadRT = 9;
+
+        /// <summary>
+        /// The frame for the Control Pad graphic - LT
+        /// </summary>
         public const int ControlPadLT = 10;
+
+        /// <summary>
+        /// The frame for the Control Pad graphic - Button Back
+        /// </summary>
         public const int ControlPadBack = 11;
+        /// <summary>
+        /// The frame for the Control Pad graphic - Button Start
+        /// </summary>
         public const int ControlPadStart = 12;
-
-
 
         /// <summary>
         /// Set this to true if you want this button to function even while the game is paused.
@@ -90,8 +130,6 @@ namespace org.flixel
         /// Counts the time the button has been alive for. Callbacks will only work after button has been alive for specified time, to avoid accidental clicks in new states.
         /// </summary>
         public float _counter;
-
-        
 
         /// <summary>
         /// Creates a new <code>FlxButton</code> object with a gray background
@@ -378,10 +416,6 @@ namespace org.flixel
                 on = true;
                 _callback();
             }
-
-            
-
-
         }
         /// <summary>
         /// returns the position of the game pad position.

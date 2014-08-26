@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 namespace org.flixel
 {
     /// <summary>
-    /// Special effects class.
+    /// Special effects class. Causes the screen to flash.
     /// </summary>
     public class FlxFlash : FlxSprite
     {

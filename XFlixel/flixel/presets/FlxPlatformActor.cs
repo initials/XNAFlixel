@@ -9,6 +9,9 @@ using Microsoft.Xna.Framework.Input;
 
 namespace org.flixel
 {
+    /// <summary>
+    /// FlxPlatformActor is a great place to start building a platforming character.
+    /// </summary>
     public class FlxPlatformActor : FlxSprite
     {
 

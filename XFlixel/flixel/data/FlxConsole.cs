@@ -15,14 +15,24 @@ namespace org.flixel
     {
         private int MAX_CONSOLE_LINES = 256; // Not a const in X-flixel... we'll just base it on max lines visible on the console
 
+        /// <summary>
+        /// The visibility of the Console.
+        /// </summary>
         public bool visible = false;
 
         private Rectangle _srcRect = new Rectangle(1, 1, 1, 1);
         private Rectangle _consoleRect;
+        /// <summary>
+        /// Title safe is for TV. This will help show a box that shows the title safe area.
+        /// </summary>
         private Rectangle _titleSafeRect;
         private Color _consoleColor;
         private FlxText _consoleText;
         private FlxSprite _consoleCheatActivated;
+
+        /// <summary>
+        /// A flag to be able to type in a cheat.
+        /// </summary>
         private bool canTypeCheat = false;
         
         /// <summary>
@@ -37,13 +47,34 @@ namespace org.flixel
         private float _consoleYT;
         private bool _fpsUpdate;
 
-        int width; // Viewport width
-        int height; // Viewport height
-        int dx; // 5% of width
-        int dy; // 5% of height
-        Color notActionSafeColor = new Color(255, 0, 0, 23); // Red, 50% opacity
-        Color notTitleSafeColor = new Color(255, 255, 0, 8); // Yellow, 50% opacity
+        /// <summary>
+        /// Viewport width
+        /// </summary>
+        int width;
+        /// <summary>
+        /// Viewport height
+        /// </summary>
+        int height;
+        /// <summary>
+        /// 5% of width
+        /// </summary>
+        int dx;
+        /// <summary>
+        /// 5% of height
+        /// </summary>
+        int dy;
+        /// <summary>
+        /// Red, 50% opacity
+        /// </summary>
+        Color notActionSafeColor = new Color(255, 0, 0, 23); 
+        /// <summary>
+        /// Yellow, 50% opacity
+        /// </summary>
+        Color notTitleSafeColor = new Color(255, 255, 0, 8); 
 
+        /// <summary>
+        /// A VCR object.
+        /// </summary>
         public FlxRecord vcr;
 
 
@@ -57,6 +88,11 @@ namespace org.flixel
             get { return _consoleColor; }
         }
 
+        /// <summary>
+        /// Initialize the console.
+        /// </summary>
+        /// <param name="targetLeft">Target Left</param>
+        /// <param name="targetWidth">Target Width</param>
         public FlxConsole(int targetLeft, int targetWidth)
         {
             visible = false;
@@ -150,7 +186,6 @@ namespace org.flixel
         /// <summary>
         /// Updates and/or animates the dev console
         /// </summary>
-	
         public void update()
         {
             _consoleCheatActivated.update();

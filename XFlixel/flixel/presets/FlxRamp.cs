@@ -10,6 +10,9 @@ using Microsoft.Xna.Framework.Input;
 
 namespace org.flixel
 {
+    /// <summary>
+    /// This class is incomplete.
+    /// </summary>
     public class FlxRamp : FlxSprite
     {
 

@@ -371,11 +371,15 @@ namespace org.flixel
 
         }
 
+        /// <summary>
+        /// Set a button in the HUD
+        /// </summary>
+        /// <param name="Type">Type of button, use FlxHud.TYPE_KEYBOARD</param>
+        /// <param name="Button">Button graphic, use FlxHud.xbox, keyboard, or Ouya</param>
+        /// <param name="X">X Position</param>
+        /// <param name="Y">Y Position</param>
         public void setHudGamepadButton(int Type, int Button, float X, float Y)
         {
-
-            //Console.WriteLine("Zoom:{0} X {1} Scroll {2} {3} Adjusted {4} {5}", FlxG.zoom, X, FlxG.scroll.X, FlxG.scroll.Y, X * FlxG.zoom - FlxG.scroll.X, Y * FlxG.zoom - FlxG.scroll.Y);
-
             if (Type == TYPE_KEYBOARD)
             {
                 keyboardButton.frame = Button;
@@ -473,6 +477,9 @@ namespace org.flixel
             }
         }
 
+        /// <summary>
+        /// Resets the HUD to original positions, and scales.
+        /// </summary>
         public void reset()
         {
             p1HudText.text = "";
@@ -496,6 +503,10 @@ namespace org.flixel
             p4HudText.scale = 1;
         }
         
+        /// <summary>
+        /// Render all the elements.
+        /// </summary>
+        /// <param name="spriteBatch"></param>
         public void render(SpriteBatch spriteBatch)
         {
 

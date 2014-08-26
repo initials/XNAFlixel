@@ -7,7 +7,6 @@ namespace org.flixel
 {
     /// <summary>
     /// FlxGlobals stores a bunch of constants
-    /// TODO : Move Four Chambers things into another class.
     /// </summary>
     public class FlxGlobal
     {
@@ -15,9 +14,6 @@ namespace org.flixel
         /// Allows playstates to see what the current cheat to run is.
         /// </summary>
         public static string cheatString;
-
-        //public const int xTILE_SIZE_X = 16;
-        //public const int xTILE_SIZE_Y = 16;
 
         /// <summary>
         /// Allows the FlxConsole to run commands.
@@ -45,6 +41,7 @@ namespace org.flixel
 
     /// <summary>
     /// Globals for the game Four Chambers.
+    /// To Do: This needs to be put into the Four Chambers game and taken out of Flixel
     /// </summary>
     public class FourChambers_Globals
     {
