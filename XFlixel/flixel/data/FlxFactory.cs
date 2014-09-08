@@ -105,7 +105,13 @@ namespace org.flixel
             //load up the master class, and away we go!
             
             //_flixelgame = new FlxGame();
-            _flixelgame = new XNAMode.FlixelEntryPoint(this);
+			#if __ANDROID__
+			_flixelgame = new Loader_SuperLemonadeFactory.FlixelEntryPoint2(this);
+			#endif
+
+			#if !__ANDROID__
+			_flixelgame = new XNAMode.FlixelEntryPoint(this);
+			#endif
 
             FlxG.bloom = new BloomPostprocess.BloomComponent(this);
 

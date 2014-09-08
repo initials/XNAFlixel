@@ -153,7 +153,10 @@ namespace org.flixel
             {
                 //FlxG.bloom.Visible = false;
                 FlxG.destroySounds(true);
+				#if !__ANDROID__
 				FlxG.state = new TestState();
+				#endif
+
             }
         }
     }
