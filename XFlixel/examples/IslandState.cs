@@ -74,8 +74,10 @@ namespace org.flixel
                 {
                     //string toPrint = tiles[y, i];
 
-                    FlxSprite x = new FlxSprite(y* 8, i * 8);
+                    FlxSprite x = new FlxSprite(y* 10, i * 10);
                     x.createGraphic(8, 8, colors[Convert.ToInt32(caveLevel[y, i])]);
+                    x.angularDrag = 250;
+                    x.setOffset(4, 4);
                     tileGrp.add(x);
                     //Console.Write(toPrint);
                 }
@@ -101,21 +103,13 @@ namespace org.flixel
             for (int i = 0; i < 20; i++)
             {
                 int f = (int)FlxU.random(1, tileGrp.members.Count- 1);
-
-                //((FlxSprite)(tileGrp.members[f])).y += 8;
-                //((FlxSprite)(tileGrp.members[f-1])).y -= 8;
+                ((FlxSprite)(tileGrp.members[f])).angularVelocity = 450;
 
                 if (((FlxSprite)(tileGrp.members[f])).color == Color.Green)
                 {
                     ((FlxSprite)(tileGrp.members[f])).color = Color.Brown;
+                    
                 }
-                //if (((FlxSprite)(tileGrp.members[f])).color == Color.Brown)
-                //{
-                //    ((FlxSprite)(tileGrp.members[f-1])).color = Color.Brown;
-                //    ((FlxSprite)(tileGrp.members[f-2])).color = Color.Brown;
-                //    ((FlxSprite)(tileGrp.members[f+1])).color = Color.Brown;
-                //    ((FlxSprite)(tileGrp.members[f+2])).color = Color.Brown;
-                //}
             }
 
 
