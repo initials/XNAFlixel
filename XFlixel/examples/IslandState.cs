@@ -21,6 +21,7 @@ namespace org.flixel
         private FlxTilemap tiles;
 
         private FlxGroup tileGrp;
+        private FlxSprite m;
 
         override public void create()
         {
@@ -74,8 +75,13 @@ namespace org.flixel
                 {
                     //string toPrint = tiles[y, i];
 
-                    FlxSprite x = new FlxSprite(y* 10, i * 10);
-                    x.createGraphic(8, 8, colors[Convert.ToInt32(caveLevel[y, i])]);
+                    FlxSprite x = new FlxSprite(i* 10, y * 10);
+                    //x.createGraphic(8, 8, colors[Convert.ToInt32(caveLevel[y, i])]);
+                    x.loadGraphic("flixel/autotiles", false, false, 8, 8);
+                    x.color = colors[Convert.ToInt32(caveLevel[y, i])];
+                    
+                    x.frame = Convert.ToInt32(caveLevel[y, i]);
+                    //x.scale = 2;
                     x.angularDrag = 250;
                     x.setOffset(4, 4);
                     tileGrp.add(x);
@@ -90,29 +96,41 @@ namespace org.flixel
 
             add(tileGrp);
 
+            m = new FlxSprite(0, 0);
+            m.loadGraphic("flixel/cursor");
+            add(m);
         }
 
         override public void update()
         {
+            m.x = FlxG.mouse.x;
+            m.y = FlxG.mouse.y;
 
-            FlxU.overlap(tileGrp, FlxG.mouse.cursor, scaleUp);
+
+            FlxU.overlap(tileGrp, m, scaleUp);
 
             base.update();
 
 
             for (int i = 0; i < 20; i++)
             {
-                int f = (int)FlxU.random(1, tileGrp.members.Count- 1);
-                ((FlxSprite)(tileGrp.members[f])).angularVelocity = 450;
-
-                if (((FlxSprite)(tileGrp.members[f])).color == Color.Green)
-                {
-                    ((FlxSprite)(tileGrp.members[f])).color = Color.Brown;
-                    
-                }
+                int f = (int)FlxU.random(1, tileGrp.members.Count - 1);
+                if (((FlxSprite)(tileGrp.members[f])).color == Color.Aqua)
+                    ((FlxSprite)(tileGrp.members[f])).scale = 1.2f;
+                
             }
 
-
+            foreach (FlxSprite item in tileGrp.members)
+            {
+                if (item.scale > 1)
+                {
+                    item.scale -= 0.002f;
+                }
+                else if (item.scale < 1)
+                {
+                    item.scale = 1;
+                }
+            }
 
 
         }
@@ -123,8 +141,10 @@ namespace org.flixel
             //((FlxObject)(e.Object1)).overlapped(e.Object2);
             //((FlxObject)(e.Object2)).overlapped(e.Object1);
 
-            ((FlxSprite)(e.Object1)).x += 2;
-            ((FlxSprite)(e.Object2)).y += 2;
+            if ( ((FlxSprite)(e.Object1)).color == Color.Aqua)
+                ((FlxSprite)(e.Object1)).scale = 1.2f;
+            
+            //((FlxSprite)(e.Object2)).scale += 2;
 
             return true;
         }
