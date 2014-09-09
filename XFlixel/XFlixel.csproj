@@ -161,6 +161,7 @@
     <Compile Include="examples\AnimationCallbackState.cs" />
     <Compile Include="examples\BaseExampleState.cs" />
     <Compile Include="examples\FlxPathState.cs" />
+    <Compile Include="examples\IslandState.cs" />
     <Compile Include="examples\Physics2State.cs" />
     <Compile Include="examples\PhysicsState.cs" />
     <Compile Include="examples\RobotFootballState.cs" />

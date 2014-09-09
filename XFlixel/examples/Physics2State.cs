@@ -46,8 +46,8 @@ namespace org.flixel
                 FarSprite f = new FarSprite((int)v.X, (int)v.Y, _world);
                 f.loadGraphic("initials/crate_80x60", true, false, (int)FlxU.random(10, 80), (int)FlxU.random(10, 60));
 
-                f._body.Mass = 1000f;
-                f._body.AngularVelocity = 200f;
+                f._body.Mass = 500f;
+                f._body.AngularVelocity = FlxU.random(-20,20);
 
                 add(f);
 

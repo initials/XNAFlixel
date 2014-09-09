@@ -104,7 +104,10 @@ namespace org.flixel
             {
                 FlxG.state = new Physics2State();
             }
-
+            if (FlxG.keys.F3)
+            {
+                FlxG.state = new IslandState();
+            }
             base.update();
         }
 
