@@ -38,8 +38,8 @@ namespace org.flixel
             textInfo += "6. Animation Callbacks\n";
             textInfo += "7. FlxPath \n";
             textInfo += "8. Physics \n";
-            textInfo += "9. \n";
-            textInfo += "10. \n";
+            textInfo += "9. Angle And Velocity\n";
+            textInfo += "F2. Physics 2\n";
 
 
             textInfo += "Q. Garbage Tests \n";
@@ -100,6 +100,11 @@ namespace org.flixel
             {
                 FlxG.state = new AngleAndVelocityState();
             }
+            if (FlxG.keys.F2)
+            {
+                FlxG.state = new Physics2State();
+            }
+
             base.update();
         }
 
