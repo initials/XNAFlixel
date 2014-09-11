@@ -42,16 +42,23 @@ namespace org.flixel
             width = Width;
             height = Height;
 
+
+            _body = BodyFactory.CreateBody(_world, new Vector2(x, y), 0, null);
+            FixtureFactory.AttachRectangle(Width, Height, 1f, new Vector2(0f, 0f), _body);
+            _body.BodyType = BodyType.Dynamic;
+            _body.Mass = 500f;
+
+
+
         }
 
         override public void update()
         {
 
-            x = _body.Position.X ;
-            y = _body.Position.Y + (this.height / 2);
-            ////x = _body.Position.X;
-            ////y = _body.Position.Y;
-            //angle = (float)(_body.Rotation * (180 / Math.PI));
+            x = _body.Position.X - (width / 2);
+            y = _body.Position.Y - (height / 2);
+
+            angle = (float)(_body.Rotation * (180 / Math.PI));
 
             base.update();
 

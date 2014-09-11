@@ -40,17 +40,26 @@ namespace org.flixel
             
             _world = new World(new Vector2(0, 98.0f));
 
-            for (int i = 0; i < 40; i++)
+            for (int i = 0; i < 10; i++)
             {
                 Vector2 v = new Vector2((int)FlxU.random(0, 400), (int)FlxU.random(0, 200));
                 FarSprite f = new FarSprite((int)v.X, (int)v.Y, _world);
-                f.loadGraphic("initials/crate_80x60", true, false, (int)FlxU.random(10, 80), (int)FlxU.random(10, 60));
+                f.loadGraphic("initials/crate_80x60", true, false, (int)FlxU.random(10, 20), (int)FlxU.random(10, 20));
+                f._body.Mass = 500f;
+                //f._body.AngularVelocity = FlxU.random(-20,20);
+                add(f);
+            }
 
+            for (int i = 0; i < 10; i++)
+            {
+                Vector2 v = new Vector2((int)FlxU.random(0, 400), (int)FlxU.random(0, 200));
+                FarTileblock f = new FarTileblock((int)v.X, (int)v.Y, (int)FlxU.random(10, 40), (int)FlxU.random(10, 40), _world);
+                f.loadTiles("initials/crate_80x60",5,5,0);
+                //f.loadGraphic("initials/crate_80x60", true, false, (int)FlxU.random(10, 20), (int)FlxU.random(10, 20));
                 f._body.Mass = 500f;
                 f._body.AngularVelocity = FlxU.random(-20,20);
-
+                f.moves = true;
                 add(f);
-
             }
 
             _ground = BodyFactory.CreateRectangle(_world, 2000, 20, 1.0f, new Vector2(0,350), null);

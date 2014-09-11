@@ -55,38 +55,11 @@ namespace org.flixel
 
             _world = new World(new Vector2(0, 0));
 
-            FlxCaveGeneratorExt caveExt = new FlxCaveGeneratorExt(30, 20, 0.49f, 1);
+            FlxCaveGeneratorExt caveExt = new FlxCaveGeneratorExt(20, 20, 0.49f, 1);
             string[,] caveLevel = caveExt.generateCaveLevel();
 
             //Optional step to print cave to the console.
             //caveExt.printCave(caveLevel);
-
-            Color[] colors = new Color[] { 
-                Color.Aqua, 
-                Color.ForestGreen, 
-                Color.Yellow, 
-                Color.Yellow, 
-                Color.Yellow, 
-                Color.Yellow, 
-                Color.Yellow, 
-                Color.Yellow, 
-                Color.Yellow, 
-                Color.Yellow,
-                Color.Yellow, 
-                Color.Yellow, 
-                Color.Yellow, 
-                Color.Yellow, 
-                Color.Yellow, 
-                Color.Green, 
-                Color.Yellow, 
-                Color.Yellow, 
-                Color.Yellow, 
-                Color.Yellow, 
-                Color.Yellow, 
-                Color.Yellow, 
-                Color.Yellow, 
-                Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow, Color.Yellow };
-
 
             tileGrp = new FlxGroup();
 
@@ -97,7 +70,7 @@ namespace org.flixel
                     //string toPrint = tiles[y, i];
                     if (Convert.ToInt32(caveLevel[y, i]) != 0)
                     {
-                        FarSprite x = new FarSprite(100+(i * 10), 100+(y * 10), _world );
+                        FarSprite x = new FarSprite(100+(i * 10), 10+(y * 10), _world );
                         //x.createGraphic(8, 8, colors[Convert.ToInt32(caveLevel[y, i])]);
                         x.loadGraphic("flixel/autotilesIsland", false, false, 8, 8);
                         //x.color = colors[Convert.ToInt32(caveLevel[y, i])];
@@ -130,8 +103,8 @@ namespace org.flixel
             add(m);
 
 
-            //_ground = BodyFactory.CreateRectangle(_world, 2000, 20, 1.0f, new Vector2(0, 350), null);
-            //_ground.BodyType = BodyType.Static;
+            _ground = BodyFactory.CreateRectangle(_world, 2000, 20, 1.0f, new Vector2(0, 350), null);
+            _ground.BodyType = BodyType.Static;
 
             //g1 = new FlxSprite(0, 340);
             //g1.loadGraphic("diagnostic/testpalette", true, false, 1000, 20);
@@ -177,7 +150,10 @@ namespace org.flixel
 
                 }
             }
-
+            if (FlxG.keys.justPressed(Keys.F))
+            {
+                _world.Gravity = new Vector2(0, 98);
+            }
 
 
         }
