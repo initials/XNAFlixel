@@ -65,14 +65,14 @@ namespace org.flixel
 
         }
 
-        public void MyOnBroadphaseCollision(ref FixtureProxy fp1, ref FixtureProxy fp2)
-        {
+        //public void MyOnBroadphaseCollision(ref FixtureProxy fp1, ref FixtureProxy fp2)
+        //{
 
-        }
-        public bool MyOnCollision(Fixture f1, Fixture f2, Contact contact)
-        {
-            return true;
-        }
+        //}
+        //public bool MyOnCollision(Fixture f1, Fixture f2, Contact contact)
+        //{
+        //    return true;
+        //}
 
 
 

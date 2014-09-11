@@ -40,6 +40,8 @@ namespace org.flixel
             textInfo += "8. Physics \n";
             textInfo += "9. Angle And Velocity\n";
             textInfo += "F2. Physics 2\n";
+            textInfo += "F3. Island \n";
+            textInfo += "F4. Island 2 \n";
 
 
             textInfo += "Q. Garbage Tests \n";
@@ -108,6 +110,12 @@ namespace org.flixel
             {
                 FlxG.state = new IslandState();
             }
+            if (FlxG.keys.F4)
+            {
+                FlxG.state = new Island2State();
+            }
+
+
             base.update();
         }
 
