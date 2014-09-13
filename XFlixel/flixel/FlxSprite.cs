@@ -142,6 +142,8 @@ namespace org.flixel
 
         private byte _bytealpha = 0xff;
 
+        public bool allowColorFlicker = true;
+
         /// <summary>
         /// Used for color tinting.
         /// </summary>
@@ -472,7 +474,7 @@ namespace org.flixel
             updateAnimation();
             updateFlickering();
             
-            if (FlxG.colorFlickeringEnabled) updatecolorFlickering();
+            if (FlxG.colorFlickeringEnabled && this.allowColorFlicker==true) updatecolorFlickering();
 
         }
 

@@ -184,3 +184,6 @@ XFlixel/obj/
 /XFlixelContent/obj/x86/Release/DesignTimeResolveAssemblyReferencesInput.cache
 /XFlixelContent/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 /XFlixel.suo
+XFlixel/XFlixel.csproj.Debug.cachefile
+XFlixel/XFlixel.csproj.Release.cachefile
+XFlixelContent/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
