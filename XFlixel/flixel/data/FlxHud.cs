@@ -501,6 +501,9 @@ namespace org.flixel
             p4HudText.x = p4OriginalPosition.X;
             p4HudText.y = p4OriginalPosition.Y;
             p4HudText.scale = 1;
+
+            hudGroup.kill();
+
         }
         
         /// <summary>
