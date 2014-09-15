@@ -824,12 +824,17 @@ namespace org.flixel
         /// <returns>The <code>Point</code> you passed in, or a new <code>Point</code> if you didn't pass one, containing the screen X and Y position of this object.</returns>
         virtual public Vector2 getScreenXY()
 		{
-            Vector2 Point = Vector2.Zero;
-			Point.X = FlxU.floor(x + FlxU.roundingError)+FlxU.floor(FlxG.scroll.X*scrollFactor.X);
-			Point.Y = FlxU.floor(y + FlxU.roundingError)+FlxU.floor(FlxG.scroll.Y*scrollFactor.Y);
-			return Point;
+            return getScreenXY(0, 0);
 		}
-		
+
+        virtual public Vector2 getScreenXY(float OffsetX, float OffsetY)
+        {
+            Vector2 Point = Vector2.Zero;
+            Point.X = (FlxU.floor(x + FlxU.roundingError) + FlxU.floor(FlxG.scroll.X * scrollFactor.X)) + OffsetX;
+            Point.Y = (FlxU.floor(y + FlxU.roundingError) + FlxU.floor(FlxG.scroll.Y * scrollFactor.Y)) + OffsetY;
+            return Point;
+        }
+
         /// <summary>
         /// Check and see if this object is currently on screen.
         /// </summary>
