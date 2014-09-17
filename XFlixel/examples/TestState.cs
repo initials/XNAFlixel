@@ -42,7 +42,7 @@ namespace org.flixel
             textInfo += "F2. Physics 2\n";
             textInfo += "F3. Island \n";
             textInfo += "F4. Island 2 \n";
-
+            textInfo += "F5. Physics Hockey \n";
 
             textInfo += "Q. Garbage Tests \n";
             FlxG.setHudText(1, textInfo);
@@ -114,7 +114,10 @@ namespace org.flixel
             {
                 FlxG.state = new Island2State();
             }
-
+            if (FlxG.keys.F5)
+            {
+                FlxG.state = new Physics3State();
+            }
 
             base.update();
         }

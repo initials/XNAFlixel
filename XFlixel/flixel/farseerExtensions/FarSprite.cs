@@ -46,6 +46,22 @@ namespace org.flixel
 
         }
 
+        public void attachRectangle(int Width, int Height)
+        {
+            _body = BodyFactory.CreateBody(_world, new Vector2(x, y), 0, null);
+            FixtureFactory.AttachRectangle(Width, Height, 1f, new Vector2(0f, 0f), _body);
+            _body.BodyType = BodyType.Dynamic;
+            _body.Mass = 500f;
+        }
+
+        public void attachCircle(int Width, int Height)
+        {
+            _body = BodyFactory.CreateBody(_world, new Vector2(x, y), 0, null);
+            FixtureFactory.AttachCircle(Width*2, 1f, _body);
+            _body.BodyType = BodyType.Dynamic;
+            _body.Mass = 500f;
+        }
+
         public override FlxSprite loadGraphic(string Graphic, bool Animated, bool Reverse, int Width, int Height)
         {
             _body = BodyFactory.CreateBody(_world, new Vector2(x, y), 0, null);

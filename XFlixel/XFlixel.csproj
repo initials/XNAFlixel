@@ -164,6 +164,7 @@
     <Compile Include="examples\Island2State.cs" />
     <Compile Include="examples\IslandState.cs" />
     <Compile Include="examples\Physics2State.cs" />
+    <Compile Include="examples\Physics3State.cs" />
     <Compile Include="examples\PhysicsState.cs" />
     <Compile Include="examples\RobotFootballState.cs" />
     <Compile Include="examples\TweenerState.cs" />
