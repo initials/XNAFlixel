@@ -344,6 +344,9 @@ namespace org.flixel
         {
             get { return isKeyDown(Keys.Divide, FlxG.controllingPlayer, out pi); }
         }
+        /// <summary>
+        /// The CTRL key - Left or Right.
+        /// </summary>
         public bool CONTROL
         {
             get { return isKeyDown(Keys.LeftControl, FlxG.controllingPlayer, out pi) ||
