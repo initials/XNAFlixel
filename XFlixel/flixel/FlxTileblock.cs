@@ -45,6 +45,11 @@ namespace org.flixel
 
         public const int FRAMENUMBER = 5;
 
+        /// <summary>
+        /// Creates a hud element based on the 7Soul UI Pack.
+        /// </summary>
+        public const int HUDELEMENT = 6;
+
         public int frameNumber = 0;
 
         /// <summary>
@@ -234,6 +239,68 @@ namespace org.flixel
                     {
                         _rects[i] = new Rectangle(_tileWidth * frameNumber, 0, _tileWidth, _tileHeight);
                     }
+                    else if (auto == HUDELEMENT)
+                    {
+
+                        int m = widthInTiles;
+                        int n = heightInTiles;
+                        int x = i / widthInTiles;
+                        int y = i % widthInTiles;
+
+                        int posx = 0;
+                        int posy = 0;
+                        
+                        if (x == 0 && y == 0)
+                        { //top left
+                            posx = 0;
+                            posy = 0;
+                        }
+                        else if (x == 0 && y == m - 1)
+                        { //top right
+                            posx = 2;
+                            posy = 0;
+                        }
+                        else if (x == 0 && y != 0 && y != m - 1)
+                        { //straight top
+                            posx = 1;
+                            posy = 0;
+                        }
+                        else if (x == n - 1 && y == 0)
+                        { //bottom left
+                            posx = 0;
+                            posy = 2;
+                        }
+                        else if (x == n - 1 && y == m - 1)
+                        { //bottom right
+                            posx = 2;
+                            posy = 2;
+
+                        }
+                        else if (x == n - 1 && y != 0 && y != m - 1)
+                        { //straight bottom
+                            posx = 1;
+                            posy = 2;
+                        }
+                        else if (y == 0 && x != 0 && x != n - 1)
+                        { //left down straight
+
+                            posx = 0;
+                            posy = 1;
+                        }
+                        else if (y == m - 1 && x != 0 && x != n - 1)
+                        { //right down straight
+                            posx = 2;
+                            posy = 1;
+                        }
+                        else
+                        {
+                            posx = 1;
+                            posy = 1;
+                        }
+
+                        _rects[i] = new Rectangle(_tileWidth * posx, _tileHeight * posy, _tileWidth, _tileHeight);
+                    }
+
                     //to do: create auto tile tileblocks.
 
                     //_rects[i] = new Rectangle(0, 0, _tileWidth, _tileHeight);
