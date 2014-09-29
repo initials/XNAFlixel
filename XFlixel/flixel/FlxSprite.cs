@@ -100,7 +100,7 @@ namespace org.flixel
         /// _curAnim is the current playing animation.
         /// <para>Use _curAnim.name to get the name of the currently playing.</para>
         /// </summary>
-		protected FlxAnim _curAnim;
+		public FlxAnim _curAnim;
 
         /// <summary>
         /// _curFrame is the sequential frame.

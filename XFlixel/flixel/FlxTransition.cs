@@ -115,7 +115,7 @@ namespace org.flixel
                     s = new FlxSprite(width * _y * 4, height * _x * 4 );
 
                     if (Graphics==null)
-                        s.loadGraphic(FlxG.Content.Load<Texture2D>("flixel/transition_40x40"), false, false, width, height);
+                        s.loadGraphic(FlxG.Content.Load<Texture2D>("flixel/transitionBlack_40x40"), false, false, width, height);
                     else
                         s.loadGraphic(Graphics, false, false, width, height);
 
@@ -175,7 +175,7 @@ namespace org.flixel
             while (i < l)
             {
                 o = members[i++] as FlxSprite;
-                o.scale = FlxG.zoom;
+                o.scale = FlxG.zoom + 1;
 
             }
         }
