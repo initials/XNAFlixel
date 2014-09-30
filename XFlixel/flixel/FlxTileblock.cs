@@ -58,6 +58,8 @@ namespace org.flixel
         public int auto;
 
 
+        //public int inflateX = 0;
+        //public int inflateY = 0;
 
         /// <summary>
         /// Creates a new <code>FlxBlock</code> object with the specified position and size.
@@ -328,6 +330,20 @@ namespace org.flixel
 			return this;
 		}
 
+        public override void update()
+        {
+            //if (inflateX >= 1)
+            //{
+            //    inflateX--;
+            //}
+            //if (inflateY >= 1)
+            //{
+            //    inflateY--;
+            //}
+
+            base.update();
+        }
+
         /// <summary>
         /// Draws this block
         /// </summary>
@@ -343,6 +359,21 @@ namespace org.flixel
             {
                 if (_rects[i] != Rectangle.Empty)
                 {
+                    // This is a crazy attempt at freaking out the tileblock
+                    /*
+                    Rectangle r = _rects[i];
+
+                    if (inflateX != 0)
+                    {
+                        int ix = (int)(FlxU.random(1,10));
+
+                        r.Inflate(ix, ix);
+                        r.Offset(new Point(ix / 2, ix / 2));
+                    }
+
+                    spriteBatch.Draw(_tex, _p, r, _color);
+                    */
+
                     spriteBatch.Draw(_tex, _p, _rects[i], _color);
                 }
                 _p.X += _tileWidth;

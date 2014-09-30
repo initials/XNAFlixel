@@ -38,10 +38,6 @@ Content\initials\autotiles_alt.xnb
 Content\flixel\autotiles_16x16.xnb
 Content\flixel\autotiles_alt_16x16.xnb
 Content\flixel\vcr\cheat_off.xnb
-Content\surt\spaceship_32x32.xnb
-Content\surt\race_or_die.xnb
-Content\initials\crate_80x60.xnb
-Content\initials\initialsLogoGameboy.xnb
 Content\flixel\beep.xnb
 Content\flixel\flixel.xnb
 Content\initials\initials_empire_tagtone1.xnb
@@ -52,9 +48,13 @@ Content\initials\FourChambers_IntroTag_03.xnb
 Content\flixel\deffont.xnb
 Content\initials\Munro.xnb
 Content\initials\SpaceMarine.xnb
+Content\surt\spaceship_32x32.xnb
 Content\fx\BloomCombine.xnb
 Content\fx\BloomExtract.xnb
 Content\fx\GaussianBlur.xnb
+Content\surt\race_or_die.xnb
+Content\initials\crate_80x60.xnb
+Content\initials\initialsLogoGameboy.xnb
 Content\oga\GoldCoin.xnb
 Content\buttons\Map360Gameboy.xnb
 Content\buttons\MapOuyaGameboy.xnb
