@@ -60,7 +60,7 @@ namespace org.flixel
         /**
          * The current value - must always be between min and max
          */
-        private float value;
+        public float value;
 
         /**
          * How many pixels = 1% of the bar (barWidth (or height) / 100)
@@ -160,6 +160,17 @@ namespace org.flixel
 
         }
 
+        public void loadCustomEmptyGraphic(string BarGraphic)
+        {
+            emptyBar.loadGraphic(BarGraphic);
+        }
+
+        public void loadCustomFilledGraphic(string BarGraphic)
+        {
+            filledBar.loadGraphic(BarGraphic);
+        }
+
+
         /// <summary>
         /// Update.
         /// </summary>
@@ -168,45 +179,47 @@ namespace org.flixel
             //filledBar.width = (int)(percent * pxPerPercent);
 
             //Console.WriteLine(parent.x + "GET " + parent.GetType().ToString() );
-
-            filledBar.width = (float)((parent.health / max) * barWidth);
-            if (filledBar.width > barWidth) filledBar.width = barWidth;
-            if (filledBar.width < 0) filledBar.width = 0;
-
-            emptyBar.x = parent.x;
-            emptyBar.y = parent.y - 11;
-
-            filledBar.x = parent.x;
-            filledBar.y = parent.y - 11;
-
-            if (_border)
+            if (parent != null)
             {
-                outline.x = parent.x-1;
-                outline.y = parent.y - 12;
-            }
-            if (parent.health <= (max*0.21) )
-            {
-                filledBar.color = Color.Red;
+                filledBar.width = (float)((parent.health / max) * barWidth);
+                if (filledBar.width > barWidth) filledBar.width = barWidth;
+                if (filledBar.width < 0) filledBar.width = 0;
 
-            }
+                emptyBar.x = parent.x;
+                emptyBar.y = parent.y - 11;
 
-            if (parent.health <= 0)
-            {
-                filledBar.visible = false;
-                emptyBar.visible = false;
+                filledBar.x = parent.x;
+                filledBar.y = parent.y - 11;
 
                 if (_border)
                 {
-                    outline.visible = false;
+                    outline.x = parent.x - 1;
+                    outline.y = parent.y - 12;
                 }
-            }
-            else
-            {
-                filledBar.visible = true;
-                emptyBar.visible = true;
-                if (_border)
+                if (parent.health <= (max * 0.21))
                 {
-                    outline.visible = true;
+                    filledBar.color = Color.Red;
+
+                }
+
+                if (parent.health <= 0)
+                {
+                    filledBar.visible = false;
+                    emptyBar.visible = false;
+
+                    if (_border)
+                    {
+                        outline.visible = false;
+                    }
+                }
+                else
+                {
+                    filledBar.visible = true;
+                    emptyBar.visible = true;
+                    if (_border)
+                    {
+                        outline.visible = true;
+                    }
                 }
             }
 
