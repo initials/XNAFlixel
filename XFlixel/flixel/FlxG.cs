@@ -325,7 +325,7 @@ namespace org.flixel
         /// <summary>
         /// Change the BG color of the Splash Screen.
         /// </summary>
-        static public Color splashBGColor = new Color(10, 10, 10);
+        static public Color splashBGColor = new Color(35, 35, 35);
 
         /// <summary>
         /// 
