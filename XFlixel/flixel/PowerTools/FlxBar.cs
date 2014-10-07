@@ -239,6 +239,24 @@ namespace org.flixel
             
         }
 
+        public void setValue(float ToValue)
+        {
+            filledBar.width = (float)((ToValue / max) * barWidth);
+            if (filledBar.width > barWidth) filledBar.width = barWidth;
+            if (filledBar.width < 0) filledBar.width = 0;
+
+
+            //if (parent.health <= (max * 0.21))
+            //{
+            //    filledBar.color = Color.Red;
+
+            //}
+            //else
+            //{
+            //    filledBar.color = Color.Green;
+            //}
+
+        }
 
         public void setRange(float min, float max)
         {

@@ -33,9 +33,9 @@ namespace XNAMode
             : base(game)
         {
 
-            int w = 640;
-            int h = 360;
-            FlxG.zoom = 2;
+            int w = 640/2;
+            int h = 360/2;
+            FlxG.zoom = 4;
             FlxG.debug = true;
 
 #if DEBUG

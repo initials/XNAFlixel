@@ -43,6 +43,7 @@ namespace org.flixel
             textInfo += "F3. Island \n";
             textInfo += "F4. Island 2 \n";
             textInfo += "F5. Physics Hockey \n";
+            textInfo += "F6. FlxBar \n";
 
             textInfo += "Q. Garbage Tests \n";
             FlxG.setHudText(1, textInfo);
@@ -118,7 +119,10 @@ namespace org.flixel
             {
                 FlxG.state = new Physics3State();
             }
-
+            if (FlxG.keys.F6)
+            {
+                FlxG.state = new FlxBarState();
+            }
             base.update();
         }
 

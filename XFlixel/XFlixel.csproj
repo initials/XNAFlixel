@@ -160,6 +160,7 @@
     <Compile Include="examples\AngleAndVelocityState.cs" />
     <Compile Include="examples\AnimationCallbackState.cs" />
     <Compile Include="examples\BaseExampleState.cs" />
+    <Compile Include="examples\FlxBarState.cs" />
     <Compile Include="examples\FlxPathState.cs" />
     <Compile Include="examples\Island2State.cs" />
     <Compile Include="examples\IslandState.cs" />
