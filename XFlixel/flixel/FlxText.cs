@@ -106,6 +106,16 @@ namespace org.flixel
             constructor(X, Y, Width, 10, Text, Color.White, FlxG.Font, 1, FlxJustification.Center, 0);
 		}
 
+        public FlxText(float X, float Y, float Width, float Height, string Text, Color cColor, SpriteFont fFont, float fScale, FlxJustification fJustification, float fAngle)
+            : base(X, Y)
+        {
+            if (Text == null)
+                Text = "";
+
+            constructor(X, Y, Width, Height, Text, Color.White, FlxG.Font, 1, FlxJustification.Center, fAngle);
+        }
+
+
         /// <summary>
         /// Creates a new <code>FlxText</code> object at the specified position.
         /// </summary>
