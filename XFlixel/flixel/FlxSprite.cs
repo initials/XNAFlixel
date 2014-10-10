@@ -915,6 +915,16 @@ namespace org.flixel
             }
         }
 
+        public void loadAnimationsFromGraphicsGaleCSV(string file)
+        {
+            string anims = FlxU.loadFromDevice("content/characters.csv");
+
+            Console.WriteLine(anims);
+
+            string[] split = anims.Split('\n');
+
+        }
+
         public int[] generateFrameNumbersBetween(int Start, int End)
         {
             int diff = 0;
