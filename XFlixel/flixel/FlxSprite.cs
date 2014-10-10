@@ -918,10 +918,42 @@ namespace org.flixel
         public void loadAnimationsFromGraphicsGaleCSV(string file)
         {
             string anims = FlxU.loadFromDevice("content/characters.csv");
-
-            Console.WriteLine(anims);
-
             string[] split = anims.Split('\n');
+            //Dictionary<string, List<int>> animations = new Dictionary<string, List<int>>();
+
+            foreach (var item in split)
+            {
+                //Console.WriteLine(item);
+
+                if (item.StartsWith("\"Name"))
+                {
+                    // initialize.    
+                }
+                else
+                {
+                    string[] elements = item.Split(',');
+                    string name = elements[0].Substring(1, elements[0].Length - 2);
+                    string fr = elements[1].Substring(1, elements[1].Length - 2);
+                    string col = elements[2].Substring(1, elements[2].Length - 2);
+                    string row = elements[3].Substring(1, elements[3].Length - 3);
+                    
+                    // Assumes you output in grids of 10 across.
+                    int position = Convert.ToInt16(col) + (10 * Convert.ToInt16(row));
+                    int frameRate = 61 - Convert.ToInt16(fr);
+
+                    Console.WriteLine("n: {0} fr: {1} pos: {2}x{3}, Frame: {4}", name, frameRate, col, row, position);
+
+                    //if (animations.ContainsKey(elements[0].ToString()))
+                    //{
+                    //    int[] o = animations[elements[0].ToString()];
+                    //    animations.Add(elements[0].ToString(), new int[] { Convert.ToInt16(elements[1]) }); //Convert.ToInt16( elements[0] )
+                    //}
+                    //else
+                    //{
+                    //    animations.Add(elements[0].ToString(), new int[] { Convert.ToInt16(elements[1]) }); //Convert.ToInt16( elements[0] )
+                    //}
+                }
+            }
 
         }
 
