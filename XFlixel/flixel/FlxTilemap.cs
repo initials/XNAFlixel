@@ -971,10 +971,10 @@ namespace org.flixel
             }
             _data[Index] += 1;
 
-            if (_extraMiddleTiles >= 1 && _data[Index] == 16)
-            {
-                _data[Index] += (int)(FlxU.random() * (_extraMiddleTiles+1));
-            }
+            //if (_extraMiddleTiles >= 1 && _data[Index] == 16)
+            //{
+            //    _data[Index] += (int)(FlxU.random() * (_extraMiddleTiles+1));
+            //}
         }
 
         /// <summary>
