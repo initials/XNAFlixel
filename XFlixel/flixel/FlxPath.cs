@@ -132,7 +132,7 @@ namespace org.flixel
         /// </summary>
         /// <param name="PointsX"></param>
         /// <param name="PointsY"></param>
-        public void addPointsUsingStrings(string PointsX, string PointsY)
+        public void addPointsUsingStrings(string PointsX, string PointsY, int OffsetX, int OffsetY)
         {
             string[] splX = PointsX.Split(',');
             string[] splY = PointsY.Split(',');
@@ -151,11 +151,15 @@ namespace org.flixel
 
                 if (splX[i] != "" || splY[i] != "")
                 {
-                    add(float.Parse(splX[i]), float.Parse(splY[i]));
+                    add(float.Parse(splX[i]) + OffsetX, float.Parse(splY[i]) + OffsetY);
                 }
             }
         }
 
+        public void addPointsUsingStrings(string PointsX, string PointsY)
+        {
+            addPointsUsingStrings(PointsX, PointsY, 0, 0);
+        }
         /// <summary>
         /// Add a new node to the end of the path at the specified location.
         /// </summary>

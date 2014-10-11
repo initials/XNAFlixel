@@ -907,6 +907,12 @@ namespace org.flixel
             }
 
         }
+        public void startFollowingPath(uint Mode)
+        {
+            _pathMode = Mode;
+            startFollowingPath();
+
+        }
 
         public void startFollowingPath()
         {
@@ -1010,7 +1016,38 @@ namespace org.flixel
             }
                         
             _pathNodeIndex += _pathInc;
-                        
+
+
+            if ((_pathMode & PATH_FORWARD) == 0 || (_pathMode & PATH_BACKWARD) == 0)
+            {
+                if (_pathInc > 0)
+                {
+                    //Console.WriteLine("At start");
+
+                    if (_pathNodeIndex >= path.nodes.Count)
+                    {
+                        stopFollowingPath(false);
+
+                        _pathNodeIndex = path.nodes.Count - 2;
+                        if (_pathNodeIndex < 0)
+                            _pathNodeIndex = 0;
+                        _pathInc = -_pathInc;
+                    }
+                }
+                else if (_pathNodeIndex < 0)
+                {
+                    //Console.WriteLine("At end");
+                    stopFollowingPath(false);
+                    _pathNodeIndex = 1;
+                    if (_pathNodeIndex >= path.nodes.Count)
+                        _pathNodeIndex = path.nodes.Count - 1;
+                    if (_pathNodeIndex < 0)
+                        _pathNodeIndex = 0;
+                    _pathInc = -_pathInc;
+                }
+            }
+
+
             if((_pathMode & PATH_BACKWARD) > 0)
             {
                 //Console.WriteLine("PATH_BACKWARD " + _pathNodeIndex);
@@ -1021,44 +1058,45 @@ namespace org.flixel
                     pathSpeed = 0;
                 }
             }
-            else if((_pathMode & PATH_LOOP_FORWARD) > 0)
+            
+            else if ((_pathMode & PATH_LOOP_FORWARD) > 0)
             {
                 //Console.WriteLine("PATH_LOOP_FORWARD " + _pathNodeIndex);
 
-                if(_pathNodeIndex >= path.nodes.Count)
+                if (_pathNodeIndex >= path.nodes.Count)
                     _pathNodeIndex = 0;
             }
-            else if((_pathMode & PATH_LOOP_BACKWARD) > 0)
+            else if ((_pathMode & PATH_LOOP_BACKWARD) > 0)
             {
                 //Console.WriteLine("PATH_LOOP_BACKWARD " + _pathNodeIndex);
 
-                if(_pathNodeIndex < 0)
+                if (_pathNodeIndex < 0)
                 {
                     _pathNodeIndex = path.nodes.Count - 1;
-                    if(_pathNodeIndex < 0)
+                    if (_pathNodeIndex < 0)
                         _pathNodeIndex = 0;
                 }
             }
-            else if((_pathMode & PATH_YOYO) > 0)
+            else if ((_pathMode & PATH_YOYO) > 0)
             {
                 //Console.WriteLine("PATH_YOYO " + _pathNodeIndex);
 
-                if(_pathInc > 0)
+                if (_pathInc > 0)
                 {
                     if (_pathNodeIndex >= path.nodes.Count)
                     {
                         _pathNodeIndex = path.nodes.Count - 2;
-                        if(_pathNodeIndex < 0)
+                        if (_pathNodeIndex < 0)
                             _pathNodeIndex = 0;
-                       _pathInc = -_pathInc;
+                        _pathInc = -_pathInc;
                     }
                 }
-                else if(_pathNodeIndex < 0)
+                else if (_pathNodeIndex < 0)
                 {
                     _pathNodeIndex = 1;
                     if (_pathNodeIndex >= path.nodes.Count)
                         _pathNodeIndex = path.nodes.Count - 1;
-                    if(_pathNodeIndex < 0)
+                    if (_pathNodeIndex < 0)
                         _pathNodeIndex = 0;
                     _pathInc = -_pathInc;
                 }

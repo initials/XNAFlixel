@@ -915,11 +915,16 @@ namespace org.flixel
             }
         }
 
+        /// <summary>
+        /// Loads animations from a Graphics Gale .csv with the values: "Name","Delay(1/60)","Column","Row"
+        /// </summary>
+        /// <param name="file"></param>
         public void loadAnimationsFromGraphicsGaleCSV(string file)
         {
             string anims = FlxU.loadFromDevice("content/characters.csv");
             string[] split = anims.Split('\n');
-            //Dictionary<string, List<int>> animations = new Dictionary<string, List<int>>();
+            Dictionary<string, List<int>> animations = new Dictionary<string, List<int>>();
+            Dictionary<string, int> frameRates = new Dictionary<string, int>();
 
             foreach (var item in split)
             {
@@ -939,20 +944,44 @@ namespace org.flixel
                     
                     // Assumes you output in grids of 10 across.
                     int position = Convert.ToInt16(col) + (10 * Convert.ToInt16(row));
-                    int frameRate = 61 - Convert.ToInt16(fr);
+                    int frameRate = 31 - Convert.ToInt16(fr);
 
-                    Console.WriteLine("n: {0} fr: {1} pos: {2}x{3}, Frame: {4}", name, frameRate, col, row, position);
+                    //Console.WriteLine("n: {0} fr: {1} pos: {2}x{3}, Frame: {4}", name, frameRate, col, row, position);
 
-                    //if (animations.ContainsKey(elements[0].ToString()))
-                    //{
-                    //    int[] o = animations[elements[0].ToString()];
-                    //    animations.Add(elements[0].ToString(), new int[] { Convert.ToInt16(elements[1]) }); //Convert.ToInt16( elements[0] )
-                    //}
-                    //else
-                    //{
-                    //    animations.Add(elements[0].ToString(), new int[] { Convert.ToInt16(elements[1]) }); //Convert.ToInt16( elements[0] )
-                    //}
+                    if (animations.ContainsKey(name))
+                    {
+                        List<int> o = animations[name];
+                        o.Add(position);
+                        //animations.Add(name, new int[] { Convert.ToInt16(elements[1]) }); //Convert.ToInt16( elements[0] )
+                        animations[name] = o;
+
+                    }
+                    else
+                    {
+                        //animations.Add(name, new int[] { Convert.ToInt16(elements[1]) }); //Convert.ToInt16( elements[0] )
+                        animations[name] = new List<int>() {position};
+
+                    }
+
+                    frameRates[name] = frameRate;
+
                 }
+
+
+            }
+
+            foreach (var xx in animations)
+            {
+                //Console.WriteLine("--> item {0} value {1}", xx.Key, xx.Value.ToArray().ToString() );
+
+                //foreach (var xxx in xx.Value)
+                //{
+                //    Console.WriteLine(xxx);
+                //}
+
+                addAnimation(xx.Key, xx.Value.ToArray(), frameRates[xx.Key], true);
+
+
             }
 
         }
