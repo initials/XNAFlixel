@@ -921,7 +921,7 @@ namespace org.flixel
         /// <param name="file"></param>
         public void loadAnimationsFromGraphicsGaleCSV(string file)
         {
-            string anims = FlxU.loadFromDevice("content/characters.csv");
+            string anims = FlxU.loadFromDevice(file);
             string[] split = anims.Split('\n');
             Dictionary<string, List<int>> animations = new Dictionary<string, List<int>>();
             Dictionary<string, int> frameRates = new Dictionary<string, int>();
