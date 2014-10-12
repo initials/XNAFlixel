@@ -11,6 +11,8 @@ namespace org.flixel
     /// </summary>
     public struct BlockPoint
     {
+
+        
         /// <summary>
         /// X Position
         /// </summary>
@@ -49,6 +51,7 @@ namespace org.flixel
     {
         static public Texture2D ImgAuto;
         static public Texture2D ImgAutoAlt;
+        public bool useExtraMiddleTiles = true;
 
         /// <summary>
         /// No auto-tiling.
@@ -971,10 +974,13 @@ namespace org.flixel
             }
             _data[Index] += 1;
 
-            //if (_extraMiddleTiles >= 1 && _data[Index] == 16)
-            //{
-            //    _data[Index] += (int)(FlxU.random() * (_extraMiddleTiles+1));
-            //}
+            if (useExtraMiddleTiles)
+            {
+                if (_extraMiddleTiles >= 1 && _data[Index] == 16)
+                {
+                    _data[Index] += (int)(FlxU.random() * (_extraMiddleTiles + 1));
+                }
+            }
         }
 
         /// <summary>
