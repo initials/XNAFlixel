@@ -993,7 +993,8 @@ namespace org.flixel
                         addAnimation(xx.Key, xx.Value.ToArray(), frameRates[xx.Key], false);
                     else
                         addAnimation(xx.Key, xx.Value.ToArray(), frameRates[xx.Key], DefaultLoopingValue);
-
+                else
+                    addAnimation(xx.Key, xx.Value.ToArray(), frameRates[xx.Key], DefaultLoopingValue);
 
             }
 
