@@ -915,11 +915,15 @@ namespace org.flixel
             }
         }
 
+        public void loadAnimationsFromGraphicsGaleCSV(string file)
+        {
+            loadAnimationsFromGraphicsGaleCSV(file, null, null, true);
+        }
         /// <summary>
         /// Loads animations from a Graphics Gale .csv with the values: "Name","Delay(1/60)","Column","Row"
         /// </summary>
         /// <param name="file"></param>
-        public void loadAnimationsFromGraphicsGaleCSV(string file)
+        public void loadAnimationsFromGraphicsGaleCSV(string file, List<string> Looped, List<string> NotLooped, bool DefaultLoopingValue)
         {
             string anims = FlxU.loadFromDevice(file);
             string[] split = anims.Split('\n');
@@ -979,7 +983,16 @@ namespace org.flixel
                 //    Console.WriteLine(xxx);
                 //}
 
-                addAnimation(xx.Key, xx.Value.ToArray(), frameRates[xx.Key], true);
+                if (Looped != null)
+                    if (Looped.Contains(xx.Key))
+                        addAnimation(xx.Key, xx.Value.ToArray(), frameRates[xx.Key], true);
+                    else
+                        addAnimation(xx.Key, xx.Value.ToArray(), frameRates[xx.Key], DefaultLoopingValue);
+                if (NotLooped != null)
+                    if (NotLooped.Contains(xx.Key))
+                        addAnimation(xx.Key, xx.Value.ToArray(), frameRates[xx.Key], false);
+                    else
+                        addAnimation(xx.Key, xx.Value.ToArray(), frameRates[xx.Key], DefaultLoopingValue);
 
 
             }
