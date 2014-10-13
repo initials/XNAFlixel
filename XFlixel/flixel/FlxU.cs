@@ -1313,20 +1313,13 @@ namespace org.flixel
                     i2++;
                 }
                 obj1Hull.x = obj1Hull.x - ox1;
-                
-                
                 obj1Hull.y = obj1Hull.y - oy1;
-
-                
-
 
                 i1++;
             }
 
             return hit;
         }
-
-
 
         /// <summary>
         /// 
@@ -1428,10 +1421,7 @@ namespace org.flixel
             float dy = Point1.Y - Point2.Y;
             return (float)Math.Sqrt(dx * dx + dy * dy);
         }
-
-
-
-
+        
         /// <summary>
         /// Added to make saving files to disk easy.
         /// </summary>
