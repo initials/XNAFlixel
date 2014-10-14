@@ -919,10 +919,14 @@ namespace org.flixel
         {
             loadAnimationsFromGraphicsGaleCSV(file, null, null, true);
         }
+
         /// <summary>
         /// Loads animations from a Graphics Gale .csv with the values: "Name","Delay(1/60)","Column","Row"
         /// </summary>
-        /// <param name="file"></param>
+        /// <param name="file">loadAnimationsFromGraphicsGaleCSV("content/fourchambers/heart_16x16.csv", null, null, false);</param>
+        /// <param name="Looped">A List of animations that should loop</param>
+        /// <param name="NotLooped">A List of animations that will not loop</param>
+        /// <param name="DefaultLoopingValue">A default looping.</param>
         public void loadAnimationsFromGraphicsGaleCSV(string file, List<string> Looped, List<string> NotLooped, bool DefaultLoopingValue)
         {
             string anims = FlxU.loadFromDevice(file);
