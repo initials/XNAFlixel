@@ -867,6 +867,18 @@ namespace org.flixel
 		/// <returns>Color of the bounding box</returns>
 		public Color getBoundingColor()
 		{
+            if (_pathSpeed != 0)
+            {
+                if (_pathMode == PATH_FORWARD)
+                {
+                    return Color.Green;
+                }
+                if (_pathMode == PATH_BACKWARD)
+                {
+                    return Color.Red;
+                }
+
+            }
 			if(solid)
 			{
 				if(@fixed)

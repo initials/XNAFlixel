@@ -23,6 +23,12 @@ namespace org.flixel
             solid = true;
             @fixed = true;
 
+            if (_pathMode==PATH_FORWARD)
+            {
+                getBoundingColor();
+
+            }
+
         }
 
         override public void update()
