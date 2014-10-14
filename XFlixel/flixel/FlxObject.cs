@@ -873,9 +873,13 @@ namespace org.flixel
                 {
                     return Color.Green;
                 }
-                if (_pathMode == PATH_BACKWARD)
+                else if (_pathMode == PATH_BACKWARD)
                 {
                     return Color.Red;
+                }
+                else
+                {
+                    return Color.Purple;
                 }
 
             }
@@ -1038,24 +1042,30 @@ namespace org.flixel
 
                     if (_pathNodeIndex >= path.nodes.Count)
                     {
-                        stopFollowingPath(false);
+                        
 
-                        _pathNodeIndex = path.nodes.Count - 2;
-                        if (_pathNodeIndex < 0)
-                            _pathNodeIndex = 0;
-                        _pathInc = -_pathInc;
+                        //_pathNodeIndex = path.nodes.Count - 2;
+                        //if (_pathNodeIndex < 0)
+                        //    _pathNodeIndex = 0;
+                        //_pathInc = -_pathInc;
+
+                        stopFollowingPath(false);
                     }
                 }
                 else if (_pathNodeIndex < 0)
                 {
                     //Console.WriteLine("At end");
+
+                    
+                    
+                    //_pathNodeIndex = 1;
+                    //if (_pathNodeIndex >= path.nodes.Count)
+                    //    _pathNodeIndex = path.nodes.Count - 1;
+                    //if (_pathNodeIndex < 0)
+                    //    _pathNodeIndex = 0;
+                    //_pathInc = -_pathInc;
+
                     stopFollowingPath(false);
-                    _pathNodeIndex = 1;
-                    if (_pathNodeIndex >= path.nodes.Count)
-                        _pathNodeIndex = path.nodes.Count - 1;
-                    if (_pathNodeIndex < 0)
-                        _pathNodeIndex = 0;
-                    _pathInc = -_pathInc;
                 }
             }
 

@@ -25,7 +25,7 @@ namespace org.flixel
 
         private FlxSprite parent;
 
-        private String parentVariable;
+        private string parentVariable;
 
         /**
          * fixedPosition controls if the FlxBar sprite is at a fixed location on screen, or tracking its parent
@@ -102,6 +102,8 @@ namespace org.flixel
 
         private bool _border;
 
+        private FlxText _text;
+
         /// <summary>
         /// 
         /// </summary>
@@ -157,6 +159,9 @@ namespace org.flixel
 
             //emptyKill = false;
 
+            _text = new FlxText(x, y, 100);
+            _text.setFormat(null, 1, Color.White, FlxJustification.Left, Color.Black);
+            _text.text = variable;
 
         }
 
@@ -223,6 +228,8 @@ namespace org.flixel
                 }
             }
 
+            _text.update();
+
             base.update();
         }
 
@@ -235,7 +242,7 @@ namespace org.flixel
 
             emptyBar.render(spriteBatch);
             filledBar.render(spriteBatch);
-
+            _text.render(spriteBatch);
             
         }
 
