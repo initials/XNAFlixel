@@ -39,7 +39,7 @@ namespace org.flixel
             bar = new FlxBar(30, 30, FlxBar.FILL_LEFT_TO_RIGHT, 100, 10, robot, "rad", 0, 100, true);
             add(bar);
 
-            bar2 = new FlxBar(60, 90, FlxBar.FILL_LEFT_TO_RIGHT, 20, 2, null, "health", 0, 24, false);
+            bar2 = new FlxBar(60, 90, FlxBar.FILL_LEFT_TO_RIGHT, 20, 2, null, "health", 0, 100, false);
             bar2.loadCustomEmptyGraphic("initials/healthBar");
             bar2.emptyBar.offset.X = 2;
             bar2.emptyBar.offset.Y = 3;

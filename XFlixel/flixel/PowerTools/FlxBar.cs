@@ -263,10 +263,20 @@ namespace org.flixel
 
         public void setValue(float ToValue)
         {
-            filledBar.width = (float)((ToValue / max) * barWidth);
-            if (filledBar.width > barWidth) filledBar.width = barWidth;
-            if (filledBar.width < 0) filledBar.width = 0;
+            if (parent != null)
+            {
+                filledBar.width = (float)((ToValue / max) * barWidth);
+                if (filledBar.width > barWidth) filledBar.width = barWidth;
+                if (filledBar.width < 0) filledBar.width = 0;
+            }
+            else
+            {
+                health = ToValue;
 
+                filledBar.width = (float)((health / max) * barWidth);
+                if (filledBar.width > barWidth) filledBar.width = barWidth;
+                if (filledBar.width < 0) filledBar.width = 0;
+            }
 
             //if (parent.health <= (max * 0.21))
             //{
