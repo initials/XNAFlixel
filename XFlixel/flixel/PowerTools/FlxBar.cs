@@ -19,6 +19,11 @@ namespace org.flixel
     {
         //private var canvas:BitmapData;
 
+        /// <summary>
+        /// If parent is not set, health will set the bars value.
+        /// </summary>
+        private float health;
+
         //private uint barType;
         private uint barWidth;
         private uint barHeight;
@@ -163,6 +168,8 @@ namespace org.flixel
             _text.setFormat(null, 1, Color.White, FlxJustification.Left, Color.Black);
             _text.text = variable;
 
+            health = max;
+
         }
 
         public void loadCustomEmptyGraphic(string BarGraphic)
@@ -227,6 +234,14 @@ namespace org.flixel
                     }
                 }
             }
+            else
+            {
+                filledBar.width = (float)((health / max) * barWidth);
+                if (filledBar.width > barWidth) filledBar.width = barWidth;
+                if (filledBar.width < 0) filledBar.width = 0;
+            }
+
+
 
             _text.update();
 
