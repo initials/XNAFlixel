@@ -119,7 +119,7 @@ namespace org.flixel
             _consoleText = new FlxText(targetLeft+(dx*2), -800, targetWidth, "").setFormat(null, 1, Color.White, FlxJustification.Left, Color.White);
             _consoleText.height = FlxG.height; //FlxG.spriteBatch.GraphicsDevice.Viewport.Height;
 
-            _consoleCommand = new FlxText(targetLeft + (dx * 2) + 50, -800, targetWidth, "").setFormat(null, 1, Color.HotPink, FlxJustification.Left, Color.White);
+            _consoleCommand = new FlxText(targetLeft + (dx * 2) + 50, -800, targetWidth, "").setFormat(null, 1, Color.HotPink, FlxJustification.Left, Color.Black);
             _consoleCommand.text = "";
 
             _consoleCheatActivated = new FlxSprite(targetLeft + (dx * 2), -800, FlxG.Content.Load<Texture2D>("flixel/vcr/cheat_on"));
