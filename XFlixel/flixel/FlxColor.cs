@@ -11,6 +11,13 @@ namespace org.flixel
 {
     public static class FlxColor
     {
+
+        public static Color randomColor()
+        {
+            Color c = new Color(FlxU.random(), FlxU.random(), FlxU.random() );
+            return c;
+        }
+
         /// <summary>
         /// Creates an ARGB hex string representation of the <see cref="Color"/> value.
         /// </summary>
