@@ -64,6 +64,7 @@ namespace org.flixel
 			visible = false;
 			solid = false;
 			playing = false;
+
 		}
 
         /// <summary>
@@ -150,6 +151,11 @@ namespace org.flixel
             if (_sound == null) return;
             _sound.Stop();
 		}
+
+        public SoundState getState()
+        {
+            return _sound.State;
+        }
 
         /// <summary>
         /// Call this function to make this sound fade out over a certain time interval.
@@ -318,6 +324,8 @@ namespace org.flixel
         public static SoundEffectInstance getSound(string EmbeddedSound)
         {
             //if (!System.IO.File.Exists(EmbeddedSound)) return;
+
+            //Console.WriteLine("_sounds.Count {0}", _sounds.Count);
 
             for (int i = 0; i < _sounds.Count; i++)
             {
