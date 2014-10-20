@@ -250,14 +250,17 @@ namespace org.flixel
 
         override public void render(SpriteBatch spriteBatch)
         {
-            if (_border)
+            if (visible)
             {
-                outline.render(spriteBatch);
-            }
+                if (_border)
+                {
+                    outline.render(spriteBatch);
+                }
 
-            emptyBar.render(spriteBatch);
-            filledBar.render(spriteBatch);
-            _text.render(spriteBatch);
+                emptyBar.render(spriteBatch);
+                filledBar.render(spriteBatch);
+                _text.render(spriteBatch);
+            }
             
         }
 
