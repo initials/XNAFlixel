@@ -1313,6 +1313,7 @@ namespace org.flixel
             angle = this.getAngleFromVelocity();
         }
 
+        // Sets the velocity of this object based on the this.angle.
         public void setVelocityFromAngle(float Speed)
         {
             double radians = Math.PI / 180 * this.angle;
@@ -1322,7 +1323,13 @@ namespace org.flixel
             this.velocity.Y = Speed * (float)velocity_y * -1;
         }
 
-
+        public Vector2 getNormalizedVelocityFromAngle()
+        {
+            double radians = Math.PI / 180 * this.angle;
+            double velocity_x = Math.Cos((float)radians);
+            double velocity_y = Math.Sin((float)radians);
+            return new Vector2((float)velocity_x * -1, (float)velocity_y * -1);
+        }
         // end
     }
 }
