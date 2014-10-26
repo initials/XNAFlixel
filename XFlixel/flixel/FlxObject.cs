@@ -1330,6 +1330,16 @@ namespace org.flixel
             double velocity_y = Math.Sin((float)radians);
             return new Vector2((float)velocity_x * -1, (float)velocity_y * -1);
         }
+
+        //public Vector2 getMidpoint(Point:FlxPoint=null):FlxPoint
+        //{
+        //    if(Point == null)
+        //        Point = new FlxPoint();
+        //    Point.x = x + width*0.5;
+        //    Point.y = y + height*0.5;
+        //    return Point;
+        //}
+
         // end
     }
 }
