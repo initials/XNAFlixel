@@ -1516,5 +1516,14 @@ namespace org.flixel
 			return value1.Substring(0, value1.Length - 1);
 
         }
+
+        public static Vector2 getMidpoint(Vector2 PointA , Vector2 PointB)
+        {
+            Vector2 p = new Vector2();
+            p.X = (PointA.X + PointB.X) * 0.5f;
+            p.Y = (PointA.Y + PointB.Y) * 0.5f;
+            return p;
+        }
+
     }
 }

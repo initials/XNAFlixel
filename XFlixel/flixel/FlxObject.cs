@@ -1301,6 +1301,10 @@ namespace org.flixel
 
         }
 
+        /// <summary>
+        /// Gets the angle based on the velocity so that it points forward.
+        /// </summary>
+        /// <returns></returns>
         public float getAngleFromVelocity()
         {
             double rot = Math.Atan2((float)velocity.Y, (float)velocity.X);
@@ -1308,12 +1312,18 @@ namespace org.flixel
             return (float)degrees + pathAngleOffset;
         }
 
+        /// <summary>
+        /// Sets the angle based on the velocity so that the object points forward.
+        /// </summary>
         public void setAngleFromVelocity()
         {
             angle = this.getAngleFromVelocity();
         }
 
-        // Sets the velocity of this object based on the this.angle.
+        /// <summary>
+        /// Sets the velocity of this object based on the this.angle.
+        /// </summary>
+        /// <param name="Speed">The speed you want to be set to.</param>
         public void setVelocityFromAngle(float Speed)
         {
             double radians = Math.PI / 180 * this.angle;
@@ -1323,6 +1333,10 @@ namespace org.flixel
             this.velocity.Y = Speed * (float)velocity_y * -1;
         }
 
+        /// <summary>
+        /// Gets a normalized vector based on the angle.
+        /// </summary>
+        /// <returns></returns>
         public Vector2 getNormalizedVelocityFromAngle()
         {
             double radians = Math.PI / 180 * this.angle;
@@ -1331,14 +1345,20 @@ namespace org.flixel
             return new Vector2((float)velocity_x * -1, (float)velocity_y * -1);
         }
 
-        //public Vector2 getMidpoint(Point:FlxPoint=null):FlxPoint
-        //{
-        //    if(Point == null)
-        //        Point = new FlxPoint();
-        //    Point.x = x + width*0.5;
-        //    Point.y = y + height*0.5;
-        //    return Point;
-        //}
+
+        /// <summary>
+        /// Gets the midpoint between the Point and this object.
+        /// </summary>
+        /// <param name="Point">The point you want the midpoint between</param>
+        /// <returns></returns>
+        public Vector2 getMidpoint(Vector2 Point)
+        {
+            if (Point == null)
+                Point = new Vector2();
+            Point.X = ((this.x + this.width) + Point.X )* 0.5f;
+            Point.Y = ((this.y + this.height) + Point.Y)* 0.5f;
+            return Point;
+        }
 
         // end
     }
