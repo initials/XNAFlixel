@@ -78,6 +78,11 @@ namespace org.flixel
         public FlxSprite filledBar;
         public FlxSprite outline;
 
+        /// <summary>
+        /// Go from Red/Yellow/Orange/Green.
+        /// </summary>
+        public bool useCustomColors = false;
+
         //private var emptyBar:BitmapData;
         //private var emptyBarRect:Rectangle;
         //private var emptyBarPoint:Point;
@@ -232,6 +237,9 @@ namespace org.flixel
                     {
                         outline.visible = true;
                     }
+
+                    
+
                 }
             }
             else
@@ -239,6 +247,28 @@ namespace org.flixel
                 filledBar.width = (float)((health / max) * barWidth);
                 if (filledBar.width > barWidth) filledBar.width = barWidth;
                 if (filledBar.width < 0) filledBar.width = 0;
+
+                if (useCustomColors)
+                {
+                    if (health <= (max * 0.25))
+                    {
+                        filledBar.color = new Color(1.0f, 0, 0);
+                    }
+                    else if (health <= (max * 0.5))
+                    {
+                        filledBar.color = new Color(0.2f, 0.8f, 0);
+                    }
+                    else if (health <= (max * 0.75))
+                    {
+                        filledBar.color = new Color(0.1f, 0.9f, 0);
+                    }
+                    else if (health <= (max * 1.1))
+                    {
+                        filledBar.color = new Color(0, 1.0f, 0);
+                    }
+                }
+
+
             }
 
 
