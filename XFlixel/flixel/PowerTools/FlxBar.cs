@@ -153,7 +153,7 @@ namespace org.flixel
 
             if (_border)
             {
-                outline = new FlxSprite(x - 1, y - 1).createGraphic((int)width + 1, (int)height + 1, Color.LightGray);
+                outline = new FlxSprite(x - 1, y - 1).createGraphic((int)width + 2, (int)height + 2, Color.LightGray);
             }
             if (parentRef!=null)
             {
