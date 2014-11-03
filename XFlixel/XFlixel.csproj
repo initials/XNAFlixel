@@ -76,9 +76,6 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Revvolvver|x86'">
-    <OutputPath>bin\x86\Revvolvver\</OutputPath>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DEMO|x86'">
     <OutputPath>bin\x86\DEMO\</OutputPath>
   </PropertyGroup>
