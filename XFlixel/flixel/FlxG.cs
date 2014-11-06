@@ -295,6 +295,8 @@ namespace org.flixel
         /// Used to force the camera to look ahead of the <code>followTarget</code>.
 		/// </summary>
 		static public Vector2 followLead;
+
+        static public Vector2 followOffset;
 		/// <summary>
         /// Used to smoothly track the camera as it follows.
 		/// </summary>
@@ -631,6 +633,7 @@ namespace org.flixel
             MediaPlayer.Volume = Volume;
             MediaPlayer.Play(mp3Music);
             MediaPlayer.IsRepeating = true;
+            
         }
 
         /// <summary>
@@ -873,6 +876,11 @@ namespace org.flixel
 			followLead = new Vector2(LeadX, LeadY);
 		}
 
+        static public void followOffsetAdjust(float LeadX, float LeadY)
+        {
+            followOffset = new Vector2(LeadX, LeadY);
+        }
+
         /// <summary>
         /// Specify the boundaries of the level or where the camera is allowed to move.
         /// </summary>
@@ -966,8 +974,8 @@ namespace org.flixel
                     _scrollTarget.Y = (height >> 1) - followTarget.y - ((int)followTarget.height >> 1);
 					if((followLead != null) && (followTarget is FlxSprite))
 					{
-                        _scrollTarget.X -= (followTarget as FlxSprite).velocity.X * followLead.X;
-                        _scrollTarget.Y -= (followTarget as FlxSprite).velocity.Y * followLead.Y;
+                        _scrollTarget.X -= ((followTarget as FlxSprite).velocity.X * followLead.X) + followOffset.X ;
+                        _scrollTarget.Y -= ((followTarget as FlxSprite).velocity.Y * followLead.Y) + followOffset.Y ;
 					}
 				}
                 scroll.X += (_scrollTarget.X - scroll.X) * followLerp * FlxG.elapsed;

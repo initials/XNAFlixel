@@ -1037,7 +1037,20 @@ namespace org.flixel
 
         }
 
+        public void centerAtX()
+        {
+            x = (FlxG.width / 2) - (width / 2);
+        }
+        public void centerAtY()
+        {
+            y = (FlxG.height / 2) - (height / 2);
+        }
 
+        public void center()
+        {
+            centerAtX();
+            centerAtY();
+        }
 
     // End
     }
