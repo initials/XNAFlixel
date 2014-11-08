@@ -272,10 +272,26 @@ namespace org.flixel
             p3OriginalPosition = new Vector2(targetLeft, FlxG.spriteBatch.GraphicsDevice.Viewport.Height - 20);
             p4OriginalPosition = new Vector2(targetLeft, FlxG.spriteBatch.GraphicsDevice.Viewport.Height - 20);
 
-            p1HudText = new FlxText(targetLeft, 0, targetWidth, "").setFormat(null, 1, Color.White, FlxJustification.Left, Color.White);
-            p2HudText = new FlxText(targetLeft, 0, targetWidth, "").setFormat(null, 1, Color.White, FlxJustification.Right, Color.White);
-            p3HudText = new FlxText(targetLeft, FlxG.spriteBatch.GraphicsDevice.Viewport.Height - 20, targetWidth, "").setFormat(null, 1, Color.White, FlxJustification.Left, Color.White);
-            p4HudText = new FlxText(targetLeft, FlxG.spriteBatch.GraphicsDevice.Viewport.Height - 20, targetWidth, "").setFormat(null, 1, Color.White, FlxJustification.Right, Color.White);
+
+            //FlxG.Content.Load<SpriteFont>("initials/SpaceMarine")
+
+            if (FlxG.hudFont == null)
+            {
+                p1HudText = new FlxText(targetLeft, 0, targetWidth, "").setFormat(null, 1, Color.White, FlxJustification.Left, Color.White);
+                p2HudText = new FlxText(targetLeft, 0, targetWidth, "").setFormat(null, 1, Color.White, FlxJustification.Right, Color.White);
+                p3HudText = new FlxText(targetLeft, FlxG.spriteBatch.GraphicsDevice.Viewport.Height - 20, targetWidth, "").setFormat(null, 1, Color.White, FlxJustification.Left, Color.White);
+                p4HudText = new FlxText(targetLeft, FlxG.spriteBatch.GraphicsDevice.Viewport.Height - 20, targetWidth, "").setFormat(null, 1, Color.White, FlxJustification.Right, Color.White);
+
+            }
+            else
+            {
+                p1HudText = new FlxText(targetLeft, 0, targetWidth, "").setFormat(FlxG.Content.Load<SpriteFont>(FlxG.hudFont), 1, Color.White, FlxJustification.Left, Color.Black);
+                p2HudText = new FlxText(targetLeft, 0, targetWidth, "").setFormat(FlxG.Content.Load<SpriteFont>(FlxG.hudFont), 1, Color.White, FlxJustification.Right, Color.Black);
+                p3HudText = new FlxText(targetLeft, FlxG.spriteBatch.GraphicsDevice.Viewport.Height - 20, targetWidth, "").setFormat(FlxG.Content.Load<SpriteFont>(FlxG.hudFont), 1, Color.White, FlxJustification.Left, Color.Black);
+                p4HudText = new FlxText(targetLeft, FlxG.spriteBatch.GraphicsDevice.Viewport.Height - 20, targetWidth, "").setFormat(FlxG.Content.Load<SpriteFont>(FlxG.hudFont), 1, Color.White, FlxJustification.Right, Color.Black);
+
+            }
+
 
             keyboardButton = new FlxSprite(targetLeft, -1000);
             keyboardButton.loadGraphic(FlxG.Content.Load<Texture2D>(keys), true, false, 100, 100);

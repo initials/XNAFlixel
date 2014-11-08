@@ -323,7 +323,9 @@ namespace org.flixel
         /// Change this in you Program to make a new logo.
         /// </summary>
         static public string splashLogo = "initials/initialsLogo";
-        
+
+        static public string hudFont;
+
         /// <summary>
         /// Change the BG color of the Splash Screen.
         /// </summary>
