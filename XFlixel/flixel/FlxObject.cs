@@ -847,6 +847,14 @@ namespace org.flixel
 			return true;
 		}
 
+        virtual public bool offScreenToLeft()
+        {
+            _point = getScreenXY();
+            if (_point.X + width < 0)
+                return true;
+            return false;
+        }
+
         /// <summary>
         /// Handy function for reviving game objects.
         /// Resets their existence flags and position, including LAST position.
