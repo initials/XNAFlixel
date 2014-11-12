@@ -18,6 +18,8 @@ namespace XFlixelOSX
 		static void Main (string[] args)
 		{
 			NSApplication.Init ();
+
+
 			
 			using (var p = new NSAutoreleasePool ()) {
 				NSApplication.SharedApplication.Delegate = new AppDelegate ();
@@ -32,17 +34,19 @@ namespace XFlixelOSX
 
 	class AppDelegate : NSApplicationDelegate
 	{
-		Game1 game;
+		FlxFactory game;
 
 		public override void FinishedLaunching (MonoMac.Foundation.NSObject notification)
 		{
-			//game = new Game1 ();
-			//game.Run ();
+			game = new FlxFactory ();
+			game.Run ();
 
-			using (FlxFactory game = new FlxFactory())
-			{
-				game.Run();
-			}
+
+//			using (FlxFactory game = new FlxFactory())
+//			{
+//				game.Run();
+//			}
+
 		}
 
 		public override bool ApplicationShouldTerminateAfterLastWindowClosed (NSApplication sender)

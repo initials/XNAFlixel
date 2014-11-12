@@ -93,7 +93,7 @@ namespace BloomPostprocess
         {
             //spriteBatch = new SpriteBatch(GraphicsDevice);
 
-			#if !__ANDROID__
+			#if WINDOWS
 
             bloomCombineEffect = Game.Content.Load<Effect>("fx/BloomCombine");
             bloomExtractEffect = Game.Content.Load<Effect>("fx/BloomExtract");

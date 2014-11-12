@@ -71,6 +71,9 @@
     <Reference Include="Lidgren.Network">
       <HintPath>packages\Lidgren.Network.dll</HintPath>
     </Reference>
+    <Reference Include="Tao.Sdl">
+      <HintPath>packages\Tao.Sdl.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages\MonoMac.dll" />
@@ -1130,17 +1133,17 @@
     <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\~Midi~Hierarchy.html">
       <Link>XFlixel\midi-dot-net_1.1.0\docs\~Midi~Hierarchy.html</Link>
     </None>
-    <None Include="..\..\XFlixelContent\flixel\beep.mp3">
-      <Link>Content\flixel\beep.mp3</Link>
+    <None Include="..\..\XFlixelContent\initials\FourChambers_IntroTag_03.mp3">
+      <Link>Content\initials\FourChambers_IntroTag_03.mp3</Link>
     </None>
-    <None Include="..\..\XFlixelContent\flixel\flixel.mp3">
-      <Link>Content\flixel\flixel.mp3</Link>
+    <None Include="..\..\XFlixelContent\initials\Munro.spritefont">
+      <Link>Content\initials\Munro.spritefont</Link>
     </None>
-    <None Include="..\..\XFlixelContent\flixel\deffont.spritefont">
-      <Link>Content\flixel\deffont.spritefont</Link>
+    <None Include="..\..\XFlixelContent\initials\SMALL_PIXEL.spritefont">
+      <Link>Content\initials\SMALL_PIXEL.spritefont</Link>
     </None>
-    <None Include="..\..\XFlixelContent\flixel\deffont.ttf">
-      <Link>Content\flixel\deffont.ttf</Link>
+    <None Include="..\..\XFlixelContent\initials\SpaceMarine.spritefont">
+      <Link>Content\initials\SpaceMarine.spritefont</Link>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -1462,11 +1465,89 @@
     <BundleResource Include="..\..\XFlixelContent\flixel\vcr\stop.png">
       <Link>Content\flixel\vcr\stop.png</Link>
     </BundleResource>
+    <BundleResource Include="Content\flixel\deffont.xnb" />
+    <BundleResource Include="..\..\XFlixelContent\flixel\beep.mp3">
+      <Link>Content\flixel\beep.mp3</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\buttons\BP3_SSTRIP_32.png">
+      <Link>Content\buttons\BP3_SSTRIP_32.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\buttons\BP3_SSTRIP_48.png">
+      <Link>Content\buttons\BP3_SSTRIP_48.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\buttons\BP3_SSTRIP_64.png">
+      <Link>Content\buttons\BP3_SSTRIP_64.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\buttons\Map360.png">
+      <Link>Content\buttons\Map360.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\buttons\Map360Gameboy.png">
+      <Link>Content\buttons\Map360Gameboy.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\buttons\MapBlack.png">
+      <Link>Content\buttons\MapBlack.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\buttons\MapOuya.png">
+      <Link>Content\buttons\MapOuya.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\buttons\MapOuyaGameboy.png">
+      <Link>Content\buttons\MapOuyaGameboy.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\buttons\MapWhite.png">
+      <Link>Content\buttons\MapWhite.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\buttons\MapWhiteGameboy.png">
+      <Link>Content\buttons\MapWhiteGameboy.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\initials\autotiles.png">
+      <Link>Content\initials\autotiles.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\initials\autotiles_16x16.png">
+      <Link>Content\initials\autotiles_16x16.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\initials\autotiles_alt.png">
+      <Link>Content\initials\autotiles_alt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\initials\boats.png">
+      <Link>Content\initials\boats.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\initials\crate_80x60.png">
+      <Link>Content\initials\crate_80x60.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\initials\crosshair.png">
+      <Link>Content\initials\crosshair.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\initials\healthBar.png">
+      <Link>Content\initials\healthBar.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\initials\initialsLogo.png">
+      <Link>Content\initials\initialsLogo.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\initials\initialsLogoGameboy.png">
+      <Link>Content\initials\initialsLogoGameboy.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\flixel.mp3">
+      <Link>Content\flixel\flixel.mp3</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\initials\initials_empire_tagtone1.mp3">
+      <Link>Content\initials\initials_empire_tagtone1.mp3</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\initials\initials_empire_tagtone2.mp3">
+      <Link>Content\initials\initials_empire_tagtone2.mp3</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\initials\initials_empire_tagtone3.mp3">
+      <Link>Content\initials\initials_empire_tagtone3.mp3</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\initials\initials_empire_tagtone4.mp3">
+      <Link>Content\initials\initials_empire_tagtone4.mp3</Link>
+    </BundleResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="XFlixel\" />
     <Folder Include="Content\" />
     <Folder Include="Content\flixel\" />
+    <Folder Include="Content\buttons\" />
+    <Folder Include="Content\initials\" />
   </ItemGroup>
 </Project>

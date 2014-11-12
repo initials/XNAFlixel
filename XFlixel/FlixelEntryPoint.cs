@@ -32,7 +32,7 @@ namespace XNAMode
         public FlixelEntryPoint(Game game)
             : base(game)
         {
-
+			Console.WriteLine ("Flixel entry points .cs ");
             int w = 640/2;
             int h = 360/2;
             FlxG.zoom = 4;

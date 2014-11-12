@@ -62,7 +62,7 @@ namespace org.flixel
             _logoTweener = new Tweener(-150, FlxG.height / 2 - 24, TimeSpan.FromSeconds(0.9f), Bounce.EaseOut);
 
             SndTag = FlxG.splashAudioWave;
-            FlxG.play(SndTag,1.0f);
+            //FlxG.play(SndTag,1.0f);
 
             FlxG.transition.startFadeIn(0.1f);
 
