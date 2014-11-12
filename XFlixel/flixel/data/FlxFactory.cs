@@ -123,8 +123,11 @@ namespace org.flixel
 
     }
 
-    #region Application entry point
+    //#region Application entry point
 
+	#if OSX
+	#endif
+	#if WINDOWS
     static class Program
     {
         //application entry point
@@ -136,6 +139,7 @@ namespace org.flixel
             }
         }
     }
+	#endif
 
-    #endregion
+    //#endregion
 }
