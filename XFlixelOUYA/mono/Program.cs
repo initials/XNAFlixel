@@ -29,6 +29,7 @@ namespace Loader_SuperLemonadeFactory
 
 			int w = 1920;
 			int h = 1080;
+			FlxG.zoom = 1;
 
 			initGame(w, h, new org.flixel.TestState(), new Color(15, 15, 15), true, new Color(5, 5, 5));
 
