@@ -57,7 +57,7 @@ namespace org.flixel
             add(stars);
 
             spaceShip = new FlxSprite(FlxG.width/2, FlxG.height/2);
-            spaceShip.loadGraphic(FlxG.Content.Load<Texture2D>("surt/spaceship_32x32"), true, false, 32, 32);
+            spaceShip.loadGraphic(FlxG.Content.Load<Texture2D>("flixel/surt/spaceship_32x32"), true, false, 32, 32);
             
             //Add some animations to our Spaceship
             spaceShip.addAnimation("static", new int[] { 0 }, 36, true);
@@ -85,7 +85,7 @@ namespace org.flixel
             jets = new FlxEmitter();
             
             jets.setSize(5, 50);
-            jets.createSprites( FlxG.Content.Load<Texture2D>("diagnostic/testpalette"), 100, true,0.0f,0.0f );
+            jets.createSprites( FlxG.Content.Load<Texture2D>("flixel/diagnostic/testpalette"), 100, true,0.0f,0.0f );
             jets.setXSpeed(-110, 110);
             jets.setYSpeed(40, 80);
             
