@@ -142,29 +142,29 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="initials\initialsLogo.png">
+    <Compile Include="flixel\initials\initialsLogo.png">
       <Name>initialsLogo</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="initials\initials_empire_tagtone1.mp3">
+    <Compile Include="flixel\initials\initials_empire_tagtone1.mp3">
       <Name>initials_empire_tagtone1</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
-    <Compile Include="initials\initials_empire_tagtone2.mp3">
+    <Compile Include="flixel\initials\initials_empire_tagtone2.mp3">
       <Name>initials_empire_tagtone2</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
-    <Compile Include="initials\initials_empire_tagtone3.mp3">
+    <Compile Include="flixel\initials\initials_empire_tagtone3.mp3">
       <Name>initials_empire_tagtone3</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
-    <Compile Include="initials\initials_empire_tagtone4.mp3">
+    <Compile Include="flixel\initials\initials_empire_tagtone4.mp3">
       <Name>initials_empire_tagtone4</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SoundEffectProcessor</Processor>
@@ -178,17 +178,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="buttons\BP3_SSTRIP_32.png">
+    <Compile Include="flixel\buttons\BP3_SSTRIP_32.png">
       <Name>BP3_SSTRIP_32</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="buttons\BP3_SSTRIP_48.png">
+    <Compile Include="flixel\buttons\BP3_SSTRIP_48.png">
       <Name>BP3_SSTRIP_48</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="buttons\BP3_SSTRIP_64.png">
+    <Compile Include="flixel\buttons\BP3_SSTRIP_64.png">
       <Name>BP3_SSTRIP_64</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -202,17 +202,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="fx\BloomCombine.fx">
+    <Compile Include="flixel\fx\BloomCombine.fx">
       <Name>BloomCombine</Name>
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
     </Compile>
-    <Compile Include="fx\BloomExtract.fx">
+    <Compile Include="flixel\fx\BloomExtract.fx">
       <Name>BloomExtract</Name>
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
     </Compile>
-    <Compile Include="fx\GaussianBlur.fx">
+    <Compile Include="flixel\fx\GaussianBlur.fx">
       <Name>GaussianBlur</Name>
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
@@ -241,21 +241,21 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="initials\crosshair.png">
+    <Compile Include="flixel\initials\crosshair.png">
       <Name>crosshair</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="diagnostic\testpalette.png">
+    <Compile Include="flixel\diagnostic\testpalette.png">
       <Name>testpalette</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="initials\Munro.spritefont">
+    <Compile Include="flixel\initials\Munro.spritefont">
       <Name>Munro</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
@@ -263,7 +263,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="initials\SpaceMarine.spritefont">
+    <Compile Include="flixel\initials\SpaceMarine.spritefont">
       <Name>SpaceMarine</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
@@ -320,50 +320,50 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="initials\FourChambers_IntroTag_03.mp3">
+    <Compile Include="flixel\initials\FourChambers_IntroTag_03.mp3">
       <Name>FourChambers_IntroTag_03</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="buttons\MapBlack.png">
+    <Compile Include="flixel\buttons\MapBlack.png">
       <Name>MapBlack</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="buttons\MapWhite.png">
+    <Compile Include="flixel\buttons\MapWhite.png">
       <Name>MapWhite</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="buttons\MapOuya.png">
+    <Compile Include="flixel\buttons\MapOuya.png">
       <Name>MapOuya</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="buttons\Map360.png">
+    <Compile Include="flixel\buttons\Map360.png">
       <Name>Map360</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="initials\autotiles.png">
+    <Compile Include="flixel\initials\autotiles.png">
       <Name>autotiles</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="initials\autotiles_16x16.png">
+    <Compile Include="flixel\initials\autotiles_16x16.png">
       <Name>autotiles_16x16</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="initials\autotiles_alt.png">
+    <Compile Include="flixel\initials\autotiles_alt.png">
       <Name>autotiles_alt</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -389,52 +389,52 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="surt\spaceship_32x32.png">
+    <Compile Include="flixel\surt\spaceship_32x32.png">
       <Name>spaceship_32x32</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="surt\race_or_die.png">
+    <Compile Include="flixel\surt\race_or_die.png">
       <Name>race_or_die</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="initials\crate_80x60.png">
+    <Compile Include="flixel\initials\crate_80x60.png">
       <Name>crate_80x60</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="initials\initialsLogoGameboy.png">
+    <Compile Include="flixel\initials\initialsLogoGameboy.png">
       <Name>initialsLogoGameboy</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="oga\GoldCoin.png">
+    <Compile Include="flixel\oga\GoldCoin.png">
       <Name>GoldCoin</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="buttons\Map360Gameboy.png">
+    <Compile Include="flixel\buttons\Map360Gameboy.png">
       <Name>Map360Gameboy</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="buttons\MapOuyaGameboy.png">
+    <Compile Include="flixel\buttons\MapOuyaGameboy.png">
       <Name>MapOuyaGameboy</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="buttons\MapWhiteGameboy.png">
+    <Compile Include="flixel\buttons\MapWhiteGameboy.png">
       <Name>MapWhiteGameboy</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -455,7 +455,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="initials\boats.png">
+    <Compile Include="flixel\initials\boats.png">
       <Name>boats</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -469,14 +469,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="initials\healthBar.png">
+    <Compile Include="flixel\initials\healthBar.png">
       <Name>healthBar</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="initials\SMALL_PIXEL.spritefont">
+    <Compile Include="flixel\initials\SMALL_PIXEL.spritefont">
       <Name>SMALL_PIXEL</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>

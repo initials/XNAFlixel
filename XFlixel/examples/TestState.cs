@@ -95,10 +95,12 @@ namespace org.flixel
             {
                 FlxG.state = new FlxPathState();
             }
+			#if WINDOWS
             if (FlxG.keys.EIGHT)
             {
                 FlxG.state = new PhysicsState();
             }
+
             if (FlxG.keys.NINE)
             {
                 FlxG.state = new AngleAndVelocityState();
@@ -119,6 +121,7 @@ namespace org.flixel
             {
                 FlxG.state = new Physics3State();
             }
+			#endif
             if (FlxG.keys.F6)
             {
                 FlxG.state = new FlxBarState();

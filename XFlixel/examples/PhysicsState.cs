@@ -7,7 +7,7 @@ using org.flixel;
 
 using System.Linq;
 using System.Xml.Linq;
-
+#if WINDOWS 
 using FarseerPhysics.Common;
 using FarseerPhysics.Dynamics;
 using FarseerPhysics.Dynamics.Joints;
@@ -143,3 +143,4 @@ namespace org.flixel
 
     }
 }
+#endif

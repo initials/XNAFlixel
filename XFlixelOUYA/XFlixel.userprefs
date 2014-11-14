@@ -1,0 +1,30 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.015d4906dc280219" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="c:\Users\Shane\Documents\Visual Studio 2010\Projects\XNAFlixel\XFlixel\flixel\data\FlxSplash.cs">
+    <Files>
+      <File FileName="..\..\..\..\..\..\..\Program Files (x86)\MSBuild\Xamarin\Android\Xamarin.Android.Common.targets" Line="2" Column="2" />
+      <File FileName="mono\Resources\values\styles.xml" Line="3" Column="3" />
+      <File FileName="c:\Users\Shane\Documents\Visual Studio 2010\Projects\XNAFlixel\XFlixel\examples\Island2State.cs" Line="1" Column="1" />
+      <File FileName="c:\Users\Shane\Documents\Visual Studio 2010\Projects\XNAFlixel\XFlixel\examples\Physics2State.cs" Line="8" Column="8" />
+      <File FileName="c:\Users\Shane\Documents\Visual Studio 2010\Projects\XNAFlixel\XFlixel\examples\PhysicsState.cs" Line="7" Column="7" />
+      <File FileName="c:\Users\Shane\Documents\Visual Studio 2010\Projects\XNAFlixel\XFlixel\flixel\farseerExtensions\FarSprite.cs" Line="7" Column="7" />
+      <File FileName="c:\Users\Shane\Documents\Visual Studio 2010\Projects\XNAFlixel\XFlixel\flixel\farseerExtensions\FarState.cs" Line="7" Column="7" />
+      <File FileName="c:\Users\Shane\Documents\Visual Studio 2010\Projects\XNAFlixel\XFlixel\examples\Physics3State.cs" Line="7" Column="7" />
+      <File FileName="c:\Users\Shane\Documents\Visual Studio 2010\Projects\XNAFlixel\XFlixel\flixel\farseerExtensions\FarTileblock.cs" Line="7" Column="7" />
+      <File FileName="mono\Program.cs" Line="16" Column="16" />
+      <File FileName="..\XFlixel\XNATweener\Tweener.cs" Line="1" Column="1" />
+      <File FileName="..\XFlixel\examples\TestState.cs" Line="10" Column="10" />
+      <File FileName="c:\Users\Shane\Documents\Visual Studio 2010\Projects\XNAFlixel\XFlixel\flixel\data\FlxFactory.cs" Line="1" Column="1" />
+      <File FileName="..\XFlixel\FlixelEntryPoint.cs" Line="28" Column="28" />
+      <File FileName="mono\Activity1.cs" Line="1" Column="1" />
+      <File FileName="mono\Game1.cs" Line="38" Column="38" />
+      <File FileName="c:\Users\Shane\Documents\Visual Studio 2010\Projects\XNAFlixel\XFlixel\flixel\PowerTools\FlxBar.cs" Line="23" Column="23" />
+      <File FileName="c:\Users\Shane\Documents\Visual Studio 2010\Projects\XNAFlixel\XFlixel\flixel\FlxG.cs" Line="4" Column="4" />
+      <File FileName="c:\Users\Shane\Documents\Visual Studio 2010\Projects\XNAFlixel\XFlixel\flixel\data\FlxSplash.cs" Line="69" Column="69" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

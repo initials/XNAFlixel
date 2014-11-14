@@ -322,7 +322,7 @@ namespace org.flixel
         /// <summary>
         /// Change this in you Program to make a new logo.
         /// </summary>
-        static public string splashLogo = "initials/initialsLogo";
+        static public string splashLogo = "flixel/initials/initialsLogo";
 
         static public string hudFont;
 
@@ -334,7 +334,7 @@ namespace org.flixel
         /// <summary>
         /// 
         /// </summary>
-        static public string splashAudioWave = "initials/FourChambers_IntroTag_03";
+        static public string splashAudioWave = "flixel/initials/FourChambers_IntroTag_03";
 
         /// <summary>
         /// 

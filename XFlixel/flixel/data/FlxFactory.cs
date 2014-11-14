@@ -106,7 +106,7 @@ namespace org.flixel
             
             //_flixelgame = new FlxGame();
 			#if __ANDROID__
-			_flixelgame = new Loader_TLC.FlixelEntryPoint2(this);
+			_flixelgame = new Loader_SuperLemonadeFactory.FlixelEntryPoint2(this);
 			#endif
 
 			#if !__ANDROID__

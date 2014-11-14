@@ -1,0 +1,18 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\Users\Shane\Documents\Visual Studio 2010\Projects\XNAMode\XNAMode\Revvolvver\Multiplayer\PlayStateMulti.cs">
+    <Files>
+      <File FileName="..\..\..\Users\Shane\Documents\Visual Studio 2010\Projects\XNAMode\XNAMode\Revvolvver\MenuState.cs" Line="372" Column="8" />
+      <File FileName="..\..\..\Users\Shane\Documents\Visual Studio 2010\Projects\XNAMode\XNAMode\Revvolvver\Multiplayer\PlayerMulti.cs" Line="416" Column="232" />
+      <File FileName="..\..\..\Users\Shane\Documents\Visual Studio 2010\Projects\XNAMode\XNAMode\Revvolvver\Multiplayer\PlayStateMulti.cs" Line="797" Column="5" />
+      <File FileName="..\..\..\Users\Shane\Documents\Visual Studio 2010\Projects\XNAMode\XNAMode\Revvolvver\Multiplayer\VictoryStateMulti.cs" Line="76" Column="37" />
+      <File FileName="..\..\..\Users\Shane\Documents\Visual Studio 2010\Projects\XNAMode\XNAMode\flixel\FlxG.cs" Line="460" Column="28" />
+      <File FileName="..\..\..\Users\Shane\Documents\Visual Studio 2010\Projects\XNAMode\XNAMode\Revvolvver\SettingsState.cs" Line="245" Column="43" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Revvolvver AndroidDeviceId-Debug="015d4906dc280219" AndroidDeviceId-Release="015d4906dc280219" />
+</Properties>

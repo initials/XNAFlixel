@@ -95,9 +95,9 @@ namespace BloomPostprocess
 
 			#if !__ANDROID__
 
-            bloomCombineEffect = Game.Content.Load<Effect>("fx/BloomCombine");
-            bloomExtractEffect = Game.Content.Load<Effect>("fx/BloomExtract");
-            gaussianBlurEffect = Game.Content.Load<Effect>("fx/GaussianBlur");
+            bloomCombineEffect = Game.Content.Load<Effect>("flixel/fx/BloomCombine");
+            bloomExtractEffect = Game.Content.Load<Effect>("flixel/fx/BloomExtract");
+            gaussianBlurEffect = Game.Content.Load<Effect>("flixel/fx/GaussianBlur");
 			#endif
 
             // Look up the resolution and format of our main backbuffer.

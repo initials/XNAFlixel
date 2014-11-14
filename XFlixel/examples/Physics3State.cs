@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using org.flixel;
-
+#if WINDOWS 
 using System.Linq;
 using System.Xml.Linq;
 
@@ -89,3 +89,4 @@ namespace org.flixel
 
     }
 }
+#endif

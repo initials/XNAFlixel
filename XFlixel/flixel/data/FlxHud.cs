@@ -256,15 +256,15 @@ namespace org.flixel
             hudGroup.scrollFactor.X = 0;
             hudGroup.scrollFactor.Y = 0;
 
-            string keys = "buttons/MapWhite";
-            string xbox360 = "buttons/Map360";
-            string ouya = "buttons/MapOuya";
+            string keys = "flixel/buttons/MapWhite";
+            string xbox360 = "flixel/buttons/Map360";
+            string ouya = "flixel/buttons/MapOuya";
 
             if (FlxG.buildDescription == "GAMEBOY")
             {
-                keys = "buttons/MapWhiteGameboy";
-                xbox360 = "buttons/Map360Gameboy";
-                ouya = "buttons/MapOuyaGameboy";
+                keys = "flixel/buttons/MapWhiteGameboy";
+                xbox360 = "flixel/buttons/Map360Gameboy";
+                ouya = "flixel/buttons/MapOuyaGameboy";
             }
 
             p1OriginalPosition = new Vector2(targetLeft, 0);

@@ -6,7 +6,7 @@ using org.flixel;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-
+#if WINDOWS 
 using FarseerPhysics.Common;
 using FarseerPhysics.Dynamics;
 using FarseerPhysics.Dynamics.Joints;
@@ -88,3 +88,4 @@ namespace org.flixel
 
     }
 }
+#endif
