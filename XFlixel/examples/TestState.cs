@@ -60,6 +60,10 @@ namespace org.flixel
 
         override public void update()
         {
+
+			#if OSX 
+			#endif
+			#if WINDOWS
             if (FlxG.keys.justPressed(Keys.Q))
             {
                 FlxG.state = new DebugMenuState();
@@ -126,6 +130,8 @@ namespace org.flixel
             {
                 FlxG.state = new FlxBarState();
             }
+			#endif
+
             base.update();
         }
 

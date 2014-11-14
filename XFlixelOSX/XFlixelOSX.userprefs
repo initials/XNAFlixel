@@ -1,0 +1,25 @@
+﻿<Properties MonoDevelop.MonoMac.LastXamMacNagTime="11/11/2014 11:48:10 PM">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../XFlixel/flixel/FlxG.cs">
+    <Files>
+      <File FileName="../XFlixel/flixel/FlxG.cs" Line="1" Column="1" />
+      <File FileName="XFlixelOSX/Main.cs" Line="1" Column="1" />
+      <File FileName="../XFlixel/FlixelEntryPoint.cs" Line="32" Column="32" />
+      <File FileName="XFlixelOSX/Game1.cs" Line="1" Column="1" />
+      <File FileName="../XFlixel/flixel/data/FlxFactory.cs" Line="15" Column="15" />
+      <File FileName="../XFlixel/midi-dot-net/MidiExamples/Program.cs" Line="21" Column="21" />
+      <File FileName="XFlixelOSX/Properties/AssemblyInfo.cs" Line="12" Column="12" />
+      <File FileName="../XFlixel/Farseer Physics Engine 3.5/Common/CurveKey.cs" Line="17" Column="17" />
+      <File FileName="../XFlixel/examples/Island2State.cs" Line="7" Column="7" />
+      <File FileName="../XFlixel/examples/Physics2State.cs" Line="7" Column="7" />
+      <File FileName="../XFlixel/flixel/farseerExtensions/FarTileblock.cs" Line="17" Column="17" />
+      <File FileName="../XFlixel/flixel/farseerExtensions/FarSprite.cs" Line="7" Column="7" />
+      <File FileName="../XFlixel/examples/TestState.cs" Line="5" Column="5" />
+      <File FileName="../XFlixelContent/flixel/deffont.spritefont" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

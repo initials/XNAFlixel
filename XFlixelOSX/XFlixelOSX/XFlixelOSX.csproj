@@ -1,0 +1,1553 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{948B3504-5B70-4649-8FE4-BDE1FB46EC69};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{AA4ED164-70AE-43AD-9CA9-5FA301FC9D99}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>XFlixelOSX</RootNamespace>
+    <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
+    <AssemblyName>XFlixelOSX</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <UseSGen>false</UseSGen>
+    <IncludeMonoRuntime>false</IncludeMonoRuntime>
+    <EnablePackageSigning>false</EnablePackageSigning>
+    <EnableCodeSigning>false</EnableCodeSigning>
+    <CreatePackage>false</CreatePackage>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <LinkMode>SdkOnly</LinkMode>
+    <UseSGen>false</UseSGen>
+    <IncludeMonoRuntime>true</IncludeMonoRuntime>
+    <EnablePackageSigning>false</EnablePackageSigning>
+    <CodeSigningKey>Developer ID Application</CodeSigningKey>
+    <EnableCodeSigning>true</EnableCodeSigning>
+    <CreatePackage>true</CreatePackage>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\AppStore</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <LinkMode>SdkOnly</LinkMode>
+    <UseSGen>false</UseSGen>
+    <IncludeMonoRuntime>true</IncludeMonoRuntime>
+    <PackageSigningKey>3rd Party Mac Developer Installer</PackageSigningKey>
+    <CreatePackage>true</CreatePackage>
+    <CodeSigningKey>3rd Party Mac Developer Application</CodeSigningKey>
+    <EnableCodeSigning>true</EnableCodeSigning>
+    <EnablePackageSigning>true</EnablePackageSigning>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="MonoMac">
+      <HintPath>packages\MonoMac.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoGame.Framework">
+      <HintPath>packages\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Lidgren.Network">
+      <HintPath>packages\Lidgren.Network.dll</HintPath>
+    </Reference>
+    <Reference Include="Tao.Sdl">
+      <HintPath>packages\Tao.Sdl.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages\MonoMac.dll" />
+    <None Include="packages\MonoGame.Framework.dll" />
+    <None Include="packages\Lidgren.Network.dll" />
+    <None Include="Info.plist" />
+    <None Include="..\..\XFlixel\flixel\php\commands.php">
+      <Link>XFlixel\flixel\php\commands.php</Link>
+    </None>
+    <None Include="..\..\XFlixel\Game.ico">
+      <Link>XFlixel\Game.ico</Link>
+    </None>
+    <None Include="..\..\XFlixel\XFlixel.csproj">
+      <Link>XFlixel\XFlixel.csproj</Link>
+    </None>
+    <None Include="..\..\XFlixel\XFlixel.csproj.Debug.cachefile">
+      <Link>XFlixel\XFlixel.csproj.Debug.cachefile</Link>
+    </None>
+    <None Include="..\..\XFlixel\XFlixel.csproj.Release.cachefile">
+      <Link>XFlixel\XFlixel.csproj.Release.cachefile</Link>
+    </None>
+    <None Include="..\..\XFlixel\XFlixel.csproj.user">
+      <Link>XFlixel\XFlixel.csproj.user</Link>
+    </None>
+    <None Include="..\..\XFlixel\XFlixelDocumentation.xml">
+      <Link>XFlixel\XFlixelDocumentation.xml</Link>
+    </None>
+    <None Include="..\..\XFlixel\Xbox 360 Copy of XNAMode.csproj">
+      <Link>XFlixel\Xbox 360 Copy of XNAMode.csproj</Link>
+    </None>
+    <None Include="..\..\XFlixel\OgmoEditor2\OgmoEditor2Project.oep">
+      <Link>XFlixel\OgmoEditor2\OgmoEditor2Project.oep</Link>
+    </None>
+    <None Include="..\..\XFlixel\OgmoEditor2\SportsGround.oel">
+      <Link>XFlixel\OgmoEditor2\SportsGround.oel</Link>
+    </None>
+    <None Include="..\..\XFlixel\Snippets\FlxSpriteSnippet.snippet">
+      <Link>XFlixel\Snippets\FlxSpriteSnippet.snippet</Link>
+    </None>
+    <None Include="..\..\XFlixel\Snippets\overlap.snippet">
+      <Link>XFlixel\Snippets\overlap.snippet</Link>
+    </None>
+    <None Include="..\..\XFlixel\fx\BloomCombine.fx">
+      <Link>XFlixel\fx\BloomCombine.fx</Link>
+    </None>
+    <None Include="..\..\XFlixel\fx\BloomExtract.fx">
+      <Link>XFlixel\fx\BloomExtract.fx</Link>
+    </None>
+    <None Include="..\..\XFlixel\fx\GaussianBlur.fx">
+      <Link>XFlixel\fx\GaussianBlur.fx</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\Midi.dll">
+      <Link>XFlixel\midi-dot-net_1.1.0\Midi.dll</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\Midi.xml">
+      <Link>XFlixel\midi-dot-net_1.1.0\Midi.xml</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\README.txt">
+      <Link>XFlixel\midi-dot-net_1.1.0\README.txt</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\MSDN.css">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\MSDN.css</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.CallbackMessage.Callback.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.CallbackMessage.Callback.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.CallbackMessage.CallbackType.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.CallbackMessage.CallbackType.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.CallbackMessage.MakeTimeShiftedCopy.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.CallbackMessage.MakeTimeShiftedCopy.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.CallbackMessage.SendNow.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.CallbackMessage.SendNow.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.CallbackMessage.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.CallbackMessage.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.CallbackMessage.~ctor.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.CallbackMessage.~ctor.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.CallbackMessage~Members.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.CallbackMessage~Members.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.CallbackMessage~Methods.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.CallbackMessage~Methods.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.CallbackMessage~Properties.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.CallbackMessage~Properties.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Channel.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Channel.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChannelExtensionMethods.IsValid.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChannelExtensionMethods.IsValid.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChannelExtensionMethods.Name.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChannelExtensionMethods.Name.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChannelExtensionMethods.Validate.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChannelExtensionMethods.Validate.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChannelExtensionMethods.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChannelExtensionMethods.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChannelExtensionMethods~Members.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChannelExtensionMethods~Members.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChannelExtensionMethods~Methods.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChannelExtensionMethods~Methods.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChannelMessage.Channel.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChannelMessage.Channel.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChannelMessage.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChannelMessage.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChannelMessage.~ctor.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChannelMessage.~ctor.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChannelMessage~Members.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChannelMessage~Members.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChannelMessage~Properties.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChannelMessage~Properties.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.Augmented.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.Augmented.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.Bass.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.Bass.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.Contains.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.Contains.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.Diminished.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.Diminished.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.Equals.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.Equals.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.FindMatchingChords.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.FindMatchingChords.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.GetHashCode.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.GetHashCode.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.Inversion.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.Inversion.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.Major.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.Major.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.Minor.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.Minor.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.Name.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.Name.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.NoteSequence.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.NoteSequence.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.Pattern.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.Pattern.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.Patterns.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.Patterns.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.Root.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.Root.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.Seventh.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.Seventh.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.ToString.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.ToString.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.op_Equality.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.op_Equality.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.op_Inequality.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.op_Inequality.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.~ctor1.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.~ctor1.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.~ctor2.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord.~ctor2.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern.Abbreviation.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern.Abbreviation.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern.Ascent.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern.Ascent.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern.Equals.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern.Equals.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern.GetHashCode.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern.GetHashCode.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern.LetterOffsets.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern.LetterOffsets.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern.Name.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern.Name.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern.ToString.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern.ToString.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern.op_Equality.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern.op_Equality.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern.op_Inequality.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern.op_Inequality.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern.~ctor.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern.~ctor.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern~Members.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern~Members.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern~Methods.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern~Methods.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern~Operators.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern~Operators.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern~Properties.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ChordPattern~Properties.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord~Constructors.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord~Constructors.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord~Fields.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord~Fields.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord~Members.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord~Members.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord~Methods.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord~Methods.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord~Operators.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord~Operators.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord~Properties.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Chord~Properties.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Clock.BeatsPerMinute.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Clock.BeatsPerMinute.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Clock.IsRunning.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Clock.IsRunning.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Clock.Reset.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Clock.Reset.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Clock.Schedule1.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Clock.Schedule1.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Clock.Schedule2.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Clock.Schedule2.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Clock.Schedule~Overloads.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Clock.Schedule~Overloads.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Clock.Start.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Clock.Start.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Clock.Stop.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Clock.Stop.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Clock.Time.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Clock.Time.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Clock.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Clock.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Clock.~ctor.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Clock.~ctor.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Clock~Members.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Clock~Members.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Clock~Methods.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Clock~Methods.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Clock~Properties.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Clock~Properties.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Control.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Control.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlChangeMessage.Control.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlChangeMessage.Control.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlChangeMessage.MakeTimeShiftedCopy.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlChangeMessage.MakeTimeShiftedCopy.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlChangeMessage.SendNow.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlChangeMessage.SendNow.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlChangeMessage.Value.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlChangeMessage.Value.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlChangeMessage.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlChangeMessage.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlChangeMessage.~ctor.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlChangeMessage.~ctor.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlChangeMessage~Members.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlChangeMessage~Members.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlChangeMessage~Methods.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlChangeMessage~Methods.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlChangeMessage~Properties.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlChangeMessage~Properties.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlExtensionMethods.IsValid.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlExtensionMethods.IsValid.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlExtensionMethods.Name.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlExtensionMethods.Name.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlExtensionMethods.Validate.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlExtensionMethods.Validate.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlExtensionMethods.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlExtensionMethods.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlExtensionMethods~Members.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlExtensionMethods~Members.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlExtensionMethods~Methods.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ControlExtensionMethods~Methods.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.DeviceBase.Name.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.DeviceBase.Name.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.DeviceBase.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.DeviceBase.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.DeviceBase.~ctor.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.DeviceBase.~ctor.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.DeviceBase~Members.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.DeviceBase~Members.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.DeviceBase~Properties.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.DeviceBase~Properties.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.DeviceException.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.DeviceException.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.DeviceException.~ctor.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.DeviceException.~ctor.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.DeviceException~Members.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.DeviceException~Members.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.DeviceMessage.Device.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.DeviceMessage.Device.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.DeviceMessage.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.DeviceMessage.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.DeviceMessage.~ctor.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.DeviceMessage.~ctor.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.DeviceMessage~Members.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.DeviceMessage~Members.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.DeviceMessage~Properties.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.DeviceMessage~Properties.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.Close.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.Close.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.ControlChange.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.ControlChange.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.ControlChangeHandler.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.ControlChangeHandler.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.InstalledDevices.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.InstalledDevices.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.IsOpen.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.IsOpen.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.IsReceiving.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.IsReceiving.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.NoteOff.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.NoteOff.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.NoteOffHandler.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.NoteOffHandler.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.NoteOn.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.NoteOn.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.NoteOnHandler.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.NoteOnHandler.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.Open.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.Open.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.PitchBend.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.PitchBend.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.PitchBendHandler.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.PitchBendHandler.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.ProgramChange.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.ProgramChange.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.ProgramChangeHandler.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.ProgramChangeHandler.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.RemoveAllEventHandlers.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.RemoveAllEventHandlers.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.StartReceiving.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.StartReceiving.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.StopReceiving.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.StopReceiving.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice~Events.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice~Events.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice~Members.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice~Members.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice~Methods.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice~Methods.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice~Properties.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InputDevice~Properties.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Instrument.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Instrument.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InstrumentExtensionMethods.IsValid.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InstrumentExtensionMethods.IsValid.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InstrumentExtensionMethods.Name.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InstrumentExtensionMethods.Name.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InstrumentExtensionMethods.Validate.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InstrumentExtensionMethods.Validate.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InstrumentExtensionMethods.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InstrumentExtensionMethods.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InstrumentExtensionMethods~Members.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InstrumentExtensionMethods~Members.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InstrumentExtensionMethods~Methods.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.InstrumentExtensionMethods~Methods.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Interval.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Interval.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.IntervalExtensionMethods.Name.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.IntervalExtensionMethods.Name.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.IntervalExtensionMethods.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.IntervalExtensionMethods.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.IntervalExtensionMethods~Members.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.IntervalExtensionMethods~Members.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.IntervalExtensionMethods~Methods.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.IntervalExtensionMethods~Methods.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Message.MakeTimeShiftedCopy.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Message.MakeTimeShiftedCopy.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Message.SendNow.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Message.SendNow.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Message.Time.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Message.Time.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Message.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Message.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Message.~ctor.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Message.~ctor.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Message~Members.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Message~Members.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Message~Methods.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Message~Methods.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Message~Properties.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Message~Properties.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.Accidental.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.Accidental.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.DoubleFlat.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.DoubleFlat.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.DoubleSharp.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.DoubleSharp.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.Equals.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.Equals.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.Flat.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.Flat.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.GetHashCode.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.GetHashCode.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.IsEharmonicWith.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.IsEharmonicWith.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.Letter.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.Letter.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.Natural.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.Natural.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.ParseNote.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.ParseNote.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.PitchAtOrAbove.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.PitchAtOrAbove.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.PitchAtOrBelow.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.PitchAtOrBelow.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.PitchInOctave.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.PitchInOctave.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.PositionInOctave.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.PositionInOctave.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.SemitonesDownTo.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.SemitonesDownTo.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.SemitonesUpTo.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.SemitonesUpTo.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.Sharp.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.Sharp.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.ToString.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.ToString.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.op_Equality.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.op_Equality.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.op_Inequality.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.op_Inequality.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.~ctor1.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.~ctor1.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.~ctor2.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.~ctor2.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.~ctor3.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note.~ctor3.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteMessage.Pitch.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteMessage.Pitch.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteMessage.Velocity.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteMessage.Velocity.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteMessage.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteMessage.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteMessage.~ctor.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteMessage.~ctor.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteMessage~Members.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteMessage~Members.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteMessage~Properties.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteMessage~Properties.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOffMessage.MakeTimeShiftedCopy.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOffMessage.MakeTimeShiftedCopy.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOffMessage.SendNow.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOffMessage.SendNow.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOffMessage.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOffMessage.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOffMessage.~ctor.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOffMessage.~ctor.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOffMessage~Members.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOffMessage~Members.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOffMessage~Methods.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOffMessage~Methods.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnMessage.MakeTimeShiftedCopy.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnMessage.MakeTimeShiftedCopy.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnMessage.SendNow.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnMessage.SendNow.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnMessage.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnMessage.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnMessage.~ctor.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnMessage.~ctor.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnMessage~Members.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnMessage~Members.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnMessage~Methods.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnMessage~Methods.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnOffMessage.Clock.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnOffMessage.Clock.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnOffMessage.Duration.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnOffMessage.Duration.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnOffMessage.MakeTimeShiftedCopy.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnOffMessage.MakeTimeShiftedCopy.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnOffMessage.SendNow.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnOffMessage.SendNow.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnOffMessage.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnOffMessage.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnOffMessage.~ctor.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnOffMessage.~ctor.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnOffMessage~Members.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnOffMessage~Members.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnOffMessage~Methods.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnOffMessage~Methods.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnOffMessage~Properties.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.NoteOnOffMessage~Properties.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note~Constructors.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note~Constructors.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note~Fields.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note~Fields.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note~Members.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note~Members.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note~Methods.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note~Methods.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note~Operators.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note~Operators.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note~Properties.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Note~Properties.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice.Close.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice.Close.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice.InstalledDevices.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice.InstalledDevices.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice.IsOpen.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice.IsOpen.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice.Open.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice.Open.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice.SendControlChange.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice.SendControlChange.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice.SendNoteOff.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice.SendNoteOff.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice.SendNoteOn.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice.SendNoteOn.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice.SendPercussion.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice.SendPercussion.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice.SendPitchBend.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice.SendPitchBend.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice.SendProgramChange.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice.SendProgramChange.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice.SilenceAllNotes.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice.SilenceAllNotes.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice~Members.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice~Members.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice~Methods.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice~Methods.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice~Properties.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.OutputDevice~Properties.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Percussion.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Percussion.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionExtensionMethods.IsValid.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionExtensionMethods.IsValid.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionExtensionMethods.Name.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionExtensionMethods.Name.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionExtensionMethods.Validate.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionExtensionMethods.Validate.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionExtensionMethods.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionExtensionMethods.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionExtensionMethods~Members.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionExtensionMethods~Members.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionExtensionMethods~Methods.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionExtensionMethods~Methods.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionMessage.MakeTimeShiftedCopy.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionMessage.MakeTimeShiftedCopy.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionMessage.Percussion.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionMessage.Percussion.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionMessage.SendNow.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionMessage.SendNow.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionMessage.Velocity.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionMessage.Velocity.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionMessage.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionMessage.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionMessage.~ctor.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionMessage.~ctor.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionMessage~Members.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionMessage~Members.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionMessage~Methods.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionMessage~Methods.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionMessage~Properties.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PercussionMessage~Properties.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Pitch.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Pitch.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchBendMessage.MakeTimeShiftedCopy.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchBendMessage.MakeTimeShiftedCopy.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchBendMessage.SendNow.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchBendMessage.SendNow.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchBendMessage.Value.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchBendMessage.Value.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchBendMessage.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchBendMessage.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchBendMessage.~ctor.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchBendMessage.~ctor.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchBendMessage~Members.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchBendMessage~Members.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchBendMessage~Methods.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchBendMessage~Methods.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchBendMessage~Properties.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchBendMessage~Properties.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchExtensionMethods.IsInMidiRange.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchExtensionMethods.IsInMidiRange.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchExtensionMethods.NotePreferringFlats.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchExtensionMethods.NotePreferringFlats.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchExtensionMethods.NotePreferringSharps.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchExtensionMethods.NotePreferringSharps.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchExtensionMethods.NoteWithLetter.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchExtensionMethods.NoteWithLetter.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchExtensionMethods.Octave.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchExtensionMethods.Octave.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchExtensionMethods.PositionInOctave.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchExtensionMethods.PositionInOctave.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchExtensionMethods.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchExtensionMethods.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchExtensionMethods~Members.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchExtensionMethods~Members.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchExtensionMethods~Methods.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.PitchExtensionMethods~Methods.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ProgramChangeMessage.Instrument.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ProgramChangeMessage.Instrument.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ProgramChangeMessage.MakeTimeShiftedCopy.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ProgramChangeMessage.MakeTimeShiftedCopy.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ProgramChangeMessage.SendNow.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ProgramChangeMessage.SendNow.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ProgramChangeMessage.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ProgramChangeMessage.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ProgramChangeMessage.~ctor.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ProgramChangeMessage.~ctor.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ProgramChangeMessage~Members.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ProgramChangeMessage~Members.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ProgramChangeMessage~Methods.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ProgramChangeMessage~Methods.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ProgramChangeMessage~Properties.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ProgramChangeMessage~Properties.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.Chromatic.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.Chromatic.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.Contains.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.Contains.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.Equals.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.Equals.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.GetHashCode.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.GetHashCode.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.HarmonicMinor.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.HarmonicMinor.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.Major.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.Major.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.MelodicMinorAscending.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.MelodicMinorAscending.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.MelodicMinorDescending.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.MelodicMinorDescending.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.Name.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.Name.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.NaturalMinor.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.NaturalMinor.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.NoteSequence.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.NoteSequence.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.Pattern.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.Pattern.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.Patterns.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.Patterns.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.ScaleDegree.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.ScaleDegree.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.ToString.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.ToString.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.Tonic.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.Tonic.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.op_Equality.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.op_Equality.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.op_Inequality.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.op_Inequality.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.~ctor.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale.~ctor.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ScalePattern.Ascent.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ScalePattern.Ascent.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ScalePattern.Equals.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ScalePattern.Equals.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ScalePattern.GetHashCode.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ScalePattern.GetHashCode.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ScalePattern.Name.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ScalePattern.Name.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ScalePattern.ToString.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ScalePattern.ToString.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ScalePattern.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ScalePattern.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ScalePattern.op_Equality.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ScalePattern.op_Equality.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ScalePattern.op_Inequality.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ScalePattern.op_Inequality.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ScalePattern.~ctor.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ScalePattern.~ctor.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ScalePattern~Members.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ScalePattern~Members.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ScalePattern~Methods.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ScalePattern~Methods.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ScalePattern~Operators.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ScalePattern~Operators.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ScalePattern~Properties.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.ScalePattern~Properties.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale~Fields.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale~Fields.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale~Members.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale~Members.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale~Methods.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale~Methods.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale~Operators.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale~Operators.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale~Properties.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\Midi~Midi.Scale~Properties.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\contents.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\contents.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\index.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\index.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\intevent.gif">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\intevent.gif</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\intfield.gif">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\intfield.gif</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\intmethod.gif">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\intmethod.gif</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\intoperator.gif">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\intoperator.gif</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\intproperty.gif">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\intproperty.gif</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\privevent.gif">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\privevent.gif</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\privfield.gif">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\privfield.gif</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\privmethod.gif">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\privmethod.gif</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\privoperator.gif">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\privoperator.gif</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\privproperty.gif">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\privproperty.gif</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\protevent.gif">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\protevent.gif</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\protfield.gif">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\protfield.gif</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\protmethod.gif">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\protmethod.gif</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\protoperator.gif">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\protoperator.gif</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\protproperty.gif">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\protproperty.gif</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\pubevent.gif">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\pubevent.gif</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\pubfield.gif">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\pubfield.gif</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\pubmethod.gif">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\pubmethod.gif</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\puboperator.gif">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\puboperator.gif</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\pubproperty.gif">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\pubproperty.gif</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\static.gif">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\static.gif</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\tree.css">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\tree.css</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\tree.js">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\tree.js</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\treenodedot.gif">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\treenodedot.gif</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\treenodeminus.gif">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\treenodeminus.gif</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\treenodeplus.gif">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\treenodeplus.gif</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\~Midi.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\~Midi.html</Link>
+    </None>
+    <None Include="..\..\XFlixel\midi-dot-net_1.1.0\docs\~Midi~Hierarchy.html">
+      <Link>XFlixel\midi-dot-net_1.1.0\docs\~Midi~Hierarchy.html</Link>
+    </None>
+    <None Include="..\..\XFlixelContent\initials\FourChambers_IntroTag_03.mp3">
+      <Link>Content\initials\FourChambers_IntroTag_03.mp3</Link>
+    </None>
+    <None Include="..\..\XFlixelContent\initials\Munro.spritefont">
+      <Link>Content\initials\Munro.spritefont</Link>
+    </None>
+    <None Include="..\..\XFlixelContent\initials\SMALL_PIXEL.spritefont">
+      <Link>Content\initials\SMALL_PIXEL.spritefont</Link>
+    </None>
+    <None Include="..\..\XFlixelContent\initials\SpaceMarine.spritefont">
+      <Link>Content\initials\SpaceMarine.spritefont</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game1.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="..\..\XFlixel\flixel\FlxButton.cs">
+      <Link>XFlixel\flixel\FlxButton.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\FlxCamera.cs">
+      <Link>XFlixel\flixel\FlxCamera.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\FlxCaveGenerator.cs">
+      <Link>XFlixel\flixel\FlxCaveGenerator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\FlxCaveGeneratorExt.cs">
+      <Link>XFlixel\flixel\FlxCaveGeneratorExt.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\FlxColor.cs">
+      <Link>XFlixel\flixel\FlxColor.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\FlxEmitter.cs">
+      <Link>XFlixel\flixel\FlxEmitter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\FlxEvents.cs">
+      <Link>XFlixel\flixel\FlxEvents.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\FlxG.cs">
+      <Link>XFlixel\flixel\FlxG.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\FlxGame.cs">
+      <Link>XFlixel\flixel\FlxGame.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\FlxGroup.cs">
+      <Link>XFlixel\flixel\FlxGroup.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\FlxMonitor.cs">
+      <Link>XFlixel\flixel\FlxMonitor.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\FlxObject.cs">
+      <Link>XFlixel\flixel\FlxObject.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\FlxOnlineStatCounter.cs">
+      <Link>XFlixel\flixel\FlxOnlineStatCounter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\FlxPath.cs">
+      <Link>XFlixel\flixel\FlxPath.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\FlxQuadTree.cs">
+      <Link>XFlixel\flixel\FlxQuadTree.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\FlxRect.cs">
+      <Link>XFlixel\flixel\FlxRect.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\FlxSave.cs">
+      <Link>XFlixel\flixel\FlxSave.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\FlxSound.cs">
+      <Link>XFlixel\flixel\FlxSound.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\FlxSprite.cs">
+      <Link>XFlixel\flixel\FlxSprite.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\FlxState.cs">
+      <Link>XFlixel\flixel\FlxState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\FlxText.cs">
+      <Link>XFlixel\flixel\FlxText.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\FlxTileblock.cs">
+      <Link>XFlixel\flixel\FlxTileblock.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\FlxTilemap.cs">
+      <Link>XFlixel\flixel\FlxTilemap.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\FlxTransition.cs">
+      <Link>XFlixel\flixel\FlxTransition.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\FlxU.cs">
+      <Link>XFlixel\flixel\FlxU.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\FlxXMLReader.cs">
+      <Link>XFlixel\flixel\FlxXMLReader.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\PowerTools\FlxBar.cs">
+      <Link>XFlixel\flixel\PowerTools\FlxBar.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\data\FlxAnim.cs">
+      <Link>XFlixel\flixel\data\FlxAnim.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\data\FlxConsole.cs">
+      <Link>XFlixel\flixel\data\FlxConsole.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\data\FlxFactory.cs">
+      <Link>XFlixel\flixel\data\FlxFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\data\FlxFade.cs">
+      <Link>XFlixel\flixel\data\FlxFade.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\data\FlxFlash.cs">
+      <Link>XFlixel\flixel\data\FlxFlash.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\data\FlxGamepad.cs">
+      <Link>XFlixel\flixel\data\FlxGamepad.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\data\FlxGlobal.cs">
+      <Link>XFlixel\flixel\data\FlxGlobal.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\data\FlxHud.cs">
+      <Link>XFlixel\flixel\data\FlxHud.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\data\FlxKeyboard.cs">
+      <Link>XFlixel\flixel\data\FlxKeyboard.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\data\FlxList.cs">
+      <Link>XFlixel\flixel\data\FlxList.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\data\FlxLogoPixel.cs">
+      <Link>XFlixel\flixel\data\FlxLogoPixel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\data\FlxMouse.cs">
+      <Link>XFlixel\flixel\data\FlxMouse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\data\FlxParticle.cs">
+      <Link>XFlixel\flixel\data\FlxParticle.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\data\FlxPause.cs">
+      <Link>XFlixel\flixel\data\FlxPause.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\data\FlxQuake.cs">
+      <Link>XFlixel\flixel\data\FlxQuake.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\data\FlxRecord.cs">
+      <Link>XFlixel\flixel\data\FlxRecord.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\data\FlxSplash.cs">
+      <Link>XFlixel\flixel\data\FlxSplash.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\presets\FlxControl.cs">
+      <Link>XFlixel\flixel\presets\FlxControl.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\presets\FlxMenuState.cs">
+      <Link>XFlixel\flixel\presets\FlxMenuState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\presets\FlxMovingPlatform.cs">
+      <Link>XFlixel\flixel\presets\FlxMovingPlatform.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\presets\FlxPlatformActor.cs">
+      <Link>XFlixel\flixel\presets\FlxPlatformActor.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\flixel\presets\FlxRamp.cs">
+      <Link>XFlixel\flixel\presets\FlxRamp.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\FlixelEntryPoint.cs">
+      <Link>XFlixel\FlixelEntryPoint.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\Templates\TemplateSprite.cs">
+      <Link>XFlixel\Templates\TemplateSprite.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\Templates\TemplateState.cs">
+      <Link>XFlixel\Templates\TemplateState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\XNATweener\Back.cs">
+      <Link>XFlixel\XNATweener\Back.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\XNATweener\BaseTweener.cs">
+      <Link>XFlixel\XNATweener\BaseTweener.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\XNATweener\Bounce.cs">
+      <Link>XFlixel\XNATweener\Bounce.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\XNATweener\Circular.cs">
+      <Link>XFlixel\XNATweener\Circular.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\XNATweener\ColorTweener.cs">
+      <Link>XFlixel\XNATweener\ColorTweener.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\XNATweener\Cubic.cs">
+      <Link>XFlixel\XNATweener\Cubic.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\XNATweener\Elastic.cs">
+      <Link>XFlixel\XNATweener\Elastic.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\XNATweener\Exponential.cs">
+      <Link>XFlixel\XNATweener\Exponential.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\XNATweener\ITweener.cs">
+      <Link>XFlixel\XNATweener\ITweener.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\XNATweener\Linear.cs">
+      <Link>XFlixel\XNATweener\Linear.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\XNATweener\Loop.cs">
+      <Link>XFlixel\XNATweener\Loop.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\XNATweener\Quadratic.cs">
+      <Link>XFlixel\XNATweener\Quadratic.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\XNATweener\Quartic.cs">
+      <Link>XFlixel\XNATweener\Quartic.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\XNATweener\Quintic.cs">
+      <Link>XFlixel\XNATweener\Quintic.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\XNATweener\Sinusoidal.cs">
+      <Link>XFlixel\XNATweener\Sinusoidal.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\XNATweener\Tweener.cs">
+      <Link>XFlixel\XNATweener\Tweener.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\XNATweener\Vector2Tweener.cs">
+      <Link>XFlixel\XNATweener\Vector2Tweener.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\XNATweener\Vector3Tweener.cs">
+      <Link>XFlixel\XNATweener\Vector3Tweener.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\fx\BloomComponent.cs">
+      <Link>XFlixel\fx\BloomComponent.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\fx\BloomSettings.cs">
+      <Link>XFlixel\fx\BloomSettings.cs</Link>
+    </Compile>
+    <Compile Include="..\..\XFlixel\examples\TestState.cs">
+      <Link>XFlixel\TestState.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Assets\logo.png" />
+    <BundleResource Include="..\..\XFlixel\GameThumbnail.png">
+      <Link>XFlixel\GameThumbnail.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\autotiles.png">
+      <Link>Content\flixel\autotiles.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\autotilesIsland.png">
+      <Link>Content\flixel\autotilesIsland.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\autotilesIsland_16x16.png">
+      <Link>Content\flixel\autotilesIsland_16x16.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\autotiles_16x16.png">
+      <Link>Content\flixel\autotiles_16x16.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\autotiles_alt.png">
+      <Link>Content\flixel\autotiles_alt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\autotiles_alt_16x16.png">
+      <Link>Content\flixel\autotiles_alt_16x16.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\cursor.png">
+      <Link>Content\flixel\cursor.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\key_0.png">
+      <Link>Content\flixel\key_0.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\key_1.png">
+      <Link>Content\flixel\key_1.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\key_c.png">
+      <Link>Content\flixel\key_c.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\key_minus.png">
+      <Link>Content\flixel\key_minus.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\key_mouse.png">
+      <Link>Content\flixel\key_mouse.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\key_plus.png">
+      <Link>Content\flixel\key_plus.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\key_x.png">
+      <Link>Content\flixel\key_x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\keys_arrows.png">
+      <Link>Content\flixel\keys_arrows.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\poweredby.png">
+      <Link>Content\flixel\poweredby.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\transitionBlack_40x40.png">
+      <Link>Content\flixel\transitionBlack_40x40.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\transition_30x30.png">
+      <Link>Content\flixel\transition_30x30.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\transition_40x40.png">
+      <Link>Content\flixel\transition_40x40.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\xna_tiles.png">
+      <Link>Content\flixel\xna_tiles.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\vcr\cheat_off.png">
+      <Link>Content\flixel\vcr\cheat_off.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\vcr\cheat_on.png">
+      <Link>Content\flixel\vcr\cheat_on.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\vcr\open.png">
+      <Link>Content\flixel\vcr\open.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\vcr\pause.png">
+      <Link>Content\flixel\vcr\pause.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\vcr\play.png">
+      <Link>Content\flixel\vcr\play.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\vcr\record_off.png">
+      <Link>Content\flixel\vcr\record_off.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\vcr\record_on.png">
+      <Link>Content\flixel\vcr\record_on.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\vcr\restart.png">
+      <Link>Content\flixel\vcr\restart.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\vcr\step.png">
+      <Link>Content\flixel\vcr\step.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\vcr\stop.png">
+      <Link>Content\flixel\vcr\stop.png</Link>
+    </BundleResource>
+    <BundleResource Include="Content\flixel\deffont.xnb" />
+    <BundleResource Include="..\..\XFlixelContent\flixel\beep.mp3">
+      <Link>Content\flixel\beep.mp3</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\buttons\BP3_SSTRIP_32.png">
+      <Link>Content\buttons\BP3_SSTRIP_32.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\buttons\BP3_SSTRIP_48.png">
+      <Link>Content\buttons\BP3_SSTRIP_48.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\buttons\BP3_SSTRIP_64.png">
+      <Link>Content\buttons\BP3_SSTRIP_64.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\buttons\Map360.png">
+      <Link>Content\buttons\Map360.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\buttons\Map360Gameboy.png">
+      <Link>Content\buttons\Map360Gameboy.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\buttons\MapBlack.png">
+      <Link>Content\buttons\MapBlack.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\buttons\MapOuya.png">
+      <Link>Content\buttons\MapOuya.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\buttons\MapOuyaGameboy.png">
+      <Link>Content\buttons\MapOuyaGameboy.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\buttons\MapWhite.png">
+      <Link>Content\buttons\MapWhite.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\buttons\MapWhiteGameboy.png">
+      <Link>Content\buttons\MapWhiteGameboy.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\initials\autotiles.png">
+      <Link>Content\initials\autotiles.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\initials\autotiles_16x16.png">
+      <Link>Content\initials\autotiles_16x16.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\initials\autotiles_alt.png">
+      <Link>Content\initials\autotiles_alt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\initials\boats.png">
+      <Link>Content\initials\boats.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\initials\crate_80x60.png">
+      <Link>Content\initials\crate_80x60.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\initials\crosshair.png">
+      <Link>Content\initials\crosshair.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\initials\healthBar.png">
+      <Link>Content\initials\healthBar.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\initials\initialsLogo.png">
+      <Link>Content\initials\initialsLogo.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\initials\initialsLogoGameboy.png">
+      <Link>Content\initials\initialsLogoGameboy.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\flixel\flixel.mp3">
+      <Link>Content\flixel\flixel.mp3</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\initials\initials_empire_tagtone1.mp3">
+      <Link>Content\initials\initials_empire_tagtone1.mp3</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\initials\initials_empire_tagtone2.mp3">
+      <Link>Content\initials\initials_empire_tagtone2.mp3</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\initials\initials_empire_tagtone3.mp3">
+      <Link>Content\initials\initials_empire_tagtone3.mp3</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\XFlixelContent\initials\initials_empire_tagtone4.mp3">
+      <Link>Content\initials\initials_empire_tagtone4.mp3</Link>
+    </BundleResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="XFlixel\" />
+    <Folder Include="Content\" />
+    <Folder Include="Content\flixel\" />
+    <Folder Include="Content\buttons\" />
+    <Folder Include="Content\initials\" />
+  </ItemGroup>
+</Project>
