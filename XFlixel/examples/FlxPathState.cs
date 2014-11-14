@@ -26,7 +26,7 @@ namespace org.flixel
             makeCave(1.0f, Color.White);
 
             FlxSprite avatar = new FlxSprite(0, FlxG.height-64);
-            avatar.loadGraphic(FlxG.Content.Load<Texture2D>("surt/race_or_die"), true, false, 64, 64);
+            avatar.loadGraphic(FlxG.Content.Load<Texture2D>("flixel/surt/race_or_die"), true, false, 64, 64);
             avatar.addAnimation("Static", new int[] { 2 }, 0, true);
             avatar.play("Static");
             avatar.setScrollFactors(0, 0);
@@ -35,7 +35,7 @@ namespace org.flixel
 
 
             car = new FlxSprite(40, 40);
-            car.loadGraphic(FlxG.Content.Load<Texture2D>("surt/race_or_die"), true, false, 64, 64);
+            car.loadGraphic(FlxG.Content.Load<Texture2D>("flixel/surt/race_or_die"), true, false, 64, 64);
             car.addAnimation("Static", new int[] { 8 }, 0, true);
             car.play("Static");
             car.setDrags(5, 5);

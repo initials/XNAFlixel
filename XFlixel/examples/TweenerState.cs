@@ -124,7 +124,7 @@ namespace org.flixel
             add(carsGroup);
 
             redCar = new FlxSprite(car1Pos.X, car1Pos.Y);
-            redCar.loadGraphic(FlxG.Content.Load<Texture2D>("surt/race_or_die"), true, false, 64, 64);
+            redCar.loadGraphic(FlxG.Content.Load<Texture2D>("flixel/surt/race_or_die"), true, false, 64, 64);
             redCar.addAnimation("Static", new int[] { 6 }, 0, true);
             redCar.play("Static");
             redCar.angle = 180;
@@ -135,7 +135,7 @@ namespace org.flixel
             redCarTween.Start();
 
             yellowCar = new FlxSprite(car2Pos.X, car2Pos.Y);
-            yellowCar.loadGraphic(FlxG.Content.Load<Texture2D>("surt/race_or_die"), true, false, 64, 64);
+            yellowCar.loadGraphic(FlxG.Content.Load<Texture2D>("flixel/surt/race_or_die"), true, false, 64, 64);
             yellowCar.addAnimation("Static", new int[] { 7 }, 0, true);
             yellowCar.play("Static");
             yellowCar.angle = 180;
@@ -145,7 +145,7 @@ namespace org.flixel
             yellowCarTween.Loop = true;
 
             greenCar = new FlxSprite(car3Pos.X, car3Pos.Y);
-            greenCar.loadGraphic(FlxG.Content.Load<Texture2D>("surt/race_or_die"), true, false, 64, 64);
+            greenCar.loadGraphic(FlxG.Content.Load<Texture2D>("flixel/surt/race_or_die"), true, false, 64, 64);
             greenCar.addAnimation("Static", new int[] { 8 }, 0, true);
             greenCar.play("Static");
             greenCar.angle = 180;
@@ -156,7 +156,7 @@ namespace org.flixel
 
 
             blueCar = new FlxSprite(car4Pos.X, car4Pos.Y);
-            blueCar.loadGraphic(FlxG.Content.Load<Texture2D>("surt/race_or_die"), true, false, 64, 64);
+            blueCar.loadGraphic(FlxG.Content.Load<Texture2D>("flixel/surt/race_or_die"), true, false, 64, 64);
             blueCar.addAnimation("Static", new int[] { 9 }, 0, true);
             blueCar.play("Static");
             blueCar.angle = 180;
@@ -167,7 +167,7 @@ namespace org.flixel
 
 
             purpleCar = new FlxSprite(car5Pos.X, car5Pos.Y);
-            purpleCar.loadGraphic(FlxG.Content.Load<Texture2D>("surt/race_or_die"), true, false, 64, 64);
+            purpleCar.loadGraphic(FlxG.Content.Load<Texture2D>("flixel/surt/race_or_die"), true, false, 64, 64);
             purpleCar.addAnimation("Static", new int[] { 10 }, 0, true);
             purpleCar.play("Static");
             purpleCar.angle = 180;
@@ -178,7 +178,7 @@ namespace org.flixel
 
 
             lightGreenCar = new FlxSprite(car6Pos.X, car6Pos.Y);
-            lightGreenCar.loadGraphic(FlxG.Content.Load<Texture2D>("surt/race_or_die"), true, false, 64, 64);
+            lightGreenCar.loadGraphic(FlxG.Content.Load<Texture2D>("flixel/surt/race_or_die"), true, false, 64, 64);
             lightGreenCar.addAnimation("Static", new int[] { 11 }, 0, true);
             lightGreenCar.play("Static");
             lightGreenCar.angle = 180;

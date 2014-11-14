@@ -17,7 +17,7 @@ namespace org.flixel
             base.create();
 
             FlxSprite robot = new FlxSprite(0, 0);
-            robot.loadGraphic("surt/race_or_die", true, false, 64, 64);
+            robot.loadGraphic("flixel/surt/race_or_die", true, false, 64, 64);
             robot.addAnimation("static", new int[] { 7 }, 0, true);
             robot.play("static");
             add(robot);
@@ -28,7 +28,7 @@ namespace org.flixel
 
 
             robot = new FlxSprite(200, 0);
-            robot.loadGraphic("surt/race_or_die", true, false, 64, 64);
+            robot.loadGraphic("flixel/surt/race_or_die", true, false, 64, 64);
             robot.addAnimation("static", new int[] { 10 }, 0, true);
             robot.play("static");
             add(robot);

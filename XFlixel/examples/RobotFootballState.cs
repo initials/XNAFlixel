@@ -47,7 +47,7 @@ namespace org.flixel
             for (int i = 0; i < 7; i++)
             {
                 FlxSprite robot = new FlxSprite(20 + (i * 90), 10);
-                robot.loadGraphic(FlxG.Content.Load<Texture2D>("surt/race_or_die"), true, false, 64, 64);
+                robot.loadGraphic(FlxG.Content.Load<Texture2D>("flixel/surt/race_or_die"), true, false, 64, 64);
                 robot.addAnimation("Static", new int[] { 7 }, 0, true);
                 robot.play("Static");
                 robot.angle = 270;
@@ -63,7 +63,7 @@ namespace org.flixel
             for (int i = 0; i < 7; i++)
             {
                 FlxSprite robot = new FlxSprite(20 + (i * 90), 200);
-                robot.loadGraphic(FlxG.Content.Load<Texture2D>("surt/race_or_die"), true, false, 64, 64);
+                robot.loadGraphic(FlxG.Content.Load<Texture2D>("flixel/surt/race_or_die"), true, false, 64, 64);
                 robot.addAnimation("Static", new int[] { 9 }, 0, true);
                 robot.play("Static");
                 robot.angle = 90;

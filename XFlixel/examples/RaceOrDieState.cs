@@ -33,7 +33,7 @@ namespace org.flixel
             makeCave2(1.0f, Color.Green);
 
             logo = new FlxSprite(360, 360);
-            logo.loadGraphic("surt/race_or_die", true, false, 64, 64);
+            logo.loadGraphic("flixel/surt/race_or_die", true, false, 64, 64);
             logo.addAnimation("Static", new int[] { 8 }, 0, true);
             logo.play("Static");
             

@@ -24,7 +24,7 @@ namespace org.flixel
             FlxG.resetHud();
 
             robot = new FlxSprite(60, 60);
-            robot.loadGraphic("surt/race_or_die", true, false, 64, 64);
+            robot.loadGraphic("flixel/surt/race_or_die", true, false, 64, 64);
             robot.addAnimation("static", new int[] { 0 }, 12, true);
             robot.play("static");
             robot.angle = 0;
