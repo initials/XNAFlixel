@@ -1,0 +1,653 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectGuid>{DEC435F4-9E84-490B-9890-72E5F514B8D0}</ProjectGuid>
+    <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Platformer2D</RootNamespace>
+    <AssemblyName>Platformer2D</AssemblyName>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <NuGetPackageImportStamp>197690a1</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>IPHONE;DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>True</MtouchDebug>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchUseArmv7>false</MtouchUseArmv7>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchUseArmv7>false</MtouchUseArmv7>
+    <DefineConstants>IPHONE;</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>IPHONE;DEBUG;TEST1_1</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchDebug>True</MtouchDebug>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchSdkVersion>4.0</MtouchSdkVersion>
+    <MtouchUseArmv7>false</MtouchUseArmv7>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchI18n>
+    </MtouchI18n>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchSdkVersion>4.0</MtouchSdkVersion>
+    <MtouchUseArmv7>false</MtouchUseArmv7>
+    <DefineConstants>IPHONE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <MtouchUseArmv7>false</MtouchUseArmv7>
+    <DefineConstants>IPHONE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <MtouchUseArmv7>false</MtouchUseArmv7>
+    <DefineConstants>IPHONE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="monotouch" />
+    <Reference Include="Lidgren.Network">
+      <HintPath>..\..\..\packages\MonoGame.Binaries.3.2.0\build\MonoTouch\Lidgren.Network.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoGame.Framework">
+      <HintPath>..\..\..\packages\MonoGame.Binaries.3.2.0\build\MonoTouch\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Game.cs">
+      <Link>Game.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\XNATweener\Back.cs">
+      <Link>XFlixel\XNATweener\Back.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\XNATweener\BaseTweener.cs">
+      <Link>XFlixel\XNATweener\BaseTweener.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\XNATweener\Bounce.cs">
+      <Link>XFlixel\XNATweener\Bounce.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\XNATweener\Circular.cs">
+      <Link>XFlixel\XNATweener\Circular.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\XNATweener\ColorTweener.cs">
+      <Link>XFlixel\XNATweener\ColorTweener.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\XNATweener\Cubic.cs">
+      <Link>XFlixel\XNATweener\Cubic.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\XNATweener\Elastic.cs">
+      <Link>XFlixel\XNATweener\Elastic.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\XNATweener\Exponential.cs">
+      <Link>XFlixel\XNATweener\Exponential.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\XNATweener\ITweener.cs">
+      <Link>XFlixel\XNATweener\ITweener.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\XNATweener\Linear.cs">
+      <Link>XFlixel\XNATweener\Linear.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\XNATweener\Loop.cs">
+      <Link>XFlixel\XNATweener\Loop.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\XNATweener\Quadratic.cs">
+      <Link>XFlixel\XNATweener\Quadratic.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\XNATweener\Quartic.cs">
+      <Link>XFlixel\XNATweener\Quartic.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\XNATweener\Quintic.cs">
+      <Link>XFlixel\XNATweener\Quintic.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\XNATweener\Sinusoidal.cs">
+      <Link>XFlixel\XNATweener\Sinusoidal.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\XNATweener\Tweener.cs">
+      <Link>XFlixel\XNATweener\Tweener.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\XNATweener\Vector2Tweener.cs">
+      <Link>XFlixel\XNATweener\Vector2Tweener.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\XNATweener\Vector3Tweener.cs">
+      <Link>XFlixel\XNATweener\Vector3Tweener.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\FlxButton.cs">
+      <Link>XFlixel\flixel\FlxButton.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\FlxCamera.cs">
+      <Link>XFlixel\flixel\FlxCamera.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\FlxCaveGenerator.cs">
+      <Link>XFlixel\flixel\FlxCaveGenerator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\FlxCaveGeneratorExt.cs">
+      <Link>XFlixel\flixel\FlxCaveGeneratorExt.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\FlxColor.cs">
+      <Link>XFlixel\flixel\FlxColor.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\FlxEmitter.cs">
+      <Link>XFlixel\flixel\FlxEmitter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\FlxEvents.cs">
+      <Link>XFlixel\flixel\FlxEvents.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\FlxG.cs">
+      <Link>XFlixel\flixel\FlxG.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\FlxGame.cs">
+      <Link>XFlixel\flixel\FlxGame.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\FlxGroup.cs">
+      <Link>XFlixel\flixel\FlxGroup.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\FlxMonitor.cs">
+      <Link>XFlixel\flixel\FlxMonitor.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\FlxObject.cs">
+      <Link>XFlixel\flixel\FlxObject.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\FlxOnlineStatCounter.cs">
+      <Link>XFlixel\flixel\FlxOnlineStatCounter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\FlxPath.cs">
+      <Link>XFlixel\flixel\FlxPath.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\FlxQuadTree.cs">
+      <Link>XFlixel\flixel\FlxQuadTree.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\FlxRect.cs">
+      <Link>XFlixel\flixel\FlxRect.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\FlxSave.cs">
+      <Link>XFlixel\flixel\FlxSave.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\FlxSound.cs">
+      <Link>XFlixel\flixel\FlxSound.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\FlxSprite.cs">
+      <Link>XFlixel\flixel\FlxSprite.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\FlxState.cs">
+      <Link>XFlixel\flixel\FlxState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\FlxText.cs">
+      <Link>XFlixel\flixel\FlxText.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\FlxTileblock.cs">
+      <Link>XFlixel\flixel\FlxTileblock.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\FlxTilemap.cs">
+      <Link>XFlixel\flixel\FlxTilemap.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\FlxTransition.cs">
+      <Link>XFlixel\flixel\FlxTransition.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\FlxU.cs">
+      <Link>XFlixel\flixel\FlxU.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\FlxXMLReader.cs">
+      <Link>XFlixel\flixel\FlxXMLReader.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\PowerTools\FlxBar.cs">
+      <Link>XFlixel\flixel\PowerTools\FlxBar.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\data\FlxAnim.cs">
+      <Link>XFlixel\flixel\data\FlxAnim.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\data\FlxConsole.cs">
+      <Link>XFlixel\flixel\data\FlxConsole.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\data\FlxFactory.cs">
+      <Link>XFlixel\flixel\data\FlxFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\data\FlxFade.cs">
+      <Link>XFlixel\flixel\data\FlxFade.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\data\FlxFlash.cs">
+      <Link>XFlixel\flixel\data\FlxFlash.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\data\FlxGamepad.cs">
+      <Link>XFlixel\flixel\data\FlxGamepad.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\data\FlxGlobal.cs">
+      <Link>XFlixel\flixel\data\FlxGlobal.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\data\FlxHud.cs">
+      <Link>XFlixel\flixel\data\FlxHud.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\data\FlxKeyboard.cs">
+      <Link>XFlixel\flixel\data\FlxKeyboard.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\data\FlxList.cs">
+      <Link>XFlixel\flixel\data\FlxList.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\data\FlxLogoPixel.cs">
+      <Link>XFlixel\flixel\data\FlxLogoPixel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\data\FlxMouse.cs">
+      <Link>XFlixel\flixel\data\FlxMouse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\data\FlxParticle.cs">
+      <Link>XFlixel\flixel\data\FlxParticle.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\data\FlxPause.cs">
+      <Link>XFlixel\flixel\data\FlxPause.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\data\FlxQuake.cs">
+      <Link>XFlixel\flixel\data\FlxQuake.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\data\FlxRecord.cs">
+      <Link>XFlixel\flixel\data\FlxRecord.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\data\FlxSplash.cs">
+      <Link>XFlixel\flixel\data\FlxSplash.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\farseerExtensions\FarSprite.cs">
+      <Link>XFlixel\flixel\farseerExtensions\FarSprite.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\farseerExtensions\FarState.cs">
+      <Link>XFlixel\flixel\farseerExtensions\FarState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\farseerExtensions\FarTileblock.cs">
+      <Link>XFlixel\flixel\farseerExtensions\FarTileblock.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\presets\FlxControl.cs">
+      <Link>XFlixel\flixel\presets\FlxControl.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\presets\FlxMenuState.cs">
+      <Link>XFlixel\flixel\presets\FlxMenuState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\presets\FlxMovingPlatform.cs">
+      <Link>XFlixel\flixel\presets\FlxMovingPlatform.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\presets\FlxPlatformActor.cs">
+      <Link>XFlixel\flixel\presets\FlxPlatformActor.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\flixel\presets\FlxRamp.cs">
+      <Link>XFlixel\flixel\presets\FlxRamp.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\fx\BloomComponent.cs">
+      <Link>XFlixel\fx\BloomComponent.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\fx\BloomSettings.cs">
+      <Link>XFlixel\fx\BloomSettings.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\examples\AngleAndVelocityState.cs">
+      <Link>XFlixel\examples\AngleAndVelocityState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\examples\AnimationCallbackState.cs">
+      <Link>XFlixel\examples\AnimationCallbackState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\examples\BaseExampleState.cs">
+      <Link>XFlixel\examples\BaseExampleState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\examples\CameraTestState.cs">
+      <Link>XFlixel\examples\CameraTestState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\examples\CaveState.cs">
+      <Link>XFlixel\examples\CaveState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\examples\CheatState.cs">
+      <Link>XFlixel\examples\CheatState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\examples\DebugMenuState.cs">
+      <Link>XFlixel\examples\DebugMenuState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\examples\FlxBarState.cs">
+      <Link>XFlixel\examples\FlxBarState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\examples\FlxPathState.cs">
+      <Link>XFlixel\examples\FlxPathState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\examples\Island2State.cs">
+      <Link>XFlixel\examples\Island2State.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\examples\IslandState.cs">
+      <Link>XFlixel\examples\IslandState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\examples\Physics2State.cs">
+      <Link>XFlixel\examples\Physics2State.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\examples\Physics3State.cs">
+      <Link>XFlixel\examples\Physics3State.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\examples\PhysicsState.cs">
+      <Link>XFlixel\examples\PhysicsState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\examples\RaceOrDieState.cs">
+      <Link>XFlixel\examples\RaceOrDieState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\examples\RobotFootballState.cs">
+      <Link>XFlixel\examples\RobotFootballState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\examples\TestState.cs">
+      <Link>XFlixel\examples\TestState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\examples\TweenerState.cs">
+      <Link>XFlixel\examples\TweenerState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\XFlixel\FlixelEntryPoint.cs">
+      <Link>XFlixel\FlixelEntryPoint.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Program.cs">
+      <Link>Program.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
+  <ItemGroup>
+    <None Include="monogameicon.png" />
+    <None Include="Info.plist" />
+    <None Include="packages.config" />
+    <None Include="..\..\..\..\XFlixel\flixel\php\commands.php">
+      <Link>XFlixel\flixel\php\commands.php</Link>
+    </None>
+    <None Include="..\..\..\..\XFlixelContent\flixel\beep.mp3">
+      <Link>Content\flixel\beep.mp3</Link>
+    </None>
+    <None Include="..\..\..\..\XFlixelContent\flixel\deffont.spritefont">
+      <Link>Content\flixel\deffont.spritefont</Link>
+    </None>
+    <None Include="..\..\..\..\XFlixelContent\flixel\deffont.ttf">
+      <Link>Content\flixel\deffont.ttf</Link>
+    </None>
+    <None Include="..\..\..\..\XFlixelContent\flixel\flixel.mp3">
+      <Link>Content\flixel\flixel.mp3</Link>
+    </None>
+    <None Include="..\..\..\..\XFlixelContent\flixel\fx\AlphaTestEffect.fx">
+      <Link>Content\flixel\fx\AlphaTestEffect.fx</Link>
+    </None>
+    <None Include="..\..\..\..\XFlixelContent\flixel\fx\BasicEffect.fx">
+      <Link>Content\flixel\fx\BasicEffect.fx</Link>
+    </None>
+    <None Include="..\..\..\..\XFlixelContent\flixel\fx\BloomCombine.fx">
+      <Link>Content\flixel\fx\BloomCombine.fx</Link>
+    </None>
+    <None Include="..\..\..\..\XFlixelContent\flixel\fx\BloomExtract.fx">
+      <Link>Content\flixel\fx\BloomExtract.fx</Link>
+    </None>
+    <None Include="..\..\..\..\XFlixelContent\flixel\fx\Common.fxh">
+      <Link>Content\flixel\fx\Common.fxh</Link>
+    </None>
+    <None Include="..\..\..\..\XFlixelContent\flixel\fx\DualTextureEffect.fx">
+      <Link>Content\flixel\fx\DualTextureEffect.fx</Link>
+    </None>
+    <None Include="..\..\..\..\XFlixelContent\flixel\fx\EnvironmentMapEffect.fx">
+      <Link>Content\flixel\fx\EnvironmentMapEffect.fx</Link>
+    </None>
+    <None Include="..\..\..\..\XFlixelContent\flixel\fx\GaussianBlur.fx">
+      <Link>Content\flixel\fx\GaussianBlur.fx</Link>
+    </None>
+    <None Include="..\..\..\..\XFlixelContent\flixel\fx\Lighting.fxh">
+      <Link>Content\flixel\fx\Lighting.fxh</Link>
+    </None>
+    <None Include="..\..\..\..\XFlixelContent\flixel\fx\Macros.fxh">
+      <Link>Content\flixel\fx\Macros.fxh</Link>
+    </None>
+    <None Include="..\..\..\..\XFlixelContent\flixel\fx\Mandelbrot.fx">
+      <Link>Content\flixel\fx\Mandelbrot.fx</Link>
+    </None>
+    <None Include="..\..\..\..\XFlixelContent\flixel\fx\SkinnedEffect.fx">
+      <Link>Content\flixel\fx\SkinnedEffect.fx</Link>
+    </None>
+    <None Include="..\..\..\..\XFlixelContent\flixel\fx\SpriteEffect.fx">
+      <Link>Content\flixel\fx\SpriteEffect.fx</Link>
+    </None>
+    <None Include="..\..\..\..\XFlixelContent\flixel\fx\Structures.fxh">
+      <Link>Content\flixel\fx\Structures.fxh</Link>
+    </None>
+    <None Include="..\..\..\..\XFlixelContent\flixel\initials\FourChambers_IntroTag_03.mp3">
+      <Link>Content\flixel\initials\FourChambers_IntroTag_03.mp3</Link>
+    </None>
+    <None Include="..\..\..\..\XFlixelContent\flixel\initials\Munro.spritefont">
+      <Link>Content\flixel\initials\Munro.spritefont</Link>
+    </None>
+    <None Include="..\..\..\..\XFlixelContent\flixel\initials\SMALL_PIXEL.spritefont">
+      <Link>Content\flixel\initials\SMALL_PIXEL.spritefont</Link>
+    </None>
+    <None Include="..\..\..\..\XFlixelContent\flixel\initials\SpaceMarine.spritefont">
+      <Link>Content\flixel\initials\SpaceMarine.spritefont</Link>
+    </None>
+    <None Include="..\..\..\..\XFlixelContent\flixel\initials\initials_empire_tagtone1.mp3">
+      <Link>Content\flixel\initials\initials_empire_tagtone1.mp3</Link>
+    </None>
+    <None Include="..\..\..\..\XFlixelContent\flixel\initials\initials_empire_tagtone2.mp3">
+      <Link>Content\flixel\initials\initials_empire_tagtone2.mp3</Link>
+    </None>
+    <None Include="..\..\..\..\XFlixelContent\flixel\initials\initials_empire_tagtone3.mp3">
+      <Link>Content\flixel\initials\initials_empire_tagtone3.mp3</Link>
+    </None>
+    <None Include="..\..\..\..\XFlixelContent\flixel\initials\initials_empire_tagtone4.mp3">
+      <Link>Content\flixel\initials\initials_empire_tagtone4.mp3</Link>
+    </None>
+    <None Include="..\..\..\..\XFlixel\fx\BloomCombine.fx">
+      <Link>XFlixel\fx\BloomCombine.fx</Link>
+    </None>
+    <None Include="..\..\..\..\XFlixel\fx\BloomExtract.fx">
+      <Link>XFlixel\fx\BloomExtract.fx</Link>
+    </None>
+    <None Include="..\..\..\..\XFlixel\fx\GaussianBlur.fx">
+      <Link>XFlixel\fx\GaussianBlur.fx</Link>
+    </None>
+  </ItemGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('..\..\..\packages\MonoGame.Binaries.3.2.0\build\MonoTouch\MonoGame.Binaries.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\MonoGame.Binaries.3.2.0\build\MonoTouch\MonoGame.Binaries.targets'))" />
+  </Target>
+  <Import Project="..\..\..\packages\MonoGame.Binaries.3.2.0\build\MonoTouch\MonoGame.Binaries.targets" Condition="Exists('..\..\..\packages\MonoGame.Binaries.3.2.0\build\MonoTouch\MonoGame.Binaries.targets')" />
+  <ItemGroup>
+    <Folder Include="XFlixel\" />
+    <Folder Include="Content\" />
+    <Folder Include="Content\flixel\" />
+    <Folder Include="XFlixel\fx\" />
+    <Folder Include="XFlixel\examples\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\autotiles.png">
+      <Link>Content\flixel\autotiles.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\autotilesIsland.png">
+      <Link>Content\flixel\autotilesIsland.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\autotilesIsland_16x16.png">
+      <Link>Content\flixel\autotilesIsland_16x16.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\autotiles_16x16.png">
+      <Link>Content\flixel\autotiles_16x16.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\autotiles_alt.png">
+      <Link>Content\flixel\autotiles_alt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\autotiles_alt_16x16.png">
+      <Link>Content\flixel\autotiles_alt_16x16.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\cursor.png">
+      <Link>Content\flixel\cursor.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\key_0.png">
+      <Link>Content\flixel\key_0.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\key_1.png">
+      <Link>Content\flixel\key_1.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\key_c.png">
+      <Link>Content\flixel\key_c.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\key_minus.png">
+      <Link>Content\flixel\key_minus.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\key_mouse.png">
+      <Link>Content\flixel\key_mouse.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\key_plus.png">
+      <Link>Content\flixel\key_plus.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\key_x.png">
+      <Link>Content\flixel\key_x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\keys_arrows.png">
+      <Link>Content\flixel\keys_arrows.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\poweredby.png">
+      <Link>Content\flixel\poweredby.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\transitionBlack_40x40.png">
+      <Link>Content\flixel\transitionBlack_40x40.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\transition_30x30.png">
+      <Link>Content\flixel\transition_30x30.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\transition_40x40.png">
+      <Link>Content\flixel\transition_40x40.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\xna_tiles.png">
+      <Link>Content\flixel\xna_tiles.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\buttons\BP3_SSTRIP_32.png">
+      <Link>Content\flixel\buttons\BP3_SSTRIP_32.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\buttons\BP3_SSTRIP_48.png">
+      <Link>Content\flixel\buttons\BP3_SSTRIP_48.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\buttons\BP3_SSTRIP_64.png">
+      <Link>Content\flixel\buttons\BP3_SSTRIP_64.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\buttons\Map360.png">
+      <Link>Content\flixel\buttons\Map360.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\buttons\Map360Gameboy.png">
+      <Link>Content\flixel\buttons\Map360Gameboy.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\buttons\MapBlack.png">
+      <Link>Content\flixel\buttons\MapBlack.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\buttons\MapOuya.png">
+      <Link>Content\flixel\buttons\MapOuya.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\buttons\MapOuyaGameboy.png">
+      <Link>Content\flixel\buttons\MapOuyaGameboy.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\buttons\MapWhite.png">
+      <Link>Content\flixel\buttons\MapWhite.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\buttons\MapWhiteGameboy.png">
+      <Link>Content\flixel\buttons\MapWhiteGameboy.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\diagnostic\testpalette.png">
+      <Link>Content\flixel\diagnostic\testpalette.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\initials\autotiles.png">
+      <Link>Content\flixel\initials\autotiles.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\initials\autotiles_16x16.png">
+      <Link>Content\flixel\initials\autotiles_16x16.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\initials\autotiles_alt.png">
+      <Link>Content\flixel\initials\autotiles_alt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\initials\boats.png">
+      <Link>Content\flixel\initials\boats.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\initials\crate_80x60.png">
+      <Link>Content\flixel\initials\crate_80x60.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\initials\crosshair.png">
+      <Link>Content\flixel\initials\crosshair.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\initials\healthBar.png">
+      <Link>Content\flixel\initials\healthBar.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\initials\initialsLogo.png">
+      <Link>Content\flixel\initials\initialsLogo.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\initials\initialsLogoGameboy.png">
+      <Link>Content\flixel\initials\initialsLogoGameboy.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\oga\GoldCoin.png">
+      <Link>Content\flixel\oga\GoldCoin.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\surt\race_or_die.png">
+      <Link>Content\flixel\surt\race_or_die.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\surt\spaceship_32x32.png">
+      <Link>Content\flixel\surt\spaceship_32x32.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\vcr\cheat_off.png">
+      <Link>Content\flixel\vcr\cheat_off.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\vcr\cheat_on.png">
+      <Link>Content\flixel\vcr\cheat_on.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\vcr\open.png">
+      <Link>Content\flixel\vcr\open.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\vcr\pause.png">
+      <Link>Content\flixel\vcr\pause.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\vcr\play.png">
+      <Link>Content\flixel\vcr\play.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\vcr\record_off.png">
+      <Link>Content\flixel\vcr\record_off.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\vcr\record_on.png">
+      <Link>Content\flixel\vcr\record_on.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\vcr\restart.png">
+      <Link>Content\flixel\vcr\restart.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\vcr\step.png">
+      <Link>Content\flixel\vcr\step.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\vcr\stop.png">
+      <Link>Content\flixel\vcr\stop.png</Link>
+    </BundleResource>
+  </ItemGroup>
+</Project>
