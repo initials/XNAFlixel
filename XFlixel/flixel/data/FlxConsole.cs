@@ -66,11 +66,11 @@ namespace org.flixel
         /// <summary>
         /// Red, 50% opacity
         /// </summary>
-        Color notActionSafeColor = new Color(255, 0, 0, 23); 
+        Color notActionSafeColor = new Color(255, 0, 0, 55); 
         /// <summary>
         /// Yellow, 50% opacity
         /// </summary>
-        Color notTitleSafeColor = new Color(255, 255, 0, 8); 
+        Color notTitleSafeColor = new Color(255, 255, 0, 25); 
 
         /// <summary>
         /// A VCR object.
