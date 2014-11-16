@@ -86,13 +86,13 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="Lidgren.Network">
-      <HintPath>..\..\..\packages\MonoGame.Binaries.3.2.0\build\MonoTouch\Lidgren.Network.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Downloads\MonoGame-develop 2\MonoGame.Framework\bin\iOS\iPhoneSimulator\Debug\Lidgren.Network.dll</HintPath>
     </Reference>
     <Reference Include="MonoGame.Framework">
-      <HintPath>..\..\..\packages\MonoGame.Binaries.3.2.0\build\MonoTouch\MonoGame.Framework.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Downloads\MonoGame-develop 2\MonoGame.Framework\bin\iOS\iPhoneSimulator\Debug\MonoGame.Framework.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\Game.cs">
@@ -385,84 +385,6 @@
     <None Include="..\..\..\..\XFlixel\flixel\php\commands.php">
       <Link>XFlixel\flixel\php\commands.php</Link>
     </None>
-    <None Include="..\..\..\..\XFlixelContent\flixel\beep.mp3">
-      <Link>Content\flixel\beep.mp3</Link>
-    </None>
-    <None Include="..\..\..\..\XFlixelContent\flixel\deffont.spritefont">
-      <Link>Content\flixel\deffont.spritefont</Link>
-    </None>
-    <None Include="..\..\..\..\XFlixelContent\flixel\deffont.ttf">
-      <Link>Content\flixel\deffont.ttf</Link>
-    </None>
-    <None Include="..\..\..\..\XFlixelContent\flixel\flixel.mp3">
-      <Link>Content\flixel\flixel.mp3</Link>
-    </None>
-    <None Include="..\..\..\..\XFlixelContent\flixel\fx\AlphaTestEffect.fx">
-      <Link>Content\flixel\fx\AlphaTestEffect.fx</Link>
-    </None>
-    <None Include="..\..\..\..\XFlixelContent\flixel\fx\BasicEffect.fx">
-      <Link>Content\flixel\fx\BasicEffect.fx</Link>
-    </None>
-    <None Include="..\..\..\..\XFlixelContent\flixel\fx\BloomCombine.fx">
-      <Link>Content\flixel\fx\BloomCombine.fx</Link>
-    </None>
-    <None Include="..\..\..\..\XFlixelContent\flixel\fx\BloomExtract.fx">
-      <Link>Content\flixel\fx\BloomExtract.fx</Link>
-    </None>
-    <None Include="..\..\..\..\XFlixelContent\flixel\fx\Common.fxh">
-      <Link>Content\flixel\fx\Common.fxh</Link>
-    </None>
-    <None Include="..\..\..\..\XFlixelContent\flixel\fx\DualTextureEffect.fx">
-      <Link>Content\flixel\fx\DualTextureEffect.fx</Link>
-    </None>
-    <None Include="..\..\..\..\XFlixelContent\flixel\fx\EnvironmentMapEffect.fx">
-      <Link>Content\flixel\fx\EnvironmentMapEffect.fx</Link>
-    </None>
-    <None Include="..\..\..\..\XFlixelContent\flixel\fx\GaussianBlur.fx">
-      <Link>Content\flixel\fx\GaussianBlur.fx</Link>
-    </None>
-    <None Include="..\..\..\..\XFlixelContent\flixel\fx\Lighting.fxh">
-      <Link>Content\flixel\fx\Lighting.fxh</Link>
-    </None>
-    <None Include="..\..\..\..\XFlixelContent\flixel\fx\Macros.fxh">
-      <Link>Content\flixel\fx\Macros.fxh</Link>
-    </None>
-    <None Include="..\..\..\..\XFlixelContent\flixel\fx\Mandelbrot.fx">
-      <Link>Content\flixel\fx\Mandelbrot.fx</Link>
-    </None>
-    <None Include="..\..\..\..\XFlixelContent\flixel\fx\SkinnedEffect.fx">
-      <Link>Content\flixel\fx\SkinnedEffect.fx</Link>
-    </None>
-    <None Include="..\..\..\..\XFlixelContent\flixel\fx\SpriteEffect.fx">
-      <Link>Content\flixel\fx\SpriteEffect.fx</Link>
-    </None>
-    <None Include="..\..\..\..\XFlixelContent\flixel\fx\Structures.fxh">
-      <Link>Content\flixel\fx\Structures.fxh</Link>
-    </None>
-    <None Include="..\..\..\..\XFlixelContent\flixel\initials\FourChambers_IntroTag_03.mp3">
-      <Link>Content\flixel\initials\FourChambers_IntroTag_03.mp3</Link>
-    </None>
-    <None Include="..\..\..\..\XFlixelContent\flixel\initials\Munro.spritefont">
-      <Link>Content\flixel\initials\Munro.spritefont</Link>
-    </None>
-    <None Include="..\..\..\..\XFlixelContent\flixel\initials\SMALL_PIXEL.spritefont">
-      <Link>Content\flixel\initials\SMALL_PIXEL.spritefont</Link>
-    </None>
-    <None Include="..\..\..\..\XFlixelContent\flixel\initials\SpaceMarine.spritefont">
-      <Link>Content\flixel\initials\SpaceMarine.spritefont</Link>
-    </None>
-    <None Include="..\..\..\..\XFlixelContent\flixel\initials\initials_empire_tagtone1.mp3">
-      <Link>Content\flixel\initials\initials_empire_tagtone1.mp3</Link>
-    </None>
-    <None Include="..\..\..\..\XFlixelContent\flixel\initials\initials_empire_tagtone2.mp3">
-      <Link>Content\flixel\initials\initials_empire_tagtone2.mp3</Link>
-    </None>
-    <None Include="..\..\..\..\XFlixelContent\flixel\initials\initials_empire_tagtone3.mp3">
-      <Link>Content\flixel\initials\initials_empire_tagtone3.mp3</Link>
-    </None>
-    <None Include="..\..\..\..\XFlixelContent\flixel\initials\initials_empire_tagtone4.mp3">
-      <Link>Content\flixel\initials\initials_empire_tagtone4.mp3</Link>
-    </None>
     <None Include="..\..\..\..\XFlixel\fx\BloomCombine.fx">
       <Link>XFlixel\fx\BloomCombine.fx</Link>
     </None>
@@ -648,6 +570,82 @@
     </BundleResource>
     <BundleResource Include="..\..\..\..\XFlixelContent\flixel\vcr\stop.png">
       <Link>Content\flixel\vcr\stop.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\beep.mp3">
+      <Link>Content\flixel\beep.mp3</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\flixel.mp3">
+      <Link>Content\flixel\flixel.mp3</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\fx\AlphaTestEffect.fx">
+      <Link>Content\flixel\fx\AlphaTestEffect.fx</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\fx\BasicEffect.fx">
+      <Link>Content\flixel\fx\BasicEffect.fx</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\fx\BloomCombine.fx">
+      <Link>Content\flixel\fx\BloomCombine.fx</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\fx\BloomExtract.fx">
+      <Link>Content\flixel\fx\BloomExtract.fx</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\fx\Common.fxh">
+      <Link>Content\flixel\fx\Common.fxh</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\fx\DualTextureEffect.fx">
+      <Link>Content\flixel\fx\DualTextureEffect.fx</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\fx\EnvironmentMapEffect.fx">
+      <Link>Content\flixel\fx\EnvironmentMapEffect.fx</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\fx\GaussianBlur.fx">
+      <Link>Content\flixel\fx\GaussianBlur.fx</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\fx\Lighting.fxh">
+      <Link>Content\flixel\fx\Lighting.fxh</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\fx\Macros.fxh">
+      <Link>Content\flixel\fx\Macros.fxh</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\fx\Mandelbrot.fx">
+      <Link>Content\flixel\fx\Mandelbrot.fx</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\fx\SkinnedEffect.fx">
+      <Link>Content\flixel\fx\SkinnedEffect.fx</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\fx\SpriteEffect.fx">
+      <Link>Content\flixel\fx\SpriteEffect.fx</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\fx\Structures.fxh">
+      <Link>Content\flixel\fx\Structures.fxh</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\initials\FourChambers_IntroTag_03.mp3">
+      <Link>Content\flixel\initials\FourChambers_IntroTag_03.mp3</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\initials\Munro.spritefont">
+      <Link>Content\flixel\initials\Munro.spritefont</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\initials\SMALL_PIXEL.spritefont">
+      <Link>Content\flixel\initials\SMALL_PIXEL.spritefont</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\initials\SpaceMarine.spritefont">
+      <Link>Content\flixel\initials\SpaceMarine.spritefont</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\initials\initials_empire_tagtone1.mp3">
+      <Link>Content\flixel\initials\initials_empire_tagtone1.mp3</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\initials\initials_empire_tagtone2.mp3">
+      <Link>Content\flixel\initials\initials_empire_tagtone2.mp3</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\initials\initials_empire_tagtone3.mp3">
+      <Link>Content\flixel\initials\initials_empire_tagtone3.mp3</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\initials\initials_empire_tagtone4.mp3">
+      <Link>Content\flixel\initials\initials_empire_tagtone4.mp3</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\Content\deffont.xnb">
+      <Link>Content\flixel\deffont.xnb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </BundleResource>
   </ItemGroup>
 </Project>

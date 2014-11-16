@@ -1,20 +1,27 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Shane's iPhone 5s" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../XFlixel/flixel/FlxG.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../Downloads/MonoGame-develop 2/MonoGame.Framework/Graphics/GraphicsExtensions.cs">
     <Files>
-      <File FileName="Platformer2D/Program.cs" Line="32" Column="32" />
+      <File FileName="Platformer2D/Program.cs" Line="1" Column="1" />
       <File FileName="../XFlixel/examples/AngleAndVelocityState.cs" Line="1" Column="1" />
-      <File FileName="../XFlixel/examples/AnimationCallbackState.cs" Line="14" Column="14" />
-      <File FileName="../XFlixel/flixel/FlxG.cs" Line="60" Column="60" />
+      <File FileName="../XFlixel/examples/AnimationCallbackState.cs" Line="1" Column="1" />
+      <File FileName="../XFlixel/flixel/FlxG.cs" Line="1" Column="1" />
       <File FileName="../XFlixel/flixel/FlxXMLReader.cs" Line="1" Column="1" />
-      <File FileName="../XFlixel/flixel/farseerExtensions/FarState.cs" Line="13" Column="13" />
+      <File FileName="../XFlixel/flixel/farseerExtensions/FarState.cs" Line="1" Column="1" />
       <File FileName="../XFlixel/flixel/presets/FlxMenuState.cs" Line="1" Column="1" />
       <File FileName="Platformer2D/Game.cs" Line="1" Column="1" />
       <File FileName="../XFlixelOSX/XFlixelOSX/Game1.cs" Line="1" Column="1" />
       <File FileName="../XFlixelOSX/XFlixelOSX/Main.cs" Line="1" Column="1" />
-      <File FileName="../XFlixel/flixel/FlxTilemap.cs" Line="57" Column="57" />
-      <File FileName="../XFlixel/flixel/data/FlxFactory.cs" Line="29" Column="29" />
+      <File FileName="../XFlixel/flixel/FlxTilemap.cs" Line="1" Column="1" />
+      <File FileName="../XFlixel/flixel/data/FlxFactory.cs" Line="1" Column="1" />
       <File FileName="../XFlixel/FlixelEntryPoint.cs" Line="1" Column="1" />
+      <File FileName="../XFlixel/flixel/FlxGame.cs" Line="1" Column="1" />
+      <File FileName="Platformer2D/Platforms/iOS/packages.config" Line="1" Column="1" />
+      <File FileName="Platformer2D/Platforms/iOS/Info.plist" />
+      <File FileName="../XFlixel/examples/TestState.cs" Line="1" Column="1" />
+      <File FileName="../XFlixel/examples/RaceOrDieState.cs" Line="1" Column="1" />
+      <File FileName="../XFlixel/flixel/data/FlxConsole.cs" Line="2" Column="2" />
+      <File FileName="../../../Downloads/MonoGame-develop 2/MonoGame.Framework/Graphics/GraphicsExtensions.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -53,7 +53,13 @@ namespace org.flixel
 
             FlxG.showHud();
 
+			FlxSprite logo = new FlxSprite(12, 12);
+			logo.loadGraphic("flixel/surt/race_or_die", true, false, 64, 64);
+			logo.addAnimation("Static", new int[] { 8 }, 0, true);
+			logo.play("Static");
 
+			logo.setDrags(5, 5);
+			add(logo);
 
 
         }
