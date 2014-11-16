@@ -571,12 +571,6 @@
     <BundleResource Include="..\..\..\..\XFlixelContent\flixel\vcr\stop.png">
       <Link>Content\flixel\vcr\stop.png</Link>
     </BundleResource>
-    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\beep.mp3">
-      <Link>Content\flixel\beep.mp3</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\..\..\XFlixelContent\flixel\flixel.mp3">
-      <Link>Content\flixel\flixel.mp3</Link>
-    </BundleResource>
     <BundleResource Include="..\..\..\..\XFlixelContent\flixel\fx\AlphaTestEffect.fx">
       <Link>Content\flixel\fx\AlphaTestEffect.fx</Link>
     </BundleResource>
@@ -643,9 +637,15 @@
     <BundleResource Include="..\..\..\..\XFlixelContent\flixel\initials\initials_empire_tagtone4.mp3">
       <Link>Content\flixel\initials\initials_empire_tagtone4.mp3</Link>
     </BundleResource>
-    <BundleResource Include="..\..\Content\deffont.xnb">
+    <BundleResource Include="..\..\Content\02\deffont.xnb">
       <Link>Content\flixel\deffont.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="..\..\Content\beep.xnb">
+      <Link>Content\flixel\beep.xnb</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\Content\flixel.xnb">
+      <Link>Content\flixel\flixel.xnb</Link>
     </BundleResource>
   </ItemGroup>
 </Project>
