@@ -1,6 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Shane's iPhone 5s" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../../Downloads/MonoGame-develop 2/MonoGame.Framework/Graphics/GraphicsExtensions.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../XFlixel/FlixelEntryPoint.cs">
     <Files>
       <File FileName="Platformer2D/Program.cs" Line="1" Column="1" />
       <File FileName="../XFlixel/examples/AngleAndVelocityState.cs" Line="1" Column="1" />
@@ -14,15 +14,28 @@
       <File FileName="../XFlixelOSX/XFlixelOSX/Main.cs" Line="1" Column="1" />
       <File FileName="../XFlixel/flixel/FlxTilemap.cs" Line="1" Column="1" />
       <File FileName="../XFlixel/flixel/data/FlxFactory.cs" Line="1" Column="1" />
-      <File FileName="../XFlixel/FlixelEntryPoint.cs" Line="1" Column="1" />
+      <File FileName="../XFlixel/FlixelEntryPoint.cs" Line="22" Column="22" />
       <File FileName="../XFlixel/flixel/FlxGame.cs" Line="1" Column="1" />
       <File FileName="Platformer2D/Platforms/iOS/packages.config" Line="1" Column="1" />
       <File FileName="Platformer2D/Platforms/iOS/Info.plist" />
       <File FileName="../XFlixel/examples/TestState.cs" Line="1" Column="1" />
       <File FileName="../XFlixel/examples/RaceOrDieState.cs" Line="1" Column="1" />
-      <File FileName="../XFlixel/flixel/data/FlxConsole.cs" Line="2" Column="2" />
+      <File FileName="../XFlixel/flixel/data/FlxConsole.cs" Line="1" Column="1" />
       <File FileName="../../../Downloads/MonoGame-develop 2/MonoGame.Framework/Graphics/GraphicsExtensions.cs" Line="1" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="XFlixeliOS" expanded="True">
+            <Node name="Packages" expanded="True">
+              <Node name="MonoGame.Binaries" selected="True" />
+            </Node>
+            <Node name="Content" expanded="True" />
+            <Node name="XFlixel" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

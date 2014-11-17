@@ -88,10 +88,13 @@
     <Reference Include="monotouch" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Lidgren.Network">
-      <HintPath>..\..\..\..\..\..\Downloads\MonoGame-develop 2\MonoGame.Framework\bin\iOS\iPhoneSimulator\Debug\Lidgren.Network.dll</HintPath>
+      <HintPath>..\..\..\..\..\MonoGame\MonoGame.Framework\bin\iOS\iPhone\Debug\Lidgren.Network.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoGame.Framework.Net">
+      <HintPath>..\..\..\..\..\MonoGame\MonoGame.Framework\bin\iOS\iPhone\Debug\MonoGame.Framework.Net.dll</HintPath>
     </Reference>
     <Reference Include="MonoGame.Framework">
-      <HintPath>..\..\..\..\..\..\Downloads\MonoGame-develop 2\MonoGame.Framework\bin\iOS\iPhoneSimulator\Debug\MonoGame.Framework.dll</HintPath>
+      <HintPath>..\..\..\..\..\MonoGame\MonoGame.Framework\bin\iOS\iPhone\Debug\MonoGame.Framework.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
