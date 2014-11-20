@@ -11,7 +11,7 @@ using System.Xml.Linq;
 // Important to use the XNATweener namespace.
 using XNATweener;
 
-namespace org.flixel
+namespace org.flixel.examples
 {
     public class TweenerState : BaseExampleState
     {

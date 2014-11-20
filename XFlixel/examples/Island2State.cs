@@ -17,7 +17,7 @@ using FarseerPhysics.Dynamics.Contacts;
 using FarseerPhysics;
 
 
-namespace org.flixel
+namespace org.flixel.examples
 {
     public class Island2State : BaseExampleState
     {

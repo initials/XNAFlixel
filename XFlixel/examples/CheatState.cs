@@ -8,7 +8,7 @@ using org.flixel;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace org.flixel
+namespace org.flixel.examples
 {
     /// <summary>
     /// This state will show how to use the Debug menu and the Cheat system.

@@ -8,7 +8,7 @@ using org.flixel;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace org.flixel
+namespace org.flixel.examples
 {
     public class Physics3State : FarState
     {

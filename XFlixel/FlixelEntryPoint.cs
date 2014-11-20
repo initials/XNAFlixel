@@ -44,7 +44,7 @@ namespace XNAMode
             FlxG.debug=false;
 #endif
 
-            initGame(w, h, new TestState(), new Color(15, 15, 15), true, new Color(5, 5, 5));
+            initGame(w, h, new org.flixel.examples.TestState(), new Color(15, 15, 15), true, new Color(5, 5, 5));
             
         }
     }

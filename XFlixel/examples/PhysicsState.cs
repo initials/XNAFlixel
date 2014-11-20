@@ -15,7 +15,7 @@ using FarseerPhysics.Factories;
 using FarseerPhysics.Dynamics.Contacts;
 using FarseerPhysics;
 
-namespace org.flixel
+namespace org.flixel.examples
 {
     public class PhysicsState : BaseExampleState
     {

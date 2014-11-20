@@ -8,7 +8,7 @@ using org.flixel;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace org.flixel
+namespace org.flixel.examples
 {
     public class CameraTestState : BaseExampleState
     {
@@ -36,7 +36,7 @@ namespace org.flixel
             
             add(t);
 
-            FlxSprite s = new FlxSprite(0,0, FlxG.Content.Load<Texture2D>("initials/initialsLogo"));
+            FlxSprite s = new FlxSprite(0,0, FlxG.Content.Load<Texture2D>("flixel/initials/initialsLogo"));
             add(s);
             s.velocity.X = 150;
             s.velocity.Y = 50;

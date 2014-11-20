@@ -4,27 +4,32 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using org.flixel;
+using org.flixel.examples;
 
 using System.Linq;
 using System.Xml.Linq;
 
-namespace org.flixel
+namespace org.flixel.examples
 {
     /// <summary>
     /// This is a test state.
     /// </summary>
     public class TestState : FlxState
     {
+
+        private FlxText mouseInfo;
+
         override public void create()
         {
             base.create();
 
             FlxG.mouse.show(FlxG.Content.Load<Texture2D>("flixel/cursor"));
 
-            //FlxText t = new FlxText(20, 20, 100);
-            //t.text = "Welcome To XNA Flixel\nTwitter: @initials_games\nPress Q for more options.";
-            //t.alignment = FlxJustification.Left;
-            //add(t);
+            mouseInfo = new FlxText(1, 1, 100);
+            mouseInfo.text = "Info:";
+            mouseInfo.alignment = FlxJustification.Left;
+            mouseInfo.setScrollFactors(1, 1);
+            add(mouseInfo);
 
             FlxG.resetHud();
 
@@ -66,6 +71,12 @@ namespace org.flixel
 
         override public void update()
         {
+
+            mouseInfo.text = string.Format("x: {0} y: {1}\nLeft press {2} nRight press {3}\nLeft click {4} nRight click {5}", FlxG.mouse.x, FlxG.mouse.y, FlxG.mouse.pressedLeftButton(), FlxG.mouse.pressedRightButton(), FlxG.mouse.justPressedLeftButton(), FlxG.mouse.justPressedRightButton());
+            mouseInfo.x = FlxG.mouse.x;
+            mouseInfo.y = FlxG.mouse.y;
+
+
 
 			#if OSX 
 			#endif
