@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 
+using Microsoft.Xna.Framework.Input.Touch;
+
 namespace org.flixel
 {
     /// <summary>
@@ -15,7 +17,11 @@ namespace org.flixel
 
         private MouseState _curMouse;
         private MouseState _lastMouse;
+        private TouchLocationState _lastTouch;
+        private TouchLocationState _curTouch;
+
         private EventHandler<FlxMouseEvent> _mouseEvent;
+        private bool lastTouchEvent;
 
         public void addMouseListener(EventHandler<FlxMouseEvent> MouseEvent)
         {
@@ -26,6 +32,34 @@ namespace org.flixel
             _mouseEvent -= MouseEvent;
         }
 
+        public float touchX
+        {
+#if XBOX360
+            get { return 0; }
+#else
+            get
+            {
+                //if (_curMouse.X >= FlxG._game.targetLeft)
+                //{
+                return (float)((_touchL.Position.X - FlxG._game.targetLeft) / FlxG.scale) - FlxG.scroll.X;
+                //}
+                //else
+                //{
+                //    return 0;
+                //}
+            }
+#endif
+        }
+        public float touchY
+        {
+#if XBOX360
+            get { return 0; }
+#else
+            get { return ((float)_touchL.Position.Y / FlxG.scale) - FlxG.scroll.Y; }
+#endif
+        }
+
+
         public float x
         {
 #if XBOX360
@@ -35,7 +69,7 @@ namespace org.flixel
             {
                 //if (_curMouse.X >= FlxG._game.targetLeft)
                 //{
-                    return (float)((_curMouse.X - FlxG._game.targetLeft) / FlxG.scale) - FlxG.scroll.X;
+                return (float)((_curMouse.X - FlxG._game.targetLeft) / FlxG.scale) - FlxG.scroll.X;
                 //}
                 //else
                 //{
@@ -53,23 +87,33 @@ namespace org.flixel
 #endif
         }
 
-		/// <summary>
+        /// <summary>
         /// Current "delta" value of mouse wheel.  If the wheel was just scrolled up, it will have a positive value.  If it was just scrolled down, it will have a negative value.  If it wasn't just scroll this frame, it will be 0.
-		/// </summary>
-		public int wheel;
+        /// </summary>
+        public int wheel;
 
-		/// <summary>
+        /// <summary>
         /// Current X position of the mouse pointer on the screen.
-		/// </summary>
-		public int screenX;
-		/// <summary>
+        /// </summary>
+        public int screenX;
+        /// <summary>
         /// Current Y position of the mouse pointer on the screen.
-		/// </summary>
-		public int screenY;
-		/// <summary>
+        /// </summary>
+        public int screenY;
+
+        /// <summary>
+        /// Current X position of the mouse pointer on the screen.
+        /// </summary>
+        public int touchScreenX;
+        /// <summary>
+        /// Current Y position of the mouse pointer on the screen.
+        /// </summary>
+        public int touchScreenY;
+
+        /// <summary>
         /// Graphical representation of the mouse pointer.
-		/// </summary>
-		public FlxSprite cursor;
+        /// </summary>
+        public FlxSprite cursor;
 
 
         /// <summary>
@@ -88,17 +132,21 @@ namespace org.flixel
         /// </summary>
         private Vector2 lastPosition;
 
+        private TouchCollection touchCollection;
+        private TouchLocation _touchL;
 
 
-		/// <summary>
+        /// <summary>
         /// Constructor.
-		/// </summary>
+        /// </summary>
         public FlxMouse()
         {
-			screenX = 0;
-			screenY = 0;
+            screenX = 0;
+            screenY = 0;
             cursor = new FlxSprite();
             cursor.visible = false;
+            lastTouchEvent = false;
+
         }
 
         public void show()
@@ -120,26 +168,26 @@ namespace org.flixel
         /// <param name="Graphic">The image you want to use for the cursor.</param>
         /// <param name="XOffset">The number of pixels between the mouse's screen position and the graphic's top left corner.</param>
         /// <param name="YOffset">The number of pixels between the mouse's screen position and the graphic's top left corner. </param>
-		public void show(Texture2D Graphic,int XOffset,int YOffset)
-		{
-			if(Graphic != null)
-				load(Graphic,XOffset,YOffset);
-			else if(cursor != null)
-				cursor.visible = true;
-			else
-				load(null);
-		}
-		
-		/// <summary>
+        public void show(Texture2D Graphic, int XOffset, int YOffset)
+        {
+            if (Graphic != null)
+                load(Graphic, XOffset, YOffset);
+            else if (cursor != null)
+                cursor.visible = true;
+            else
+                load(null);
+        }
+
+        /// <summary>
         /// Hides the mouse cursor
-		/// </summary>
-		public void hide()
-		{
-			if(cursor != null)
-			{
-				cursor.visible = false;
-			}
-		}
+        /// </summary>
+        public void hide()
+        {
+            if (cursor != null)
+            {
+                cursor.visible = false;
+            }
+        }
 
         /// <summary>
         /// Load a new mouse cursor graphic
@@ -156,30 +204,30 @@ namespace org.flixel
         /// <param name="XOffset">The number of pixels between the mouse's screen position and the graphic's top left corner.</param>
         /// <param name="YOffset">The number of pixels between the mouse's screen position and the graphic's top left corner. </param>
         public void load(Texture2D Graphic, int XOffset, int YOffset)
-		{
-			//if(Graphic == null)
-			//	Graphic = ImgDefaultCursor;
+        {
+            //if(Graphic == null)
+            //	Graphic = ImgDefaultCursor;
 
-			cursor = new FlxSprite(screenX,screenY,Graphic);
-			cursor.solid = false;
-			cursor.offset.X = XOffset;
-			cursor.offset.Y = YOffset;
-		}
+            cursor = new FlxSprite(screenX, screenY, Graphic);
+            cursor.solid = false;
+            cursor.offset.X = XOffset;
+            cursor.offset.Y = YOffset;
+        }
 
         /// <summary>
         /// Unload the current cursor graphic.  If the current cursor is visible,
         /// then the default system cursor is loaded up to replace the old one.
         /// </summary>
         public void unload()
-		{
-			if(cursor != null)
-			{
-				if(cursor.visible)
-					load(null);
-				else
-					cursor = null;
-			}
-		}
+        {
+            if (cursor != null)
+            {
+                if (cursor.visible)
+                    load(null);
+                else
+                    cursor = null;
+            }
+        }
 
         /// <summary>
         /// Called by the internal game loop to update the mouse pointer's position in the game world.
@@ -187,8 +235,22 @@ namespace org.flixel
         /// </summary>
         public void update()
         {
+
             _lastMouse = _curMouse;
             _curMouse = Mouse.GetState();
+
+            _lastTouch = _curTouch;
+            touchCollection = TouchPanel.GetState();
+            foreach (TouchLocation tl in touchCollection)
+            {
+                _curTouch = tl.State;
+                _touchL = tl;
+
+
+                touchScreenX = (int)tl.Position.X;
+                touchScreenY = (int)tl.Position.Y;
+            }
+
             cursor.x = x;
             cursor.y = y;
 
@@ -248,8 +310,11 @@ namespace org.flixel
         /// <returns>Returns a value whether it was just pressed or not.</returns>
         public bool pressed()
         {
+
+
             return (_curMouse.LeftButton == ButtonState.Pressed ||
-                _curMouse.RightButton == ButtonState.Pressed);
+                _curMouse.RightButton == ButtonState.Pressed || 
+                touchCollection.Count > 0 );
         }
 
         /// <summary>
@@ -259,7 +324,9 @@ namespace org.flixel
         public bool justPressed()
         {
             return ((_curMouse.LeftButton == ButtonState.Pressed && _lastMouse.LeftButton == ButtonState.Released) ||
-                (_curMouse.RightButton == ButtonState.Pressed && _lastMouse.RightButton == ButtonState.Released));
+                (_curMouse.RightButton == ButtonState.Pressed && _lastMouse.RightButton == ButtonState.Released) ||
+                (_curTouch == TouchLocationState.Pressed && _lastTouch == TouchLocationState.Released)
+            );
         }
         /// <summary>
         /// Was _either_ mouse button just released?
@@ -268,7 +335,8 @@ namespace org.flixel
         public bool justReleased()
         {
             return ((_curMouse.LeftButton == ButtonState.Released && _lastMouse.LeftButton == ButtonState.Pressed) ||
-                (_curMouse.RightButton == ButtonState.Released && _lastMouse.RightButton == ButtonState.Pressed));
+                (_curMouse.RightButton == ButtonState.Released && _lastMouse.RightButton == ButtonState.Pressed) ||
+                (_curTouch == TouchLocationState.Released && _curTouch == TouchLocationState.Pressed));
         }
 
 
@@ -297,9 +365,6 @@ namespace org.flixel
         {
             return (_curMouse.RightButton == ButtonState.Released && _lastMouse.RightButton == ButtonState.Pressed);
         }
-
-
-
         /// <summary>
         /// Is left mouse button pressed down?
         /// </summary>
@@ -323,12 +388,8 @@ namespace org.flixel
         /// <returns>Return true only when the mouse was just released.</returns>
         public bool justReleasedLeftButton()
         {
-            return (_curMouse.LeftButton == ButtonState.Released && _lastMouse.LeftButton == ButtonState.Pressed) ;
+            return (_curMouse.LeftButton == ButtonState.Released && _lastMouse.LeftButton == ButtonState.Pressed);
         }
-
-
-
-
     }
 
 }
