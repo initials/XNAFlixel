@@ -427,7 +427,10 @@ namespace org.flixel
                 FlxG.volume += 0.1f;
                 showSoundTray();
             }
-            else if (FlxG.keys.isNewKeyPress(Keys.OemTilde, null, out pi) || FlxG.keys.isNewKeyPress(Keys.D0, null, out pi) ) //
+            else if (FlxG.keys.isNewKeyPress(Keys.OemTilde, null, out pi) ||
+				FlxG.keys.isNewKeyPress(Keys.D0, null, out pi) ||
+				(FlxG.debug && FlxG.gamepads.isButtonDown(Buttons.DPadDown) )
+			) //
             {
                 //FlxG.keys.isNewKeyPress(Keys.D1, null, out pi) ||
                 if (FlxG.debug == true)
