@@ -222,6 +222,10 @@ namespace org.flixel
 
             _console.log(FlxG.LIBRARY_NAME +
                 " v" + FlxG.LIBRARY_MAJOR_VERSION.ToString() + "." + FlxG.LIBRARY_MINOR_VERSION.ToString());
+
+            // Display some information about the engine we are using.
+            Console.WriteLine("\nFlxFactory initialization\nFlixel Details LIBRARY:{0} -- v{1}.{2}", FlxG.LIBRARY_NAME, FlxG.LIBRARY_MAJOR_VERSION, FlxG.LIBRARY_MINOR_VERSION);
+
             
             /*
             Assembly assembly = Assembly.GetExecutingAssembly();

@@ -55,9 +55,7 @@ namespace org.flixel
         //nothing much to see here, typical XNA initialization code
         public FlxFactory()
         {
-            // Display some information about the engine we are using.
-            Console.WriteLine("\nFlxFactory initialization\nFlixel Details LIBRARY:{0} -- v{1}.{2}", FlxG.LIBRARY_NAME, FlxG.LIBRARY_MAJOR_VERSION, FlxG.LIBRARY_MINOR_VERSION);
-
+            
             //set up the graphics device and the content manager
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
