@@ -107,7 +107,15 @@ namespace org.flixel
 			_flixelgame = new Loader_SuperLemonadeFactory.FlixelEntryPoint2(this);
 			#endif
 
-			#if !__ANDROID__
+			#if __IOS__
+			_flixelgame = new InsideKitty.FlixelEntryPoint(this);
+			#endif
+
+			#if WINDOWS
+			_flixelgame = new XNAMode.FlixelEntryPoint(this);
+			#endif
+
+			#if OSX
 			_flixelgame = new XNAMode.FlixelEntryPoint(this);
 			#endif
 
