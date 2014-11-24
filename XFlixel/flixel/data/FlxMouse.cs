@@ -21,7 +21,7 @@ namespace org.flixel
         private TouchLocationState _curTouch;
 
         private EventHandler<FlxMouseEvent> _mouseEvent;
-        private bool lastTouchEvent;
+        //private bool lastTouchEvent;
 
         public void addMouseListener(EventHandler<FlxMouseEvent> MouseEvent)
         {
@@ -145,7 +145,7 @@ namespace org.flixel
             screenY = 0;
             cursor = new FlxSprite();
             cursor.visible = false;
-            lastTouchEvent = false;
+            //lastTouchEvent = false;
 
         }
 

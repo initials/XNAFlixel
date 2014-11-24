@@ -20,11 +20,11 @@ namespace org.flixel.examples
     public class Physics2State : BaseExampleState
     {
 
-        private FlxSprite b1;
+        //private FlxSprite b1;
         private FlxSprite b2;
         private FlxSprite g1;
 
-        private Body _body1;
+        //private Body _body1;
         private Body _body2;
 
         private World _world;

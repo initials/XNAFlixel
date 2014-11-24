@@ -25,20 +25,20 @@ namespace org.flixel.examples
 
         private const float FOLLOW_LERP = 3.0f;
         private const int BULLETS_PER_ACTOR = 100;
-        private FlxSprite spaceShip;
+        //private FlxSprite spaceShip;
 
-        private FlxTilemap tiles;
+        //private FlxTilemap tiles;
 
         private FlxGroup tileGrp;
         private FlxSprite m;
 
 
-        private FlxSprite b1;
-        private FlxSprite b2;
-        private FlxSprite g1;
+        //private FlxSprite b1;
+        //private FlxSprite b2;
+        //private FlxSprite g1;
 
-        private Body _body1;
-        private Body _body2;
+        //private Body _body1;
+        //private Body _body2;
 
         private World _world;
         private Body _ground;

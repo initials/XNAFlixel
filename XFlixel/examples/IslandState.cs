@@ -16,9 +16,9 @@ namespace org.flixel.examples
 
         private const float FOLLOW_LERP = 3.0f;
         private const int BULLETS_PER_ACTOR = 100;
-        private FlxSprite spaceShip;
+        //private FlxSprite spaceShip;
 
-        private FlxTilemap tiles;
+        //private FlxTilemap tiles;
 
         private FlxGroup tileGrp;
         private FlxSprite m;

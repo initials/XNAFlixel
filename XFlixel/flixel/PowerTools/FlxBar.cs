@@ -22,7 +22,7 @@ namespace org.flixel
         /// <summary>
         /// If parent is not set, health will set the bars value.
         /// </summary>
-        private float health;
+        //private float health;
 
         //private uint barType;
         private uint barWidth;

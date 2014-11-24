@@ -19,7 +19,7 @@ namespace org.flixel
     public class FarSprite : FlxSprite
     {
 
-        private float ratio = 30;
+        //private float ratio = 30;
 
         public Body _body;
 
