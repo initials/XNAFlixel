@@ -131,9 +131,9 @@ namespace org.flixel
 
     //#region Application entry point
 
+    // Don't run on OSX.
 	#if OSX
-	#endif
-	#if WINDOWS
+	#else
     static class Program
     {
         //application entry point

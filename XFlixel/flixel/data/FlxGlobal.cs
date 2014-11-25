@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+
 namespace org.flixel
 {
     /// <summary>
@@ -14,6 +18,19 @@ namespace org.flixel
         /// Allows playstates to see what the current cheat to run is.
         /// </summary>
         public static string cheatString;
+
+        /// <summary>
+        /// Resolution of the PS Vita.
+        /// </summary>
+        public static Vector2 RESOLUTION_PSVITA = new Vector2(960, 544);
+        
+        /// <summary>
+        /// Resolution of the OUYA
+        /// </summary>
+        public static Vector2 RESOLUTION_OUYA = new Vector2(1920, 1080);
+
+
+
 
         /// <summary>
         /// Allows the FlxConsole to run commands.

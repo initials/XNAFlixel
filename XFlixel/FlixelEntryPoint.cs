@@ -25,8 +25,11 @@ namespace XNAMode
      * 
         cd C:\Users\Shane\Documents\Visual Studio 2010\Projects\XNAMode\Mode\Mode\bin\x86
         C:\_Files\programs\7-Zip\7z a -tzip Mode.zip Release\ -r
+     * 
+     * Resolutions:
+     * PS VITA 960 × 544
     */
- 
+
     public class FlixelEntryPoint : FlxGame
     {
         public FlixelEntryPoint(Game game)
