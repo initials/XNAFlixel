@@ -108,7 +108,7 @@ namespace org.flixel
 			#endif
 
 			#if __IOS__
-			_flixelgame = new InsideKitty.FlixelEntryPoint(this);
+			_flixelgame = new XNAMode.FlixelEntryPoint(this);
 			#endif
 
 			#if WINDOWS
@@ -133,6 +133,9 @@ namespace org.flixel
 
     // Don't run on OSX.
 	#if OSX
+
+	#elif __IOS__
+
 	#else
     static class Program
     {
