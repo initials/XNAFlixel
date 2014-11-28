@@ -647,6 +647,42 @@ namespace org.flixel
             return completeSet;
         }
 
+        public static Dictionary<string, string> readXML(string baseNode, string filename)
+        {
+            Dictionary<string, string> levelAttrs = new Dictionary<string, string>();
+            XmlDocument xml = new XmlDocument();
+            XElement xelement;
+
+#if __ANDROID__
+
+			string content;
+			using (StreamReader sr = new StreamReader (Game.Activity.Assets.Open(filename)))
+			{
+				content = sr.ReadToEnd();
+			}
+			xml.LoadXml(content);
+
+			xelement = XElement.Parse(content.ToString());
+
+#endif
+#if !__ANDROID__
+            xelement = XElement.Load(filename);
+#endif
+
+            foreach (XElement xEle in xelement.Descendants(baseNode))
+            {
+                foreach (XElement xEle2 in xEle.Descendants())
+                {
+                    if (xEle2.Value.ToString() != null)
+                        levelAttrs.Add(xEle2.Name.ToString(), xEle2.Value.ToString());
+                    
+                }
+            }
+            return levelAttrs;
+        }
+
+
+
         // END
     }
 

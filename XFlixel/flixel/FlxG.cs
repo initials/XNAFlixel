@@ -210,6 +210,12 @@ namespace org.flixel
         /// Stores the players username, 
         /// </summary>
         public static string username;
+
+        /// <summary>
+        /// Use this if storing multiple languages
+        /// </summary>
+        public static string language="English";
+
 #if !WINDOWS_PHONE
 
         /// <summary>
