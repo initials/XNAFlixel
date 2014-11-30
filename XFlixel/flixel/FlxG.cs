@@ -25,6 +25,22 @@ namespace org.flixel
     public class FlxG
     {
         /// <summary>
+        /// If you build and maintain your own version of flixel,
+        /// you can give it your own name here.  Appears in the console.
+        /// </summary>
+        static public string LIBRARY_NAME = "X-flixel-initials";
+        /// <summary>
+        /// Assign a major version to your library.
+        /// Appears before the decimal in the console.
+        /// </summary>
+        static public uint LIBRARY_MAJOR_VERSION = 3;
+        /// <summary>
+        /// Assign a minor version to your library.
+        /// Appears after the decimal in the console.
+        /// </summary>
+        static public uint LIBRARY_MINOR_VERSION = 40;
+
+        /// <summary>
         /// FlxG.bloom is a bloom effect across everything!
         /// </summary>
         public static BloomComponent bloom;
@@ -55,22 +71,7 @@ namespace org.flixel
         /// </summary>
         private static SpriteBatch _spriteBatch;
 
-        /// <summary>
-        /// If you build and maintain your own version of flixel,
-        /// you can give it your own name here.  Appears in the console.
-        /// </summary>
-		static public string LIBRARY_NAME = "X-flixel-initials";
-        /// <summary>
-        /// Assign a major version to your library.
-        /// Appears before the decimal in the console.
-        /// </summary>
-		static public uint LIBRARY_MAJOR_VERSION = 3;
 
-        /// <summary>
-        /// Assign a minor version to your library.
-        /// Appears after the decimal in the console.
-        /// </summary>
-		static public uint LIBRARY_MINOR_VERSION = 31;
 
         /// <summary>
         /// Internal tracker for game object (so we can pause and unpause)
