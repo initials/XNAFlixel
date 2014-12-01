@@ -273,7 +273,7 @@ namespace org.flixel
             p4OriginalPosition = new Vector2(targetLeft, FlxG.spriteBatch.GraphicsDevice.Viewport.Height - 20);
 
 
-            //FlxG.Content.Load<SpriteFont>("initials/SpaceMarine")
+            //FlxG.Content.Load<SpriteFont>("flixel/initials/SpaceMarine")
 
             if (FlxG.hudFont == null)
             {

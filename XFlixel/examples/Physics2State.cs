@@ -44,7 +44,7 @@ namespace org.flixel.examples
             {
                 Vector2 v = new Vector2((int)FlxU.random(0, 400), (int)FlxU.random(0, 200));
                 FarSprite f = new FarSprite((int)v.X, (int)v.Y, _world);
-                f.loadGraphic("initials/crate_80x60", true, false, (int)FlxU.random(10, 20), (int)FlxU.random(10, 20));
+                f.loadGraphic("flixel/initials/crate_80x60", true, false, (int)FlxU.random(10, 20), (int)FlxU.random(10, 20));
                 f._body.Mass = 500f;
                 //f._body.AngularVelocity = FlxU.random(-20,20);
                 add(f);
@@ -54,7 +54,7 @@ namespace org.flixel.examples
             {
                 Vector2 v = new Vector2((int)FlxU.random(0, 400), (int)FlxU.random(0, 200));
                 FarTileblock f = new FarTileblock((int)v.X, (int)v.Y, (int)FlxU.random(10, 40), (int)FlxU.random(10, 40), _world);
-                f.loadTiles("initials/crate_80x60",5,5,0);
+                f.loadTiles("flixel/initials/crate_80x60", 5, 5, 0);
                 //f.loadGraphic("initials/crate_80x60", true, false, (int)FlxU.random(10, 20), (int)FlxU.random(10, 20));
                 f._body.Mass = 500f;
                 f._body.AngularVelocity = FlxU.random(-20,20);

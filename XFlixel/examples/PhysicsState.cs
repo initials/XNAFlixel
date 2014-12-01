@@ -39,11 +39,11 @@ namespace org.flixel.examples
             FlxG.resetHud();
 
             b1 = new FlxSprite(20, 20);
-            b1.loadGraphic("initials/crate_80x60", true, false, 80, 60);
+            b1.loadGraphic("flixel/initials/crate_80x60", true, false, 80, 60);
             add(b1);
 
             b2 = new FlxSprite(20, 20);
-            b2.loadGraphic("initials/crate_80x60", true, false, 80, 60);
+            b2.loadGraphic("flixel/initials/crate_80x60", true, false, 80, 60);
             add(b2);
 
 
