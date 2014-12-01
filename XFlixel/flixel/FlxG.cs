@@ -28,7 +28,7 @@ namespace org.flixel
         /// If you build and maintain your own version of flixel,
         /// you can give it your own name here.  Appears in the console.
         /// </summary>
-        static public string LIBRARY_NAME = "X-flixel-initials";
+        static public string LIBRARY_NAME = "x-flixel-initials";
         /// <summary>
         /// Assign a major version to your library.
         /// Appears before the decimal in the console.
