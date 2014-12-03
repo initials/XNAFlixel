@@ -125,7 +125,7 @@ namespace org.flixel
 
             return (float)(_rand.NextDouble() * (max - min) + min);
         }
-        static public float randomInt(double min, double max)
+        static public int randomInt(double min, double max)
         {
             if (_rand == null)
             {
@@ -134,7 +134,7 @@ namespace org.flixel
                 _rand = new Random(seed);
             }
 
-            return (int)(_rand.NextDouble() * (max - min) + min);
+            return ((int)(_rand.NextDouble() * (max - min) + min));
         }
 
         /// <summary>

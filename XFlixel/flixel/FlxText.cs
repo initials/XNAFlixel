@@ -156,6 +156,11 @@ namespace org.flixel
             recalcMeasurements();
         }
 
+        public FlxText setFormat(string Font, float Scale, Color Color, Color ShadowColor, FlxJustification Alignment)
+        {
+            return setFormat(FlxG.Content.Load<SpriteFont>(Font), Scale, Color, Alignment, ShadowColor);
+        }
+
         /// <summary>
         /// You can use this if you have a lot of text parameters
         /// to set instead of the individual properties.
