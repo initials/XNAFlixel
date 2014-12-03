@@ -432,9 +432,7 @@ namespace org.flixel
                 showSoundTray();
             }
             else if (FlxG.keys.isNewKeyPress(Keys.OemTilde, null, out pi) ||
-				FlxG.keys.isNewKeyPress(Keys.D0, null, out pi) ||
-				(FlxG.debug && FlxG.gamepads.isButtonDown(Buttons.DPadDown) )
-			) //
+				FlxG.keys.isNewKeyPress(Keys.D0, null, out pi) )
             {
                 //FlxG.keys.isNewKeyPress(Keys.D1, null, out pi) ||
                 if (FlxG.debug == true)
@@ -444,6 +442,15 @@ namespace org.flixel
                     _console.toggle();
                 }
                 
+            }
+            else if (FlxG.debug && FlxG.gamepads.isButtonDown(Buttons.DPadDown))
+            {
+#if ANDROID
+                if (FlxG.debug == true)
+                {
+                    _console.toggle();
+                }
+#endif
             }
             else if (FlxG.autoHandlePause && (FlxG.keys.isPauseGame(FlxG.controllingPlayer) || FlxG.gamepads.isPauseGame(FlxG.controllingPlayer)))
             {
