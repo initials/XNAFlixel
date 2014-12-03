@@ -36,26 +36,33 @@ namespace org.flixel
 		{
 			#if XBOX360
 			get { return 0; }
-			#else
+			#elif __iOS__
 			get
 			{
 				//if (_curMouse.X >= FlxG._game.targetLeft)
 				//{
-				return (float)(((_touchL.Position.X - FlxG._game.targetLeft) / FlxG.scale) * InsideKitty.Globals.iPad) - FlxG.scroll.X;
+				return (float)(((_touchL.Position.X - FlxG._game.targetLeft) / FlxG.scale) * FlxG.iPad) - FlxG.scroll.X;
 				//}
 				//else
 				//{
 				//    return 0;
 				//}
 			}
+            #else
+            get
+            {
+                return (float)((_curMouse.X - FlxG._game.targetLeft) / FlxG.scale) - FlxG.scroll.X;
+            }
 			#endif
 		}
 		public float y
 		{
 			#if XBOX360
 			get { return 0; }
-			#else
-			get { return (((float)_touchL.Position.Y / FlxG.scale) * InsideKitty.Globals.iPad) - FlxG.scroll.Y; }
+            #elif __IOS__
+            get { return (((float)_touchL.Position.Y / FlxG.scale) * FlxG.iPad) - FlxG.scroll.Y; }
+            #else
+            get { return ((float)_curMouse.Y / FlxG.scale) - FlxG.scroll.Y; }
 			#endif
 		}
 
@@ -201,6 +208,7 @@ namespace org.flixel
 			_lastMouse = _curMouse;
 			_curMouse = Mouse.GetState(); 
 
+#if __iOS__
 			_lastTouch = _curTouch;
 			touchCollection = TouchPanel.GetState();
 			foreach (TouchLocation tl in touchCollection)  
@@ -212,13 +220,13 @@ namespace org.flixel
 				screenX = (int)tl.Position.X;
 				screenY = (int)tl.Position.Y;
 			} 
-
+#else
 			cursor.x = x;
 			cursor.y = y;
 
-			//            screenX = _curMouse.X;
-			//            screenY = _curMouse.Y;
-
+			screenX = _curMouse.X;
+			screenY = _curMouse.Y;
+#endif
 
 			if (_mouseEvent != null)
 			{

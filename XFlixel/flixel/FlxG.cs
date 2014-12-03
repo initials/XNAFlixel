@@ -243,6 +243,11 @@ namespace org.flixel
             get { return _scale; }
         }
 
+        /// <summary>
+        /// Global holder for iPad scaling
+        /// </summary>
+        static public int iPad = 1;
+ 
 		/// <summary>
         /// A reference to a <code>FlxMouse</code> object.  Important for input!
 		/// </summary>
