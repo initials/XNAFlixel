@@ -108,7 +108,7 @@ namespace org.flixel
 			#endif
 
 			#if __IOS__
-			_flixelgame = new XNAMode.FlixelEntryPoint(this);
+			_flixelgame = new InsideKitty.FlixelEntryPoint(this);
 			#endif
 
 			#if WINDOWS
