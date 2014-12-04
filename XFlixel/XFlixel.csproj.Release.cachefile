@@ -22,12 +22,12 @@ Content\flixel\vcr\restart.xnb
 Content\flixel\vcr\step.xnb
 Content\flixel\vcr\stop.xnb
 Content\flixel\vcr\cheat_on.xnb
-Content\flixel\autotiles_16x16.xnb
-Content\flixel\autotiles_alt_16x16.xnb
-Content\flixel\vcr\cheat_off.xnb
 Content\flixel\beep.xnb
 Content\flixel\flixel.xnb
 Content\flixel\deffont.xnb
+Content\flixel\autotiles_16x16.xnb
+Content\flixel\autotiles_alt_16x16.xnb
+Content\flixel\vcr\cheat_off.xnb
 Content\flixel\autotilesIsland_16x16.xnb
 Content\flixel\autotilesIsland.xnb
 Content\flixel\transitionBlack_40x40.xnb
@@ -54,6 +54,7 @@ Content\flixel\buttons\MapOuyaGameboy.xnb
 Content\flixel\buttons\MapWhiteGameboy.xnb
 Content\flixel\initials\boats.xnb
 Content\flixel\initials\healthBar.xnb
+Content\flixel\buttons\gameIcons.xnb
 Content\flixel\initials\initials_empire_tagtone1.xnb
 Content\flixel\initials\initials_empire_tagtone2.xnb
 Content\flixel\initials\initials_empire_tagtone3.xnb
@@ -65,6 +66,5 @@ Content\flixel\initials\SMALL_PIXEL.xnb
 Content\flixel\fx\BloomCombine.xnb
 Content\flixel\fx\BloomExtract.xnb
 Content\flixel\fx\GaussianBlur.xnb
-Content\flixel\buttons\gameIcons.xnb
 OgmoEditor2\OgmoEditor2Project.oep
 OgmoEditor2\SportsGround.oel
