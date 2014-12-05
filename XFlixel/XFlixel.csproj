@@ -160,6 +160,7 @@
     <Compile Include="examples\BaseExampleState.cs" />
     <Compile Include="examples\FlxBarState.cs" />
     <Compile Include="examples\FlxPathState.cs" />
+    <Compile Include="examples\ScrollingTest.cs" />
     <Compile Include="examples\Island2State.cs" />
     <Compile Include="examples\IslandState.cs" />
     <Compile Include="examples\Physics2State.cs" />
@@ -174,6 +175,7 @@
     <Compile Include="flixel\farseerExtensions\FarState.cs" />
     <Compile Include="flixel\farseerExtensions\FarTileblock.cs" />
     <Compile Include="flixel\FlxCamera.cs" />
+    <Compile Include="flixel\presets\FlxScrollingSprite.cs" />
     <Compile Include="XNATweener\BaseTweener.cs" />
     <Compile Include="XNATweener\Vector2Tweener.cs" />
     <Compile Include="XNATweener\Vector3Tweener.cs" />

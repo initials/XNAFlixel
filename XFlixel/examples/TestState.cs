@@ -49,6 +49,7 @@ namespace org.flixel.examples
             textInfo += "F4. Island 2 \n";
             textInfo += "F5. Physics Hockey \n";
             textInfo += "F6. FlxBar \n";
+            textInfo += "F7. Scrolling Test \n";
 
             textInfo += "Q. Garbage Tests \n";
             FlxG.setHudText(1, textInfo);
@@ -146,6 +147,10 @@ namespace org.flixel.examples
             if (FlxG.keys.F6)
             {
                 FlxG.state = new FlxBarState();
+            }
+            if (FlxG.keys.F7)
+            {
+                FlxG.state = new ScrollingTest();
             }
 			#endif
 

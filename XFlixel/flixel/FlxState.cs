@@ -123,7 +123,12 @@ namespace org.flixel
             // Render everything that should display on the screen.
 
             //spriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Immediate, SaveStateMode.None);
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.NonPremultiplied, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise);
+
+            // Changed this to:
+            // SamplerState.LinearWrap
+            // to allow for scrolling sprites.
+
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.NonPremultiplied, SamplerState.LinearWrap, DepthStencilState.None, RasterizerState.CullCounterClockwise);
             //spriteBatch.GraphicsDevice.SamplerStates[0].Filter = TextureFilter.Point;
             defaultGroup.render(spriteBatch);
             spriteBatch.End();
