@@ -36,7 +36,7 @@ namespace org.flixel
 		{
 			#if XBOX360
 			get { return 0; }
-			#elif __iOS__
+			#elif __IOS__
 			get
 			{
 				//if (_curMouse.X >= FlxG._game.targetLeft)
@@ -208,7 +208,7 @@ namespace org.flixel
 			_lastMouse = _curMouse;
 			_curMouse = Mouse.GetState(); 
 
-#if __iOS__
+#if __IOS__
 			_lastTouch = _curTouch;
 			touchCollection = TouchPanel.GetState();
 			foreach (TouchLocation tl in touchCollection)  
