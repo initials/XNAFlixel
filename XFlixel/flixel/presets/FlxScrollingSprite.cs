@@ -13,12 +13,15 @@ namespace org.flixel
     public class FlxScrollingSprite : FlxSprite
     {
         public Vector2 scrollSpeed;
+        public Vector2 scrollMultiplier;
         private Vector2 scrollProgress;
+
+        public bool allowScrolling = true;
 
         public FlxScrollingSprite(int xPos, int yPos)
             : base(xPos, yPos)
         {
-
+            scrollMultiplier = new Vector2(1,1);
         }
 
         override public void update()
@@ -32,11 +35,17 @@ namespace org.flixel
             //if (FlxG.keys.DOWN)
             //    _flashRect.Y--;
 
-            scrollProgress += scrollSpeed;
+            //Console.WriteLine(is );
 
-            _flashRect.X = (int)scrollProgress.X;
-            _flashRect.Y = (int)scrollProgress.Y;
 
+            if (allowScrolling)
+            {
+
+                scrollProgress += scrollSpeed * scrollMultiplier;
+
+                _flashRect.X = (int)scrollProgress.X;
+                _flashRect.Y = (int)scrollProgress.Y;
+            }
 
 
             base.update();

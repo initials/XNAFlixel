@@ -38,6 +38,8 @@ namespace org.flixel
 		/// </summary>
         public FlxGroup defaultGroup;
 
+        public FlxGroup scrollingSpritesGroup;
+
         /// <summary>
         /// Keeps track of how much time is elapsed in this state only.
         /// </summary>
@@ -50,6 +52,8 @@ namespace org.flixel
         public FlxState()
         {
             defaultGroup = new FlxGroup();
+            scrollingSpritesGroup = new FlxGroup();
+
         }
 
         /// <summary>
@@ -78,6 +82,11 @@ namespace org.flixel
 			return defaultGroup.add(Core);
 		}
 
+        virtual public FlxObject addToScrollingGroup(FlxObject Core)
+        {
+            return scrollingSpritesGroup.add(Core);
+        }
+
         /// <summary>
         /// Override this function to do special pre-processing FX like motion blur.
         /// You can use scaling or blending modes or whatever you want against
@@ -100,6 +109,8 @@ namespace org.flixel
         {
             // Update all time-related stuff.
             defaultGroup.update();
+            scrollingSpritesGroup.update();
+
 
             elapsedInState += FlxG.elapsed;
         }
@@ -124,14 +135,31 @@ namespace org.flixel
 
             //spriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Immediate, SaveStateMode.None);
 
-            // Changed this to:
+            // Changed this 
+            // SamplerState.PointClamp
+            //to: 
             // SamplerState.LinearWrap
             // to allow for scrolling sprites.
 
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.NonPremultiplied, SamplerState.LinearWrap, DepthStencilState.None, RasterizerState.CullCounterClockwise);
+            //Console.WriteLine("Type: {0}", this.GetType());
+
+
+            //if (this is FlxScrollingSprite)
+            //spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.NonPremultiplied, SamplerState.LinearWrap, DepthStencilState.None, RasterizerState.CullCounterClockwise);
+            //else
+            //    spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.NonPremultiplied, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise);
             //spriteBatch.GraphicsDevice.SamplerStates[0].Filter = TextureFilter.Point;
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.LinearWrap, DepthStencilState.None, RasterizerState.CullCounterClockwise);
+
+            scrollingSpritesGroup.render(spriteBatch);
+            spriteBatch.End();
+
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise);
+
             defaultGroup.render(spriteBatch);
             spriteBatch.End();
+
+
 
         }
 
