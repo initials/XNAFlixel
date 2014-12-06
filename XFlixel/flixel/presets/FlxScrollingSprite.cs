@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace org.flixel
 {
-    class FlxScrollingSprite : FlxSprite
+    public class FlxScrollingSprite : FlxSprite
     {
         public Vector2 scrollSpeed;
         private Vector2 scrollProgress;
