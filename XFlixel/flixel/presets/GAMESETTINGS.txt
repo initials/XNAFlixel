@@ -1,0 +1,25 @@
+﻿x=960
+y=640
+fullscreen=0
+zoom=1
+language=English
+
+
+--
+// A valid settings look like this:
+
+x=960
+y=640
+fullscreen=0
+zoom=1
+language=English
+
+
+// You can force the screen to look at your preferred screen size divided by a number like this:
+
+x=x/4
+y=y/4
+fullscreen=0
+zoom=1
+language=English
+
