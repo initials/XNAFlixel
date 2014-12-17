@@ -897,28 +897,31 @@ namespace org.flixel
             if (path != null)
             {
                 //int count = 0;
-                foreach (var item in path.nodes)
+
+                
+                // Draw a square for each node in a path
+                //foreach (var item in path.nodes)
+                //{
+                //    spriteBatch.Draw(FlxG.XnaSheet,
+                //        new Rectangle((int)item.X - 2 + (int)(FlxU.floor(FlxG.scroll.X * scrollFactor.X)),
+                //            (int)item.Y - 2 + (int)(FlxU.floor(FlxG.scroll.Y * scrollFactor.Y)), 
+                //            4, 
+                //            4),
+                //        new Rectangle(1, 1, 1, 1), 
+                //        Color.DarkOrange);
+                //}
+
+                // Draw a line for each node
+
+                for (int i = 0; i < path.nodes.Count-1; i++)
                 {
-                    spriteBatch.Draw(FlxG.XnaSheet,
-                        new Rectangle((int)item.X - 2 + (int)(FlxU.floor(FlxG.scroll.X * scrollFactor.X)),
-                            (int)item.Y - 2 + (int)(FlxU.floor(FlxG.scroll.Y * scrollFactor.Y)), 
-                            4, 
-                            4),
-                        new Rectangle(1, 1, 1, 1), 
-                        Color.DarkOrange);
-
-                    //if (count < path.nodes.Count - 1)
-                    //{
-                    //    float xangle = (float)Math.Atan2(path.nodes[count + 1].Y - path.nodes[count].Y, path.nodes[count + 1].X - path.nodes[count].X);
-                    //    float length = Vector2.Distance(path.nodes[count], path.nodes[count + 1]);
-
-                    //    spriteBatch.Draw(FlxG.XnaSheet, path.nodes[count], null, color,
-                    //               xangle, Vector2.Zero, new Vector2(length, 1.0f),
-                    //               SpriteEffects.None, 0);
-                    //}
-
-                    //count++;
+                    spriteBatch.DrawLine(new Vector2((int)path.nodes[i].X - 2 + (int)(FlxU.floor(FlxG.scroll.X * scrollFactor.X)),
+                        (int)path.nodes[i].Y - 2 + (int)(FlxU.floor(FlxG.scroll.Y * scrollFactor.Y))),
+                        new Vector2((int)path.nodes[i+1].X - 2 + (int)(FlxU.floor(FlxG.scroll.X * scrollFactor.X)),
+                        (int)path.nodes[i+1].Y - 2 + (int)(FlxU.floor(FlxG.scroll.Y * scrollFactor.Y))),
+                        Color.DarkOrange, 1.0f);
                 }
+
             }
         }
 

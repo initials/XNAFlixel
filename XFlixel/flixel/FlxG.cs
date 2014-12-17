@@ -38,7 +38,7 @@ namespace org.flixel
         /// Assign a minor version to your library.
         /// Appears after the decimal in the console.
         /// </summary>
-        static public uint LIBRARY_MINOR_VERSION = 40;
+        static public uint LIBRARY_MINOR_VERSION = 50;
 
         /// <summary>
         /// FlxG.bloom is a bloom effect across everything!

@@ -66,5 +66,7 @@ Content\flixel\fx\BloomCombine.xnb
 Content\flixel\fx\BloomExtract.xnb
 Content\flixel\fx\GaussianBlur.xnb
 Content\flixel\buttons\gameIcons.xnb
+Content\flixel\diagnostic\checkerboard.xnb
+Content\flixel\pixel.xnb
 OgmoEditor2\OgmoEditor2Project.oep
 OgmoEditor2\SportsGround.oel
