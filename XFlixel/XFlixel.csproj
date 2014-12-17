@@ -228,6 +228,8 @@
     <Compile Include="flixel\farseerExtensions\FarState.cs" />
     <Compile Include="flixel\farseerExtensions\FarTileblock.cs" />
     <Compile Include="flixel\FlxCamera.cs" />
+    <Compile Include="flixel\Extensions.cs" />
+    <Compile Include="flixel\FlxLine.cs" />
     <Compile Include="flixel\presets\FlxScrollingSprite.cs" />
     <Compile Include="XNATweener\BaseTweener.cs" />
     <Compile Include="XNATweener\Vector2Tweener.cs" />

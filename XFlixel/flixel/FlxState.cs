@@ -155,8 +155,9 @@ namespace org.flixel
             spriteBatch.End();
 
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise);
-
+            
             defaultGroup.render(spriteBatch);
+            //spriteBatch.DrawLine(new Vector2(-200, -200), new Vector2(22, 22), Color.Violet, 2.0f);
             spriteBatch.End();
 
 
