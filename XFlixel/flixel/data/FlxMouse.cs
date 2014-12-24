@@ -48,7 +48,19 @@ namespace org.flixel
 				//    return 0;
 				//}
 			}
-            #else
+			#elif __ANDROID__
+			get
+			{
+			//if (_curMouse.X >= FlxG._game.targetLeft)
+			//{
+			return (float)(((_touchL.Position.X - FlxG._game.targetLeft) / FlxG.scale) * FlxG.iPad) - FlxG.scroll.X;
+			//}
+			//else
+			//{
+			//    return 0;
+			//}
+			}
+			#else
             get
             {
                 return (float)((_curMouse.X - FlxG._game.targetLeft) / FlxG.scale) - FlxG.scroll.X;
@@ -61,6 +73,8 @@ namespace org.flixel
 			get { return 0; }
             #elif __IOS__
             get { return (((float)_touchL.Position.Y / FlxG.scale) * FlxG.iPad) - FlxG.scroll.Y; }
+			#elif __ANDROID__
+			get { return (((float)_touchL.Position.Y / FlxG.scale) * FlxG.iPad) - FlxG.scroll.Y; }
             #else
             get { return ((float)_curMouse.Y / FlxG.scale) - FlxG.scroll.Y; }
 			#endif
@@ -219,6 +233,19 @@ namespace org.flixel
 
 				screenX = (int)tl.Position.X;
 				screenY = (int)tl.Position.Y;
+			} 
+
+#elif __ANDROID__
+			_lastTouch = _curTouch;
+			touchCollection = TouchPanel.GetState();
+			foreach (TouchLocation tl in touchCollection)  
+			{  
+			_curTouch = tl.State;
+			_touchL = tl;
+
+
+			screenX = (int)tl.Position.X;
+			screenY = (int)tl.Position.Y;
 			} 
 #else
 			cursor.x = x;

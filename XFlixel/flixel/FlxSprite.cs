@@ -915,11 +915,14 @@ namespace org.flixel
 
                 for (int i = 0; i < path.nodes.Count-1; i++)
                 {
+					#if !__ANDROID__
                     spriteBatch.DrawLine(new Vector2((int)path.nodes[i].X - 2 + (int)(FlxU.floor(FlxG.scroll.X * scrollFactor.X)),
                         (int)path.nodes[i].Y - 2 + (int)(FlxU.floor(FlxG.scroll.Y * scrollFactor.Y))),
                         new Vector2((int)path.nodes[i+1].X - 2 + (int)(FlxU.floor(FlxG.scroll.X * scrollFactor.X)),
                         (int)path.nodes[i+1].Y - 2 + (int)(FlxU.floor(FlxG.scroll.Y * scrollFactor.Y))),
                         Color.DarkOrange, 1.0f);
+					#endif
+
                 }
 
             }
