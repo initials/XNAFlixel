@@ -28,6 +28,14 @@ namespace org.flixel
         /// initGame() in your FlxGame class.
         /// </summary>
         private int resX = 1280;
+        
+#if __ANDROID__
+
+        resX = 1024;
+
+#endif
+
+
         /// <summary>
         /// DO NOT CHANGE THESE VALUES!!
         /// your game should only be concerned with the
@@ -60,20 +68,7 @@ namespace org.flixel
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
-            if (_fullScreen)
-            {
-                resX = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-                resY = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
-//                if (GraphicsAdapter.DefaultAdapter.IsWideScreen)
-//                {
-//                    //if user has it set to widescreen, let's make sure this
-//                    //is ACTUALLY a widescreen resolution.
-//                    if (((resX / 16) * 9) != resY)
-//                    {
-//                        resX = (resY / 9) * 16;
-//                    }
-//                }
-            }
+
 
             //we don't need no new-fangled pixel processing
             //in our retro engine!
@@ -89,6 +84,16 @@ namespace org.flixel
                 _graphics.ToggleFullScreen();
             }
             _graphics.ApplyChanges();
+			FlxG.resolutionWidth = 1024;
+			FlxG.resolutionHeight = 720;
+			FlxG.fullscreen = false;
+			FlxG.zoom = 4;
+			Console.WriteLine("!!!! ---- Running Game at Settings: {0}x{1} Fullscreen?:{2} \n Preferrred {3} {4}\nZoom:{5}\n\n", 
+				FlxG.resolutionWidth, 
+				FlxG.resolutionHeight, FlxG.fullscreen, 
+				GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, 
+				GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height, 
+				FlxG.zoom);
 
             FlxG.Game = this;
 #if !WINDOWS_PHONE

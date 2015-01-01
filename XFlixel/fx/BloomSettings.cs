@@ -79,6 +79,7 @@ namespace BloomPostprocess
             new BloomSettings("Subtle",      0.5f,   2,   1,     1,    1,       1),
             new BloomSettings("Custom",      0.25f,  4,   8,     1,    1,       0.75f),
             new BloomSettings("Custom2",     0.1f,      0.15f,   0.5f,     0.1f, 0.5f,       0.5f),
+            new BloomSettings("Custom2",     0,  1.5f,   1.1f,     1.1f, 1.1f,      1.1f),
         };
     }
 }
