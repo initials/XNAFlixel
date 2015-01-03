@@ -59,7 +59,10 @@ namespace org.flixel
             else if (Cheat.StartsWith("nobugs")) FlxG.debug = false;
             else if (Cheat == "bounds") FlxG.showBounds = true;
             else if (Cheat == "nobounds") FlxG.showBounds = false;
-            
+            else if (Cheat.StartsWith("level"))
+            {
+                FlxG.level = Convert.ToInt32(Cheat[Cheat.Length - 1].ToString());
+            }
             cheatString = Cheat;
 
         }
