@@ -61,7 +61,7 @@ namespace org.flixel
             else if (Cheat == "nobounds") FlxG.showBounds = false;
             else if (Cheat.StartsWith("level"))
             {
-                FlxG.level = Convert.ToInt32(Cheat[Cheat.Length - 1].ToString());
+                FlxG.level = Convert.ToInt32(Cheat.Substring(5).ToString());
             }
             cheatString = Cheat;
 
