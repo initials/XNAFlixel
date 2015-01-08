@@ -928,7 +928,7 @@ namespace org.flixel
             }
         }
 
-        public void loadAnimationsFromGraphicsGaleCSV(string file)
+        public void addAnimationsFromGraphicsGaleCSV(string file)
         {
             loadAnimationsFromGraphicsGaleCSV(file, null, null, true);
         }
@@ -940,7 +940,7 @@ namespace org.flixel
         /// <param name="Looped">A List of animations that should loop</param>
         /// <param name="NotLooped">A List of animations that will not loop</param>
         /// <param name="DefaultLoopingValue">A default looping.</param>
-        public void loadAnimationsFromGraphicsGaleCSV(string file, List<string> Looped, List<string> NotLooped, bool DefaultLoopingValue)
+        public void addAnimationsFromGraphicsGaleCSV(string file, List<string> Looped, List<string> NotLooped, bool DefaultLoopingValue)
         {
             string anims = FlxU.loadFromDevice(file);
             string[] split = anims.Split('\n');
