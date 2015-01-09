@@ -377,11 +377,13 @@ namespace org.flixel
 				if((o != null) && o.exists && o.active)
 					o.update();
 
-                if (!o.onScreen())
-                {
-                    o.y = FlxG.height;
-                    o.velocity.Y = 0;
-                }
+                //if (!o.onScreen())
+                //{
+                //    //o.y = FlxG.height;
+                //    //o.velocity.Y = 0;
+                //    o.reset(o.originalPosition.X, o.originalPosition.Y);
+
+                //}
 			}
 		}
 
