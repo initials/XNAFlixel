@@ -376,6 +376,12 @@ namespace org.flixel
 				o = members[i++] as FlxObject;
 				if((o != null) && o.exists && o.active)
 					o.update();
+
+                if (!o.onScreen())
+                {
+                    o.y = FlxG.height;
+                    o.velocity.Y = 0;
+                }
 			}
 		}
 
