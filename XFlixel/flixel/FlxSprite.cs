@@ -930,7 +930,7 @@ namespace org.flixel
 
         public void addAnimationsFromGraphicsGaleCSV(string file)
         {
-            loadAnimationsFromGraphicsGaleCSV(file, null, null, true);
+            addAnimationsFromGraphicsGaleCSV(file, null, null, true);
         }
 
         /// <summary>
