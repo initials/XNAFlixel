@@ -30,9 +30,9 @@ uniform sampler2D compFrameSampler = sampler_state
 	MinFilter = Linear;
 	MagFilter = Linear;
 	MipFilter = Linear;
-	AddressU = BORDER;
-	AddressV = BORDER;
-	BorderColor = 0xff000000;
+	//AddressU = BORDER;
+	//AddressV = BORDER;
+	//BorderColor = 0xff000000;
 };
 
 uniform sampler2D scanlinesSampler = sampler_state
@@ -41,8 +41,8 @@ uniform sampler2D scanlinesSampler = sampler_state
 	MinFilter = Linear;
 	MagFilter = Linear;
 	MipFilter = Linear;
-	AddressU = WRAP;
-	AddressV = WRAP;
+	//AddressU = WRAP;
+	//AddressV = WRAP;
 };
 
 // Note: This "scope" markup is used by my engine and can be ignored.
@@ -158,7 +158,7 @@ technique Screen
 	pass Pass1
 	{
 		AlphaBlendEnable = false;
-		AlphaTestEnable = false;
+		//AlphaTestEnable = false;
 		FillMode = solid;
 		CullMode = cw;
 		ZFunc = Less;

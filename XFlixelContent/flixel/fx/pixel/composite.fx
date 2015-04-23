@@ -23,8 +23,8 @@ uniform sampler2D curFrameSampler = sampler_state
 	MinFilter = Point;
 	MagFilter = Point;
 	MipFilter = None;
-	AddressU = CLAMP;
-	AddressV = CLAMP;
+	//AddressU = CLAMP;
+	//AddressV = CLAMP;
 };
 
 uniform sampler2D prevFrameSampler = sampler_state
@@ -33,8 +33,8 @@ uniform sampler2D prevFrameSampler = sampler_state
 	MinFilter = Point;
 	MagFilter = Point;
 	MipFilter = None;
-	AddressU = CLAMP;
-	AddressV = CLAMP;
+	//AddressU = CLAMP;
+	//AddressV = CLAMP;
 };
 
 uniform sampler2D NTSCArtifactSampler = sampler_state
@@ -43,8 +43,8 @@ uniform sampler2D NTSCArtifactSampler = sampler_state
 	MinFilter = Point;
 	MagFilter = Point;
 	MipFilter = None;
-	AddressU = WRAP;
-	AddressV = WRAP;
+	//AddressU = WRAP;
+	//AddressV = WRAP;
 };
 
 // Weight for applying an unsharp mask at a distance of 1, 2, or 3 pixels from changes in luma.
@@ -144,7 +144,7 @@ technique Composite
 	pass Pass1
 	{
 		AlphaBlendEnable = false;
-		AlphaTestEnable = false;
+		//AlphaTestEnable = false;
 		FillMode = solid;
 		CullMode = cw;
 		ZFunc = Always;

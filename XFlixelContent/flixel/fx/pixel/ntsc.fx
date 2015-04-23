@@ -15,8 +15,8 @@ uniform sampler2D cleanFrameSampler = sampler_state
 	MinFilter = Point;
 	MagFilter = Point;
 	MipFilter = None;
-	AddressU = CLAMP;
-	AddressV = CLAMP;
+	//AddressU = CLAMP;
+	//AddressV = CLAMP;
 };
 
 uniform sampler2D lutSampler = sampler_state
@@ -25,8 +25,8 @@ uniform sampler2D lutSampler = sampler_state
 	MinFilter = Point;
 	MagFilter = Point;
 	MipFilter = None;
-	AddressU = CLAMP;
-	AddressV = CLAMP;
+	//AddressU = CLAMP;
+	//AddressV = CLAMP;
 };
 
 struct vsNTSCOut
@@ -104,7 +104,7 @@ technique NTSC
 	pass Pass1
 	{
 		AlphaBlendEnable = false;
-		AlphaTestEnable = false;
+		//AlphaTestEnable = false;
 		FillMode = solid;
 		CullMode = cw;
 		ZFunc = Always;
