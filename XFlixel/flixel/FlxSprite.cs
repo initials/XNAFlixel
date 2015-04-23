@@ -936,7 +936,7 @@ namespace org.flixel
         /// <summary>
         /// Loads animations from a Graphics Gale .csv with the values: "Name","Delay(1/60)","Column","Row"
         /// </summary>
-        /// <param name="file">loadAnimationsFromGraphicsGaleCSV("content/fourchambers/heart_16x16.csv", null, null, false);</param>
+        /// <param name="file">addAnimationsFromGraphicsGaleCSV("content/fourchambers/heart_16x16.csv", null, null, false);</param>
         /// <param name="Looped">A List of animations that should loop</param>
         /// <param name="NotLooped">A List of animations that will not loop</param>
         /// <param name="DefaultLoopingValue">A default looping.</param>
