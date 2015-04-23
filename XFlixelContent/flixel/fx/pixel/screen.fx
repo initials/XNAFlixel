@@ -163,7 +163,7 @@ technique Screen
 		CullMode = cw;
 		ZFunc = Less;
 		ZWriteEnable = true;
-		VertexShader = compile vs_2_0 screenVertexShader();
+		//VertexShader = compile vs_2_0 screenVertexShader();
 		PixelShader = compile ps_2_0 screenPixelShader();
 	}
 }

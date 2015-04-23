@@ -14,7 +14,7 @@ using System.Diagnostics;
 
 // ***
 using BloomPostprocess;
-
+using PixelPostprocess;
 
 namespace org.flixel
 {
@@ -28,6 +28,8 @@ namespace org.flixel
 
         // ***
         public BloomComponent bloom;
+
+        public PixelComponent pixel;
 
         private FlxState _firstScreen;
 

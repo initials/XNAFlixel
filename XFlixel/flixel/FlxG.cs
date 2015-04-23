@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Input;
 using BloomPostprocess;
+using PixelPostprocess;
 
 namespace org.flixel
 {
@@ -44,6 +45,8 @@ namespace org.flixel
         /// FlxG.bloom is a bloom effect across everything!
         /// </summary>
         public static BloomComponent bloom;
+
+        public static PixelComponent pixel;
 
         //@benbaird Global, XNA-specific stuff that any component should be able
         // to access from anywhere. (As read-only properties, generally.)

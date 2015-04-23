@@ -231,6 +231,7 @@
     <Compile Include="flixel\Extensions.cs" />
     <Compile Include="flixel\FlxLine.cs" />
     <Compile Include="flixel\presets\FlxScrollingSprite.cs" />
+    <Compile Include="fx\PixelComponent.cs" />
     <Compile Include="XNATweener\BaseTweener.cs" />
     <Compile Include="XNATweener\Vector2Tweener.cs" />
     <Compile Include="XNATweener\Vector3Tweener.cs" />

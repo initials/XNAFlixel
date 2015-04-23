@@ -98,7 +98,12 @@ namespace org.flixel
             spriteBatch.GraphicsDevice.Clear(bgColor); //Default behavior - just overwrite buffer with background color
 
             // Bloom effect
+            
+            FlxG.pixel.BeginDraw();
+
             FlxG.bloom.BeginDraw();
+            
+
 		}
 
         /// <summary>
