@@ -125,11 +125,11 @@ namespace org.flixel
 			#endif
 
             FlxG.bloom = new BloomPostprocess.BloomComponent(this);
-            FlxG.pixel = new PixelPostprocess.PixelComponent(this);
+            //FlxG.pixel = new PixelPostprocess.PixelComponent(this);
 
             Components.Add(_flixelgame);
             Components.Add(FlxG.bloom);
-            Components.Add(FlxG.pixel);
+            //Components.Add(FlxG.pixel);
 
             base.Initialize();
         }

@@ -99,7 +99,7 @@ namespace org.flixel
 
             // Bloom effect
             
-            FlxG.pixel.BeginDraw();
+            //FlxG.pixel.BeginDraw();
 
             FlxG.bloom.BeginDraw();
             
