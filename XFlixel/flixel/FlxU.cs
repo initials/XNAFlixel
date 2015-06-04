@@ -1383,9 +1383,7 @@ namespace org.flixel
         static public Color getColorFromBitmapAtPoint(Texture2D bitmapData, int xPos, int yPos)
         {
             Color[,] cols = TextureTo2DArray(bitmapData);
-
             Color colorAtPoint = cols[xPos, yPos];
-
             return colorAtPoint;
         }
 
@@ -1411,7 +1409,6 @@ namespace org.flixel
                 {
                     intArray[i] = Convert.ToInt32(word);
                     i++;
-
                 }
 
                 return intArray;
@@ -1463,11 +1460,7 @@ namespace org.flixel
 			file.Close();
 			#endif
 
-
             // Write the string to a file.
-
-
-
         }
 
 		public static string loadFromDevice(string Filename)

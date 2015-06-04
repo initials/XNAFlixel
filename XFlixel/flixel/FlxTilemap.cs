@@ -11,8 +11,6 @@ namespace org.flixel
     /// </summary>
     public struct BlockPoint
     {
-
-        
         /// <summary>
         /// X Position
         /// </summary>
