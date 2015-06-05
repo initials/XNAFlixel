@@ -66,6 +66,7 @@ namespace org.flixel
             //nothing to create initially
 
             elapsedInState = 0.0f;
+            FlxG.elapsedFrames = 0;
 
             // Clear the array first, for each state you need to set cameras.
             FlxG.cameras.Clear();

@@ -55,7 +55,7 @@ namespace org.flixel
         /// </summary>
         /// <param name="Color">The color you want to use</param>
         /// <param name="Duration">How long it takes for the flash to fade</param>
-        /// <param name="FlashComplete">A function you want to run when the flash finishes</param>
+        /// <param name="FlashComplete">A function you want to run when the flash finishes. Code: private void endFlash(object Sender, FlxEffectCompletedEvent e) { ... } </param>
         /// <param name="Force">Force the effect to reset</param>
         public void start(Color Color, float Duration, EventHandler<FlxEffectCompletedEvent> FlashComplete, bool Force)
 		{

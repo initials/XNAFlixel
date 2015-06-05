@@ -375,6 +375,7 @@ namespace org.flixel
             FlxG.getTimer = (uint)gameTime.TotalGameTime.TotalMilliseconds;
             FlxG.elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             FlxG.elapsedTotal += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            FlxG.elapsedFrames++;
             FlxG.elapsedAsGameTime = gameTime;
             if (FlxG.elapsed > FlxG.maxElapsed)
                 FlxG.elapsed = FlxG.maxElapsed;

@@ -105,6 +105,8 @@ namespace org.flixel
         public static float elapsed = 0f;
 
         public static float elapsedTotal = 0f;
+
+        public static int elapsedFrames = 0;
         /// <summary>
         /// @benbaird compatibility with AS3's getTimer()
         /// </summary>
@@ -969,6 +971,7 @@ namespace org.flixel
             maxElapsed = 0.0333f;
             FlxG.elapsed = 0;
             FlxG.elapsedTotal = 0;
+            FlxG.elapsedFrames = 0;
             showBounds = false;
 #if !WINDOWS_PHONE
             mobile = false;
