@@ -392,6 +392,12 @@ namespace org.flixel
             y = obj.y;
         }
 
+        public void atScreenPercent(float XPercentage, float YPercentage)
+        {
+            x = (FlxG.width * XPercentage) - (width / 2);
+            y = (FlxG.height * YPercentage) - (height / 2);
+        }
+
 
 		/// <summary>
         /// Resets some important variables for sprite optimization and rendering.
