@@ -37,7 +37,14 @@ namespace org.flixel
 
         public override void render(SpriteBatch spriteBatch)
         {
-            spriteBatch.DrawLine(startPos, endPos, color, lineWidth);
+            Vector2 pos = Vector2.Zero;
+            Vector2 vc = Vector2.Zero;
+
+            pos = getScreenXY() + origin;
+            pos += (new Vector2(_flashRect.Width - width, _flashRect.Height - height)
+                * (origin / new Vector2(width, height)));
+
+            spriteBatch.DrawLine(startPos + pos, endPos + pos, color, lineWidth);
             //base.render(spriteBatch);
         }
 
