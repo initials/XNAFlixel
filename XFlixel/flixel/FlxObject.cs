@@ -1008,6 +1008,8 @@ namespace org.flixel
 
             if (DestroyPath && (path != null))
             {
+                //Console.WriteLine("Destroying Path");
+
                 path.destroy();
                 path = null;
             }
@@ -1021,7 +1023,7 @@ namespace org.flixel
         /// <returns>The node (a <code>Vector2</code> object) we are aiming for next.</returns>
         public Vector2 advancePath(bool Snap=true)
         {
-            //Console.WriteLine("advancePath " + _pathNodeIndex + " " + _pathInc);
+            //Console.WriteLine("advancePath " + _pathNodeIndex + " " + _pathInc + " Mode " + _pathMode + "  " + path.nodes.Count);
 
             // Current progress : completed, test.
 
@@ -1046,26 +1048,22 @@ namespace org.flixel
             {
                 if (_pathInc > 0)
                 {
-                    //Console.WriteLine("At start");
+                    //Console.WriteLine("At start " + _pathNodeIndex);
 
                     if (_pathNodeIndex >= path.nodes.Count)
                     {
-                        
-
                         //_pathNodeIndex = path.nodes.Count - 2;
                         //if (_pathNodeIndex < 0)
                         //    _pathNodeIndex = 0;
                         //_pathInc = -_pathInc;
 
-                        stopFollowingPath(false);
+                        //stopFollowingPath(false);
                     }
                 }
                 else if (_pathNodeIndex < 0)
                 {
-                    //Console.WriteLine("At end");
+                    //Console.WriteLine("At end " + _pathNodeIndex);
 
-                    
-                    
                     //_pathNodeIndex = 1;
                     //if (_pathNodeIndex >= path.nodes.Count)
                     //    _pathNodeIndex = path.nodes.Count - 1;
@@ -1073,7 +1071,7 @@ namespace org.flixel
                     //    _pathNodeIndex = 0;
                     //_pathInc = -_pathInc;
 
-                    stopFollowingPath(false);
+                    //stopFollowingPath(false);
                 }
             }
 
@@ -1091,10 +1089,16 @@ namespace org.flixel
             
             else if ((_pathMode & PATH_LOOP_FORWARD) > 0)
             {
-                //Console.WriteLine("PATH_LOOP_FORWARD " + _pathNodeIndex);
+                //Console.WriteLine("PATH_LOOP_FORWARD " + _pathNodeIndex + "   " + path.nodes.Count);
 
                 if (_pathNodeIndex >= path.nodes.Count)
+                {
+                    //Console.WriteLine(" resetting " + path.nodes.Count);
+
                     _pathNodeIndex = 0;
+
+                    //Console.WriteLine(" resetting AFTER " + path.nodes.Count);
+                }
             }
             else if ((_pathMode & PATH_LOOP_BACKWARD) > 0)
             {
