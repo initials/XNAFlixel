@@ -165,7 +165,7 @@ namespace org.flixel
         /// You can use this if you have a lot of text parameters
         /// to set instead of the individual properties.
         /// </summary>
-        /// <param name="Font">The name of the font face for the text display. -- FlxG.Content.Load|SpriteFont|("initials/Munro") -- </param>
+        /// <param name="Font">The name of the font face for the text display. -- FlxG.Content.Load|SpriteFont|("flixel/initials/Munro") -- </param>
         /// <param name="Scale">The scale of the font (in AS3 flixel, this is Size)</param>
         /// <param name="Color">The color of the text in traditional flash 0xRRGGBB format.</param>
         /// <param name="Alignment">A string representing the desired alignment ("left,"right" or "center").</param>
