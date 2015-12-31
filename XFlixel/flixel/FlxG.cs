@@ -364,7 +364,7 @@ namespace org.flixel
         static public string buildDescription = "";
 
 		/// <summary>
-        /// A special effect that shakes the screen.  Usage: FlxG.quake.start();
+        /// A special effect that shakes the screen.  Usage: FlxG.quake.start(); Does not work with Bloom FX.
 		/// </summary>
 		static public FlxQuake quake;
 		/// <summary>

@@ -73,7 +73,7 @@ namespace org.flixel.examples
         override public void update()
         {
 
-            mouseInfo.text = string.Format("x: {0} y: {1}\nLeft press {2} nRight press {3}\nLeft click {4} nRight click {5}", FlxG.mouse.x, FlxG.mouse.y, FlxG.mouse.pressedLeftButton(), FlxG.mouse.pressedRightButton(), FlxG.mouse.justPressedLeftButton(), FlxG.mouse.justPressedRightButton());
+            mouseInfo.text = string.Format("x: {0} y: {1}\nLeft press {2} \nRight press {3}\nLeft click {4} \nRight click {5}", FlxG.mouse.x, FlxG.mouse.y, FlxG.mouse.pressedLeftButton(), FlxG.mouse.pressedRightButton(), FlxG.mouse.justPressedLeftButton(), FlxG.mouse.justPressedRightButton());
             mouseInfo.x = FlxG.mouse.x;
             mouseInfo.y = FlxG.mouse.y;
 

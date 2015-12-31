@@ -37,9 +37,9 @@ namespace XNAMode
         {
 			Console.WriteLine ("Flixel entry points .cs ");
             
-            int w = 640/2;
-            int h = 360/2;
-            FlxG.zoom = 4;
+            int w = 640*2;
+            int h = 360*2;
+            FlxG.zoom = 1;
             FlxG.debug = true;
 
 #if DEBUG
