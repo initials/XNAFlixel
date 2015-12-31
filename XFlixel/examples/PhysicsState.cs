@@ -32,7 +32,7 @@ namespace org.flixel.examples
             //FlxG.hideHud();
             FlxG.resetHud();
 
-            _world = new World(new Vector2(0, 980.0f));
+            _world = new World(new Vector2(0, 98.0f));
 
             _ground = BodyFactory.CreateRectangle(_world, 3000, 20, 1.0f, new Vector2(0, 700), null);
             _ground.BodyType = BodyType.Static;
@@ -104,7 +104,8 @@ namespace org.flixel.examples
                 //f._body.LinearVelocity = new Vector2(100000000000000000, 1000000000000000) ;
 
 
-                f._body.ApplyForce(new Vector2(int.MaxValue, int.MaxValue));
+                f._body.ApplyLinearImpulse(new Vector2(int.MaxValue, int.MaxValue * -1));
+                f._body.Mass = 2100;
                 add(f);
 
             }

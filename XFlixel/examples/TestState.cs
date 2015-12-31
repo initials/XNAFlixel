@@ -53,20 +53,20 @@ namespace org.flixel.examples
 
             textInfo += "Q. Garbage Tests \n";
             FlxG.setHudText(1, textInfo);
-            FlxG.setHudTextPosition(1, 20, 20);
+            FlxG.setHudTextPosition(1, 50, 20);
             FlxG.setHudTextScale(1, 2);
-            FlxG.setHudGamepadButton(FlxHud.TYPE_KEYBOARD, FlxHud.Keyboard_1, FlxG.width - 40, 30);
+            FlxG.setHudGamepadButton(FlxHud.TYPE_KEYBOARD, FlxHud.Keyboard_1, FlxG.width - 120, 30);
 
             FlxG.showHud();
 
+            /*
 			FlxSprite logo = new FlxSprite(12, 12);
 			logo.loadGraphic("flixel/surt/race_or_die", true, false, 64, 64);
 			logo.addAnimation("Static", new int[] { 8 }, 0, true);
 			logo.play("Static");
-
 			logo.setDrags(5, 5);
 			add(logo);
-
+            */
 
         }
 
