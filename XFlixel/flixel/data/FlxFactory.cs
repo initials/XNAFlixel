@@ -88,7 +88,7 @@ namespace org.flixel
 			FlxG.resolutionHeight = 720;
 			FlxG.fullscreen = false;
 			FlxG.zoom = 4;
-			Console.WriteLine("!!!! ---- Running Game at Settings: {0}x{1} Fullscreen?:{2} \n Preferrred {3} {4}\nZoom:{5}\n\n", 
+			Console.WriteLine("!!!! ---- Running Game at Settings: {0}x{1} Fullscreen?:{2} \nPreferrred screen resolution: X: {3} Y: {4}\nZoom:{5}\n\n", 
 				FlxG.resolutionWidth, 
 				FlxG.resolutionHeight, FlxG.fullscreen, 
 				GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, 

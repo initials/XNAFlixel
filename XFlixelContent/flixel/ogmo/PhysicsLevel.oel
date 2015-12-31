@@ -1,0 +1,16 @@
+<level width="1280" height="720">
+  <NewLayer0>
+    <NewObject0 id="0" x="80" y="304" width="32" height="144" />
+    <NewObject0 id="1" x="192" y="304" width="32" height="144" />
+    <NewObject0 id="2" x="48" y="272" width="208" height="32" />
+    <NewObject0 id="3" x="48" y="192" width="32" height="80" />
+    <NewObject0 id="4" x="224" y="192" width="32" height="80" />
+    <NewObject0 id="5" x="16" y="112" width="96" height="80" />
+    <NewObject0 id="6" x="192" y="112" width="96" height="80" />
+    <NewObject0 id="7" x="0" y="64" width="304" height="48" />
+    <NewObject0 id="8" x="32" y="32" width="32" height="32" />
+    <NewObject0 id="9" x="96" y="32" width="32" height="32" />
+    <NewObject0 id="10" x="160" y="32" width="32" height="32" />
+    <NewObject0 id="11" x="224" y="32" width="32" height="32" />
+  </NewLayer0>
+</level>

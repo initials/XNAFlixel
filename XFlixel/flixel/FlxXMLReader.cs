@@ -67,13 +67,13 @@ namespace org.flixel
 
             foreach (XAttribute xAttr in attList)
             {
-                Console.WriteLine(xAttr.Name.ToString() + "  " + xAttr.Value.ToString());
+                //Console.WriteLine(xAttr.Name.ToString() + "  " + xAttr.Value.ToString());
                 //levelAttrs.Add(xAttr.Name.ToString(), xAttr.Value.ToString());
             }
 
             foreach (XElement xEle in xdoc.Descendants("level").Elements())
             {
-                Console.WriteLine(xEle.Name.ToString());
+                //Console.WriteLine(xEle.Name.ToString());
             }
             return completeSet;
         }
@@ -314,7 +314,7 @@ namespace org.flixel
                 foreach (XmlNode xn2 in xn) {
 
                     Dictionary<string, string> levelAttrs = new Dictionary<string, string>();
-                    //Console.WriteLine("xn2 Name: {0} -- {1}", xn2.Name.ToString(), xn2.Attributes.ToString());
+                    Console.WriteLine("xn2 Name: {0} -- {1}", xn2.Name.ToString(), xn2.Attributes.ToString());
 
                     //add characters name
                     levelAttrs.Add("Name", xn2.Name.ToString());
@@ -322,7 +322,7 @@ namespace org.flixel
                     //cycle attributes.
                     foreach (XmlAttribute item in xn2.Attributes)
                     {
-                        //Console.WriteLine("attr: {0}", item.Name.ToString());
+                        Console.WriteLine("attr: {0}", item.Name.ToString());
                         levelAttrs.Add(item.Name.ToString(), item.Value.ToString());
 
                     }

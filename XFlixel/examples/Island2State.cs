@@ -108,7 +108,7 @@ namespace org.flixel.examples
             _ground.BodyType = BodyType.Static;
 
             //g1 = new FlxSprite(0, 340);
-            //g1.loadGraphic("diagnostic/testpalette", true, false, 1000, 20);
+            //g1.loadGraphic("flixel/diagnostic/testpalette", true, false, 1000, 20);
             //add(g1);
 
 

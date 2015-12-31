@@ -20,16 +20,10 @@ namespace org.flixel.examples
     public class PhysicsState : BaseExampleState
     {
 
-        private FlxSprite b1;
-        private FlxSprite b2;
         private FlxSprite g1;
-
-        private Body _body1;
-        private Body _body2;
 
         private World _world;
         private Body _ground;
-
 
         override public void create()
         {
@@ -38,106 +32,86 @@ namespace org.flixel.examples
             //FlxG.hideHud();
             FlxG.resetHud();
 
-            b1 = new FlxSprite(20, 20);
-            b1.loadGraphic("flixel/initials/crate_80x60", true, false, 80, 60);
-            add(b1);
+            _world = new World(new Vector2(0, 980.0f));
 
-            b2 = new FlxSprite(20, 20);
-            b2.loadGraphic("flixel/initials/crate_80x60", true, false, 80, 60);
-            add(b2);
-
-
-            _world = new World(new Vector2(0, 98.0f));
-
-            //_body1 = new Body(_world, new Vector2(40,40), 0, null);
-            _body1 = BodyFactory.CreateBody(_world, new Vector2(95, -40), 0, null);
-            FixtureFactory.AttachRectangle(80, 60, 1f, new Vector2(0f, 0f), _body1);
-            _body1.BodyType = BodyType.Dynamic;
-            _body1.Mass = 21f;
-            //_body1.AngularVelocity = 110.0f;
-            _body1.Awake = true;
-            _body1.OnCollision += MyOnCollision;
-
-            _body2 = BodyFactory.CreateBody(_world, new Vector2(40, 110), 0, null);
-            FixtureFactory.AttachRectangle(80, 60, 1f, new Vector2(0f, 0f), _body2);
-            _body2.BodyType = BodyType.Dynamic;
-            _body2.Mass = 21f;
-            //_body2.AngularVelocity = -110.0f;
-            _body2.Awake = true;
-            _body2.OnCollision += MyOnCollision;
-
-
-
-            _ground = BodyFactory.CreateRectangle(_world, 1000, 20, 1.0f, new Vector2(0, 200), null);
+            _ground = BodyFactory.CreateRectangle(_world, 3000, 20, 1.0f, new Vector2(0, 700), null);
             _ground.BodyType = BodyType.Static;
 
-            g1 = new FlxSprite(0, 240);
-            g1.loadGraphic("diagnostic/testpalette", true, false, 1000, 20);
+            g1 = new FlxSprite(0, 700);
+            g1.loadGraphic("flixel/diagnostic/testpalette", true, false, 1000, 20);
             add(g1);
 
+            for (int i = 0; i < 40; i++)
+            {
+                FarSprite f = new FarSprite(Convert.ToInt32(FlxU.random(90, 800)), Convert.ToInt32(FlxU.random(-600, 0)), _world);
+                f.loadGraphic("flixel/initials/crate_80x60", true, false, FlxU.randomInt(20, 40), FlxU.randomInt(40, 60));
+                f._body.AngularVelocity = FlxU.randomInt(0, 5);
+                add(f);
 
+            }
+
+
+            List<Dictionary<string, string>> completeSet = new List<Dictionary<string, string>>();
+
+            string currentLevel = "l" + FlxG.level.ToString();
+
+            XDocument xdoc = XDocument.Load("Content/flixel/ogmo/PhysicsLevel.oel");
+
+            // Load level main stats.
+            XElement xelement = XElement.Load("Content/flixel/ogmo/PhysicsLevel.oel");
+            IEnumerable<XAttribute> attList =
+            from at in xelement.Attributes()
+            select at;
+
+            foreach (XAttribute xAttr in attList)
+            {
+                //Console.WriteLine(xAttr.Name.ToString() + "  " + xAttr.Value.ToString());
+                //levelAttrs.Add(xAttr.Name.ToString(), xAttr.Value.ToString());
+            }
+
+            foreach (XElement xEle in xdoc.Descendants("level").Descendants("NewLayer0").Elements())
+            {
+                Console.WriteLine(xEle.Name.ToString() + "  " + xEle.Attribute("x").ToString().Split('=')[1].Replace('\"', ' ') );
+
+
+                FarSprite f = new FarSprite(
+                    Convert.ToInt32(xEle.Attribute("x").ToString().Split('=')[1].Replace('\"', ' '))+500, 
+                    Convert.ToInt32(xEle.Attribute("y").ToString().Split('=')[1].Replace('\"', ' '))+220,
+                    _world);
+
+                f.loadGraphic("flixel/initials/crate_80x60", true, false, 
+                    Convert.ToInt32(xEle.Attribute("width").ToString().Split('=')[1].Replace('\"', ' ')),
+                    Convert.ToInt32(xEle.Attribute("height").ToString().Split('=')[1].Replace('\"', ' ')));
+                
+                add(f);
+                
+            }
 
         }
 
-        public void MyOnBroadphaseCollision(ref FixtureProxy fp1, ref FixtureProxy fp2)
-        {
-
-        }
-        public bool MyOnCollision(Fixture f1, Fixture f2, Contact contact)
-        {
-            return true;
-        }
-
-
+        
 
         override public void update()
         {
 
-            FlxG.setHudText(1, _body1.Position.Y.ToString() + "   " + _body1.Rotation.ToString());
+            if (FlxG.mouse.justPressed())
+            {
+                FarSprite f = new FarSprite(FlxG.mouse.screenX, FlxG.mouse.screenY, _world);
+                f.loadGraphic("flixel/initials/crate_80x60", true, false, FlxU.randomInt(20, 40), FlxU.randomInt(40, 60));
+                //f._body.AngularVelocity = FlxU.randomInt(0, 5);
+                //f._body.ApplyLinearImpulse(new Vector2(FlxG.mouse.screenX, FlxG.mouse.screenY), new Vector2(FlxG.mouse.screenX, FlxG.mouse.screenY));
+                //f._body.ApplyLinearImpulse(new Vector2(FlxU.random(-15000, 15000), FlxU.random(-15000, 15000)));
+                //f._body.LinearVelocity = new Vector2(100000000000000000, 1000000000000000) ;
 
 
+                f._body.ApplyForce(new Vector2(int.MaxValue, int.MaxValue));
+                add(f);
 
-
-
+            }
 
             _world.Step(Math.Min((float)FlxG.elapsedAsGameTime.ElapsedGameTime.TotalSeconds, (1f / 30f)));
 
-            //_world.ContactManager.OnBroadphaseCollision += MyOnBroadphaseCollision;
-
-
-            if (FlxG.keys.A)
-            {
-                _body1.ApplyLinearImpulse(new Vector2(-1000, 0));
-                _body2.ApplyLinearImpulse(new Vector2(1000, 0));
-            }
-            if (FlxG.keys.D)
-            {
-                _body1.ApplyLinearImpulse(new Vector2(1000, 0));
-                _body2.ApplyLinearImpulse(new Vector2(-1000, 0));
-            }
-            if (FlxG.keys.S)
-            {
-                _body1.ApplyLinearImpulse(new Vector2(0, -1000));
-                _body2.ApplyLinearImpulse(new Vector2(0, 1000));
-            }
-            if (FlxG.keys.W)
-            {
-                _body1.ApplyLinearImpulse(new Vector2(0, 1000));
-                _body2.ApplyLinearImpulse(new Vector2(0, -1000));
-            }
-
-
-
             base.update();
-
-            b1.x = _body1.Position.X + 30;
-            b1.y = _body1.Position.Y + 20;
-            //_angle * (Math.PI / 180);
-            b1.angle = _body1.Rotation;
-
-            b2.x = _body2.Position.X + 30;
-            b2.y = _body2.Position.Y + 20;
-            b2.angle = _body2.Rotation;
         }
 
 
