@@ -187,8 +187,18 @@ namespace org.flixel.examples
             lightGreenCarTween = new Tweener(car6Pos.X , driveDistance, TimeSpan.FromSeconds(timeToMove), XNATweener.Exponential.EaseInOut);
             lightGreenCarTween.PingPong = true;
 
+            Console.WriteLine(lightGreenCar.GetType().AssemblyQualifiedName);
 
 
+            String myClass = "org.flixel.examples.CarSprite";
+
+            var type = Type.GetType(myClass);
+            Console.WriteLine(type);
+            var myObject = (FlxSprite)Activator.CreateInstance(type,800, 400);
+            //Console.WriteLine(myObject.GetType().AssemblyQualifiedName);
+            //myObject.x = 300;
+            //myObject.y = 300;
+            add(myObject);
 
 
         }
