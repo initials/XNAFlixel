@@ -112,8 +112,6 @@ namespace org.flixel
                 width - 4 * dx,
                 height - 4 * dy);
 
-
-
             _consoleColor = new Color(0, 0, 0, 0x7F);
 
             _consoleText = new FlxText(targetLeft+(dx*2), -800, targetWidth, "").setFormat(null, 1, Color.White, FlxJustification.Left, Color.White);
@@ -132,11 +130,6 @@ namespace org.flixel
             MAX_CONSOLE_LINES = (FlxG.spriteBatch.GraphicsDevice.Viewport.Height / (int)(_consoleText.font.MeasureString("Qq").Y)) - 1;
 
             vcr = new FlxRecord();
-
-
-
-
-
         }
 	
         /// <summary>
@@ -170,16 +163,13 @@ namespace org.flixel
             if (_consoleYT == FlxG.spriteBatch.GraphicsDevice.Viewport.Height)
             {
                 _consoleYT = 0;
-
                 FlxG.showHud();
             }
             else
             {
                 _consoleYT = FlxG.spriteBatch.GraphicsDevice.Viewport.Height;
                 visible = true;
-
                 FlxG.hideHud();
-
             }
         }
 
@@ -211,10 +201,7 @@ namespace org.flixel
 //                    _consoleFPS.text = ((int)Math.Floor((double)(fps / _FPS.Length))).ToString() + " fps";
 //                }
 
-
 				_consoleFPS.text = ((int)Math.Floor(1/ FlxG.elapsed)).ToString() + " fps";
-
-
                 _consoleText.y = (-FlxG.spriteBatch.GraphicsDevice.Viewport.Height + _consoleRect.Height + 70);
                 _consoleFPS.y = _consoleText.y;
                 _consoleCommand.y = _consoleText.y - 16;
@@ -262,15 +249,11 @@ namespace org.flixel
             spriteBatch.Draw(FlxG.XnaSheet, _titleSafeRect,
                 _srcRect, notTitleSafeColor);
 
-            
-
             _consoleText.render(spriteBatch);
             _consoleFPS.render(spriteBatch);
             _consoleCommand.render(spriteBatch);
             vcr.render(spriteBatch);
             if (canTypeCheat) _consoleCheatActivated.render(spriteBatch);
-
-
 
         }
 
@@ -323,31 +306,23 @@ namespace org.flixel
 
             if (FlxG.keys.isNewKeyPress(Keys.Back, null, out pi))
             {
-
                 if (_consoleCommand.text.Length <= 0)
                 {
                     return;
                 }
 
                 string backspaced = _consoleCommand.text;
-
                 _consoleCommand.text = backspaced.Remove(backspaced.Length - 1);
             }
 
             if (FlxG.keys.isNewKeyPress(Keys.Enter, null, out pi))
             {
-
                 // run command(_consoleCommand.text);
                 FlxGlobal.runCheat(_consoleCommand.text);
 
-
                 _consoleCommand.text = "";
-
                 canTypeCheat = false;
             }
         }
-
-
-
     }
 }
