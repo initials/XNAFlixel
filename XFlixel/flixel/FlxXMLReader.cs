@@ -299,11 +299,7 @@ namespace org.flixel
 			xml.Load(filename);
 			#endif
 
-
             List<Dictionary<string, string>> nodeList = new List<Dictionary<string, string>>();
-            
-			//XmlDocument xml = new XmlDocument();
-			//xml.Load(filename);
             
             XmlNodeList xnList = xml.SelectNodes(element);
             
@@ -314,7 +310,7 @@ namespace org.flixel
                 foreach (XmlNode xn2 in xn) {
 
                     Dictionary<string, string> levelAttrs = new Dictionary<string, string>();
-                    Console.WriteLine("xn2 Name: {0} -- {1}", xn2.Name.ToString(), xn2.Attributes.ToString());
+                    //Console.WriteLine("xn2 Name: {0} -- {1}", xn2.Name.ToString(), xn2.Attributes.ToString());
 
                     //add characters name
                     levelAttrs.Add("Name", xn2.Name.ToString());
@@ -322,7 +318,7 @@ namespace org.flixel
                     //cycle attributes.
                     foreach (XmlAttribute item in xn2.Attributes)
                     {
-                        Console.WriteLine("attr: {0}", item.Name.ToString());
+                        //Console.WriteLine("attr: {0}", item.Name.ToString());
                         levelAttrs.Add(item.Name.ToString(), item.Value.ToString());
 
                     }
