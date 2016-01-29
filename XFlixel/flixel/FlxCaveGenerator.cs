@@ -367,8 +367,6 @@ namespace org.flixel
 
         public int[,] addChunks(int[,] inMat, int number, int minSize, int maxSize, int fillWith)
         {
-            //int[,] mat = new int[_numTilesRows, _numTilesCols];
-
             for (int i=0; i<number;i++) 
             {
                 int ysize = (int)FlxU.random(minSize, maxSize);
@@ -392,7 +390,6 @@ namespace org.flixel
             // Run automata
             for (int i = 0; i <= numSmoothingIterations; i++)
             {
-
                 runCelluarAutomata(inMat, mat2);
 
                 int[,] temp = new int[inMat.GetLength(0), inMat.GetLength(1)];
@@ -401,6 +398,31 @@ namespace org.flixel
 
             }
 
+            return inMat;
+        }
+
+        /// <summary>
+        /// Edits a rectangle
+        /// </summary>
+        /// <param name="inMat"></param>
+        /// <param name="x">x position</param>
+        /// <param name="y">y position</param>
+        /// <param name="width">width of rect</param>
+        /// <param name="height">height of rect</param>
+        /// <param name="add">either add or remove this rectangle</param>
+        /// <returns></returns>
+        public int[,] editRectangle(int[,] inMat, int x, int y, int width, int height, int fillWith)
+        {
+            for (int _y = y; _y < y + height; _y++)
+            {
+                for (int _x = x; _x < x + width; _x++)
+                {
+                    inMat[_y, _x] = fillWith;
+
+                    //if (offsetx < _numTilesCols && offsety < _numTilesRows)
+                        
+                }
+            }
 
             return inMat;
         }
