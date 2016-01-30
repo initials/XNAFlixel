@@ -32,7 +32,7 @@ namespace org.flixel.examples
             //FlxG.hideHud();
             FlxG.resetHud();
 
-            _world = new World(new Vector2(0, 98.0f));
+            _world = new World(new Vector2(0, 980.0f));
 
             _ground = BodyFactory.CreateRectangle(_world, 3000, 20, 1.0f, new Vector2(0, 700), null);
             _ground.BodyType = BodyType.Static;
@@ -94,7 +94,7 @@ namespace org.flixel.examples
         override public void update()
         {
 
-            if (FlxG.mouse.justPressed())
+            if (FlxG.mouse.justPressed() || FlxU.random() < 0.031f)
             {
                 FarSprite f = new FarSprite(FlxG.mouse.screenX, FlxG.mouse.screenY, _world);
                 f.loadGraphic("flixel/initials/crate_80x60", true, false, FlxU.randomInt(20, 40), FlxU.randomInt(40, 60));
