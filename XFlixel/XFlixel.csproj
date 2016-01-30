@@ -239,6 +239,7 @@
     <Compile Include="flixel\FlxLine.cs" />
     <Compile Include="flixel\presets\FlxScrollingSprite.cs" />
     <Compile Include="fx\PixelComponent.cs" />
+    <Compile Include="flixel\FlxMidi.cs" />
     <Compile Include="XNATweener\BaseTweener.cs" />
     <Compile Include="XNATweener\Vector2Tweener.cs" />
     <Compile Include="XNATweener\Vector3Tweener.cs" />
@@ -344,6 +345,10 @@
     <ProjectReference Include="Farseer Physics Engine 3.5\Farseer Physics XNA.csproj">
       <Project>{0A850700-1ABB-4288-A391-6726B90EBEB9}</Project>
       <Name>Farseer Physics XNA</Name>
+    </ProjectReference>
+    <ProjectReference Include="midi-dot-net\Midi\Midi.csproj">
+      <Project>{F60D8B7B-2D2E-4B94-A736-3783FFE1A25C}</Project>
+      <Name>Midi</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
