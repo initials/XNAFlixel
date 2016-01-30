@@ -314,14 +314,24 @@ namespace org.flixel
 
                     //add characters name
                     levelAttrs.Add("Name", xn2.Name.ToString());
+                    levelAttrs.Add("InnerText", xn2.InnerText.ToString());
 
                     //cycle attributes.
-                    foreach (XmlAttribute item in xn2.Attributes)
+                    try
                     {
-                        //Console.WriteLine("attr: {0}", item.Name.ToString());
-                        levelAttrs.Add(item.Name.ToString(), item.Value.ToString());
+                        foreach (XmlAttribute item in xn2.Attributes)
+                        {
+                            //Console.WriteLine("attr: {0}", item.Name.ToString());
+                            levelAttrs.Add(item.Name.ToString(), item.Value.ToString());
 
+                        }
                     }
+                    catch (Exception)
+                    {
+                        
+                        //throw;
+                    }
+
                     // character may have path nodes:
                     
                     string pointX = "";
