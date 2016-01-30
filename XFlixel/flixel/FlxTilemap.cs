@@ -76,6 +76,10 @@ namespace org.flixel
         /// </summary>
         public const int STRING = 4;
 
+        public const int REMAP = 5;
+
+        public Dictionary<int, int> remapGuide;
+
         /// <summary>
         /// !! Deprecated !! Now use CollideMin and CollideMax What tile index will you start colliding with (default: 1). 
         /// </summary>
