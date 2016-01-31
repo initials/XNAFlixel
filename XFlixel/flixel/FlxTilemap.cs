@@ -76,7 +76,9 @@ namespace org.flixel
         /// </summary>
         public const int STRING = 4;
 
-        public const int REMAP = 5;
+        public const int REMAPAUTO = 5;
+
+        public const int REMAPALT = 6;
 
         public Dictionary<int, int> remapGuide;
 
@@ -364,6 +366,14 @@ namespace org.flixel
                 while (i < totalTiles)
                     stringTile(i++);
             }
+            if (auto == REMAPAUTO || auto == REMAPALT)
+            {
+                collideMin = collideIndex = startingIndex = drawIndex = 1;
+                i = 0;
+                while (i < totalTiles)
+                    autoTileWithRemap(i++);
+            }
+
 
             //Figure out the size of the tiles
             _tileWidth = TileWidth;
@@ -949,6 +959,94 @@ namespace org.flixel
             }
             return csv;
         }
+
+        /// <summary>
+        /// An internal function used by the binary auto-tilers.
+        /// </summary>
+        /// <param name="Index">The index of the tile you want to analyze.</param>
+        protected void autoTileWithRemap(int Index)
+        {
+            //0,  1,  2,  3,  
+            //295,301,296,304,299,300,302,300,298,305,297,297,303,300,297,291
+            //295,303,305,304,304,300,302,300,302,305,297,297,303,300,297,291
+            remapGuide = new Dictionary<int, int>();
+
+            remapGuide.Add(0, 295);
+            remapGuide.Add(1, 303);
+            remapGuide.Add(2, 305);
+            remapGuide.Add(3, 304);
+            remapGuide.Add(4, 304);
+            remapGuide.Add(5, 300);
+
+            remapGuide.Add(6, 302);
+            remapGuide.Add(7, 300);
+
+            remapGuide.Add(8, 302);
+            remapGuide.Add(9, 305);
+            remapGuide.Add(10, 297);
+            remapGuide.Add(11, 297);
+            remapGuide.Add(12, 303);
+            remapGuide.Add(13, 300);
+            remapGuide.Add(14, 297);
+            remapGuide.Add(15, 291);
+            remapGuide.Add(-1, 291);
+
+            //remapGuide.Add(0, 295);
+            //remapGuide.Add(1, 301);
+            //remapGuide.Add(2, 296);
+            //remapGuide.Add(3, 304);
+            //remapGuide.Add(4, 299);
+            //remapGuide.Add(5, 300);
+
+            //remapGuide.Add(6, 302);
+            //remapGuide.Add(7, 300);
+
+            //remapGuide.Add(8, 298);
+            //remapGuide.Add(9, 305);
+            //remapGuide.Add(10, 297);
+            //remapGuide.Add(11, 297);
+            //remapGuide.Add(12, 303);
+            //remapGuide.Add(13, 300);
+            //remapGuide.Add(14, 297);
+            //remapGuide.Add(15, 291);
+
+
+            if (_data[Index] == 0) return;
+            _data[Index] = 0;
+            if ((Index - widthInTiles < 0) || (_data[Index - widthInTiles] > 0)) 		//UP
+                _data[Index] += 1;
+            if ((Index % widthInTiles >= widthInTiles - 1) || (_data[Index + 1] > 0)) 		//RIGHT
+                _data[Index] += 2;
+            if ((Index + widthInTiles >= totalTiles) || (_data[Index + widthInTiles] > 0)) //DOWN
+                _data[Index] += 4;
+            if ((Index % widthInTiles <= 0) || (_data[Index - 1] > 0)) 					//LEFT
+                _data[Index] += 8;
+            if ((auto == REMAPALT) && (_data[Index] == 15))	//The alternate algo checks for interior corners
+            {
+                if ((Index % widthInTiles > 0) && (Index + widthInTiles < totalTiles) && (_data[Index + widthInTiles - 1] <= 0))
+                    _data[Index] = 1;		//BOTTOM LEFT OPEN
+                if ((Index % widthInTiles > 0) && (Index - widthInTiles >= 0) && (_data[Index - widthInTiles - 1] <= 0))
+                    _data[Index] = 2;		//TOP LEFT OPEN
+                if ((Index % widthInTiles < widthInTiles - 1) && (Index - widthInTiles >= 0) && (_data[Index - widthInTiles + 1] <= 0))
+                    _data[Index] = 4;		//TOP RIGHT OPEN
+                if ((Index % widthInTiles < widthInTiles - 1) && (Index + widthInTiles < totalTiles) && (_data[Index + widthInTiles + 1] <= 0))
+                    _data[Index] = 8; 		//BOTTOM RIGHT OPEN
+            }
+            
+
+            if (remapGuide.ContainsKey(_data[Index]))
+            {
+                _data[Index] = remapGuide[_data[Index]];
+            }
+            else
+            {
+                _data[Index] = remapGuide[0];
+            }
+            _data[Index] += 1;
+
+           
+        }
+
 
         /// <summary>
         /// An internal function used by the binary auto-tilers.
