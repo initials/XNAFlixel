@@ -427,6 +427,43 @@ namespace org.flixel
             return inMat;
         }
 
+        public int[,] grow(int[,] inMat)
+        {
+            int[,] temp = new int[inMat.GetLength(0), inMat.GetLength(1)];
+            temp = (int[,])inMat.Clone();
+
+            for (int _y = 0; _y < _numTilesRows; _y++)
+            {
+                for (int _x = 0; _x < _numTilesCols; _x++)
+                {
+                    if (inMat[_y, _x] == 0 && _y > 0 && _x > 0 && _y < _numTilesRows-1 && _x < _numTilesCols-1)
+                    {
+                        //Console.WriteLine("Plotting at {0} x {1}", _y, _x);
+
+                        if (inMat[_y + 1, _x] == 1)
+                        {
+                            temp[_y, _x] = 1;
+                        }
+                        else if (inMat[_y - 1, _x] == 1)
+                        {
+                            temp[_y, _x] = 1;
+                        }
+                        else if (inMat[_y, _x + 1] == 1)
+                        {
+                            temp[_y, _x] = 1;
+                        }
+                        else if (inMat[_y, _x - 1] == 1)
+                        {
+                            temp[_y, _x] = 1;
+                        }
+                    }
+                }
+            }
+            inMat = temp;
+
+            return inMat;
+        }
+
         /// <summary>
         /// Generates a cave level
         /// </summary>
@@ -881,6 +918,29 @@ namespace org.flixel
             return mat;
         }
 
+        /// <summary>
+        /// Prints a cave multi dimensional array to the console.
+        /// </summary>
+        /// <param name="tiles">A string[,] of tiles. </param>
+        public void printCave(int[,] tiles)
+        {
+            for (int i = 0; i < tiles.GetLength(1); i++)
+            {
+                for (int y = 0; y < tiles.GetLength(0); y++)
+                {
+                    string toPrint = tiles[y, i].ToString();
+
+                    if (toPrint.Length == 1)
+                    {
+                        toPrint += " ";
+
+                    }
+                    Console.Write(toPrint);
+                }
+
+                Console.WriteLine();
+            }
+        }
 
 
         //end
