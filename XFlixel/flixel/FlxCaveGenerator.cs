@@ -485,7 +485,7 @@ namespace org.flixel
             int[] emptyRowsAfterSmooth,
             int[] emptyColumnsAfterSmooth)
         {
-            Console.WriteLine("x/y {0}, {1}", _numTilesCols, _numTilesRows);
+            //Console.WriteLine("x/y {0}, {1}", _numTilesCols, _numTilesRows);
 
             // Initialize random array
 
