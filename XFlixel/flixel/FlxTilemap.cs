@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Linq;
+using System.Xml.Linq;
 
 namespace org.flixel
 {
@@ -655,6 +657,53 @@ namespace org.flixel
         public int getTile(int X, int Y)
         {
             return getTileByIndex(Y * widthInTiles + X);
+        }
+        /// <summary>
+        /// Get a random tile with the type you specify.
+        /// </summary>
+        /// <param name="Tiles">Array of tiles you want to search for.</param>
+        /// <returns></returns>
+        public int getRandomTileWithType(int[] Tiles)
+        {
+            int[] empties = remapGuide[15];
+            int rx = FlxU.randomInt(0, widthInTiles);
+            int ry = FlxU.randomInt(0, heightInTiles);
+            int rz = getTile(rx, ry);
+
+            while (empties.Contains(rz)==false)
+            {
+                rx = FlxU.randomInt(0, widthInTiles);
+                ry = FlxU.randomInt(0, heightInTiles);
+
+                rz = getTile(rx, ry);
+            }
+
+            return rz;
+
+        }
+
+        /// <summary>
+        /// Get a position of any tile that matches Tiles
+        /// </summary>
+        /// <param name="Tiles">Provide an array of tiles you want to match.</param>
+        /// <returns></returns>
+        public Vector2 getRandomTilePositionWithType(int[] Tiles)
+        {
+            int[] empties = remapGuide[15];
+            int rx = FlxU.randomInt(0, widthInTiles);
+            int ry = FlxU.randomInt(0, heightInTiles);
+            int rz = getTile(rx, ry);
+
+            while (empties.Contains(rz) == false)
+            {
+                rx = FlxU.randomInt(0, widthInTiles);
+                ry = FlxU.randomInt(0, heightInTiles);
+
+                rz = getTile(rx, ry);
+            }
+
+            return new Vector2(rx * _tileWidth, ry * _tileHeight);
+
         }
 
         /// <summary>
