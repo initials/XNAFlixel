@@ -767,7 +767,7 @@ namespace org.flixel
 
             refresh = true;
 
-            if (auto == OFF || auto == RANDOM || auto==STRING)
+            if (auto == OFF || auto == RANDOM || auto==STRING || auto==REMAPAUTO || auto==REMAPALT)
             {
                 updateTile(Index);
                 return ok;
