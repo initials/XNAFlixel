@@ -298,6 +298,12 @@ namespace org.flixel
         public const uint PATH_VERTICAL_ONLY = 0x100000;
 
         /// <summary>
+        /// Path behavior controls: goes forward then stops
+        /// </summary>
+        //public const uint PATH_FORWARD_THEN_STOP = 0x100001;
+
+
+        /// <summary>
         /// A reference to a path object.  Null by default, assigned by <code>followPath()</code>.
         /// </summary>
         public FlxPath path;
@@ -1057,7 +1063,8 @@ namespace org.flixel
                         //    _pathNodeIndex = 0;
                         //_pathInc = -_pathInc;
 
-                        //stopFollowingPath(false);
+                        // This stops the path at the very end. It was commented out.
+                        stopFollowingPath(false);
                     }
                 }
                 else if (_pathNodeIndex < 0)
@@ -1134,6 +1141,10 @@ namespace org.flixel
                         _pathNodeIndex = 0;
                     _pathInc = -_pathInc;
                 }
+            }
+            else if ((_pathMode & PATH_FORWARD_THEN_STOP) > 0)
+            {
+
             }
             else
             {
