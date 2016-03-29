@@ -1142,10 +1142,10 @@ namespace org.flixel
                     _pathInc = -_pathInc;
                 }
             }
-            else if ((_pathMode & PATH_FORWARD_THEN_STOP) > 0)
-            {
+            //else if ((_pathMode & PATH_FORWARD_THEN_STOP) > 0)
+            //{
 
-            }
+            //}
             else
             {
                 //Console.WriteLine(" else " + _pathNodeIndex);
