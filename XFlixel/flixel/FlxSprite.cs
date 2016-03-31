@@ -948,7 +948,7 @@ namespace org.flixel
         /// <param name="DefaultLoopingValue">A default looping.</param>
         public void addAnimationsFromGraphicsGaleCSV(string file, List<string> Looped, List<string> NotLooped, bool DefaultLoopingValue)
         {
-            Console.WriteLine("Loading: " + file);
+            //Console.WriteLine("Loading: " + file);
 
             string anims = FlxU.loadFromDevice(file);
             string[] split = anims.Split('\n');
@@ -957,7 +957,7 @@ namespace org.flixel
 
             foreach (var item in split)
             {
-                Console.WriteLine(item);
+                //Console.WriteLine(item);
 
                 if (item.StartsWith("\"Name"))
                 {
@@ -971,7 +971,7 @@ namespace org.flixel
                     string col = elements[2].Substring(1, elements[2].Length - 2);
                     string row = elements[3].Substring(1, elements[3].Length - 3);
 
-                    Console.WriteLine("Name {0} Frame {1} Col {2} Row {3} ", name,fr,col,row);
+                    //Console.WriteLine("Name {0} Frame {1} Col {2} Row {3} ", name,fr,col,row);
 
                     // Assumes you output in grids of 10 across.
                     int position = Convert.ToInt16(col) + (10 * Convert.ToInt16(row));
