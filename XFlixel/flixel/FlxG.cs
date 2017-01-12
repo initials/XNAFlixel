@@ -171,6 +171,17 @@ namespace org.flixel
         public static int height = 720;
 
         /// <summary>
+        /// When full screen, a border will be placed around the edges so the game is centered
+        /// </summary>
+        public static int borderWidth = 0;
+
+        /// <summary>
+        /// When full screen, a border will be placed around the edges so the game is centered
+        /// </summary>
+        public static int borderHeight = 0;
+
+
+        /// <summary>
         /// A global holder for the level width. Don't forget to set this at the start of each level.
         /// </summary>
         public static int levelWidth;

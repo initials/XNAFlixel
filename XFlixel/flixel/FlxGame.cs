@@ -605,8 +605,8 @@ namespace org.flixel
                  */ 
                 FlxG.spriteBatch.Draw(backRender,
                     new Rectangle(
-                        targetLeft + _quakeOffset.X + FlxG.width, 
-                        _quakeOffset.Y + FlxG.height, 
+                        FlxG.borderWidth + targetLeft + _quakeOffset.X + FlxG.width, 
+                        FlxG.borderHeight + _quakeOffset.Y + FlxG.height, 
                         targetWidth, 
                         GraphicsDevice.Viewport.Height),
                     null,
