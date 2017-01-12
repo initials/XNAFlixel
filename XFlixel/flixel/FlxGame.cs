@@ -597,6 +597,12 @@ namespace org.flixel
             if (FlxG.cameras.Count == 0)
             {
                 // This is the new SpriteBatch.Draw the draws with the FlxG.angle
+
+                // Adjust a full screen
+                /*
+                        60 + targetLeft + _quakeOffset.X + FlxG.width, 
+                        40 + _quakeOffset.Y + FlxG.height, 
+                 */ 
                 FlxG.spriteBatch.Draw(backRender,
                     new Rectangle(
                         targetLeft + _quakeOffset.X + FlxG.width, 
@@ -622,7 +628,7 @@ namespace org.flixel
                     FlxG.spriteBatch.GraphicsDevice.Viewport = vp;
                     FlxG.spriteBatch.Draw(backRender, r2, Color.White);
                 } 
-                 */ 
+                 */
 
 
                 /*
