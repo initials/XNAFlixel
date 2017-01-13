@@ -53,6 +53,17 @@ namespace org.flixel
         static public Texture2D ImgAutoAlt;
         public bool useExtraMiddleTiles = true;
 
+        protected float _alpha;
+        
+        private byte _bytealpha = 0xff;
+
+        public float alpha
+        {
+            get { return _alpha; }
+            set { _alpha = value; _bytealpha = (byte)(255f * _alpha); color = new Color(color.R, color.G, color.B, _bytealpha); }
+        }
+
+
         /// <summary>
         /// No auto-tiling.
         /// </summary>
@@ -441,6 +452,12 @@ namespace org.flixel
         {
         }
 
+        /// <summary>
+        /// Alpha of the sprite.
+        /// </summary>
+
+
+
         public override void update()
         {
 
@@ -497,7 +514,8 @@ namespace org.flixel
                         if (FlxG.showBounds && boundingBoxOverride==true)
                         {
                             spriteBatch.Draw(FlxG.XnaSheet,
-                            new Rectangle((ix * _tileWidth) + (int)Math.Floor(FlxG.scroll.X * scrollFactor.X), (iy * _tileHeight) + (int)Math.Floor(FlxG.scroll.Y * scrollFactor.Y), _tileWidth, _tileHeight),
+                            new Rectangle((ix * _tileWidth) + (int)Math.Floor(FlxG.scroll.X * scrollFactor.X), 
+                                (iy * _tileHeight) + (int)Math.Floor(FlxG.scroll.Y * scrollFactor.Y), _tileWidth, _tileHeight),
                             _rects[iy * widthInTiles + ix],
                             getBoundingColor());
                         }
