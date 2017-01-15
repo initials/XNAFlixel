@@ -458,7 +458,7 @@ namespace org.flixel
 		/// <summary>
         /// This function can be used both internally and externally to emit the next particle.
 		/// </summary>
-		public void emitParticle()
+		virtual public void emitParticle()
 		{
 			_counter++;
             FlxSprite s = members[_particle] as FlxSprite;

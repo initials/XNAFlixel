@@ -12,6 +12,10 @@ namespace org.flixel
     /// </summary>
     public class FlxObject
     {
+        /// <summary>
+        /// Can be used to sort sprites so that specified sprites can be below. You will need to add custom code to your FlxGroup
+        /// </summary>
+        public int renderOrder=10;
 
         /// <summary>
         /// Override for drawing bounding box. Used to turn off bg sprites bounding boxes

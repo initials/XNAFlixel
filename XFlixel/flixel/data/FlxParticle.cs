@@ -9,7 +9,7 @@ namespace org.flixel
     /// </summary>
     public class FlxParticle : FlxSprite
     {
-		protected float _bounce;
+		public float _bounce;
 		
 		public FlxParticle(float Bounce)
 		{
