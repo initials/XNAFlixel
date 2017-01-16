@@ -484,6 +484,33 @@ namespace org.flixel
 			justEmitted = true;
 		}
 
+        virtual public FlxSprite emitParticleAndReturnSprite()
+        {
+            _counter++;
+            FlxSprite s = members[_particle] as FlxSprite;
+            s.visible = true;
+            s.exists = true;
+            s.active = true;
+            s.x = x - ((int)s.width >> 1) + FlxU.random() * width;
+            s.y = y - ((int)s.height >> 1) + FlxU.random() * height;
+            s.velocity.X = minParticleSpeed.X;
+            if (minParticleSpeed.X != maxParticleSpeed.X) s.velocity.X += FlxU.random() * (maxParticleSpeed.X - minParticleSpeed.X);
+            s.velocity.Y = minParticleSpeed.Y;
+            if (minParticleSpeed.Y != maxParticleSpeed.Y) s.velocity.Y += FlxU.random() * (maxParticleSpeed.Y - minParticleSpeed.Y);
+            s.acceleration.Y = gravity;
+            s.angularVelocity = minRotation;
+            if (minRotation != maxRotation) s.angularVelocity += FlxU.random() * (maxRotation - minRotation);
+            if (s.angularVelocity != 0) s.angle = FlxU.random() * 360 - 180;
+            s.drag.X = particleDrag.X;
+            s.drag.Y = particleDrag.Y;
+            _particle++;
+            if (_particle >= members.Count)
+                _particle = 0;
+            s.onEmit();
+            justEmitted = true;
+            return s;
+        }
+
 		/// <summary>
         /// Call this function to stop the emitter without killing it.
 		/// </summary>
