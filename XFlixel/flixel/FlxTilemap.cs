@@ -226,6 +226,7 @@ namespace org.flixel
         public FlxTilemap()
         {
             color = Color.White;
+            alpha = 1;
 
             if (ImgAuto == null || ImgAutoAlt == null)
             {

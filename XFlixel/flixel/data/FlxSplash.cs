@@ -140,6 +140,17 @@ namespace org.flixel
             _logoTimer += FlxG.elapsed;
             
             base.update();
+            if (FlxG.keys.ONE) FlxG.level = 1;
+            if (FlxG.keys.TWO) FlxG.level = 2;
+            if (FlxG.keys.THREE) FlxG.level = 3;
+
+            if (FlxG.keys.FOUR) FlxG.level = 4;
+            if (FlxG.keys.FIVE) FlxG.level = 5;
+            if (FlxG.keys.SIX) FlxG.level = 6;
+
+            if (FlxG.keys.SEVEN) FlxG.level = 7;
+            if (FlxG.keys.EIGHT) FlxG.level = 8;
+            if (FlxG.keys.NINE) FlxG.level = 9;
 
             if (_logoTimer > 5.5f || FlxG.keys.SPACE || FlxG.keys.ENTER || FlxG.gamepads.isButtonDown(Buttons.A))
             {
