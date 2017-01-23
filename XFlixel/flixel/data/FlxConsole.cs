@@ -66,11 +66,11 @@ namespace org.flixel
         /// <summary>
         /// Red, 50% opacity
         /// </summary>
-        Color notActionSafeColor = new Color(255, 0, 0, 55); 
+        Color notActionSafeColor = new Color(255, 0, 0, 5); 
         /// <summary>
         /// Yellow, 50% opacity
         /// </summary>
-        Color notTitleSafeColor = new Color(255, 255, 0, 25); 
+        Color notTitleSafeColor = new Color(255, 255, 0, 5); 
 
         /// <summary>
         /// A VCR object.
@@ -164,12 +164,15 @@ namespace org.flixel
             {
                 _consoleYT = 0;
                 FlxG.showHud();
+                FlxG.showBounds = false;
+
             }
             else
             {
                 _consoleYT = FlxG.spriteBatch.GraphicsDevice.Viewport.Height;
                 visible = true;
                 FlxG.hideHud();
+                FlxG.showBounds = true;
             }
         }
 

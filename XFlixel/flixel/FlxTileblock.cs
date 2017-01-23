@@ -352,6 +352,10 @@ namespace org.flixel
         {
             if (_tex == null)
                 return;
+            if (visible == false || exists == false)
+            {
+                return;
+            }
 
             _p = getScreenXY();
             int opx = (int)_p.X;
