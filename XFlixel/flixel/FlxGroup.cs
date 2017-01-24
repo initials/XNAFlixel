@@ -42,7 +42,7 @@ namespace org.flixel
         /// </summary>
         /// <param name="Object">The object you want to add</param>
         /// 
-        public FlxObject add(FlxObject Object)
+        virtual public FlxObject add(FlxObject Object)
         {
             return add(Object, false);
         }
