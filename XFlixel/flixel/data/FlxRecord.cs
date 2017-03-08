@@ -88,31 +88,35 @@ namespace org.flixel
             openSprite.setScrollFactors(0, 0);
             openSprite.debugName = "open";
             vcrGroup.add(openSprite);
-
+            openSprite.boundingBoxOverride = false;
 
             pauseSprite = new FlxSprite(230, yPos);
             pauseSprite.loadGraphic(FlxG.Content.Load<Texture2D>("flixel/vcr/pause"));
             pauseSprite.setScrollFactors(0, 0);
             pauseSprite.debugName = "pause";
             vcrGroup.add(pauseSprite);
+            pauseSprite.boundingBoxOverride = false;
 
             playSprite = new FlxSprite(330, yPos);
             playSprite.loadGraphic(FlxG.Content.Load<Texture2D>("flixel/vcr/play"));
             playSprite.setScrollFactors(0, 0);
             playSprite.debugName = "play";
             vcrGroup.add(playSprite);
+            playSprite.boundingBoxOverride = false;
 
             recordSprite = new FlxSprite(430, yPos);
             recordSprite.loadGraphic(FlxG.Content.Load<Texture2D>("flixel/vcr/record_on"));
             recordSprite.setScrollFactors(0, 0);
             recordSprite.debugName = "record";
             vcrGroup.add(recordSprite);
+            recordSprite.boundingBoxOverride = false;
 
             restartSprite = new FlxSprite(530, yPos);
             restartSprite.loadGraphic(FlxG.Content.Load<Texture2D>("flixel/vcr/restart"));
             restartSprite.setScrollFactors(0, 0);
             restartSprite.debugName = "restart";
             vcrGroup.add(restartSprite);
+            restartSprite.boundingBoxOverride = false;
 
             stopSprite = new FlxSprite(630, yPos);
             stopSprite.loadGraphic(FlxG.Content.Load<Texture2D>("flixel/vcr/stop"));
@@ -120,7 +124,10 @@ namespace org.flixel
             stopSprite.debugName = "stop";
             vcrGroup.add(stopSprite);
 
+            stopSprite.boundingBoxOverride = false;
+
             infoText = new FlxText(360, yPos, FlxG.width);
+            infoText.boundingBoxOverride = false;
 
 
         }

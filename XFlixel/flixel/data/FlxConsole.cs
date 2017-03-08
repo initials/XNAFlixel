@@ -116,14 +116,18 @@ namespace org.flixel
 
             _consoleText = new FlxText(targetLeft+(dx*2), -800, targetWidth, "").setFormat(null, 1, Color.White, FlxJustification.Left, Color.White);
             _consoleText.height = FlxG.height; //FlxG.spriteBatch.GraphicsDevice.Viewport.Height;
+            _consoleText.boundingBoxOverride = false;
 
             _consoleCommand = new FlxText(targetLeft + (dx * 2) + 50, -800, targetWidth, "").setFormat(null, 1, Color.HotPink, FlxJustification.Left, Color.Black);
             _consoleCommand.text = "";
+            _consoleCommand.boundingBoxOverride = false;
 
             _consoleCheatActivated = new FlxSprite(targetLeft + (dx * 2), -800, FlxG.Content.Load<Texture2D>("flixel/vcr/cheat_on"));
             _consoleCheatActivated.setScrollFactors(0, 0);
+            _consoleCheatActivated.boundingBoxOverride = false;
 
             _consoleFPS = new FlxText(targetLeft + targetWidth - (dx*3), -800, 30, "").setFormat(null, 2, Color.White, FlxJustification.Right, Color.White);
+            _consoleFPS.boundingBoxOverride = false;
 
             _consoleLines = new List<string>();
 
