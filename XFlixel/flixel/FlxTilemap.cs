@@ -504,9 +504,14 @@ namespace org.flixel
                             color = new Color(FlxU.random(0.15,1), FlxU.random(0.15,1), FlxU.random(0.15,1));
                         }
 
+                        // Add addition of adding:
+                        //  + (int)this.x
+                        //  + (int)this.y
+                        // to the position 
+
                         spriteBatch.Draw(_tileBitmap,
-                            new Rectangle((ix * _tileWidth) + (int)Math.Floor(FlxG.scroll.X * scrollFactor.X), 
-                                (iy * _tileHeight) + (int)Math.Floor(FlxG.scroll.Y * scrollFactor.Y), 
+                            new Rectangle((ix * _tileWidth) + (int)Math.Floor(FlxG.scroll.X * scrollFactor.X) + (int)this.x,
+                                (iy * _tileHeight) + (int)Math.Floor(FlxG.scroll.Y * scrollFactor.Y) + (int)this.y, 
                                 _tileWidth,
                                 _tileHeight),
                             _rects[iy * widthInTiles + ix],
