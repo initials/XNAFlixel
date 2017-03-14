@@ -19,6 +19,8 @@ namespace org.flixel
         /// </summary>
         public static string cheatString;
 
+        public const string titleScreenDebugMode = "BUGGS";
+
         /// <summary>
         /// Resolution of the PS Vita.
         /// </summary>

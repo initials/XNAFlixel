@@ -70,6 +70,8 @@ namespace org.flixel
             debugMode.visible = false;
             add(debugMode);
 
+            Console.WriteLine(" !!! Type {0} To Enter Debug Mode !!! ", FlxGlobal.titleScreenDebugMode);
+
         }
 
         public static void setSplashInfo(Color flixelColor, FlxState nextScreen)
@@ -85,7 +87,7 @@ namespace org.flixel
             if (FlxG.keys.justPressed(Keys.G)) { cheatStorage+="G";}
             if (FlxG.keys.justPressed(Keys.S)) { cheatStorage += "S"; }
 
-            if (cheatStorage=="BUGGS")
+            if (cheatStorage==FlxGlobal.titleScreenDebugMode)
             {
                 debugMode.visible = true;
                 FlxG.debug = true;
