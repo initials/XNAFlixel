@@ -34,6 +34,8 @@ namespace org.flixel
         private FlxText debugMode;
         private string cheatStorage = "";
 
+        private FlxGroup logoParts;
+
         public FlxSplash()
             : base()
         {
@@ -53,11 +55,34 @@ namespace org.flixel
 
             _initialsLogo = FlxG.Content.Load<Texture2D>(FlxG.splashLogo);
 
-            _logo = new FlxSprite();
-            _logo.loadGraphic(_initialsLogo, false, false, 216,24);
-            _logo.x = FlxG.width / 2 - 216 / 2;
-            _logo.y = FlxG.height / 2 - 24;
-            add(_logo);
+            //_logo = new FlxSprite();
+            //_logo.loadGraphic(_initialsLogo, false, false, 216,24);
+            //_logo.x = FlxG.width / 2 - 216 / 2;
+            //_logo.y = FlxG.height / 2 - 24;
+            //add(_logo);
+
+            logoParts = new FlxGroup();
+
+            for (int i = 0; i < 18; i++)
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                    _logo = new FlxSprite();
+                    _logo.loadGraphic(_initialsLogo, false, false, 12, 12);
+                    _logo.x = (FlxG.width / 2 - 216 / 2) + (i * 12);
+                    _logo.y = (FlxG.height / 2 - 24) + (j*12);
+                    _logo.addAnimation("bugs", new int[] { 0, 1, 2, FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), 
+                        (j * 18) + i    }, FlxU.randomInt(18, 24), false);
+
+                    _logo.addAnimation("bugs2", new int[] { 0, 1, 2, FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), 
+                        0    }, FlxU.randomInt(18, 24), false);
+
+                    _logo.play("bugs");
+                    logoParts.add(_logo);
+                }
+            }
+            add(logoParts);
+
 
             _logoTweener = new Tweener(-150, FlxG.height / 2 - 24, TimeSpan.FromSeconds(0.9f), Bounce.EaseOut);
 
@@ -94,7 +119,8 @@ namespace org.flixel
             }
 
             _logoTweener.Update(FlxG.elapsedAsGameTime);
-            _logo.y = _logoTweener.Position;
+            //_logo.y = _logoTweener.Position;
+
             if (_logoTimer > 1.15f)
             {
                 //FlxG.bloom.Visible = true;
@@ -104,7 +130,13 @@ namespace org.flixel
             }
             if (_f == null && _logoTimer > 2.5f)
             {
+                foreach (FlxSprite item in logoParts.members)
+                {
+                    item.play("bugs2", true);
+                    item.velocity.Y = FlxU.randomInt(-200, 200);
+                    item.angularVelocity = FlxU.randomInt(-1000, 1000);
 
+                }
                 //_logo.visible = false;
 
                 _logoTweener.Reverse();
