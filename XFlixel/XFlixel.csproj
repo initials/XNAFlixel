@@ -229,6 +229,7 @@
     <Compile Include="examples\RobotFootballState.cs" />
     <Compile Include="examples\TweenerState.cs" />
     <Compile Include="FlixelEntryPoint.cs" />
+    <Compile Include="flixel\data\FlxLogoSprite.cs" />
     <Compile Include="flixel\data\FlxMouse2.cs" />
     <Compile Include="flixel\data\FlxRecord.cs" />
     <Compile Include="flixel\farseerExtensions\FarSprite.cs" />

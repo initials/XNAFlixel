@@ -27,7 +27,7 @@ namespace org.flixel
         private Texture2D _initialsLogo;
         private string SndTag = "";
 
-        private FlxSprite _logo;
+        private FlxLogoSprite _logo;
 
         private Tweener _logoTweener;
 
@@ -67,18 +67,25 @@ namespace org.flixel
             {
                 for (int j = 0; j < 2; j++)
                 {
-                    _logo = new FlxSprite();
+                    _logo = new FlxLogoSprite(i, j);
                     _logo.loadGraphic(_initialsLogo, false, false, 12, 12);
                     _logo.x = (FlxG.width / 2 - 216 / 2) + (i * 12);
                     _logo.y = (FlxG.height / 2 - 24) + (j*12);
                     _logo.addAnimation("bugs", new int[] { 0, 1, 2, FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), 
-                        (j * 18) + i    }, FlxU.randomInt(18, 24), false);
+                        (j * 18) + i    }, FlxU.randomInt(12, 18), false);
 
                     _logo.addAnimation("bugs2", new int[] { 0, 1, 2, FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), FlxU.randomInt(0, 24), 
                         0    }, FlxU.randomInt(18, 24), false);
 
                     _logo.play("bugs");
                     logoParts.add(_logo);
+
+                    float offset = 25.0f;
+                    if (j >= 1)
+                        offset *= -1.0f;
+                    _logo.t = new Tweener((float)(_logo.y + offset), (float)_logo.y, 0.25f + (i/18.0f), XNATweener.Quadratic.EaseInOut);
+                    _logo.t.Start();
+
                 }
             }
             add(logoParts);
@@ -89,7 +96,7 @@ namespace org.flixel
             SndTag = FlxG.splashAudioWave;
             //FlxG.play(SndTag,1.0f);
 
-            FlxG.transition.startFadeIn(0.1f);
+            
 
             debugMode = new FlxText(10, 90, 200, "DEBUG MODE!");
             debugMode.visible = false;
@@ -107,6 +114,9 @@ namespace org.flixel
 
         public override void update()
         {
+            //if (FlxG.elapsedFrames == 5)
+            //    FlxG.transition.startFadeIn(0.08f);
+
             if (FlxG.keys.justPressed(Keys.B)) { cheatStorage+="B";}
             if (FlxG.keys.justPressed(Keys.U)) { cheatStorage+="U";}
             if (FlxG.keys.justPressed(Keys.G)) { cheatStorage+="G";}
@@ -130,11 +140,20 @@ namespace org.flixel
             }
             if (_f == null && _logoTimer > 2.5f)
             {
-                foreach (FlxSprite item in logoParts.members)
+                foreach (FlxLogoSprite item in logoParts.members)
                 {
                     item.play("bugs2", true);
-                    item.velocity.Y = FlxU.randomInt(-200, 200);
-                    item.angularVelocity = FlxU.randomInt(-1000, 1000);
+                    //item.velocity.Y = FlxU.randomInt(-200, 200);
+                    //item.angularVelocity = FlxU.randomInt(120, 240);
+                    
+                    float offset = FlxG.height;
+                    if (item._row < 1)
+                        offset *= -1.0f;
+
+                    item.t = new Tweener(item.y, item.y + offset, 0.25f + (item._col / 18.0f), Quadratic.EaseInOut);
+                    
+                    item.t.Reverse();
+                    item.t.Start();
 
                 }
                 //_logo.visible = false;
@@ -203,6 +222,12 @@ namespace org.flixel
 				#endif
 
             }
+            if (FlxG.keys.F8)
+            {
+                FlxG.state = new org.flixel.FlxSplash() ;
+                return;
+            }
+
         }
     }
 }
