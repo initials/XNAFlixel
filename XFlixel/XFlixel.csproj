@@ -194,6 +194,9 @@
     <Reference Include="Microsoft.Xna.Framework.Storage, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <Private>False</Private>
     </Reference>
+    <Reference Include="Midi">
+      <HintPath>midi-dot-net_1.1.0\Midi.dll</HintPath>
+    </Reference>
     <Reference Include="mscorlib">
       <Private>False</Private>
     </Reference>
@@ -346,10 +349,6 @@
     <ProjectReference Include="Farseer Physics Engine 3.5\Farseer Physics XNA.csproj">
       <Project>{0A850700-1ABB-4288-A391-6726B90EBEB9}</Project>
       <Name>Farseer Physics XNA</Name>
-    </ProjectReference>
-    <ProjectReference Include="midi-dot-net\Midi\Midi.csproj">
-      <Project>{F60D8B7B-2D2E-4B94-A736-3783FFE1A25C}</Project>
-      <Name>Midi</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
